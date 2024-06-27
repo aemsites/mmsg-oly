@@ -18,6 +18,7 @@
   --link-color: #FF1261;
   --link-hover-color: #FF1261;
   --border-color: #DEE2E6;
+  --background-color: #fff;
   --bg-color-paper: #F2EDE8;
   --bg-color-blue: #C7EDED;
   --bg-color-green: #004733;
@@ -64,6 +65,9 @@
   /* z-index */
   --z-index: 99;
   --z-index-sticky: 98;
+
+  /* nav */
+  --nav-height: 80px;
 }
 
 body {
