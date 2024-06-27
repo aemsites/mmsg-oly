@@ -116,6 +116,7 @@ pre,
 blockquote {
   margin-top: var(--spacing-xs);
   margin-bottom: var(--spacing-xs);
+  color: var(--color-grey)
 }
 
 code,
