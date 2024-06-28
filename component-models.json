@@ -71,14 +71,14 @@
         "valueType": "string",
         "name": "href",
         "value": "",
-        "label": "Link"
+        "label": "Link1"
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "text",
         "value": "",
-        "label": "Text"
+        "label": "Text1"
       },
       {
         "component": "text",
