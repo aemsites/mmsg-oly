@@ -164,6 +164,27 @@
     "id": "hero",
     "fields": [
       {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Homepage",
+            "value": "homepage"
+          },
+          {
+            "name": "Offerpage",
+            "value": "offerpage"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -178,10 +199,31 @@
         "value": ""
       },
       {
-        "component": "richtext",
+        "component": "text",
         "name": "text",
         "value": "",
-        "label": "Text",
+        "label": "Sub Header",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "text",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "text",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "button",
+        "name": "button",
+        "value": "",
+        "label": "CTA",
         "valueType": "string"
       }
     ]
