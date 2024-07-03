@@ -45,7 +45,7 @@ footer .footer p {
 .footer-image {
   margin-top: 1rem;
 
-  >div {
+  > div {
     display: flex;
     justify-content: center;
 
@@ -66,7 +66,7 @@ footer .footer p {
     li {
       padding: 1rem 0;
 
-      >p {
+      > p {
         padding: 0 1rem 1rem;
         border-bottom: 1px solid var(--color-white);
       }
@@ -89,7 +89,7 @@ footer .footer p {
   }
 
   .footer-nav-div {
-    >p {
+    > p {
       &:nth-child(2) {
         font-weight: 400;
         text-align: left;
@@ -113,7 +113,7 @@ footer .footer p {
   color: var(--color-white);
   font-size: var(--font-size-xs-alt);
 
-  >div {
+  > div {
     display: flex;
     flex-direction: column;
     padding: 4rem 2rem 1.5rem;
@@ -153,7 +153,7 @@ footer .footer p {
   .footer-image {
     margin-top: 0;
 
-    div{
+    div {
       p {
         img {
           max-width: 490px;
@@ -165,7 +165,7 @@ footer .footer p {
   .footer-nav {
     padding: 40px 104px;
 
-    >div {
+    > div {
       display: grid;
       grid-template:
         'logo nav' min-content
@@ -211,7 +211,7 @@ footer .footer p {
     nav {
       grid-area: nav;
 
-      >ul {
+      > ul {
         display: flex;
         gap: 2rem;
 
@@ -223,7 +223,7 @@ footer .footer p {
   }
 
   .footer-legal {
-    >div {
+    > div {
       flex-direction: row;
       gap: 0;
       text-align: unset;
