@@ -16,5 +16,19 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  const footerNavDiv = document.createElement('div');
+  footerNavDiv.className = 'footer-nav-div';
+  const footerNav = footer.querySelector('.footer-nav');
+  const footerPElements = footerNav.querySelectorAll(':scope div > p');
+  footerNavDiv.append(...footerPElements);
+
+  const nav = document.createElement('nav');
+  nav.className = 'footer-nav-links';
+  const links = footer.querySelector('.footer-nav ul');
+  nav.append(links);
+  footerNavDiv.append(nav);
+
+  footerNav.innerHTML = '';
+  footerNav.append(footerNavDiv);
   block.append(footer);
 }
