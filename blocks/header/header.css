@@ -13,9 +13,7 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 2em;
-  margin: auto;
-  max-width: 1264px;
+  max-width: 100%;
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: var(--body-font-family);
@@ -32,7 +30,7 @@ header nav[aria-expanded='true'] {
 
 @media (width >= 600px) {
   header nav {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 }
 
@@ -141,7 +139,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
+  width: auto;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
@@ -191,6 +189,8 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     visibility: visible;
     white-space: nowrap;
+    margin-left: 104px;
+    margin-right: 167px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
