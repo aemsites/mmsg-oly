@@ -200,28 +200,28 @@
       },
       {
         "component": "text",
-        "name": "text",
+        "name": "subheader",
         "value": "",
         "label": "Sub Header",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "text",
+        "name": "title",
         "value": "",
         "label": "Title",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "text",
+        "name": "description",
         "value": "",
         "label": "Description",
         "valueType": "string"
       },
       {
         "component": "button",
-        "name": "button",
+        "name": "cta",
         "value": "",
         "label": "CTA",
         "valueType": "string"
