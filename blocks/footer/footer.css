@@ -2,10 +2,11 @@ footer {
   background-color: var(--bg-color-paper);
   font-size: var(--font-size-xs);
   color: var(--color-black);
-  line-height: 1.5rem
+  line-height: 1.5
 }
 
 footer .footer {
+  max-width: 100%;
   margin: auto;
 }
 
