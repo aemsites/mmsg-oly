@@ -199,24 +199,10 @@
         "value": ""
       },
       {
-        "component": "text",
-        "name": "subheader",
+        "component": "richText",
+        "name": "content",
         "value": "",
         "label": "Sub Header",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "description",
-        "value": "",
-        "label": "Description",
         "valueType": "string"
       },
       {
