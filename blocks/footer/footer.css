@@ -2,7 +2,7 @@ footer {
   background-color: var(--bg-color-paper);
   font-size: var(--font-size-xs);
   color: var(--color-black);
-  line-height: 1.5
+  line-height: 1.5rem;
 }
 
 footer .footer {
@@ -92,7 +92,6 @@ footer .footer p {
     >p {
       &:nth-child(2) {
         font-weight: 400;
-        line-height: 1rem;
         text-align: left;
         margin-top: 2rem;
       }
@@ -130,8 +129,6 @@ footer .footer p {
     justify-content: space-around;
 
     li {
-      line-height: 1.7;
-
       span.icon {
         border: 1px solid var(--color-white);
         border-radius: 4px;
