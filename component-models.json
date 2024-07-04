@@ -171,10 +171,6 @@
         "valueType": "string",
         "options": [
           {
-            "name": "default",
-            "value": ""
-          },
-          {
             "name": "Homepage",
             "value": "homepage"
           },
