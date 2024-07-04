@@ -28,6 +28,7 @@
   --font-size-xl: 3rem; /* 48px */
   --font-size-lg: 2.5rem; /* 40px */
   --font-size-lg-alt: 2.375rem; /* 38px */
+  --font-size-mega: 2rem; /* 32px */ 
   --font-size-l: 1.5rem; /* 24px */
   --font-size-m: 1.25rem; /* 20px */
   --font-size-s: 1.125rem; /* 18px */
@@ -49,6 +50,7 @@
   --heading-line-height: 1.25;
  
   /* Spacing */
+  --spacing-xxxs:8px;
   --spacing-xxs: 10px;
   --spacing-xs: 16px;
   --spacing-s: 24px;
@@ -76,7 +78,6 @@ body {
   font-family: var(--body-font-family);
   line-height: 1.6;
   color: var(--body-color);
-  background-color: var(--bg-color-paper);
 }
 
 body.appear {
@@ -215,16 +216,46 @@ main .section {
   padding: var(--spacing-xl) var(--spacing-xs);
 }
 
+/* Notification pane */
+.section.notification {
+  padding: 0;
+
+  >div {
+    padding: var(--spacing-xs) var(--spacing-s);
+    font-size: var(--font-size-xs-alt);
+    line-height: 1.5rem;
+    background-color: var(--bg-color-paper);
+
+    p {
+      margin: 0;
+
+      a {
+        color: var(--color-black);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 @media (width >= 600px) {
   main .section {
     padding: var(--spacing-xl) var(--spacing-m);
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   .section > div {
     max-width: var(--max-width-large);
     margin: auto;
+  }
+
+  /* Notification pane */
+  .section.notification {
+    >div {
+      max-width: 100%;
+      padding: 0.5rem 0;
+      text-align: center;
+    }
   }
 }
 
