@@ -164,6 +164,23 @@
     "id": "hero",
     "fields": [
       {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Homepage",
+            "value": "homepage"
+          },
+          {
+            "name": "Offerpage",
+            "value": "offerpage"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -179,9 +196,16 @@
       },
       {
         "component": "richtext",
-        "name": "text",
+        "name": "content",
         "value": "",
-        "label": "Text",
+        "label": "Content",
+        "valueType": "string"
+      },
+      {
+        "component": "button",
+        "name": "cta",
+        "value": "",
+        "label": "CTA",
         "valueType": "string"
       }
     ]
