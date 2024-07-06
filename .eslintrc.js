@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: ['import'],
   root: true,
   extends: [
     'airbnb-base',
