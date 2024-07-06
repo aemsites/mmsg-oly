@@ -55,7 +55,7 @@ async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
     if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
-  } catch (_) {
+  } catch (e) {
     // do nothing
   }
 }
@@ -106,7 +106,7 @@ async function loadEager(doc) {
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
-  } catch (_) {
+  } catch (e) {
     // do nothing
   }
 }
