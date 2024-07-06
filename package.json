@@ -20,23 +20,31 @@
   },
   "lint-staged": {
     "blocks/**/*.js": [
-      "eslint"
+      "eslint",
+      "prettier --write"
     ],
     "scripts/**/*.js": [
-      "eslint"
+      "eslint",
+      "prettier --write"
     ],
-    "*.css": "stylelint"
+    "*.css": [
+      "stylelint",
+      "prettier --write"
+    ]
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
     "@babel/eslint-parser": "7.24.1",
+    "@eslint/js": "^9.6.0",
     "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-json": "3.1.0",
     "eslint-plugin-xwalk": "github:adobe-rnd/eslint-plugin-xwalk#v0.1.0",
+    "globals": "^15.8.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
     "stylelint": "16.6.1",
     "stylelint-config-standard": "36.0.0"
   }
