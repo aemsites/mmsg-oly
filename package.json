@@ -25,7 +25,8 @@
     "scripts/**/*.js": [
       "eslint"
     ],
-    "*.css": "stylelint"
+    "*.css": "stylelint",
+    "*": "prettier --ignore-unknown --write"
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
