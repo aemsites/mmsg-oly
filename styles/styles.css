@@ -25,10 +25,12 @@
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */
+  --font-size-xxl-alt: 3.5rem; /* 56px */
   --font-size-xl: 3rem; /* 48px */
+  --font-size-xl-alt: 2.875rem; /* 46px */
   --font-size-lg: 2.5rem; /* 40px */
   --font-size-lg-alt: 2.375rem; /* 38px */
-  --font-size-mega: 2rem; /* 32px */ 
+  --font-size-l-alt: 2rem; /* 32px */ 
   --font-size-l: 1.5rem; /* 24px */
   --font-size-m: 1.25rem; /* 20px */
   --font-size-s: 1.125rem; /* 18px */
@@ -36,15 +38,26 @@
   --font-size-xs-alt: 0.875rem; /* 14px */
   --font-size-xxs: 0.75rem; /* 12px */
 
-  /* body */
-  --body-font-family: "roboto",arial,sans-serif;
-  --body-semibold-font-family: "roboto",arial,sans-serif;
-  --body-font-weight: 400;
-  --body-color: var(--color-black);
-  --body-line-height: 1.5;
+  /* Body font */
+  --font-family-body: "Figtree-Regular", "arial", sans-serif;
+  --font-weight-body: 400;
+  --font-color-body: var(--color-black);
+  --line-height-body: 1.5;
+
+  /* Semibold font */
+  --font-family-semibold: "Figtree-Semibold", "arial", sans-serif;
+  --font-weight-semibold: 600;
+  --font-color-semibold: var(--color-black);
+  --line-height-semibold: 1.5;
+
+  /* Bold font */
+  --font-family-bold: "Figtree-Bold", "arial", sans-serif;
+  --font-weight-bold: 700; /* Adjust as needed */
+  --font-color-bold: var(--color-black);
+  --line-height-bold: 1.5;
 
   /* headings */
-  --heading-font-family: "roboto",arial,sans-serif;
+  --heading-font-family: "Figtree-Bold", "arial", sans-serif;
   --heading-font-weight: 700;
   --heading-color: var(--color-brand-title);
   --heading-line-height: 1.25;
@@ -60,9 +73,10 @@
   --spacing-xxl: 96px;
 
   /* layout */
-  --max-width-small: 300px;
-  --max-width-medium: 600px;
-  --max-width-large: 900px;
+  --max-width-small: 375px;
+  --max-width-medium: 768px;
+  --max-width-large: 1024px;
+  --max-width-xlarge: 1440px;
 
   /* z-index */
   --z-index: 99;
@@ -75,7 +89,7 @@
 body {
   font-size: var(--font-size-m);
   margin: 0;
-  font-family: var(--body-font-family);
+  font-family: var(--font-family-body);
   line-height: 1.6;
   color: var(--body-color);
 }
@@ -154,7 +168,7 @@ a:hover {
 
 /* buttons */
 a.button:any-link, button {
-  font-family: var(--body-font-family);
+  font-family: var(--font-family-body);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
