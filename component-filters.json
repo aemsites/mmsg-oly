@@ -38,15 +38,7 @@
     ]
   },
   {
-    "id": "carousel",
-    "components": []
-  },
-  {
     "id": "slide",
-    "components": [
-      "text",
-      "image",
-      "button"
-    ]
+    "components": ["slide"]
   }
 ]
