@@ -38,6 +38,10 @@
     ]
   },
   {
+    "id": "carousel",
+    "components": []
+  },
+  {
     "id": "slide",
     "components": ["slide"]
   }
