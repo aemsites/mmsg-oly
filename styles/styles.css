@@ -15,6 +15,7 @@
   --color-black: #000;
   --color-grey: #4F575E;
   --color-pink: #FF1261;
+  --color-light-pink: #FF8FDB;
   --link-color: #FF1261;
   --link-hover-color: #FF1261;
   --border-color: #DEE2E6;
@@ -22,6 +23,9 @@
   --bg-color-paper: #F2EDE8;
   --bg-color-blue: #C7EDED;
   --bg-color-green: #004733;
+  --color-active-outline: #6673FB;
+  --color-focus-outline: #FFD337;
+  --color-disabled: #ADB5BD;
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */
@@ -63,6 +67,7 @@
   --heading-line-height: 1.25;
  
   /* Spacing */
+  --spacing-xxxs-l: 4px;
   --spacing-xxxs:8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
@@ -158,8 +163,9 @@ main pre {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
-  text-decoration: none;
+  color: var(--color-black);
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
 }
 
 a:hover {
@@ -167,17 +173,18 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-/* buttons */
-a.button:any-link, button {
-  font-family: var(--font-family-body);
+/* default button */
+a.button:any-link,
+button {
+  font-family: var(--font-family-bold);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
+  padding: var(--spacing-xxs-l) var(--spacing-xs);
   text-align: center;
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
   cursor: pointer;
   color: var(--color-white);
   background-color: var(--link-color);
@@ -185,28 +192,122 @@ a.button:any-link, button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: 0.25rem;
 }
 
+a.button:any-link:hover,
 a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--link-hover-color);
+button:hover {
+  background-color: var(--color-light-pink);
+  color: var(--color-black);
   cursor: pointer;
 }
 
-button:disabled,
-button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
+a.button:any-link:focus,
+a.button:focus,
+button:focus {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border: 1px solid var(--color-focus-outline);
+  outline: 1px solid var(--color-black);
+  cursor: pointer;
 }
 
+a.button:any-link:active,
+a.button:active,
+button:active {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border: none;
+  outline: 2px solid var(--color-active-outline);
+  cursor: pointer;
+}
+
+/* primary button */
+a.button.primary:any-link,
+a.button.primary,
+button.primary {
+  background-color: transparent;
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+}
+
+a.button.primary:any-link:hover,
+a.button.primary:hover,
+button.primary:hover {
+  background-color: var(--color-light-pink);
+  color: var(--color-black);
+  cursor: pointer;
+  border: 1px solid var(--color-light-pink);
+  outline: none;
+}
+
+a.button.primary:any-link:focus,
+a.button.primary:focus,
+button.primary:focus {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-focus-outline);
+  outline: 1px solid var(--color-black);
+  cursor: pointer;
+}
+
+a.button.primary:any-link:active,
+a.button.primary:active,
+button.primary:active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+
+/* secondary button */
+a.button.secondary:any-link,
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--body-color);
+  background-color: transparent;
+  color: var(--color-black);
+  padding: var(--spacing-xxxs-l) 0;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+a.button.secondary:any-link:hover,
+a.button.secondary:hover,
+button.secondary:hover {
+  background-color: transparent;
+  color: var(--color-light-pink);
+  cursor: pointer;
+  outline: none;
+}
+
+a.button.secondary:any-link:focus,
+a.button.secondary:focus,
+button.secondary:focus {
+  background-color: transparent;
+  color: var(--color-black);
+  outline: 1px solid var(--color-focus-outline);
+  cursor: pointer;
+}
+
+a.button.secondary:any-link:active,
+a.button.secondary:active,
+button.secondary:active {
+  background-color: transparent;
+  color: var(--color-black);
+  border: none;
+  cursor: pointer;
+  outline: unset;
+}
+
+/* disabled button */
+a.disabled:any-link,
+a.disabled,
+button:disabled,
+button:disabled:hover {
+  background-color: var(--color-disabled);
+  color: var(--color-black);
+  cursor: unset;
 }
 
 main img {
