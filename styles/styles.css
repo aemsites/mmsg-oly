@@ -42,14 +42,14 @@
   --font-size-xxs: 0.75rem; /* 12px */
 
   /* body */
-  --body-font-family: "roboto", arial, sans-serif;
-  --body-semibold-font-family: "roboto", arial, sans-serif;
+  --body-font-family: 'roboto', arial, sans-serif;
+  --body-semibold-font-family: 'roboto', arial, sans-serif;
   --body-font-weight: 400;
   --body-color: var(--color-black);
   --body-line-height: 1.5;
 
   /* headings */
-  --heading-font-family: "roboto", arial, sans-serif;
+  --heading-font-family: 'roboto', arial, sans-serif;
   --heading-font-weight: 700;
   --heading-color: var(--color-brand-title);
   --heading-line-height: 1.25;
@@ -116,18 +116,23 @@ h6 {
 h1 {
   font-size: var(--font-size-xxl);
 }
+
 h2 {
   font-size: var(--font-size-xl);
 }
+
 h3 {
   font-size: var(--font-size-lg);
 }
+
 h4 {
   font-size: var(--font-size-m);
 }
+
 h5 {
   font-size: var(--font-size-s);
 }
+
 h6 {
   font-size: var(--font-size-xs);
 }

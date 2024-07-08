@@ -15,7 +15,7 @@ export function decorateRichtext(container = document) {
   }
 
   let element;
-  while ((element = container.querySelector("[data-richtext-prop]:not(div)"))) {
+  while ((element = container.querySelector('[data-richtext-prop]:not(div)'))) {
     const { richtextResource, richtextProp, richtextFilter, richtextLabel } =
       element.dataset;
     deleteInstrumentation(element);
@@ -37,7 +37,7 @@ export function decorateRichtext(container = document) {
         `[data-richtext-id="${richtextResource}"][data-richtext-prop="${richtextProp}"]`,
       );
     } else {
-      const editable = element.closest("[data-aue-resource]");
+      const editable = element.closest('[data-aue-resource]');
       if (editable) {
         orphanElements = editable.querySelectorAll(
           `:scope > :not([data-aue-resource]) [data-richtext-prop="${richtextProp}"]`,
@@ -52,23 +52,23 @@ export function decorateRichtext(container = document) {
 
     if (orphanElements.length) {
       console.warn(
-        "Found orphan elements of a richtext, that were not consecutive siblings of " +
-          "the first paragraph",
+        'Found orphan elements of a richtext, that were not consecutive siblings of ' +
+          'the first paragraph',
         orphanElements,
       );
       orphanElements.forEach((orphanElement) =>
         deleteInstrumentation(orphanElement),
       );
     } else {
-      const group = document.createElement("div");
+      const group = document.createElement('div');
       if (richtextResource) {
         group.dataset.aueResource = richtextResource;
-        group.dataset.aueBehavior = "component";
+        group.dataset.aueBehavior = 'component';
       }
       if (richtextProp) group.dataset.aueProp = richtextProp;
       if (richtextLabel) group.dataset.aueLabel = richtextLabel;
       if (richtextFilter) group.dataset.aueFilter = richtextFilter;
-      group.dataset.aueType = "richtext";
+      group.dataset.aueType = 'richtext';
       element.replaceWith(group);
       group.append(element, ...siblings);
     }
@@ -79,7 +79,7 @@ export function decorateRichtext(container = document) {
 // for new richtext-instrumented elements
 const observer = new MutationObserver(() => decorateRichtext());
 observer.observe(document, {
-  attributeFilter: ["data-richtext-prop"],
+  attributeFilter: ['data-richtext-prop'],
   subtree: true,
 });
 

@@ -6,9 +6,9 @@ import {
   decorateSections,
   loadBlock,
   loadBlocks,
-} from "./aem.js";
-import { decorateRichtext } from "./editor-support-rte.js";
-import { decorateMain } from "./scripts.js";
+} from './aem.js';
+import { decorateRichtext } from './editor-support-rte.js';
+import { decorateMain } from './scripts.js';
 
 async function applyChanges(event) {
   // redecorate default content and blocks on patches (in the properties rail)
@@ -24,16 +24,16 @@ async function applyChanges(event) {
   const { content } = updates[0];
   if (!content) return false;
 
-  const parsedUpdate = new DOMParser().parseFromString(content, "text/html");
+  const parsedUpdate = new DOMParser().parseFromString(content, 'text/html');
   const element = document.querySelector(`[data-aue-resource="${resource}"]`);
 
   if (element) {
-    if (element.matches("main")) {
+    if (element.matches('main')) {
       const newMain = parsedUpdate.querySelector(
         `[data-aue-resource="${resource}"]`,
       );
-      newMain.style.display = "none";
-      element.insertAdjacentElement("afterend", newMain);
+      newMain.style.display = 'none';
+      element.insertAdjacentElement('afterend', newMain);
       decorateMain(newMain);
       decorateRichtext(newMain);
       await loadBlocks(newMain);
@@ -45,16 +45,16 @@ async function applyChanges(event) {
     }
 
     const block =
-      element.parentElement?.closest(".block[data-aue-resource]") ||
-      element?.closest(".block[data-aue-resource]");
+      element.parentElement?.closest('.block[data-aue-resource]') ||
+      element?.closest('.block[data-aue-resource]');
     if (block) {
-      const blockResource = block.getAttribute("data-aue-resource");
+      const blockResource = block.getAttribute('data-aue-resource');
       const newBlock = parsedUpdate.querySelector(
         `[data-aue-resource="${blockResource}"]`,
       );
       if (newBlock) {
-        newBlock.style.display = "none";
-        block.insertAdjacentElement("afterend", newBlock);
+        newBlock.style.display = 'none';
+        block.insertAdjacentElement('afterend', newBlock);
         decorateButtons(newBlock);
         decorateIcons(newBlock);
         decorateBlock(newBlock);
@@ -71,10 +71,10 @@ async function applyChanges(event) {
       );
       if (newElements.length) {
         const { parentElement } = element;
-        if (element.matches(".section")) {
+        if (element.matches('.section')) {
           const [newSection] = newElements;
-          newSection.style.display = "none";
-          element.insertAdjacentElement("afterend", newSection);
+          newSection.style.display = 'none';
+          element.insertAdjacentElement('afterend', newSection);
           decorateButtons(newSection);
           decorateIcons(newSection);
           decorateRichtext(newSection);
@@ -99,11 +99,11 @@ async function applyChanges(event) {
 
 function attachEventListners(main) {
   [
-    "aue:content-patch",
-    "aue:content-update",
-    "aue:content-add",
-    "aue:content-move",
-    "aue:content-remove",
+    'aue:content-patch',
+    'aue:content-update',
+    'aue:content-add',
+    'aue:content-move',
+    'aue:content-remove',
   ].forEach((eventType) =>
     main?.addEventListener(eventType, async (event) => {
       event.stopPropagation();
@@ -113,4 +113,4 @@ function attachEventListners(main) {
   );
 }
 
-attachEventListners(document.querySelector("main"));
+attachEventListners(document.querySelector('main'));

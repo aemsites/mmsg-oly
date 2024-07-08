@@ -4,7 +4,7 @@
     <title>Page not found</title>
     <script type="text/javascript">
       window.isErrorPage = true;
-      window.errorCode = "404";
+      window.errorCode = '404';
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="Page not found" />
@@ -14,22 +14,22 @@
       crossorigin="use-credentials"
     ></script>
     <script type="module">
-      import { sampleRUM } from "/scripts/aem.js";
+      import { sampleRUM } from '/scripts/aem.js';
 
-      window.addEventListener("load", () => {
+      window.addEventListener('load', () => {
         if (document.referrer) {
           const { origin, pathname } = new URL(document.referrer);
           if (origin === window.location.origin) {
-            const backBtn = document.createElement("a");
-            backBtn.classList.add("button", "error-button-back");
+            const backBtn = document.createElement('a');
+            backBtn.classList.add('button', 'error-button-back');
             backBtn.href = pathname;
-            backBtn.textContent = "Go back";
-            backBtn.title = "Go back";
-            const btnContainer = document.querySelector(".button-container");
+            backBtn.textContent = 'Go back';
+            backBtn.title = 'Go back';
+            const btnContainer = document.querySelector('.button-container');
             btnContainer.append(backBtn);
           }
         }
-        sampleRUM("404", { source: document.referrer });
+        sampleRUM('404', { source: document.referrer });
       });
     </script>
     <link rel="stylesheet" href="/styles/styles.css" />
