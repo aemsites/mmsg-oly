@@ -209,7 +209,20 @@
         "valueType": "string"
       }
     ]
-  },  {
+  },
+  {
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "text",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "slide",
     "fields": [
       {
