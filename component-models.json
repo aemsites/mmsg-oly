@@ -214,11 +214,21 @@
     "id": "carousel",
     "fields": [
       {
-        "component": "text",
-        "name": "style",
+        "component": "select",
+        "name": "classes",
         "value": "",
-        "label": "Style",
-        "valueType": "string"
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Carousel-Slide-3",
+            "value": "carousel-slide-3"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
+          }
+        ]
       }
     ]
   },
