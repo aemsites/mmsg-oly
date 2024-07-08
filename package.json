@@ -7,7 +7,10 @@
     "lint:js": "eslint . --ext .json,.js",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
     "lint": "npm run lint:js && npm run lint:css",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "quality": "npm run format:check && npm run lint"
   },
   "repository": {
     "type": "git",
