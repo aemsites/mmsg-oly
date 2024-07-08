@@ -165,7 +165,7 @@
     "fields": [
       {
         "component": "select",
-        "name": "type",
+        "name": "classes",
         "value": "",
         "label": "Type",
         "valueType": "string",
