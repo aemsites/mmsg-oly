@@ -155,6 +155,30 @@
           {
             "name": "Video card",
             "value": "video-card"
+          },
+          {
+            "name": "CTA card",
+            "value": "cta-card"
+          },
+          {
+            "name": "Contact Us card",
+            "value": "contact-us-card"
+          },
+          {
+            "name": "Info card",
+            "value": "info-card"
+          },
+          {
+            "name": "2 Column icon card",
+            "value": "2-column-icon-card"
+          },
+          {
+            "name": "3 Column icon card",
+            "value": "3-column-icon-card"
+          },
+          {
+            "name": "Hover card",
+            "value": "hover-card"
           }
         ]
       }

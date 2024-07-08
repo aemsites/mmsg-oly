@@ -131,7 +131,7 @@
                 "template": {
                   "name": "Card",
                   "model": "card",
-                  "classes": ["video-card"]
+                  "classes": ["video-card","cta-card","contact-us-card","info-card","two-column-icon-card","three-column-icon-card","hover-card"]
                 }
               }
             }
