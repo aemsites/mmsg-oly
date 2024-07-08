@@ -27,13 +27,20 @@
       "title",
       "hero",
       "cards",
-      "columns"
+      "columns",
+      "carousel"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "slide"
     ]
   }
 ]
