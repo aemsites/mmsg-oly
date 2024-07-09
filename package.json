@@ -23,13 +23,13 @@
   },
   "lint-staged": {
     "blocks/**/*.js": [
-      "npm run quality"
+      "npm run format:check && npm run lint:js"
     ],
     "scripts/**/*.js": [
-      "npm run quality"
+      "npm run format:check && npm run lint:js"
     ],
     "*.css": [
-      "npm run quality"
+      "npm run format:check && npm run lint:css"
     ]
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
