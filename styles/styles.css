@@ -336,6 +336,7 @@ main .section.highlight {
 
     @media (width >= 1024px){
       grid-area: 1 / 1 / span 4 / span 1;
+      
       span.divider:last-child{
         display: none;
       }
@@ -346,6 +347,7 @@ main .section.highlight {
   .header-nav-wrapper:nth-child(2) {
     @media (width >= 768px){
       grid-area: 3 / 1 / span 4/ span 1;
+
       span.divider:last-child{
         display: none;
       }
@@ -353,6 +355,7 @@ main .section.highlight {
 
     @media (width >= 1024px){
      grid-area: 1 / 2 / span 1 / span 1;
+
      span.divider:last-child{
       display: flex;
     }
@@ -366,6 +369,7 @@ main .section.highlight {
 
     @media (width >= 1024px){
       grid-area: 2 / 2 / span 6 / span 1;
+
       span.divider:last-child{
         display: none;
       }
@@ -385,6 +389,7 @@ main .section.highlight {
   .header-nav-wrapper:nth-child(5) {
     @media (width >= 768px){
        grid-area: 3 / 2 / span 1 / span 1;
+
        .divider {
         margin: var(--spacing-xs) 0;
       }
@@ -392,6 +397,7 @@ main .section.highlight {
 
     @media (width >= 1024px){
       grid-area: 2 / 3 / span 1 / span 1;
+
       .divider {
         margin: var(--spacing-xs) 0;
       }
@@ -401,6 +407,7 @@ main .section.highlight {
   .header-nav-wrapper:nth-child(6) {
     @media (width >= 768px){
        grid-area: 4 / 2 / span 1 / span 1;
+
        .divider {
         margin: var(--spacing-xs) 0;
       }
@@ -408,6 +415,7 @@ main .section.highlight {
 
     @media (width >= 1024px){
       grid-area: 3 / 3 / span 1 / span 1;
+
       .divider {
         margin: var(--spacing-xs) 0;
       }
@@ -417,9 +425,11 @@ main .section.highlight {
   .header-nav-wrapper:nth-child(7) {
     @media (width >= 768px){
       grid-area: 5 / 2 / span 1 / span 1;
+
       .divider {
         margin: var(--spacing-xs) 0;
       }
+
       span.divider:last-child{
         display: none;
       }
@@ -427,9 +437,11 @@ main .section.highlight {
 
     @media (width >= 1024px){
       grid-area: 4 / 3 / span 1 / span 1;
+
       .divider {
         margin: var(--spacing-xs) 0;
       }
+
       span.divider:last-child{
         display: none;
       }
