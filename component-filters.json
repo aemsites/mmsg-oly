@@ -13,17 +13,7 @@
   },
   {
     "id": "section",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title",
-      "hero",
-      "cards",
-      "columns",
-      "header-nav",
-      "carousel"
-    ]
+    "components": ["text", "image", "button", "title", "hero", "cards", "columns"]
   },
   {
     "id": "cards",

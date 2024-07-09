@@ -22,21 +22,14 @@
  * for instance the href of a link, or a search term
  */
 function sampleRUM(checkpoint, data = {}) {
-  sampleRUM.baseURL =
-    sampleRUM.baseURL ||
-    new URL(
-      window.RUM_BASE == null ? 'https://rum.hlx.page' : window.RUM_BASE,
-      window.location,
-    );
+  sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE == null ? 'https://rum.hlx.page' : window.RUM_BASE, window.location);
   sampleRUM.defer = sampleRUM.defer || [];
   const defer = (fnname) => {
-    sampleRUM[fnname] =
-      sampleRUM[fnname] ||
-      ((...args) => sampleRUM.defer.push({ fnname, args }));
+    sampleRUM[fnname] = sampleRUM[fnname]
+      || ((...args) => sampleRUM.defer.push({ fnname, args }));
   };
-  sampleRUM.drain =
-    sampleRUM.drain ||
-    ((dfnname, fn) => {
+  sampleRUM.drain = sampleRUM.drain
+    || ((dfnname, fn) => {
       sampleRUM[dfnname] = fn;
       sampleRUM.defer
         .filter(({ fnname }) => dfnname === fnname)
@@ -55,66 +48,28 @@ function sampleRUM(checkpoint, data = {}) {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum) {
       const usp = new URLSearchParams(window.location.search);
-      const weight = usp.get('rum') === 'on' ? 1 : 100; // with parameter, weight is 1. Defaults to 100.
+      const weight = (usp.get('rum') === 'on') ? 1 : 100; // with parameter, weight is 1. Defaults to 100.
       const id = Math.random().toString(36).slice(-4);
       const random = Math.random();
-      const isSelected = random * weight < 1;
-      const firstReadTime = window.performance
-        ? window.performance.timeOrigin
-        : Date.now();
+      const isSelected = (random * weight < 1);
+      const firstReadTime = window.performance ? window.performance.timeOrigin : Date.now();
       const urlSanitizers = {
         full: () => window.location.href,
         origin: () => window.location.origin,
         path: () => window.location.href.replace(/\?.*$/, ''),
       };
       // eslint-disable-next-line object-curly-newline, max-len
-      window.hlx.rum = {
-        weight,
-        id,
-        random,
-        isSelected,
-        firstReadTime,
-        sampleRUM,
-        sanitizeURL: urlSanitizers[window.hlx.RUM_MASK_URL || 'path'],
-      };
+      window.hlx.rum = { weight, id, random, isSelected, firstReadTime, sampleRUM, sanitizeURL: urlSanitizers[window.hlx.RUM_MASK_URL || 'path'] };
     }
 
     const { weight, id, firstReadTime } = window.hlx.rum;
     if (window.hlx && window.hlx.rum && window.hlx.rum.isSelected) {
-      const knownProperties = [
-        'weight',
-        'id',
-        'referer',
-        'checkpoint',
-        't',
-        'source',
-        'target',
-        'cwv',
-        'CLS',
-        'FID',
-        'LCP',
-        'INP',
-        'TTFB',
-      ];
+      const knownProperties = ['weight', 'id', 'referer', 'checkpoint', 't', 'source', 'target', 'cwv', 'CLS', 'FID', 'LCP', 'INP', 'TTFB'];
       const sendPing = (pdata = data) => {
         // eslint-disable-next-line max-len
-        const t = Math.round(
-          window.performance
-            ? window.performance.now()
-            : Date.now() - firstReadTime,
-        );
+        const t = Math.round(window.performance ? window.performance.now() : (Date.now() - firstReadTime));
         // eslint-disable-next-line object-curly-newline, max-len, no-use-before-define
-        const body = JSON.stringify(
-          {
-            weight,
-            id,
-            referer: window.hlx.rum.sanitizeURL(),
-            checkpoint,
-            t,
-            ...data,
-          },
-          knownProperties,
-        );
+        const body = JSON.stringify({ weight, id, referer: window.hlx.rum.sanitizeURL(), checkpoint, t, ...data }, knownProperties);
         const url = new URL(`.rum/${weight}`, sampleRUM.baseURL).href;
         navigator.sendBeacon(url, body);
         // eslint-disable-next-line no-console
@@ -125,10 +80,7 @@ function sampleRUM(checkpoint, data = {}) {
         lazy: () => {
           // use classic script to avoid CORS issues
           const script = document.createElement('script');
-          script.src = new URL(
-            '.rum/@adobe/helix-rum-enhancer@^1/src/index.js',
-            sampleRUM.baseURL,
-          ).href;
+          script.src = new URL('.rum/@adobe/helix-rum-enhancer@^1/src/index.js', sampleRUM.baseURL).href;
           document.head.appendChild(script);
           return true;
         },
@@ -153,17 +105,14 @@ function setup() {
   window.hlx = window.hlx || {};
   window.hlx.RUM_MASK_URL = 'full';
   window.hlx.codeBasePath = '';
-  window.hlx.lighthouse =
-    new URLSearchParams(window.location.search).get('lighthouse') === 'on';
+  window.hlx.lighthouse = new URLSearchParams(window.location.search).get('lighthouse') === 'on';
 
   const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]');
   if (scriptEl) {
     try {
       const scriptURL = new URL(scriptEl.src, window.location);
       if (scriptURL.host === window.location.host) {
-        [window.hlx.codeBasePath] = scriptURL.pathname.split(
-          '/scripts/scripts.js',
-        );
+        [window.hlx.codeBasePath] = scriptURL.pathname.split('/scripts/scripts.js');
       } else {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
@@ -185,10 +134,7 @@ function init() {
   window.addEventListener('load', () => sampleRUM('load'));
 
   window.addEventListener('unhandledrejection', (event) => {
-    sampleRUM('error', {
-      source: event.reason.sourceURL,
-      target: event.reason.line,
-    });
+    sampleRUM('error', { source: event.reason.sourceURL, target: event.reason.line });
   });
 
   window.addEventListener('error', (event) => {
@@ -204,10 +150,10 @@ function init() {
 function toClassName(name) {
   return typeof name === 'string'
     ? name
-        .toLowerCase()
-        .replace(/[^0-9a-z]/gi, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '')
+      .toLowerCase()
+      .replace(/[^0-9a-z]/gi, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
     : '';
 }
 
@@ -334,10 +280,7 @@ function createOptimizedPicture(
   src,
   alt = '',
   eager = false,
-  breakpoints = [
-    { media: '(min-width: 600px)', width: '2000' },
-    { width: '750' },
-  ],
+  breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
 ) {
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
@@ -349,10 +292,7 @@ function createOptimizedPicture(
     const source = document.createElement('source');
     if (br.media) source.setAttribute('media', br.media);
     source.setAttribute('type', 'image/webp');
-    source.setAttribute(
-      'srcset',
-      `${pathname}?width=${br.width}&format=webply&optimize=medium`,
-    );
+    source.setAttribute('srcset', `${pathname}?width=${br.width}&format=webply&optimize=medium`);
     picture.appendChild(source);
   });
 
@@ -361,20 +301,14 @@ function createOptimizedPicture(
     if (i < breakpoints.length - 1) {
       const source = document.createElement('source');
       if (br.media) source.setAttribute('media', br.media);
-      source.setAttribute(
-        'srcset',
-        `${pathname}?width=${br.width}&format=${ext}&optimize=medium`,
-      );
+      source.setAttribute('srcset', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
       picture.appendChild(source);
     } else {
       const img = document.createElement('img');
       img.setAttribute('loading', eager ? 'eager' : 'lazy');
       img.setAttribute('alt', alt);
       picture.appendChild(img);
-      img.setAttribute(
-        'src',
-        `${pathname}?width=${br.width}&format=${ext}&optimize=medium`,
-      );
+      img.setAttribute('src', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
     }
   });
 
@@ -422,12 +356,9 @@ function wrapTextNodes(block) {
     [...el.attributes]
       // move the instrumentation from the cell to the new paragraph, also keep the class
       // in case the content is a buttton and the cell the button-container
-      .filter(
-        ({ nodeName }) =>
-          nodeName === 'class' ||
-          nodeName.startsWith('data-aue') ||
-          nodeName.startsWith('data-richtext'),
-      )
+      .filter(({ nodeName }) => nodeName === 'class'
+        || nodeName.startsWith('data-aue')
+        || nodeName.startsWith('data-richtext'))
       .forEach(({ nodeName, nodeValue }) => {
         wrapper.setAttribute(nodeName, nodeValue);
         el.removeAttribute(nodeName);
@@ -437,16 +368,13 @@ function wrapTextNodes(block) {
 
   block.querySelectorAll(':scope > div > div').forEach((blockColumn) => {
     if (blockColumn.hasChildNodes()) {
-      const hasWrapper =
-        !!blockColumn.firstElementChild &&
-        validWrappers.some(
-          (tagName) => blockColumn.firstElementChild.tagName === tagName,
-        );
+      const hasWrapper = !!blockColumn.firstElementChild
+        && validWrappers.some((tagName) => blockColumn.firstElementChild.tagName === tagName);
       if (!hasWrapper) {
         wrap(blockColumn);
       } else if (
-        blockColumn.firstElementChild.tagName === 'PICTURE' &&
-        (blockColumn.children.length > 1 || !!blockColumn.textContent.trim())
+        blockColumn.firstElementChild.tagName === 'PICTURE'
+        && (blockColumn.children.length > 1 || !!blockColumn.textContent.trim())
       ) {
         wrap(blockColumn);
       }
@@ -465,27 +393,24 @@ function decorateButtons(element) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
       if (!a.querySelector('img')) {
-        if (
-          up.childNodes.length === 1 &&
-          (up.tagName === 'P' || up.tagName === 'DIV')
-        ) {
+        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
           a.className = 'button'; // default
           up.classList.add('button-container');
         }
         if (
-          up.childNodes.length === 1 &&
-          up.tagName === 'STRONG' &&
-          twoup.childNodes.length === 1 &&
-          twoup.tagName === 'P'
+          up.childNodes.length === 1
+          && up.tagName === 'STRONG'
+          && twoup.childNodes.length === 1
+          && twoup.tagName === 'P'
         ) {
           a.className = 'button primary';
           twoup.classList.add('button-container');
         }
         if (
-          up.childNodes.length === 1 &&
-          up.tagName === 'EM' &&
-          twoup.childNodes.length === 1 &&
-          twoup.tagName === 'P'
+          up.childNodes.length === 1
+          && up.tagName === 'EM'
+          && twoup.childNodes.length === 1
+          && twoup.tagName === 'P'
         ) {
           a.className = 'button secondary';
           twoup.classList.add('button-container');
@@ -530,43 +455,41 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
-  main
-    .querySelectorAll(':scope > div:not([data-section-status])')
-    .forEach((section) => {
-      const wrappers = [];
-      let defaultContent = false;
-      [...section.children].forEach((e) => {
-        if (e.tagName === 'DIV' || !defaultContent) {
-          const wrapper = document.createElement('div');
-          wrappers.push(wrapper);
-          defaultContent = e.tagName !== 'DIV';
-          if (defaultContent) wrapper.classList.add('default-content-wrapper');
-        }
-        wrappers[wrappers.length - 1].append(e);
-      });
-      wrappers.forEach((wrapper) => section.append(wrapper));
-      section.classList.add('section');
-      section.dataset.sectionStatus = 'initialized';
-      section.style.display = 'none';
-
-      // Process section metadata
-      const sectionMeta = section.querySelector('div.section-metadata');
-      if (sectionMeta) {
-        const meta = readBlockConfig(sectionMeta);
-        Object.keys(meta).forEach((key) => {
-          if (key === 'style') {
-            const styles = meta.style
-              .split(',')
-              .filter((style) => style)
-              .map((style) => toClassName(style.trim()));
-            styles.forEach((style) => section.classList.add(style));
-          } else {
-            section.dataset[toCamelCase(key)] = meta[key];
-          }
-        });
-        sectionMeta.parentNode.remove();
+  main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
+    const wrappers = [];
+    let defaultContent = false;
+    [...section.children].forEach((e) => {
+      if (e.tagName === 'DIV' || !defaultContent) {
+        const wrapper = document.createElement('div');
+        wrappers.push(wrapper);
+        defaultContent = e.tagName !== 'DIV';
+        if (defaultContent) wrapper.classList.add('default-content-wrapper');
       }
+      wrappers[wrappers.length - 1].append(e);
     });
+    wrappers.forEach((wrapper) => section.append(wrapper));
+    section.classList.add('section');
+    section.dataset.sectionStatus = 'initialized';
+    section.style.display = 'none';
+
+    // Process section metadata
+    const sectionMeta = section.querySelector('div.section-metadata');
+    if (sectionMeta) {
+      const meta = readBlockConfig(sectionMeta);
+      Object.keys(meta).forEach((key) => {
+        if (key === 'style') {
+          const styles = meta.style
+            .split(',')
+            .filter((style) => style)
+            .map((style) => toClassName(style.trim()));
+          styles.forEach((style) => section.classList.add(style));
+        } else {
+          section.dataset[toCamelCase(key)] = meta[key];
+        }
+      });
+      sectionMeta.parentNode.remove();
+    }
+  });
 }
 
 /**
@@ -671,9 +594,7 @@ async function loadBlock(block) {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
     try {
-      const cssLoaded = loadCSS(
-        `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`,
-      );
+      const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {

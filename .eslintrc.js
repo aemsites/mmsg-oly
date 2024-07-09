@@ -1,11 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    'airbnb-base',
-    'plugin:json/recommended',
-    'plugin:xwalk/recommended',
-    'prettier',
-  ],
+  extends: ['airbnb-base', 'plugin:json/recommended', 'plugin:xwalk/recommended', 'prettier'],
   env: {
     browser: true,
   },
