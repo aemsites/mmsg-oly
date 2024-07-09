@@ -9,6 +9,7 @@ main .carousel-container {
     scroll-behavior: smooth;
     max-width: 1680px;
     margin: auto;
+    border: 10px solid black;
   }
   
   main .carousel picture {
@@ -23,6 +24,8 @@ main .carousel-container {
     width: 100%;
     height: 100%;
     object-position: 90%;
+    border: 10 px solid red;
+    border-radius: 10px;
   }
     
   main .carousel > div {
