@@ -213,7 +213,7 @@
   {
     "id": "header-nav",
     "fields": [
-       {
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
