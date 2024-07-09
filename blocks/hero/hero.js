@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  [...block.children].forEach((row, id) => {
+  [...block.children].forEach((row) => {
     if (row.querySelector('picture')) {
       row.classList.add('hero-image');
     } else if (row.lastElementChild.children.length >= 1) {
