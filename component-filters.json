@@ -28,7 +28,8 @@
       "hero",
       "cards",
       "columns",
-      "header-nav"
+      "header-nav",
+      "carousel"
     ]
   },
   {
@@ -36,5 +37,9 @@
     "components": [
       "card"
     ]
+  },
+  {
+    "id": "carousel",
+    "components": ["silde"]
   }
 ]
