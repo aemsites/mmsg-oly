@@ -23,16 +23,13 @@
   },
   "lint-staged": {
     "blocks/**/*.js": [
-      "eslint",
-      "prettier --write"
+      "npm run quality"
     ],
     "scripts/**/*.js": [
-      "eslint",
-      "prettier --write"
+      "npm run quality"
     ],
     "*.css": [
-      "stylelint",
-      "prettier --write"
+      "npm run quality"
     ]
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
