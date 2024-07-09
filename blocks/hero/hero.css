@@ -91,13 +91,13 @@ main {
       > p a {
         display: flex;
         width: fit-content;
-        padding:  var(--spacing-xxs-l)  var(--spacing-xs);
+        padding: var(--spacing-xxs-l) var(--spacing-xs);
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
         flex: 1 0 0;
         border-radius: 0.25rem;
-        font-size:  var(--font-size-s);
+        font-size: var(--font-size-s);
         line-height: 2rem;
         margin: var(--spacing-xs) 0 0 0;
 
@@ -141,7 +141,7 @@ main {
         display: flex;
         gap: 16px 0;
         flex-direction: column;
-  
+
         > h1 {
           color: var(--color-white);
           font-size: var(--font-size-lg);
