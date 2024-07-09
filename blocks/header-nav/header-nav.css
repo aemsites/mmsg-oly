@@ -1,13 +1,10 @@
 .header-nav {
 	display: flex;
+	position: relative;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: flex-start;
 	font-family: var(--font-family-body);
-
-	div {
-		margin-right: var(--spacing-xs);
-	}
 
 	div:nth-child(3) {
 		flex-basis: 100%;
@@ -25,33 +22,153 @@
 			color: var(--color-black);
 			font-size: var(--font-size-l);
 			font-weight: var(--font-weight-bold);
-			line-height: 32px;
+			line-height: var(--spacing-m);
 			margin: 0;
 			text-decoration: none;
+		}
+
+		h2::after,h3::after,h4::after,p::after{
+			content: " ";
+            display: flex;
+            position: absolute;
+            top: var(--spacing-xs);
+            right: 0;
+            width: var(--spacing-xs-l);
+            height: var(--spacing-xxs);
+            background: url(../../icons/chevron-down.svg) no-repeat 0px 0px;
+		}
+
+		@media (width >= 768px) {
+			h2::after,h3::after,h4::after,p::after{
+				transform: rotate(270deg);
+			}
 		}
 	}
 
 	img {
-		width: var(--spacing-l);
-		height: var(--spacing-l);
+		display: flex;
+		width: var(--spacing-m-l);
+		height: var(--spacing-m-l);
 		padding: 2px;
+		margin-right: var(--spacing-xs);
 	}
 
-	ul {
-		margin: var(--spacing-xs) 0 0 0;
-		padding: 0;
-	
+	ul.link-arrows {
+		li:not(:last-child)::before{
+			position: absolute;
+			content: " ";
+			display: block;
+			top: var(--spacing-xs-l);
+			left: 0;
+			margin-left: var(--spacing-xs);
+			width: var(--spacing-s);
+			height: var(--spacing-xs-l);
+			background: url(../../icons/small-car.png) no-repeat 0px 0px;
+		}
+
+		@media (width >= 768px) {
+			li:not(:last-child)::before{
+				top: var(--spacing-xxxs);
+				margin-left: 0;
+			}
+		}
+
 		li {
+			position: relative;
 			font-size: var(--font-size-s);
-			line-height: 32px;
+			line-height: var(--spacing-m);
 			text-decoration: none;
 			list-style-type: none;
-			padding: 4px var(--spacing-xs) 4px 0;
+			padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-l-l);
+			width: fit-content;
+
+			@media (width >= 768px) {
+				padding: var(--spacing-xxxxs) var(--spacing-xs) var(--spacing-xxxxs) var(--spacing-m);
+				width: -webkit-fill-available;
+			}
+
+			@media (width >= 1024px) {
+				padding: var(--spacing-xxxxs) var(--spacing-xs) var(--spacing-xxxxs) var(--spacing-m);
+				width: -webkit-fill-available;
+			}
 
 			a {
 				text-decoration: none;
 				color: var(--color-black);
 			}
 		}
+
+		li:last-child {
+			padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
+		}
+
+		@media (width >= 768px) {
+			li:last-child {
+				padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xxxs) 0;
+			}
+		}
+
+		li::after{
+			position: absolute;
+            content: " ";
+            display: block;
+            top: 26px;
+            right: -24px;
+            width: var(--spacing-s);
+            height: var( --spacing-xs-l);
+            background: url(../../icons/arrow-right.svg) no-repeat 0px 0px;
+		}
+
+		@media (width >= 768px) {
+			li::after {
+				content: unset;
+			}
+		}
+	}
+
+	ul {
+		margin: var(--spacing-s) 0 0 0;
+		padding: 0;
+		@media (width >= 768px) {
+			margin: var(--spacing-xs) 0 0 0;
+		}
+
+		li {
+			font-size: var(--font-size-s);
+			line-height: var(--spacing-m);
+			text-decoration: none;
+			list-style-type: none;
+			padding: var(--spacing-xs);
+
+			a {
+				text-decoration: none;
+				color: var(--color-black);
+			}
+			@media (width >= 768px) {
+				padding: var(--spacing-xxxs) var(--spacing-xs) var(--spacing-xxxs) 0;
+			}
+		}
+	}
+}
+
+.inactive {
+	display: none;
+}
+
+.divider {
+	background: var(--border-color);
+	height: 1px;
+	width: -webkit-fill-available;
+	margin: var(--spacing-s) 0;
+	@media (width >= 768px) {
+		margin: var(--spacing-m) 0;
+	}
+}
+
+.link-arrows .divider {
+	margin: 0;
+	display: block;
+	@media (width >= 768px) {
+		margin: var(--spacing-xxxs) 0;
 	}
 }

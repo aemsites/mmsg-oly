@@ -125,7 +125,7 @@ main {
   }
 }
 
-.hero-homepage.hero {
+.homepage.hero {
   padding: 0;
 
   @media (width >= 1024px) {
