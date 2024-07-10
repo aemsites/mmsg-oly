@@ -1,5 +1,8 @@
 export default function decorate(block) {
-  const [image, content] = block.children;
-  image.className = 'bg_image';
-  content.className = 'fg_overlay_content';
+  const [titleBg, title, sectionDesc, sectionNoOly, sectionWithOly] = block.children;
+  titleBg.className = 'bg_image';
+  title.className = 'fg_overlay_content';
+  sectionDesc.className = 'section_desc';
+  sectionNoOly.className = 'section_no_oly';
+  sectionWithOly.className = 'section_with_oly';
 }

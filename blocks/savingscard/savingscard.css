@@ -9,7 +9,7 @@
 
 .block.savingscard > div p {
   text-align: center;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-l-alt);
   font-weight: bold;
   color: var(--color-black);
 }
@@ -21,9 +21,8 @@
 .block.savingscard > div:first-child img {
   display: block;
   width: 100%;
-  max-height: 400px;
+  max-height: 161px;
   height: auto;
-  object-fit: cover;
 }
 
 .block.savingscard > div:last-child {
@@ -32,4 +31,5 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column-reverse;
+  font-size: var(--font-size-s);
 }
