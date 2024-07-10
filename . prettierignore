@@ -1,0 +1,10 @@
+# Ignore all HTML files:
+**/*.html
+
+node_modules/**/*
+scripts/aem.js
+scripts/delayed.js
+scripts/editor-support-rte.js
+scripts/editor-support.js
+scripts/scripts.js
+scripts/sidekick.js
