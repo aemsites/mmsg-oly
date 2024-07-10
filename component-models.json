@@ -305,5 +305,38 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "savingscard",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_Image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foreground_Title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foreground_TitleBrand",
+        "label": "TitleBrand",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foreground_Description",
+        "label": "Description",
+        "value": ""
+      }
+    ]
   }
 ]
