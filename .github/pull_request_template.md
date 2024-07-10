@@ -3,6 +3,5 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 Fix #<gh-issue-id>
 
 Test URLs:
-
 - Before: https://main--mmsg-oly--aemsites.hlx.live/
 - After: https://<branch>--mmsg-oly--aemsites.hlx.live/
