@@ -13,3 +13,4 @@ component-definition.json
 component-filters.json
 component-models.json
 paths.json
+*.yaml
