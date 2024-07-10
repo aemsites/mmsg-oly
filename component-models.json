@@ -336,6 +336,48 @@
         "name": "foreground_Description",
         "label": "Description",
         "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_no_oly_badge",
+        "label": "NoOlyBadge",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "list_no_oly_image",
+        "label": "NoOlyImage",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_no_oly_description",
+        "label": "NoOlyDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_with_oly_badge",
+        "label": "WithOlyBadge",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "list_oly_image",
+        "label": "OlyImage",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_oly_description",
+        "label": "OlyDescription",
+        "value": ""
       }
     ]
   }
