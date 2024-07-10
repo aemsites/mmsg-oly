@@ -326,8 +326,8 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "foreground_TitleBrand",
-        "label": "TitleBrand",
+        "name": "foreground_SecondTitle",
+        "label": "SecondTitle",
         "value": ""
       },
       {
