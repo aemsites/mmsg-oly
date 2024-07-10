@@ -319,15 +319,15 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "foreground_Title",
-        "label": "Title",
+        "name": "foreground_TitleHeading",
+        "label": "TitleHeading",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "foreground_SecondTitle",
-        "label": "SecondTitle",
+        "name": "foreground_TitleBrand",
+        "label": "TitleBrand",
         "value": ""
       },
       {

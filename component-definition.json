@@ -199,8 +199,8 @@
                 "template": {
                   "name": "Savingscard",
                   "model": "savingscard",
-                  "foreground_Title":"A novated lease",
-                  "foreground_SecondTitle":"that saves you more.",
+                  "foreground_TitleHeading":"A novated lease",
+                  "foreground_TitleBrand":"that saves you more.",
                   "foreground_Description":"Example based on a 2023 Mercede Benz Auto valued at $145,000 at the time of entering a 3 year lease. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
                 }
               }
