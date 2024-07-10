@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   font-family: var(--font-family-body);
-  
+
   div:nth-child(3) {
     flex-basis: 100%;
     flex-direction: column;
@@ -16,9 +16,12 @@
     text-decoration: none;
     font-weight: var(--font-weight-body);
   }
-  
+
   div:nth-child(2) {
-    h2,h3,h4,p {
+    h2,
+    h3,
+    h4,
+    p {
       color: var(--color-black);
       font-size: var(--font-size-l);
       font-weight: var(--font-weight-bold);
@@ -27,21 +30,27 @@
       text-decoration: none;
     }
 
-    h2::after,h3::after,h4::after,p::after{
-      content: " ";
+    h2::after,
+    h3::after,
+    h4::after,
+    p::after {
+      content: ' ';
       display: flex;
       position: absolute;
       top: var(--spacing-xs);
       right: 0;
       width: var(--spacing-xs-l);
       height: var(--spacing-xxs);
-      background-image: url("../../icons/chevron-down.svg");
+      background-image: url('../../icons/chevron-down.svg');
       background-repeat: no-repeat;
-      background-position: 0 0; 
+      background-position: 0 0;
     }
 
     @media (width >= 768px) {
-      h2::after,h3::after,h4::after,p::after{
+      h2::after,
+      h3::after,
+      h4::after,
+      p::after {
         transform: rotate(270deg);
       }
     }
@@ -56,22 +65,22 @@
   }
 
   ul.link-arrows {
-    li:not(:last-child)::before{
+    li:not(:last-child)::before {
       position: absolute;
-      content: " ";
+      content: ' ';
       display: block;
       top: var(--spacing-xs-l);
       left: 0;
       margin-left: var(--spacing-xs);
       width: var(--spacing-s);
       height: var(--spacing-xs-l);
-      background-image: url("../../icons/small-car.png");
+      background-image: url('../../icons/small-car.png');
       background-repeat: no-repeat;
       background-position: 0 0;
     }
 
     @media (width >= 768px) {
-      li:not(:last-child)::before{
+      li:not(:last-child)::before {
         top: var(--spacing-xxxs);
         margin-left: 0;
       }
@@ -112,17 +121,17 @@
       }
     }
 
-    li::after{
+    li::after {
       position: absolute;
-            content: " ";
-            display: block;
-            top: 26px;
-            right: -24px;
-            width: var(--spacing-s);
-            height: var( --spacing-xs-l);
-            background-image: url("../../icons/arrow-right.svg");
-            background-repeat: no-repeat;
-            background-position: 0 0;
+      content: ' ';
+      display: block;
+      top: 26px;
+      right: -24px;
+      width: var(--spacing-s);
+      height: var(--spacing-xs-l);
+      background-image: url('../../icons/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-position: 0 0;
     }
 
     @media (width >= 768px) {

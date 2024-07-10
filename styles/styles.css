@@ -55,7 +55,7 @@
   --heading-line-height: 1.25;
 
   /* Spacing */
-  --spacing-xxxxs:4px;
+  --spacing-xxxxs: 4px;
   --spacing-xxxs: 8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
@@ -398,7 +398,7 @@ main .section.highlight {
 .header-nav-container.section {
   display: grid;
   margin: var(--spacing-l) var(--spacing-s);
-  grid-auto-rows: auto; 
+  grid-auto-rows: auto;
   padding: 0;
 
   @media (width >= 768px) {
@@ -441,28 +441,28 @@ main .section.highlight {
 
     @media (width >= 1024px) {
       grid-area: 1 / 1 / span 4 / span 1;
-      
-      span.divider:last-child{
+
+      span.divider:last-child {
         display: none;
       }
     }
   }
 
   .header-nav-wrapper:nth-child(2) {
-    @media (width >= 768px){
-      grid-area: 3 / 1 / span 4/ span 1;
+    @media (width >= 768px) {
+      grid-area: 3 / 1 / span 4 / span 1;
 
-      span.divider:last-child{
+      span.divider:last-child {
         display: none;
       }
     }
 
-    @media (width >= 1024px){
-     grid-area: 1 / 2 / span 1 / span 1;
+    @media (width >= 1024px) {
+      grid-area: 1 / 2 / span 1 / span 1;
 
-     span.divider:last-child{
-      display: flex;
-    }
+      span.divider:last-child {
+        display: flex;
+      }
     }
   }
 
@@ -474,7 +474,7 @@ main .section.highlight {
     @media (width >= 1024px) {
       grid-area: 2 / 2 / span 6 / span 1;
 
-      span.divider:last-child{
+      span.divider:last-child {
         display: none;
       }
     }
@@ -491,10 +491,10 @@ main .section.highlight {
   }
 
   .header-nav-wrapper:nth-child(5) {
-    @media (width >= 768px){
-       grid-area: 3 / 2 / span 1 / span 1;
+    @media (width >= 768px) {
+      grid-area: 3 / 2 / span 1 / span 1;
 
-       .divider {
+      .divider {
         margin: var(--spacing-xs) 0;
       }
     }
@@ -509,10 +509,10 @@ main .section.highlight {
   }
 
   .header-nav-wrapper:nth-child(6) {
-    @media (width >= 768px){
-       grid-area: 4 / 2 / span 1 / span 1;
+    @media (width >= 768px) {
+      grid-area: 4 / 2 / span 1 / span 1;
 
-       .divider {
+      .divider {
         margin: var(--spacing-xs) 0;
       }
     }
@@ -534,7 +534,7 @@ main .section.highlight {
         margin: var(--spacing-xs) 0;
       }
 
-      span.divider:last-child{
+      span.divider:last-child {
         display: none;
       }
     }
@@ -546,7 +546,7 @@ main .section.highlight {
         margin: var(--spacing-xs) 0;
       }
 
-      span.divider:last-child{
+      span.divider:last-child {
         display: none;
       }
     }
