@@ -333,7 +333,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_Description",
+        "name": "Description",
         "label": "Description",
         "value": ""
       },
