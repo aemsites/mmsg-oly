@@ -89,6 +89,7 @@
   --max-width-medium: 768px;
   --max-width-large: 1024px;
   --max-width-xlarge: 1440px;
+  --max-width-container: 1232px;
 
   /* z-index */
   --z-index: 99;
@@ -387,7 +388,7 @@ main .section {
 
 @media (width >= 768px) {
   .section > div {
-    max-width: var(--max-width-large);
+    max-width: var(--max-width-container);
     margin: auto;
   }
 

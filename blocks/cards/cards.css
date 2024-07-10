@@ -3,13 +3,33 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   grid-gap: 16px;
-}
 
-.cards > ul > li {
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color);
+  > li {
+    border: 1px solid var(--dark-color);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  li:first-child {
+    background-color: var(--bg-color-blue);
+  }
+
+  li:nth-child(2) {
+    background-color: var(--bg-color-green);
+    color: var(--color-white);
+
+    p,
+    a,
+    a.button {
+      color: var(--color-white);
+    }
+  }
+
+  li:last-child {
+    background-color: var(--bg-color-paper);
+  }
 }
 
 .cards .cards-card-body {
