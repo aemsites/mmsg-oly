@@ -15,6 +15,7 @@
   --color-black: #000;
   --color-grey: #4f575e;
   --color-pink: #ff1261;
+  --color-light-pink: #ff8fdb;
   --link-color: #ff1261;
   --link-hover-color: #ff1261;
   --border-color: #dee2e6;
@@ -33,7 +34,7 @@
   --font-size-xl-alt: 2.875rem; /* 46px */
   --font-size-lg: 2.5rem; /* 40px */
   --font-size-lg-alt: 2.375rem; /* 38px */
-  --font-size-mega: 2rem; /* 32px */
+  --font-size-l-alt: 2rem; /* 32px */
   --font-size-l: 1.5rem; /* 24px */
   --font-size-m: 1.25rem; /* 20px */
   --font-size-s: 1.125rem; /* 18px */
@@ -41,20 +42,32 @@
   --font-size-xs-alt: 0.875rem; /* 14px */
   --font-size-xxs: 0.75rem; /* 12px */
 
-  /* body */
-  --body-font-family: 'roboto', arial, sans-serif;
-  --body-semibold-font-family: 'roboto', arial, sans-serif;
-  --body-font-weight: 400;
-  --body-color: var(--color-black);
-  --body-line-height: 1.5;
+  /* Body font */
+  --font-family-body: 'Figtree-Regular', 'arial', sans-serif;
+  --font-weight-body: 400;
+  --font-color-body: var(--color-black);
+  --line-height-body: 1.5;
+
+  /* Semibold font */
+  --font-family-semibold: 'Figtree-Semibold', 'arial', sans-serif;
+  --font-weight-semibold: 600;
+  --font-color-semibold: var(--color-black);
+  --line-height-semibold: 1.5;
+
+  /* Bold font */
+  --font-family-bold: 'Figtree-Bold', 'arial', sans-serif;
+  --font-weight-bold: 700; /* Adjust as needed */
+  --font-color-bold: var(--color-black);
+  --line-height-bold: 1.5;
 
   /* headings */
-  --heading-font-family: 'roboto', arial, sans-serif;
+  --heading-font-family: 'Figtree-Bold', 'arial', sans-serif;
   --heading-font-weight: 700;
   --heading-color: var(--color-brand-title);
   --heading-line-height: 1.25;
 
   /* Spacing */
+  --spacing-xxxs-l: 4px;
   --spacing-xxxs: 8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
@@ -181,10 +194,10 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-/* buttons */
+/* default button */
 a.button:any-link,
 button {
-  font-family: var(--body-font-family);
+  font-family: var(--font-family-bold);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;

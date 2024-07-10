@@ -20,6 +20,9 @@
   },
   {
     "id": "section",
+<<<<<<< HEAD
+    "components": ["text", "image", "button", "title", "hero", "cards", "columns", "savingscard"]
+=======
     "components": [
       "text",
       "image",
@@ -29,9 +32,9 @@
       "cards",
       "columns",
       "header-nav",
-      "carousel",
-      "savingscard"
+      "carousel"
     ]
+>>>>>>> main
   },
   {
     "id": "cards",
