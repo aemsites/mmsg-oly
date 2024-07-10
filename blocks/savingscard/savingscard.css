@@ -15,11 +15,17 @@
     text-align: center;
     font-size: var(--font-size-lg);
     font-weight: bold;
+    color: var(--color-black);
 }
 
+/*.block.savingscard > div p[data-aue-label="Title"],
 .block.savingscard > div p[data-aue-label="TitleBrand"]{
+    margin: 0;
+}*/
+
+/*.block.savingscard > div p[data-aue-label="TitleBrand"]{
     color: var(--link-color);
-}
+}*/
 
 .block.savingscard > div:first-child img{
   display: block;

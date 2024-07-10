@@ -347,8 +347,8 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "list_no_oly_image",
-        "label": "NoOlyImage",
+        "name": "list_no_oly_vehicle_image",
+        "label": "NoOlyVehicleImage",
         "multi": false
       },
       {
@@ -361,6 +361,48 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "list_no_oly_vehicle_price",
+        "label": "NoOlyVehiclePrice",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_no_oly_vehicle_price_description",
+        "label": "NoOlyVehiclePriceDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_figure_title",
+        "label": "VehicleFigureTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_figure_salary",
+        "label": "AnnualSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_figure_car_value",
+        "label": "CarValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_figure_lease_term",
+        "label": "LeaseTerm",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "list_with_oly_badge",
         "label": "WithOlyBadge",
         "value": ""
@@ -368,8 +410,8 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "list_oly_image",
-        "label": "OlyImage",
+        "name": "list_oly_vehicle_image",
+        "label": "OlyVehicleImage",
         "multi": false
       },
       {
@@ -377,6 +419,20 @@
         "valueType": "string",
         "name": "list_oly_description",
         "label": "OlyDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_oly_vehicle_price",
+        "label": "OlyVehiclePrice",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "list_oly_vehicle_price_description",
+        "label": "OlyVehiclePriceDescription",
         "value": ""
       }
     ]
