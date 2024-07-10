@@ -50,7 +50,7 @@ footer .footer p {
     justify-content: center;
 
     p {
-      img{
+      img {
         max-width: 95%;
         aspect-ratio: 3.13;
         margin-left: 5px;
@@ -149,7 +149,6 @@ footer .footer p {
     padding-right: 10px;
   }
 
-  
   .footer-image {
     margin-top: 0;
 
@@ -168,10 +167,10 @@ footer .footer p {
     > div {
       display: grid;
       grid-template:
-        'logo nav' min-content
-        'text nav' min-content
-        'contact nav' min-content
-        'button nav' 1fr / 30% 1fr;
+        "logo nav" min-content
+        "text nav" min-content
+        "contact nav" min-content
+        "button nav" 1fr / 30% 1fr;
       gap: 0 2rem;
       max-width: 100%;
     }
@@ -232,7 +231,7 @@ footer .footer p {
 
       ul {
         gap: 0 1rem;
-        margin: .5rem;
+        margin: 0.5rem;
         align-items: start;
       }
     }
