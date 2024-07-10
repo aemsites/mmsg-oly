@@ -8,3 +8,8 @@ scripts/editor-support-rte.js
 scripts/editor-support.js
 scripts/scripts.js
 scripts/sidekick.js
+*.md
+component-definition.json
+component-filters.json
+component-models.json
+paths.json
