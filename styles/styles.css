@@ -43,25 +43,25 @@
   --font-size-xxs: 0.75rem; /* 12px */
 
   /* Body font */
-  --font-family-body: "Figtree-Regular", "arial", sans-serif;
+  --font-family-body: 'Figtree-Regular', 'arial', sans-serif;
   --font-weight-body: 400;
   --font-color-body: var(--color-black);
   --line-height-body: 1.5;
 
   /* Semibold font */
-  --font-family-semibold: "Figtree-Semibold", "arial", sans-serif;
+  --font-family-semibold: 'Figtree-Semibold', 'arial', sans-serif;
   --font-weight-semibold: 600;
   --font-color-semibold: var(--color-black);
   --line-height-semibold: 1.5;
 
   /* Bold font */
-  --font-family-bold: "Figtree-Bold", "arial", sans-serif;
+  --font-family-bold: 'Figtree-Bold', 'arial', sans-serif;
   --font-weight-bold: 700; /* Adjust as needed */
   --font-color-bold: var(--color-black);
   --line-height-bold: 1.5;
 
   /* headings */
-  --heading-font-family: "Figtree-Bold", "arial", sans-serif;
+  --heading-font-family: 'Figtree-Bold', 'arial', sans-serif;
   --heading-font-weight: 700;
   --heading-color: var(--color-brand-title);
   --heading-line-height: 1.25;

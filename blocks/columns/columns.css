@@ -51,7 +51,7 @@
         }
 
         a::after {
-          content: "\203A";
+          content: '\203A';
           font-size: var(--font-size-l-alt);
           vertical-align: text-bottom;
           margin-left: 16px;
@@ -119,8 +119,7 @@
   }
 
   .section.semicircle-image {
-    padding: var(--spacing-xl) var(--spacing-m) var(--spacing-xl)
-      var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-m) var(--spacing-xl) var(--spacing-xl);
     margin: var(--spacing-xl) var(--spacing-xxl);
 
     .columns > div {
@@ -149,8 +148,7 @@
 
   /* Column Variation - left image */
   .section.semicircle-image.left {
-    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl)
-      var(--spacing-m);
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-m);
 
     .columns > div > div {
       &:nth-child(2) {
