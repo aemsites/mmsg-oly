@@ -340,99 +340,169 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_badge",
+        "name": "no_oly_badge",
         "label": "NoOlyBadge",
         "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "section_no_oly_vehicle_image",
+        "name": "no_oly_vehicle_image",
         "label": "NoOlyVehicleImage",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_description",
+        "name": "no_oly_description",
         "label": "NoOlyDescription",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_vehicle_price",
+        "name": "no_oly_vehicle_price",
         "label": "NoOlyVehiclePrice",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_vehicle_price_description",
+        "name": "no_oly_vehicle_price_description",
         "label": "NoOlyVehiclePriceDescription",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_figure_title",
-        "label": "VehicleFigureTitle",
+        "name": "no_oly_figure_title",
+        "label": "NoOlyVehicleFigureTitle",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_figure_salary",
-        "label": "AnnualSalary",
+        "name": "no_oly_salary_title",
+        "label": "NoOlyTitleSalary",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_figure_car_value",
-        "label": "CarValue",
+        "name": "no_oly_salary_value",
+        "label": "NoOlyAnnualSalary",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_no_oly_figure_lease_term",
-        "label": "LeaseTerm",
+        "name": "no_oly_car_title",
+        "label": "NoOlyCarTitle",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_with_oly_badge",
+        "name": "no_oly_car_value",
+        "label": "NoOlyCarValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_lease_title",
+        "label": "NoOlyLeaseTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_lease_value",
+        "label": "NoOlyLeaseValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_badge",
         "label": "WithOlyBadge",
         "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "section_with_oly_vehicle_image",
+        "name": "with_oly_vehicle_image",
         "label": "OlyVehicleImage",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_with_oly_description",
+        "name": "with_oly_description",
         "label": "OlyDescription",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_with_oly_vehicle_price",
+        "name": "with_oly_vehicle_price",
         "label": "OlyVehiclePrice",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "section_with_oly_vehicle_price_description",
+        "name": "with_oly_vehicle_price_description",
         "label": "OlyVehiclePriceDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_figure_title",
+        "label": "OlyVehicleFigureTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_salary_title",
+        "label": "OlyTitleSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_salary_value",
+        "label": "OlyAnnualSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_car_title",
+        "label": "OlyCarTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_car_value",
+        "label": "OlyCarValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_lease_title",
+        "label": "OlyLeaseTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_lease_value",
+        "label": "OlyLeaseValue",
         "value": ""
       }
     ]
