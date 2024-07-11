@@ -167,13 +167,7 @@
                   "item": {
                     "sling:resourceType": "core/franklin/components/block/v1/block/item",
                     "name": "Slide",
-                    "model": "slide",
-                    "slideIcon": "content/dam/oly/icons/lifestyle/EV-logo.png",
-                    "slideName_1": "Brand Name",
-                    "slideName_2": "Model Name",
-                    "slideDescription": "Default description",
-                    "slideLinkPrimary": "Default Link Primary",
-                    "slideLinkSecondary": "Default Link Secondary"
+                    "model": "slide"
                   }
                 }
               }
@@ -189,13 +183,7 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "Slide",
-                  "model": "slide",
-                  "slideIcon": "content/dam/oly/icons/lifestyle/EV-logo.png",
-                  "slideName_1": "Brand Name",
-                  "slideName_2": "Model Name",
-                  "slideDescription": "Default description",
-                  "slideLinkPrimary": "Default Link Primary",
-                  "slideLinkSecondary": "Default Link Secondary"
+                  "model": "slide"
                 }
               }
             }
