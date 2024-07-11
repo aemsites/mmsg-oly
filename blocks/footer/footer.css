@@ -191,6 +191,8 @@ footer .footer p {
     }
 
     .footer-nav-div {
+      max-width: var(--max-width-container);
+
       p {
         &:nth-child(1) {
           grid-area: logo;
@@ -234,7 +236,7 @@ footer .footer p {
       gap: 0;
       text-align: unset;
       padding: 50px 80px 40px 104px;
-      max-width: 100%;
+      max-width: var(--max-width-container);
 
       ul {
         gap: 0 1rem;
