@@ -129,12 +129,12 @@ footer .footer p {
   ul {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 
     li {
       span.icon {
-        width: 32px;
-        height: 32px;
+        width: 2rem;
+        height: 2rem;
         cursor: pointer;
       }
     }
