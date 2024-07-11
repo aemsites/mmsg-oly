@@ -41,6 +41,10 @@ footer .footer p {
 .footer-legal > div > p {
   color: var(--color-white);
   text-align: start;
+
+  strong {
+    font-family: var(--font-family-bold);
+  }
 }
 
 .footer-image {
