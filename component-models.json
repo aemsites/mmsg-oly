@@ -333,6 +333,13 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "section-desc",
+        "label": "Description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "no-oly-badge",
         "label": "NoOlyBadge",
         "value": ""
