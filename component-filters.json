@@ -30,7 +30,8 @@
       "columns",
       "header-nav",
       "carousel",
-      "savingscard"
+      "savingscard",
+      "accordion"
     ]
   },
   {
@@ -42,5 +43,9 @@
   {
     "id": "carousel",
     "components": ["silde"]
+  },
+  {
+    "id": "accordion",
+    "components": ["accordion"]
   }
 ]
