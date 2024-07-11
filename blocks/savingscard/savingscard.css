@@ -51,6 +51,12 @@
   padding: var(--spacing-s);
 }
 
+.block.savingscard > div.no-oly picture,
+.block.savingscard > div.with-oly picture {
+  display: block;
+  text-align: center;
+}
+
 .block.savingscard > div.no-oly [data-aue-prop='no_oly_badge'],
 .block.savingscard > div.with-oly [data-aue-prop='with_oly_badge'] {
   font-size: var(--font-size-l-alt);
