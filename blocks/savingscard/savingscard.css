@@ -1,6 +1,7 @@
 .block.savingscard {
   display: grid;
   grid-template-columns: 50% 50%;
+  background: var(--color-white);
 }
 
 .block.savingscard > div.bg-image,
