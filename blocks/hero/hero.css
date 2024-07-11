@@ -78,7 +78,7 @@ main {
         line-height: 32px;
         margin: 0;
 
-        @media (width >= 024px) {
+        @media (width >= 1024px) {
           margin: 0 0 var(--spacing-s);
           font-size: var(--font-size-l);
         }
@@ -120,7 +120,7 @@ main {
   }
 }
 
-.hero-homepage.hero {
+.homepage.hero {
   padding: 0;
 
   @media (width >= 1024px) {
