@@ -37,7 +37,7 @@ export default function decorate(block) {
   [...sectionNoOly.children].forEach((item) => {
     [...item.children].forEach((p) => {
       p.setAttribute('data-aue-prop', sectionNoOlyProps[sectionNoOnlyIndex].name);
-      sectionNoOnlyIndex++;
+      sectionNoOnlyIndex += 1;
     });
   });
 
@@ -45,7 +45,7 @@ export default function decorate(block) {
   [...sectionWithOly.children].forEach((item) => {
     [...item.children].forEach((p) => {
       p.setAttribute('data-aue-prop', sectionWithOlyProps[sectionWithOnlyIndex].name);
-      sectionWithOnlyIndex++;
+      sectionWithOnlyIndex += 1;
     });
   });
 }
