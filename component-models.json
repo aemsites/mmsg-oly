@@ -298,11 +298,48 @@
         "multi": false
       },
       {
+        "component": "reference",
+        "valueType": "string",
+        "name": "slideIcon",
+        "label": "Icon",
+        "description": "Sets the slide icon",
+        "multi": false
+      },
+      {
         "component": "richtext",
-        "name": "text",
+        "name": "slideDescription",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "slideName_1",
+        "label": "Brand Name",
+        "description": "Sets the Slide Brand Name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "slideName_2",
+        "label": "Model Name",
+        "description": "Sets the Slide Model Name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "slideLinkPrimary",
+        "value": "",
+        "label": "View Offer CTA",
+        "description": "Sets the primary link for the slide"
+      },{
+        "component": "text",
+        "valueType": "string",
+        "name": "slideLinkSecondary",
+        "value": "",
+        "label": "Explore More CTA",
+        "description": "Sets the secondary link for the slide"
       }
     ]
   },
