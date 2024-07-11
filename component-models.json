@@ -501,6 +501,10 @@
     ]
   },
   {
+    "id": "accordion-group",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
