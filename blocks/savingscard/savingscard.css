@@ -71,7 +71,8 @@
   color: var(--color-black);
 }
 
-.block.savingscard > div.no-oly [data-aue-prop='no_oly_description'] {
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_description'] {
   font-size: var(--font-size-l);
 }
 
@@ -80,4 +81,55 @@
   font-size: var(--font-size-l);
   padding: var(--spacing-xs);
   background: var(--border-color);
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
+  font-size: var(--font-size-l-alt);
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+  font-size: var(--font-size-m);
+  line-height: 1;
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+  font-weight: bold;
+  text-align: center;
+}
+
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
+  color: var(--color-pink);
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_salary_title'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_salary_title'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_car_title'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_car_title'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_lease_title'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_lease_title'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_salary_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_salary_value'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_car_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_car_value'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_lease_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_lease_value'] {
+  display: inline-block;
+  padding-bottom: var(--spacing-s);
+  border-bottom: 1px solid var(--border-color);
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_salary_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_salary_value'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_car_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_car_value'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_lease_value'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_lease_value'] {
+  text-align: right;
 }
