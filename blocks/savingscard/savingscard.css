@@ -121,7 +121,7 @@
   display: inline-block;
   padding-bottom: var(--spacing-s);
   border-bottom: 1px solid var(--border-color);
-  width: 50%;
+  width: 49%;
   box-sizing: border-box;
 }
 
