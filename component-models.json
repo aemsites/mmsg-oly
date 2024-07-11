@@ -333,13 +333,6 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "description",
-        "label": "Description",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
         "name": "no_oly_badge",
         "label": "NoOlyBadge",
         "value": ""
