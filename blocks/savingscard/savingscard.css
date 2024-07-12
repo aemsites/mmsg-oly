@@ -180,7 +180,7 @@
 
   .block.savingscard > div.bg-image {
     width: 100%;
-    margin-top: var(--spacing-negative-s);
+    margin-top: var(--spacing-negative-xxs);
   }
 
   .block.savingscard > div.bg-image img {
