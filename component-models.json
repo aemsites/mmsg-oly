@@ -505,6 +505,10 @@
     "fields": []
   },
   {
+    "id": "breadcrumb",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
