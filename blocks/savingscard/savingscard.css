@@ -4,16 +4,25 @@
   background: var(--color-white);
 }
 
+.block.savingscard p {
+  color: var(--color-black);
+}
+
 .block.savingscard > div.bg-image,
 .block.savingscard > div.fg-overlay-content {
   grid-row: 1;
   grid-column: 1 / 3;
+  max-width: 816px;
+  margin: auto;
+}
+
+.block.savingscard > div.fg-overlay-content p {
   font-size: var(--font-size-lg);
+  font-family: var(--font-family-bold);
   text-align: center;
   font-weight: bold;
   color: var(--color-black);
-  max-width: 816px;
-  margin: auto;
+  line-height: 1;
 }
 
 .block.savingscard > div.bg-image img {
@@ -47,8 +56,10 @@
 .block.savingscard > div.no-oly,
 .block.savingscard > div.with-oly {
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: var(--spacing-xs);
   padding: var(--spacing-s);
+  max-width: 504px;
+  box-sizing: border-box;
 }
 
 .block.savingscard > div.no-oly picture,
@@ -60,6 +71,7 @@
 .block.savingscard > div.no-oly [data-aue-prop='no_oly_badge'],
 .block.savingscard > div.with-oly [data-aue-prop='with_oly_badge'] {
   font-size: var(--font-size-l-alt);
+  font-family: var(--font-family-bold);
 }
 
 .block.savingscard > div.no-oly [data-aue-prop='no_oly_badge'],
@@ -132,4 +144,61 @@
 .block.savingscard > div.no-oly [data-aue-prop='no_oly_lease_value'],
 .block.savingscard > div.with-oly [data-aue-prop='with_oly_lease_value'] {
   text-align: right;
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+  padding: var(--spacing-xs);
+  max-width: 323px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
+  border-top: 1px solid var(--border-color);
+  border-top-left-radius: var(--spacing-xs);
+  border-top-right-radius: var(--spacing-xs);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+  border-bottom: 1px solid var(--border-color);
+  border-bottom-left-radius: var(--spacing-xs);
+  border-bottom-right-radius: var(--spacing-xs);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (width < 1024px) {
+  .block.savingscard {
+    margin-top: var(--spacing-s);
+  }
+
+  .block.savingscard > div.no-oly,
+  .block.savingscard > div.with-oly {
+    max-width: 504px;
+    width: 100%;
+    display: block;
+    grid-column: 1 / 3;
+    margin: 0 auto var(--spacing-s) auto;
+  }
+
+  .block.savingscard > div.bg-image {
+    width: 100%;
+    margin-top: -var(--spacing-s);
+  }
+
+  .block.savingscard > div.bg-image img {
+    content: url('http://mmsg-mkt-stage1-res.adobe-campaign.com/res/mmsg_mkt_stage1/dcd66a8723a21210c62b8fabd72e6c84fe21c5f1045821aa260845088bf7d1f1.png');
+    margin-top: -24px;
+  }
 }
