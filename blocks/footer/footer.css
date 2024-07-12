@@ -40,6 +40,11 @@ footer .footer p {
 
 .footer-legal > div > p {
   color: var(--color-white);
+  text-align: start;
+
+  strong {
+    font-family: var(--font-family-bold);
+  }
 }
 
 .footer-image {
@@ -69,6 +74,7 @@ footer .footer p {
       > p {
         padding: 0 1rem 1rem;
         border-bottom: 1px solid var(--color-white);
+        font-family: var(--font-family-bold);
       }
 
       a {
@@ -98,6 +104,7 @@ footer .footer p {
 
       &:nth-child(3) {
         margin-top: 1rem;
+        font-family: var(--font-family-bold);
       }
 
       img {
@@ -126,13 +133,13 @@ footer .footer p {
   ul {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 1rem;
 
     li {
       span.icon {
-        border: 1px solid var(--color-white);
-        border-radius: 4px;
-        padding: 0.25rem;
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
       }
     }
   }
@@ -184,6 +191,8 @@ footer .footer p {
     }
 
     .footer-nav-div {
+      max-width: var(--max-width-container);
+
       p {
         &:nth-child(1) {
           grid-area: logo;
@@ -227,7 +236,7 @@ footer .footer p {
       gap: 0;
       text-align: unset;
       padding: 50px 80px 40px 104px;
-      max-width: 100%;
+      max-width: var(--max-width-container);
 
       ul {
         gap: 0 1rem;

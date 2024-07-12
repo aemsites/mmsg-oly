@@ -119,8 +119,9 @@
   }
 
   .section.semicircle-image {
+    max-width: var(--max-width-container);
     padding: var(--spacing-xl) var(--spacing-m) var(--spacing-xl) var(--spacing-xl);
-    margin: var(--spacing-xl) var(--spacing-xxl);
+    margin: var(--spacing-xl) auto;
 
     .columns > div {
       align-items: center;

@@ -54,7 +54,9 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: var(--font-size-xs-alt);
 }
 
 /* hamburger */
@@ -148,7 +150,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 73px;
   height: auto;
 }
 

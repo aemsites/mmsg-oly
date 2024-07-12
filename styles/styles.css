@@ -67,23 +67,35 @@
   --heading-line-height: 1.25;
 
   /* Spacing */
+  --spacing-xxxxs: 4px;
   --spacing-xxxs-l: 4px;
   --spacing-xxxs: 8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
   --spacing-xs: 16px;
+  --spacing-xs-l: 18px;
   --spacing-s: 24px;
   --spacing-m: 32px;
+  --spacing-m-l: 35px;
   --spacing-l: 40px;
+  --spacing-l-l: 56px;
   --spacing-xl: 64px;
   --spacing-xxl: 96px;
+  --spacing-xxl-negative: -96px;
   --spacing-xxxl: 104px;
+  --spacing-negative-xxxs-l: -4px;
+  --spacing-negative-xxxs: -8px;
+  --spacing-negative-xxs: -10px;
+  --spacing-negative-xxs-l: -12px;
+  --spacing-negative-xs: -16px;
+  --spacing-negative-s: -24px;
 
   /* layout */
   --max-width-small: 375px;
   --max-width-medium: 768px;
   --max-width-large: 1024px;
   --max-width-xlarge: 1440px;
+  --max-width-container: 1232px;
 
   /* z-index */
   --z-index: 99;
@@ -382,7 +394,7 @@ main .section {
 
 @media (width >= 768px) {
   .section > div {
-    max-width: var(--max-width-large);
+    max-width: var(--max-width-container);
     margin: auto;
   }
 
@@ -403,10 +415,11 @@ main .section.highlight {
 }
 
 /* Header Nav */
-.header-nav-container {
+.header-nav-container.section {
   display: grid;
-  margin: var(--spacing-l) var(--spacing-xs);
+  margin: var(--spacing-l) var(--spacing-s);
   grid-auto-rows: auto;
+  padding: 0;
 
   @media (width >= 768px) {
     grid-template-columns: 1fr 1fr;
@@ -417,7 +430,7 @@ main .section.highlight {
     background: var(--color-white);
     box-shadow: var(--box-shadow);
     max-width: var(--max-width-large);
-    margin: 0 var(--spacing-l) var(--spacing-xxl) var(--spacing-l);
+    margin: -120px var(--spacing-l) var(--spacing-xxl) var(--spacing-l);
   }
 
   @media (width >= 1024px) {
@@ -428,8 +441,17 @@ main .section.highlight {
     border: 1px solid var(--bg-color-paper);
     background: var(--color-white);
     box-shadow: var(--box-shadow);
-    max-width: var(--max-width-large);
-    margin: 0 var(--spacing-xxxl) var(--spacing-xxl) var(--spacing-xxxl);
+    margin: var(--spacing-xxl-negative) var(--spacing-xxxl) var(--spacing-xxl) var(--spacing-xxxl);
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .header-nav-wrapper {
+    width: -webkit-fill-available;
+    margin-top: 0;
   }
 
   .header-nav-wrapper:nth-child(1) {
@@ -439,16 +461,28 @@ main .section.highlight {
 
     @media (width >= 1024px) {
       grid-area: 1 / 1 / span 4 / span 1;
+
+      span.divider:last-child {
+        display: none;
+      }
     }
   }
 
   .header-nav-wrapper:nth-child(2) {
     @media (width >= 768px) {
       grid-area: 3 / 1 / span 4 / span 1;
+
+      span.divider:last-child {
+        display: none;
+      }
     }
 
     @media (width >= 1024px) {
       grid-area: 1 / 2 / span 1 / span 1;
+
+      span.divider:last-child {
+        display: flex;
+      }
     }
   }
 
@@ -459,6 +493,10 @@ main .section.highlight {
 
     @media (width >= 1024px) {
       grid-area: 2 / 2 / span 6 / span 1;
+
+      span.divider:last-child {
+        display: none;
+      }
     }
   }
 
@@ -475,30 +513,62 @@ main .section.highlight {
   .header-nav-wrapper:nth-child(5) {
     @media (width >= 768px) {
       grid-area: 3 / 2 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
     }
 
     @media (width >= 1024px) {
       grid-area: 2 / 3 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
     }
   }
 
   .header-nav-wrapper:nth-child(6) {
     @media (width >= 768px) {
       grid-area: 4 / 2 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
     }
 
     @media (width >= 1024px) {
       grid-area: 3 / 3 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
     }
   }
 
   .header-nav-wrapper:nth-child(7) {
     @media (width >= 768px) {
       grid-area: 5 / 2 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
+
+      span.divider:last-child {
+        display: none;
+      }
     }
 
     @media (width >= 1024px) {
       grid-area: 4 / 3 / span 1 / span 1;
+
+      .divider {
+        margin: var(--spacing-xs) 0;
+      }
+
+      span.divider:last-child {
+        display: none;
+      }
     }
   }
 }
