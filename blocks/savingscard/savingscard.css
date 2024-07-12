@@ -156,8 +156,8 @@
   margin: 0 auto;
 }
 
-.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
-.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
+.savingsCard div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.savingsCard div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
   border-top: 1px solid var(--border-color);
   border-top-left-radius: var(--spacing-xs);
   border-top-right-radius: var(--spacing-xs);
@@ -167,8 +167,8 @@
   padding-bottom: 0;
 }
 
-.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
-.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
   border-bottom: 1px solid var(--border-color);
   border-bottom-left-radius: var(--spacing-xs);
   border-bottom-right-radius: var(--spacing-xs);
@@ -194,11 +194,11 @@
 
   .block.savingscard > div.bg-image {
     width: 100%;
-    margin-top: -var(--spacing-s);
+    margin-top: var(--spacing-negative-s);
   }
 
   .block.savingscard > div.bg-image img {
     content: url('http://mmsg-mkt-stage1-res.adobe-campaign.com/res/mmsg_mkt_stage1/dcd66a8723a21210c62b8fabd72e6c84fe21c5f1045821aa260845088bf7d1f1.png');
-    margin-top: -24px;
+    margin-top: var(--spacing-negative-s);
   }
 }

@@ -79,6 +79,13 @@
   --spacing-xxl: 96px;
   --spacing-xxxl: 104px;
 
+  --spacing-negative-xxxs-l: -4px;
+  --spacing-negative-xxxs: -8px;
+  --spacing-negative-xxs: -10px;
+  --spacing-negative-xxs-l: -12px;
+  --spacing-negative-xs: -16px;
+  --spacing-negative-s: -24px;
+
   /* layout */
   --max-width-small: 375px;
   --max-width-medium: 768px;
