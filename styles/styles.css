@@ -26,6 +26,7 @@
   --color-active-outline: #6673fb;
   --color-focus-outline: #ffd337;
   --color-disabled: #adb5bd;
+  --button-bg-color: #ced4da;
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */
@@ -78,6 +79,7 @@
   --spacing-m: 32px;
   --spacing-m-l: 35px;
   --spacing-l: 40px;
+  --spacing-l-alt: 48px;
   --spacing-l-l: 56px;
   --spacing-xl: 64px;
   --spacing-xxl: 96px;
