@@ -146,33 +146,28 @@
   text-align: right;
 }
 
-div.no-oly [data-aue-prop='no_oly_vehicle_price'],
-div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'] {
   border-top: 1px solid var(--border-color);
   border-top-left-radius: var(--spacing-xs);
   border-top-right-radius: var(--spacing-xs);
   border-right: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
-  margin-bottom: 0;
-  padding-bottom: 0;
+  padding: var(--spacing-xs) var(--spacing-xs) 0 var(--spacing-xs);
+  max-width: 323px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
-div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
+.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
+.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
   border-bottom: 1px solid var(--border-color);
   border-bottom-left-radius: var(--spacing-xs);
   border-bottom-right-radius: var(--spacing-xs);
   border-right: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   margin-top: 0;
-  padding-top: 0;
-}
-
-.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price'],
-.block.savingscard > div.no-oly [data-aue-prop='no_oly_vehicle_price_description'],
-.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price'],
-.block.savingscard > div.with-oly [data-aue-prop='with_oly_vehicle_price_description'] {
-  padding: var(--spacing-xs);
+  padding: 0 var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
   max-width: 323px;
   box-sizing: border-box;
   margin: 0 auto;
