@@ -105,6 +105,7 @@
 
   /* nav */
   --nav-height: 80px;
+  --nav-mobile-height: 88px;
 
   /* box-shadow */
   --box-shadow: 0 2px 4px 0px #0000001a; /* stylelint-disable-line */
@@ -123,7 +124,11 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: var(--nav-mobile-height);
+
+  @media (width >= 1024px) {
+    height: var(--nav-height);
+  }
 }
 
 h1,
