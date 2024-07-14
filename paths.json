@@ -1,6 +1,7 @@
 {
   "mappings": [
-    "/content/oly/:/",
+    "/content/oly/au/:/",
+    "content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json"
   ]
 }
