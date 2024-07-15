@@ -17,7 +17,7 @@ export default function decorate(block) {
       if (!isAboveMobile.matches) {
         row.classList.add('inactive');
       }
-      const links = [...row.firstElementChild.firstElementChild.children];
+      const links = [...(row.firstElementChild?.firstElementChild?.children || null)];
       links.forEach((col, indexCol) => {
         if (links.length - 1 !== indexCol) {
           col.insertAdjacentHTML('afterend', dividerInner.outerHTML);
