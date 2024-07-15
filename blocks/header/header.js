@@ -117,11 +117,13 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    const searchBox = document.createElement('input');
-    searchBox.type = 'text';
-    searchBox.placeholder = 'search';
-    searchBox.classList.add('search-box');
-    navSections.querySelector(':scope .default-content-wrapper').prepend(searchBox);
+    if (!isDesktop.matches) {
+      const searchBox = document.createElement('input');
+      searchBox.type = 'text';
+      searchBox.placeholder = 'search';
+      searchBox.classList.add('search-box');
+      navSections.querySelector(':scope .default-content-wrapper').prepend(searchBox);
+    }
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       // if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       // navSection.addEventListener('click', () => {

@@ -94,7 +94,7 @@ header nav a:any-link {
   display: none;
 }
 
-@media (width >= 768px) {
+@media (768px <= width <= 1023px) {
   li.arrow-link > a {
     position: relative;
   }
@@ -287,11 +287,16 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  background: #f2ede8;
 
-  @media (width >= 768px) {
+  @media (768px <= width <= 1023px) {
     background: #f2ede8;
     margin: 0 -24px 0 -16px;
     padding: 24px 48px;
+  }
+
+  @media (width >= 1024px) {
+    background: white;
   }
 }
 
@@ -300,12 +305,17 @@ header nav .nav-sections ul {
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
+  gap: 24px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 
-  @media (width >= 768px) {
+  @media (768px <= width <= 1023px) {
     gap: 16px 0;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+  }
+
+  @media (width > 1024px) {
+    flex-direction: row;
   }
 }
 
@@ -316,7 +326,7 @@ header nav .nav-sections ul > li {
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 
-  @media (width >= 768px) {
+  @media (768px <= width <= 1023px) {
     gap: 0;
     display: flex;
     flex-direction: column;
