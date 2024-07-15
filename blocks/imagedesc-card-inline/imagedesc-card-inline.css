@@ -1,0 +1,5 @@
+.block.imagedesc-card-inline {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: var(--color-white);
+}

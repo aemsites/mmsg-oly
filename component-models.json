@@ -555,5 +555,24 @@
         "label": "Body"
       }
     ]
+  },
+  {
+    "id": "imagedesc-card-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "text",
+        "value": ""
+      }
+    ]
   }
 ]
