@@ -23,6 +23,8 @@ async function getItems() {
   });
 }
 export default async function decorate(block) {
+  const breadcrumbs = createElementWithClasses('nav');
+  breadcrumbs.className = 'breadcrumbs';
   const items = await getItems();
   block.innerHTML = '';
   const ol = createElementWithClasses('ol');
@@ -45,5 +47,6 @@ export default async function decorate(block) {
     }),
   );
 
-  block.append(ol);
+  breadcrumbs.append(ol);
+  block.append(breadcrumbs);
 }
