@@ -18,12 +18,13 @@ async function getItems() {
     title = title.charAt(0).toUpperCase() + title.slice(1);
     return {
       title,
-      href: `${itemPath}.html`,
+      href: `${itemPath}`,
     };
   });
 }
 export default async function decorate(block) {
   const breadcrumbs = createElementWithClasses('nav');
+
   breadcrumbs.className = 'breadcrumbs';
   const items = await getItems();
   block.innerHTML = '';

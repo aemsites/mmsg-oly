@@ -8,7 +8,7 @@ export default function decorate(block) {
   [...block.children].forEach((row, index) => {
     if (index === 1) {
       if (!isAboveMobile.matches) {
-        row.addEventListener('click', function () {
+        row.addEventListener('click', function toggleNextElement() {
           this.nextElementSibling.classList.toggle('inactive');
         });
       }
