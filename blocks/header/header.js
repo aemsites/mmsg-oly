@@ -117,15 +117,30 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    const searchBox = document.createElement('input');
+    searchBox.type = 'text';
+    searchBox.placeholder = 'search';
+    searchBox.classList.add('search-box');
+    navSections.querySelector(':scope .default-content-wrapper').prepend(searchBox);
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+      // if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      // navSection.addEventListener('click', () => {
+      //   if (isDesktop.matches) {
+      //     const expanded = navSection.getAttribute('aria-expanded') === 'true';
+      //     toggleAllNavSections(navSections);
+      //     navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      //   }
+      // });
+      if (navSection.children.length > 1) {
+        navSection.lastChild.classList.add('inactive');
+        navSection.classList.add('chevron-menu');
+        navSection.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.lastChild.classList.toggle('inactive');
+        });
+      } else {
+        navSection.classList.add('arrow-link');
+      }
     });
   }
 
