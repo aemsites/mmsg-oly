@@ -170,12 +170,13 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 0 16px;
-  width: 1232px;
-  margin: 80px 104px;
   background: #f2ede8;
+  padding: 80px 104px;
+  margin: 0 auto;
 
   .default-content-wrapper {
     margin: 0;
+    max-width: 400px;
 
     h1,
     h2,
@@ -202,7 +203,8 @@
     gap: 32px 40px;
     border-radius: 16px;
     background: white;
-    margin: 40px;
+    padding: 40px;
+    max-width: 736px;
   }
 
   form div.field-wrapper:nth-child(7) {
