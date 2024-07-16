@@ -136,6 +136,10 @@ header nav a:any-link {
     background: #fff;
     padding: 12px 16px;
     margin-bottom: 40px;
+
+    @media (width >= 1024px) {
+      display: none;
+    }
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
@@ -288,15 +292,18 @@ header nav[aria-expanded='true'] .nav-sections {
   visibility: visible;
   align-self: start;
   background: #f2ede8;
+  margin: 0 -24px 0 -16px;
+  padding: 24px 48px;
 
   @media (768px <= width <= 1023px) {
-    background: #f2ede8;
-    margin: 0 -24px 0 -16px;
-    padding: 24px 48px;
+    /* margin: 0 -24px 0 -16px;
+    padding: 24px 48px; */
   }
 
   @media (width >= 1024px) {
     background: white;
+    padding: 0;
+    margin: 0 167px 0 0;
   }
 }
 
