@@ -509,6 +509,10 @@
     "fields": []
   },
   {
+    "id": "car-card",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
@@ -572,6 +576,28 @@
         "name": "col_2_text",
         "label": "Text",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "wishlist",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "small",
+            "value": "small"
+          },
+          {
+            "name": "full",
+            "value": "full"
+          }
+        ]
       }
     ]
   }
