@@ -22,7 +22,7 @@ function getPriceContainer(cardObj) {
       <div class="car-card-price-container">
         <p class="car-card-price-title">Weekly price from</p>
         <h1 class="car-card-price">${cardObj?.weeklyPriceInfo}</h1>
-        <p>Including all car running costs</p>
+        <p class="car-card-info">Including all car running costs</p>
         <p class="car-card-price-weekly">Estimated tax savings ${cardObj.price}</p>
       <div>
     `;
