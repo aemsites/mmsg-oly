@@ -563,34 +563,6 @@
         "multi": false
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "col_2_title",
-        "label": "Title",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "col_2_description",
-        "label": "Description",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "col_2_link_text",
-        "label": "Link Text",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "col_2_link_url",
-        "label": "Link URL",
-        "value": ""
-      },
-      {
         "component": "richtext",
         "valueType": "string",
         "name": "col_2_text",
