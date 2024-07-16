@@ -13,22 +13,7 @@ export default function decorate(block) {
     { name: 'no_oly_lease_title' },
     { name: 'no_oly_lease_value' },
   ];
-  const sectionWithOlyProps = [
-    { name: 'with_oly_badge' },
-    { name: 'with_oly_vehicle_image' },
-    { name: 'with_oly_description' },
-    { name: 'with_oly_vehicle_price' },
-    { name: 'with_oly_vehicle_price_description' },
-    { name: 'with_oly_figure_title' },
-    { name: 'with_oly_salary_title' },
-    { name: 'with_oly_salary_value' },
-    { name: 'with_oly_car_title' },
-    { name: 'with_oly_car_value' },
-    { name: 'with_oly_lease_title' },
-    { name: 'with_oly_lease_value' },
-  ];
   const [titleBg, title, sectionNoOly, sectionWithOly] = block.children;
-  debugger;
   titleBg.className = 'bg-image';
   title.className = 'fg-overlay-content';
   sectionNoOly.className = 'no-oly';
