@@ -1,5 +1,4 @@
 import { createElementFromHTML } from '../../scripts/utils.js';
-import myJsonObject from '../../scripts/data.js';
 
 function getFeaturesContainer() {
   return `
@@ -70,6 +69,8 @@ function buildCards(carData) {
 }
 
 export default function decorate(block) {
+  const myJsonObject = []; // this will be replaced by the actual data received
+  if (!myJsonObject.length) return;
   const result = buildCards(myJsonObject);
   block.append(result);
 }
