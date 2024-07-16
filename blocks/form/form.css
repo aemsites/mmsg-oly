@@ -167,17 +167,25 @@
 
 .section.request-callback {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 0 16px;
   background: #f2ede8;
-  padding: 80px 104px;
+  padding: 16px 40px;
   margin: 0 auto;
   justify-content: center;
 
+  @media (width >= 1024px) {
+    flex-direction: row;
+    padding: 80px 104px;
+  }
+
   .default-content-wrapper {
-    margin: 0 16px 0 0;
+    margin: 0 0 40px;
     max-width: 400px;
+
+    @media (width >= 1024px) {
+      margin: 0 16px 0 0;
+    }
 
     h1,
     h2,
@@ -199,27 +207,35 @@
 
   .form-wrapper {
     margin: 0;
-    max-width: 776px;
+    max-width: 816px;
   }
 
   form {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-template-rows: auto;
-    gap: 32px 40px;
+    gap: 40px;
     border-radius: 16px;
     background: white;
-    padding: 40px;
+    padding: 16px 24px;
+
+    @media (width >= 1024px) {
+      grid-template-columns: auto auto;
+      padding: 40px;
+      gap: 32px 40px;
+    }
   }
 
-  form div.field-wrapper:nth-child(7) {
-    grid-column: 1 / -1;
-    grid-row: 4;
-  }
+  @media (width >= 1024px) {
+    form div.field-wrapper:nth-child(7) {
+      grid-column: 1 / -1;
+      grid-row: 4;
+    }
 
-  form div.field-wrapper:nth-child(8) {
-    grid-column: 1 / -1;
-    grid-row: 5;
+    form div.field-wrapper:nth-child(8) {
+      grid-column: 1 / -1;
+      grid-row: 5;
+    }
   }
 
   .form .button {
