@@ -17,7 +17,7 @@ indices:
     properties:
       title:
         select: main h1
-        value: 'hello1'
+        value: textContent(el)
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
