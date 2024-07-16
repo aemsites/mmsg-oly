@@ -15,7 +15,7 @@
       "text",
       "image",
       "button",
-      "title"
+      "title",
     ]
   },
   {
@@ -33,7 +33,8 @@
       "carousel",
       "savingscard",
       "accordion-group",
-      "imagedesc-card-inline"
+      "imagedesc-card-inline",
+      "form"
     ]
   },
   {

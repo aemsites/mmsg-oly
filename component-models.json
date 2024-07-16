@@ -574,5 +574,24 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formUrl",
+        "label": "Form location",
+        "value": ""
+      }
+    ]
   }
 ]
