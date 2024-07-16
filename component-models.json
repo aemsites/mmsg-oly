@@ -578,5 +578,27 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "wishlist",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "small",
+            "value": "small"
+          },
+          {
+            "name": "full",
+            "value": "full"
+          }
+        ]
+      }
+    ]
   }
 ]
