@@ -166,11 +166,43 @@
 }
 
 .request-callback {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0 16px;
+  width: 1232px;
+  margin: 80px 104px;
+  background: #f2ede8;
+
+  .default-content-wrapper {
+    margin: 0;
+
+    h1,
+    h2,
+    h3 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      margin: 0 0 16px;
+    }
+
+    p {
+      color: #4f575e;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 32px;
+      margin: 0;
+    }
+  }
+
   form {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     gap: 32px 40px;
+    border-radius: 16px;
+    background: white;
+    margin: 40px;
   }
 
   form div.field-wrapper:nth-child(7) {
