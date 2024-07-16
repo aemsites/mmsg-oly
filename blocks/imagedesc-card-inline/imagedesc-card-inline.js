@@ -6,7 +6,7 @@ export default function decorate(block) {
   col2.className = 'col2';
   [...bl.children].forEach((item) => {
     [...item.children].forEach((el, index) => {
-      if (index == 0) {
+      if (index === 0) {
         col1.append(el);
       } else {
         col2.append(el);
