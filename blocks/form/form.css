@@ -173,9 +173,10 @@
   background: #f2ede8;
   padding: 80px 104px;
   margin: 0 auto;
+  justify-content: center;
 
   .default-content-wrapper {
-    margin: 0;
+    margin: 0 16px 0 0;
     max-width: 400px;
 
     h1,
@@ -196,6 +197,11 @@
     }
   }
 
+  .form-wrapper {
+    margin: 0;
+    max-width: 776px;
+  }
+
   form {
     display: grid;
     grid-template-columns: auto auto;
@@ -204,7 +210,6 @@
     border-radius: 16px;
     background: white;
     padding: 40px;
-    max-width: 736px;
   }
 
   form div.field-wrapper:nth-child(7) {
