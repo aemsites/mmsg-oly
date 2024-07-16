@@ -7,7 +7,6 @@
 .imagedesc-card-inline > div {
   display: grid;
   grid-template-columns: 50% 50%;
-  background: var(--color-white);
   max-width: 1023px;
   margin: 0 auto;
   background: transparent;
@@ -46,7 +45,6 @@
   }
   .col1,
   .col2 {
-    margin: auto auto var(--spacing-s) auto;
     padding: 0 var(--spacing-s);
   }
 }
