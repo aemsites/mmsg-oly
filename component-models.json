@@ -589,6 +589,13 @@
         "name": "col_2_link_url",
         "label": "Link URL",
         "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
       }
     ]
   }
