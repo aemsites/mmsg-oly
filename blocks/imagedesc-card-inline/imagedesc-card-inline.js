@@ -1,28 +1,22 @@
 export default function decorate(block) {
-  const sectionNoOlyProps = [
-    { name: 'no_oly_badge' },
-    { name: 'no_oly_vehicle_image' },
-    { name: 'no_oly_description' },
-    { name: 'no_oly_vehicle_price' },
-    { name: 'no_oly_vehicle_price_description' },
-    { name: 'no_oly_figure_title' },
-    { name: 'no_oly_salary_title' },
-    { name: 'no_oly_salary_value' },
-    { name: 'no_oly_car_title' },
-    { name: 'no_oly_car_value' },
-    { name: 'no_oly_lease_title' },
-    { name: 'no_oly_lease_value' },
-  ];
-  const [titleBg, title, sectionNoOly, sectionWithOly] = block.children;
-  titleBg.className = 'bg-image';
-  title.className = 'fg-overlay-content';
-  sectionNoOly.className = 'no-oly';
-  sectionWithOly.className = 'with-oly';
-  let sectionNoOnlyIndex = 0;
-  [...sectionNoOly.children].forEach((item) => {
-    [...item.children].forEach((p) => {
-      p.setAttribute('data-aue-prop', sectionNoOlyProps[sectionNoOnlyIndex].name);
-      sectionNoOnlyIndex += 1;
+  const [bl] = block.children;
+  const col1 = document.createElement('div');
+  const col2 = document.createElement('div');
+  col1.className = 'col1';
+  col2.className = 'col2';
+  [...bl.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      if (index == 0) {
+        col1.append(el);
+      } else {
+        col2.append(el);
+      }
     });
   });
+  block.textContent = '';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'container';
+  wrapper.append(col1);
+  wrapper.append(col2);
+  block.append(wrapper);
 }
