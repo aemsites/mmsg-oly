@@ -1,5 +1,56 @@
 .imagedesc-card-inline {
+  background: var(--bg-color-neutral);
+  border-radius: var(--spacing-xs);
+  margin: var(--spacing-xl) 0 var(--spacing-s) 0;
+}
+
+.imagedesc-card-inline > div {
   display: grid;
   grid-template-columns: 50% 50%;
-  background: var(--color-white);
+  max-width: 1023px;
+  margin: 0 auto;
+  background: transparent;
+
+  .col1 {
+    position: relative;
+    top: -48px;
+    margin: auto;
+  }
+
+  .col2 {
+    margin: auto;
+
+    a,
+    a:hover {
+      color: var(--color-pink);
+      margin-bottom: 0;
+      text-decoration: underline;
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  h3 {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-l);
+    margin-top: 0;
+  }
+
+  p {
+    font-size: var(--font-size-s);
+    margin: 0;
+  }
+}
+
+@media (width < 1024px) {
+  .imagedesc-card-inline > div {
+    height: auto;
+    grid-template-columns: 100%;
+  }
+
+  .col1,
+  .col2 {
+    margin: auto auto var(--spacing-s) auto;
+    padding: 0 var(--spacing-s);
+  }
 }
