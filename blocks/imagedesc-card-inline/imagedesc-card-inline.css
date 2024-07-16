@@ -19,6 +19,15 @@
 
   .col2 {
     margin: auto;
+
+    a,
+    a:hover {
+      color: var(--color-pink);
+      margin-bottom: 0;
+      text-decoration: underline;
+      background: transparent;
+      padding: 0;
+    }
   }
 
   h3 {
@@ -29,11 +38,6 @@
 
   p {
     font-size: var(--font-size-s);
-    margin: 0;
-  }
-
-  a {
-    color: var(--color-pink);
     margin: 0;
   }
 }
