@@ -31,17 +31,40 @@ export default function decorate(block) {
   sectionNoOly.className = 'no-oly';
   sectionWithOly.className = 'with-oly';
   let sectionNoOnlyIndex = 0;
+
   [...sectionNoOly.children].forEach((item) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
     [...item.children].forEach((p) => {
       p.setAttribute('data-aue-prop', sectionNoOlyProps[sectionNoOnlyIndex].name);
+      if (
+        sectionNoOlyProps[sectionNoOnlyIndex].name === 'no_oly_vehicle_price' ||
+        sectionNoOlyProps[sectionNoOnlyIndex].name === 'no_oly_vehicle_price_description'
+      ) {
+        wrapper.append(p);
+        item.append(wrapper);
+      } else {
+        item.append(p);
+      }
       sectionNoOnlyIndex += 1;
     });
   });
 
   let sectionWithOnlyIndex = 0;
   [...sectionWithOly.children].forEach((item) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
     [...item.children].forEach((p) => {
       p.setAttribute('data-aue-prop', sectionWithOlyProps[sectionWithOnlyIndex].name);
+      if (
+        sectionWithOlyProps[sectionWithOnlyIndex].name === 'with_oly_vehicle_price' ||
+        sectionWithOlyProps[sectionWithOnlyIndex].name === 'with_oly_vehicle_price_description'
+      ) {
+        wrapper.append(p);
+        item.append(wrapper);
+      } else {
+        item.append(p);
+      }
       sectionWithOnlyIndex += 1;
     });
   });
