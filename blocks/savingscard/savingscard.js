@@ -27,10 +27,7 @@ export default function decorate(block) {
     { name: 'with_oly_lease_title' },
     { name: 'with_oly_lease_value' },
   ];
-  const [titleBg, title, sectionNoOly, sectionWithOly] = block.children;
-
-  titleBg.className = 'bg-image';
-  title.className = 'fg-overlay-content';
+  const [sectionNoOly, sectionWithOly] = block.children;
   sectionNoOly.className = 'no-oly';
   sectionWithOly.className = 'with-oly';
   let sectionNoOnlyIndex = 0;
