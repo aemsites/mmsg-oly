@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, calc((100% - 16px * 3) / 3));
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: 1rem;
 }
 
@@ -84,6 +84,7 @@
     gap: 0.25rem;
     font-size: var(--font-size-xs-alt);
     border-right: 1px solid var(--border-color);
+    padding-right: var(--spacing-xxxs);
   }
 
   span.seats {
@@ -95,6 +96,7 @@
     width: 2rem;
     height: 2rem;
     margin: auto;
+    opacity: 0.8;
   }
 }
 
@@ -130,4 +132,29 @@
 .car-card-button-container a {
   margin: 0;
   width: 100%;
+}
+
+@media (width >=768px) {
+  .car-detail-container {
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-s) var(--spacing-xs);
+  }
+}
+
+@media (width >=1024px) {
+  .section.car-card-4 {
+    .car-cards-wrapper {
+      grid-template-columns: repeat(4, calc((100% - 16px * 3) / 4));
+
+      .car-feature {
+        span {
+          font-size: var(--font-size-xxs);
+        }
+
+        span::before {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
 }

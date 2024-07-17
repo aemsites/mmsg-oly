@@ -58,8 +58,8 @@ function buildCardTemplate(cardObj) {
           <h3>${cardObj?.year} ${cardObj?.modelName}</h3>
           <img data-offer-id="${cardObj?.offerId}" class="car-card-heart" src="../../icons/heart.svg" alt="Wishlist Icon">
         </div>
-        <img class="car-card-image" src="${imageLink}" alt="BMW 4 Series">
-        <p class="car-card-type">${cardObj?.type || ''}</p>
+        <img class="car-card-image" src="${imageLink}" alt="car offers image">
+         ${cardObj?.type ? `<p class="car-card-type">${cardObj?.type}</p>` : ''}
         <p class="car-card-description">${cardObj?.carDescription || ''}</p>
       <div>
       `;
