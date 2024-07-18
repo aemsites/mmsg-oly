@@ -54,7 +54,7 @@
   }
 
   p:first-of-type {
-    font-size: 16px;
+    font-size: var(--font-size-xs);
   }
 
   .button-container a {
@@ -96,7 +96,7 @@
     }
 
     p:first-of-type {
-      font-size: 18px;
+      font-size: var(--font-size-s);
     }
   }
 }
