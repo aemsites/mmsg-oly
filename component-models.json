@@ -148,9 +148,9 @@
       },
       {
         "component": "select",
-        "name": "type",
+        "name": "classes",
         "value": "",
-        "label": "Color Type",
+        "label": "Type",
         "valueType": "string",
         "options": [
           {
