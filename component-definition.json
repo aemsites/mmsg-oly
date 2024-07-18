@@ -132,7 +132,7 @@
                 "template": {
                   "name": "Card",
                   "model": "card",
-                  "classes": ["green", "aqua", "blue"]
+                  "classes": ["default","green", "aqua", "blue"]
                 }
               }
             }

@@ -133,29 +133,15 @@
     "id": "card",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
         "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Type",
         "valueType": "string",
+        "name": "cardColor",
+        "value": "",
+        "label": "Card Color",
         "options": [
           {
             "name": "default",
-            "value": ""
+            "value": "default"
           },
           {
             "name": "green",
@@ -170,6 +156,20 @@
             "value": "blue"
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },
