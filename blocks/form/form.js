@@ -2,6 +2,14 @@ import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
 
+async function loadRecaptcha() {
+  const script = document.createElement('script');
+  script.src = 'https://www.google.com/recaptcha/api.js';
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
 async function createForm(formHref) {
   const { pathname } = new URL(formHref);
   const resp = await fetch(pathname);
@@ -112,6 +120,7 @@ export default async function decorate(block) {
 
   const form = await createForm(formLink.href);
   block.replaceChildren(form);
+  await loadRecaptcha();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
