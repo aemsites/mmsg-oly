@@ -1,0 +1,7 @@
+.savingscard-footer {
+  text-align: center;
+
+  p {
+    font-size: var(--font-size-xs-alt);
+  }
+}

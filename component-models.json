@@ -307,7 +307,7 @@
     ]
   },
   {
-    "id": "savingscard",
+    "id": "savingscard-header",
     "fields": [
       {
         "component": "reference",
@@ -330,6 +330,30 @@
         "label": "TitleBrand",
         "value": ""
       },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "section_Description",
+        "label": "Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard-footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard",
+    "fields": [
       {
         "component": "text",
         "valueType": "string",
@@ -509,6 +533,10 @@
     "fields": []
   },
   {
+    "id": "car-card",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
@@ -557,7 +585,26 @@
     ]
   },
   {
-    "id": "imagedesc-card-inline",
+    "id": "imagedesc-col2-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "thumbnail_desc",
     "fields": [
       {
         "component": "reference",

@@ -2,25 +2,28 @@ import ffetch from '../../scripts/ffetch.js';
 import { createElementWithClasses } from '../../scripts/utils.js';
 
 async function getItems() {
-  const path = window.location.pathname;
-  // get the breadcrumb items from the page path, only after '/us/en'
-  const pathParts = path.split('/');
-  const itemPaths = pathParts.length > 2 ? pathParts.slice(3).map((_, i) => pathParts.slice(0, i + 4).join('/')) : [];
-  const articles = await ffetch('/au/en/query-index.json')
-    .filter((article) => itemPaths.includes(article.path))
+  // get the breadcrumb items from the page path
+  const generatePathArray = (path) => path.split('/').map((_, i, arr) => arr.slice(0, i + 1).join('/') || '/');
+  let itemPaths = generatePathArray(window.location.pathname);
+  itemPaths = itemPaths.length > 0 ? itemPaths : [];
+  const pages = await ffetch('/query-index.json')
+    .filter((page) => itemPaths.includes(page.path))
     .all();
 
-  // map over itemPaths to create items
-  return itemPaths.map((itemPath) => {
-    // get the title from the article, based on its path
-    const article = articles.find((entry) => entry.path === itemPath);
-    let title = article && article.navTitle !== '' ? article.navTitle : itemPath.split('/').pop();
-    title = title.charAt(0).toUpperCase() + title.slice(1);
+  const items = itemPaths.map((itemPath) => {
+    // get the title from the pages, based on its path
+    const page = pages.find((entry) => entry.path === itemPath);
+    let title = page && page.navTitle !== '' ? page.navTitle : page.title;
+    if (itemPath === '/') {
+      title = 'Home';
+    }
     return {
       title,
-      href: `${itemPath}`,
+      url: `${itemPath}`,
     };
   });
+
+  return items;
 }
 export default async function decorate(block) {
   const breadcrumbs = createElementWithClasses('nav');
@@ -32,9 +35,9 @@ export default async function decorate(block) {
   ol.append(
     ...items.map((item) => {
       const li = createElementWithClasses('li');
-      if (item['aria-current']) {
+      if (item.url === window.location.pathname) {
         li.classList.add('active');
-        li.setAttribute('aria-current', item['aria-current']);
+        li.setAttribute('aria-current', 'page');
       }
       if (item.url) {
         const a = createElementWithClasses('a');

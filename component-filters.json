@@ -31,10 +31,15 @@
       "columns",
       "header-nav",
       "carousel",
+      "savingscard-header",
       "savingscard",
+      "savingscard-footer",
       "accordion-group",
-      "imagedesc-card-inline",
-      "form"
+      "form",
+      "imagedesc-col2-inline",
+      "car-card",
+      "wishlist",
+      "thumbnail_desc"
     ]
   },
   {

@@ -1,3 +1,7 @@
+.breadcrumbs {
+  padding: 9px 0;
+}
+
 .breadcrumbs ol {
   list-style: none;
   padding: 0;
@@ -9,10 +13,14 @@
 .breadcrumbs li {
   display: inline-block;
   margin-right: 15px;
+  color: var(--color-grey);
+  font-size: var(--font-size-xs-alt);
 }
 
 .breadcrumbs a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: var(--color-grey);
+  font-size: var(--font-size-xs-alt);
 }
 
 .breadcrumbs li::after {
@@ -20,6 +28,16 @@
   margin-left: 15px;
 }
 
+.breadcrumbs li.active {
+  text-decoration: none;
+}
+
 .breadcrumbs li.active::after {
   content: '';
+}
+
+@media (width < 768px) {
+  .breadcrumbs {
+    display: none;
+  }
 }

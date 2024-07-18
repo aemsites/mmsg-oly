@@ -2,6 +2,6 @@
   "mappings": [
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
-    "/content/oly/au/en/query-index.json"
+    "/content/oly/au/en/query-index.json:/au/en/query-index.json"
   ]
 }

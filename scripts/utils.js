@@ -28,3 +28,14 @@ export function createElementWithClasses(tag, ...classes) {
   addClassToElement(element, ...classes);
   return element;
 }
+
+/**
+ * Creates an element from an HTML string.
+ * @param {string} htmlString - The HTML string to create the element from.
+ * @return {Element} The created element.
+ */
+export function createElementFromHTML(htmlString) {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString.trim();
+  return tempDiv.firstChild;
+}
