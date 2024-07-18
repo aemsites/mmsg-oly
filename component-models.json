@@ -585,7 +585,7 @@
     ]
   },
   {
-    "id": "imagedesc-card-inline",
+    "id": "imagedesc-col2-inline",
     "fields": [
       {
         "component": "reference",
