@@ -307,7 +307,7 @@
     ]
   },
   {
-    "id": "savingscard",
+    "id": "savingscard-header",
     "fields": [
       {
         "component": "reference",
@@ -330,6 +330,30 @@
         "label": "TitleBrand",
         "value": ""
       },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "section_Description",
+        "label": "Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard-footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard",
+    "fields": [
       {
         "component": "text",
         "valueType": "string",
@@ -505,6 +529,14 @@
     "fields": []
   },
   {
+    "id": "breadcrumb",
+    "fields": []
+  },
+  {
+    "id": "car-card",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
@@ -553,7 +585,7 @@
     ]
   },
   {
-    "id": "imagedesc-card-inline",
+    "id": "imagedesc-col2-inline",
     "fields": [
       {
         "component": "reference",
@@ -566,7 +598,79 @@
         "component": "richtext",
         "valueType": "string",
         "name": "col_2_text",
-        "label": "text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "thumbnail_desc",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formUrl",
+        "label": "Form location",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "wishlist",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "small",
+            "value": "small"
+          },
+          {
+            "name": "full",
+            "value": "full"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vehicle-search-box",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "input",
+        "label": "input",
         "value": ""
       }
     ]

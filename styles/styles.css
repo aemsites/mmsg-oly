@@ -23,10 +23,12 @@
   --bg-color-paper: #f2ede8;
   --bg-color-blue: #c7eded;
   --bg-color-green: #004733;
+  --bg-color-neutral: #f8f9fa;
   --color-active-outline: #6673fb;
   --color-focus-outline: #ffd337;
   --color-disabled: #adb5bd;
   --button-bg-color: #ced4da;
+  --asterisk-required-color: #b22222;
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */
@@ -75,6 +77,7 @@
   --spacing-xxs-l: 12px;
   --spacing-xs: 16px;
   --spacing-xs-l: 18px;
+  --spacing-xs-l-alt: 20px;
   --spacing-s: 24px;
   --spacing-m: 32px;
   --spacing-m-l: 35px;
@@ -82,7 +85,9 @@
   --spacing-l-alt: 48px;
   --spacing-l-l: 56px;
   --spacing-xl: 64px;
+  --spacing-xl-l: 80px;
   --spacing-xxl: 96px;
+  --spacing-xxl-l: 104px;
   --spacing-xxl-negative: -96px;
   --spacing-xxxl: 104px;
   --spacing-negative-xxxs-l: -4px;
@@ -100,6 +105,8 @@
   --max-width-large: 1024px;
   --max-width-xlarge: 1440px;
   --max-width-container: 1232px;
+  --max-width-container-small: 400px;
+  --max-width-container-medium: 816px;
 
   /* z-index */
   --z-index: 99;

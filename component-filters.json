@@ -21,6 +21,7 @@
   {
     "id": "section",
     "components": [
+      "breadcrumb",
       "text",
       "image",
       "button",
@@ -30,9 +31,16 @@
       "columns",
       "header-nav",
       "carousel",
+      "savingscard-header",
       "savingscard",
+      "savingscard-footer",
       "accordion-group",
-      "imagedesc-card-inline"
+      "form",
+      "imagedesc-col2-inline",
+      "car-card",
+      "wishlist",
+      "thumbnail_desc",
+      "vehicle-search-box"
     ]
   },
   {
