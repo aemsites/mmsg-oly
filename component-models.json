@@ -643,5 +643,17 @@
         ]
       }
     ]
+  },
+  {
+    "id": "vehicle-search-box",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "input",
+        "label": "input",
+        "value": ""
+      }
+    ]
   }
 ]
