@@ -98,6 +98,8 @@
   --spacing-negative-s: -24px;
 
   /* layout */
+  --max-height-small: 280px;
+  --max-height-medium: 400px;
   --max-width-small: 375px;
   --max-width-medium: 768px;
   --max-width-large: 1024px;
