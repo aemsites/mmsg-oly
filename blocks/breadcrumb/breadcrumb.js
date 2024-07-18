@@ -39,7 +39,7 @@ export default async function decorate(block) {
         li.classList.add('active');
         li.setAttribute('aria-current', 'page');
       }
-      if (item.url) {
+      if (item.url && item.url !== window.location.pathname) {
         const a = createElementWithClasses('a');
         a.href = item.url;
         a.textContent = item.title;

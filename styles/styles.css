@@ -399,10 +399,8 @@ main .section {
   }
 }
 
-@media (width >= 600px) {
-  main .section {
-    padding: var(--spacing-xl) var(--spacing-m);
-  }
+.section.breadcrumb-container {
+  padding: 0 var(--spacing-m);
 }
 
 @media (width >= 768px) {

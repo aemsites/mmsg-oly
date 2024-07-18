@@ -699,5 +699,34 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Display search?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Explore text",
+        "value": "Explore these categories"
+      }
+    ]
   }
 ]
