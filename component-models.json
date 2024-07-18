@@ -145,6 +145,31 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Color Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "green",
+            "value": "green"
+          },
+          {
+            "name": "aqua",
+            "value": "aqua"
+          },
+          {
+            "name": "blue",
+            "value": "blue"
+          }
+        ]
       }
     ]
   },
