@@ -34,7 +34,6 @@ export default async function decorate(block) {
   const ol = createElementWithClasses('ol');
   ol.append(
     ...items.map((item) => {
-      console.log(item, item['aria-current']);
       const li = createElementWithClasses('li');
       if (item.url === window.location.pathname) {
         li.classList.add('active');
