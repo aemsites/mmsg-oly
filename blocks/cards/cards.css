@@ -53,6 +53,10 @@
     color: var(--color-black);
   }
 
+  p:first-of-type {
+    font-size: 16px;
+  }
+
   .button-container a {
     font-size: var(--font-size-s);
   }
@@ -84,11 +88,15 @@
     padding: 0;
   }
 
-  .card .cards-card-body {
+  .cards .cards-card-body {
     h3,
     h4 {
       font-size: var(--font-size-l-alt);
       color: var(--color-black);
+    }
+
+    p:first-of-type {
+      font-size: 18px;
     }
   }
 }
