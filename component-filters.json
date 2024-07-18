@@ -31,11 +31,14 @@
       "columns",
       "header-nav",
       "carousel",
+      "savingscard-header",
       "savingscard",
+      "savingscard-footer",
       "accordion-group",
-      "imagedesc-card-inline",
+      "imagedesc-col2-inline",
       "car-card",
-      "wishlist"
+      "wishlist",
+      "thumbnail_desc"
     ]
   },
   {

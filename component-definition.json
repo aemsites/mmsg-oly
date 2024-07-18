@@ -190,6 +190,24 @@
           }
         },
         {
+          "title": "Savingscard-header",
+          "id": "savingscard-header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Savingscard-header",
+                  "model": "savingscard-header",
+                  "foreground_TitleHeading":"A novated lease",
+                  "foreground_TitleBrand":"that saves you more.",
+                  "section_Description":"Example based on a 2023 Mercede Benz Auto valued at $145,000 at the time of entering a 3 year lease. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Savingscard",
           "id": "savingscard",
           "plugins": {
@@ -198,10 +216,22 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Savingscard",
-                  "model": "savingscard",
-                  "foreground_TitleHeading":"A novated lease",
-                  "foreground_TitleBrand":"that saves you more.",
-                  "description":"Example based on a 2023 Mercede Benz Auto valued at $145,000 at the time of entering a 3 year lease. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+                  "model": "savingscard"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Savingscard-footer",
+          "id": "savingscard-footer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Savingscard-footer",
+                  "model": "savingscard-footer"
                 }
               }
             }
@@ -249,15 +279,30 @@
           }
         },
         {
-          "title": "Image Description Card Inline",
-          "id": "imagedesc-card-inline",
+          "title": "Image Description 2-Column Inline",
+          "id": "imagedesc-col2-inline",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "imagedesc-card-inline",
-                  "model": "imagedesc-card-inline"
+                  "name": "imagedesc-col2-inline",
+                  "model": "imagedesc-col2-inline"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Thumbnail Description Card",
+          "id": "thumbnail_desc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "thumbnail_desc",
+                  "model": "thumbnail_desc"
                 }
               }
             }
