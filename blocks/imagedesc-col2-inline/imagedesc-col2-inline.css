@@ -1,10 +1,10 @@
-.imagedesc-card-inline {
+.imagedesc-col2-inline {
   background: var(--bg-color-neutral);
   border-radius: var(--spacing-xs);
   margin: var(--spacing-xl) 0 var(--spacing-s) 0;
 }
 
-.imagedesc-card-inline > div {
+.imagedesc-col2-inline > div {
   display: grid;
   grid-template-columns: 50% 50%;
   max-width: 1023px;
@@ -43,7 +43,7 @@
 }
 
 @media (width < 1024px) {
-  .imagedesc-card-inline > div {
+  .imagedesc-col2-inline > div {
     height: auto;
     grid-template-columns: 100%;
   }
