@@ -134,10 +134,10 @@
     "fields": [
       {
         "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Type",
         "valueType": "string",
+        "name": "cardColor",
+        "value": "",
+        "label": "Card Color",
         "options": [
           {
             "name": "default",
