@@ -2,6 +2,9 @@
   "mappings": [
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
-    "/content/oly/au/en/query-index.json:/au/en/query-index.json"
+    "/content/oly/au/en/query-index.json:/au/en/query-index.json",
+    "/content/oly/metadata:/metadata.json",
+    "/content/oly/au/en/request-a-callback:/request-a-callback.json",
+    "/content/oly/au/en/faqform:/faqform.json"
   ]
 }
