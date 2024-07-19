@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  const [bl] = block.children;
+  const [bl, bl1, bl2] = block.children;
   const col1 = document.createElement('div');
   const col2 = document.createElement('div');
   const col3 = document.createElement('div');
@@ -10,7 +10,7 @@ export default function decorate(block) {
     [...item.children].forEach((el, index) => {
       if (index === 0) {
         col1.append(el);
-      } else if (index === item.children.length - 1) {
+      } else if (item.children.length === 1) {
         col3.append(el);
       } else {
         col2.append(el);
