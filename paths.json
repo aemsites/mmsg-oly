@@ -3,6 +3,7 @@
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
     "/content/oly/au/en/query-index.json:/au/en/query-index.json",
-    "/content/oly/metadata:/metadata.json"
+    "/content/oly/metadata:/metadata.json",
+    "/content/oly/au/en/metadata:/au/en/metadata.json"
   ]
 }
