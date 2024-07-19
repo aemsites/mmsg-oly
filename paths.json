@@ -4,9 +4,7 @@
     "/content/oly/configuration:/.helix/config.json",
     "/content/oly/au/en/query-index.json:/au/en/query-index.json",
     "/content/oly/metadata:/metadata.json",
-    "/content/oly/au/en/metadata.json:/au/en/metadata.json",
     "/content/oly/au/en/request-a-callback:/request-a-callback.json",
-    "/content/oly/au/en/request-a-callback.json:/au/en/request-a-callback.json",
-    "/content/oly/au/en/faqform.json:/au/en/faqform.json"
+    "/content/oly/au/en/faqform:/au/en/faqform.json"
   ]
 }
