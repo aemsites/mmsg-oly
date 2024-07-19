@@ -74,6 +74,18 @@
     text-align: center;
   }
 
+  .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* stylelint-disable */
+    p {
+      text-align: center;
+    }
+    /* stylelint-enable */
+  }
+
   .columns {
     > div {
       display: flex;
@@ -121,6 +133,12 @@
       > div {
         flex-direction: row;
         align-items: stretch;
+      }
+    }
+
+    .default-content-wrapper {
+      p {
+        width: 380px;
       }
     }
   }
