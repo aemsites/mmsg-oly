@@ -816,5 +816,41 @@
         "value": "Key features"
       }
     ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Car Detail page?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Youtube Link",
+        "value": ""
+      }
+    ]
   }
 ]
