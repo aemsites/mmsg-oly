@@ -1,0 +1,47 @@
+.faq.form .field-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  padding: 0;
+}
+
+.faq.form label {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--body-font-size-xs);
+  margin-bottom: 0.25em;
+}
+
+.faq.form input {
+  font-size: var(--body-font-size-s);
+  width: 100%;
+  max-width: 50rem;
+  display: block;
+  padding: var(--spacing-xxs-l) var(--spacing-xxxs);
+  border-radius: var(--spacing-xxxxs);
+  box-sizing: border-box;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.faq.form .field-wrapper label {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--spacing-s);
+  margin-bottom: var(--spacing-xxxs);
+  padding: 0;
+}
+
+.faq.form .field-wrapper > label {
+  order: -1;
+}
+
+.faq.form .field-wrapper input {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-body);
+  line-height: var(--spacing-s);
+  padding: var(--spacing-xxxs) var(--spacing-xs);
+  border-radius: var(--spacing-xxxxs);
+  border: 1px solid #000;
+  height: var(--spacing-l-alt);
+}
