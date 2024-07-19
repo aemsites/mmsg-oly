@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  const [bl, bl1, bl2] = block.children;
+  const [bl] = block.children;
   const col1 = document.createElement('div');
   const col2 = document.createElement('div');
   const col3 = document.createElement('div');
