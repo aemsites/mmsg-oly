@@ -10,7 +10,7 @@ export default function decorate(block) {
     [...item.children].forEach((el, index) => {
       if (index === 0) {
         col1.append(el);
-      } else if (index === item.children.length - 1) {
+      } else if (item.children.length === 1) {
         col3.append(el);
       } else {
         col2.append(el);

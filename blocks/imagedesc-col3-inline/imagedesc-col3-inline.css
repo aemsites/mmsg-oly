@@ -2,6 +2,10 @@
   background: var(--bg-color-neutral);
   border-radius: var(--spacing-xs);
   margin: var(--spacing-xl) 0 var(--spacing-s) 0;
+
+  .container {
+    min-height: 200px;
+  }
 }
 
 .imagedesc-col3-inline > div {
@@ -12,13 +16,18 @@
   background: transparent;
 
   .col1 {
-    position: relative;
-    top: -48px;
+    position: absolute;
     margin: auto;
+
+    img {
+      margin-top: var(--spacing-negative-s);
+    }
   }
 
   .col2 {
     margin: auto;
+    padding: var(--spacing-s);
+    grid-column: 2;
 
     a,
     a:hover {
@@ -32,6 +41,8 @@
 
   .col3 {
     margin: auto;
+    padding: var(--spacing-s);
+    grid-column: 3;
   }
 
   h3 {
@@ -50,12 +61,14 @@
   .imagedesc-col3-inline > div {
     height: auto;
     grid-template-columns: 100%;
-  }
 
-  .col1,
-  .col2,
-  .col3 {
-    margin: auto auto var(--spacing-s) auto;
-    padding: 0 var(--spacing-s);
+    .col1,
+    .col2,
+    .col3 {
+      margin: auto 0 var(--spacing-s) 0;
+      padding: 0 var(--spacing-s);
+      grid-column: 1;
+      position: relative;
+    }
   }
 }
