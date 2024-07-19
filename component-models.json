@@ -804,5 +804,17 @@
         "value": "$38,606"
       }
     ]
+  },
+  {
+    "id": "car-features",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "feature",
+        "label": "Features",
+        "value": "Key features"
+      }
+    ]
   }
 ]
