@@ -17,10 +17,16 @@ function handleSearchInput(e) {
 }
 
 export default async function decorate(block) {
-  block.classList.add('form');
-  const form = await createForm(`${CONFIG.baseURL}/faqform.json`);
-  block.replaceChildren(form);
+  const element = block.querySelector('div.faq.block > div > div > p');
 
-  const searchInput = block.querySelector('#form-faqsearch');
-  searchInput.addEventListener('input', handleSearchInput);
+  // Check if form should be shown
+  if (element && element.textContent.trim() === 'yes') {
+    block.classList.add('form');
+    const form = await createForm(`${CONFIG.baseURL}/faqform.json`);
+    element.replaceChildren(form);
+    const searchInput = block.querySelector('#form-faqsearch');
+    searchInput.addEventListener('input', handleSearchInput);
+  } else {
+    element.remove();
+  }
 }

@@ -752,13 +752,6 @@
         "name": "text",
         "label": "Explore text",
         "value": "Explore these categories"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "category",
-        "label": "Categories",
-        "value": ""
       }
     ]
   },
