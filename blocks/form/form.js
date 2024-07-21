@@ -1,7 +1,16 @@
 import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
+import requestCallbackSubmission from './request-callback.js';
 
-async function createForm(formHref) {
+async function loadRecaptcha() {
+  const script = document.createElement('script');
+  script.src = 'https://www.google.com/recaptcha/api.js';
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+export async function createForm(formHref) {
   const { pathname } = new URL(formHref);
   const resp = await fetch(pathname);
   const json = await resp.json();
@@ -28,6 +37,12 @@ async function createForm(formHref) {
   return form;
 }
 
+function getFormType(form) {
+  const objWithFormType = [form.elements].find((obj) => obj.formType !== undefined);
+  const formType = objWithFormType ? objWithFormType.formType?.value : null;
+  return formType;
+}
+
 function generatePayload(form) {
   const payload = {};
 
@@ -52,6 +67,27 @@ function handleSubmitError(form, error) {
   form.querySelector('button[type="submit"]').disabled = false;
   sampleRUM('form:error', { source: '.form', target: error.stack || error.message || 'unknown error' });
 }
+// Function to handle generic form submission
+async function genericSubmission(form) {
+  // create payload
+  const payload = generatePayload(form);
+  const response = await fetch(form.dataset.action, {
+    method: 'POST',
+    body: JSON.stringify({ data: payload }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (response.ok) {
+    sampleRUM('form:submit', { source: '.form', target: form.dataset.action });
+    if (form.dataset.confirmation) {
+      window.location.href = form.dataset.confirmation;
+    }
+  } else {
+    const error = await response.text();
+    throw new Error(error);
+  }
+}
 
 async function handleSubmit(form) {
   if (form.getAttribute('data-submitting') === 'true') return;
@@ -61,23 +97,15 @@ async function handleSubmit(form) {
     form.setAttribute('data-submitting', 'true');
     submit.disabled = true;
 
-    // create payload
-    const payload = generatePayload(form);
-    const response = await fetch(form.dataset.action, {
-      method: 'POST',
-      body: JSON.stringify({ data: payload }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (response.ok) {
-      sampleRUM('form:submit', { source: '.form', target: form.dataset.action });
-      if (form.dataset.confirmation) {
-        window.location.href = form.dataset.confirmation;
-      }
-    } else {
-      const error = await response.text();
-      throw new Error(error);
+    const formType = getFormType(form);
+    // Determine form submission logic based on form type
+    switch (formType) {
+      case 'request-callback':
+        await requestCallbackSubmission(form);
+        break;
+      default:
+        await genericSubmission(form);
+        break;
     }
   } catch (e) {
     handleSubmitError(form, e);
@@ -92,6 +120,7 @@ export default async function decorate(block) {
 
   const form = await createForm(formLink.href);
   block.replaceChildren(form);
+  await loadRecaptcha();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -58,17 +58,73 @@
         }
       }
     }
+  }
 
-    .columns-img-col img {
-      border-radius: 0.5rem;
-      max-width: 680px;
-      max-height: 400px;
-      aspect-ratio: 1.3;
+  .columns-img-col img {
+    border-radius: 0.5rem;
+    max-width: 680px;
+    max-height: 400px;
+    aspect-ratio: 1.3;
+  }
+}
+
+/* three-col-text | whats included */
+.section.three-col-text {
+  h3 {
+    text-align: center;
+  }
+
+  .columns {
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+
+    > div > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    div p:first-child {
+      background-color: var(--bg-color-paper);
+      border-radius: 50%;
+      height: 88px;
+      width: 88px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div > p:last-child {
+      margin-top: auto;
+    }
+
+    img {
+      height: 56px;
+      width: 56px;
     }
   }
 }
 
 @media (width >= 768px) {
+  /* three col text */
+  .section.three-col-text {
+    & .columns {
+      > div {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+  }
+
   .section.semicircle-image {
     padding: var(--spacing-l);
     margin: var(--spacing-m) var(--spacing-l);
@@ -232,6 +288,151 @@
   @media (width >= 1024px) {
     .columns-wrapper .columns div {
       text-align: left;
+    }
+  }
+}
+
+/* Column variation - video */
+.section.semicircle-image.video.left {
+  background-color: var(--bg-color-paper);
+}
+
+.section.semicircle-image.video.right {
+  background-color: var(--bg-color-blue);
+}
+
+.section.semicircle-image.video {
+  .columns-img-col {
+    position: relative;
+
+    img {
+      border-radius: 0.5rem;
+      height: var(--max-height-small);
+      width: 100%;
+    }
+  }
+
+  @media (width >= 768px) {
+    .columns-img-col img {
+      height: var(--max-height-medium);
+    }
+  }
+
+  .columns-img-col::before {
+    content: url('../../icons/play-video-button.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white); /* change to desired color */
+    font-size: var(--spacing-s); /* change to desired size */
+  }
+}
+
+.section.more-from-oly {
+  padding: 0 var(--spacing-xs);
+  gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-s);
+  line-height: 2rem;
+
+  div.default-content-wrapper {
+    h2,
+    h3 {
+      font-size: var(--font-size-l-alt);
+      line-height: 2.5rem;
+    }
+  }
+
+  .columns-wrapper .columns {
+    > div {
+      text-align: center;
+      gap: 1rem;
+
+      > div {
+        padding: var(--spacing-s);
+        gap: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+
+        p {
+          margin: var(--spacing-xxxxs) 0;
+
+          img {
+            width: 134px;
+            aspect-ratio: 1.34;
+          }
+
+          &.button-container a {
+            color: var(--link-color);
+            font-size: var(--font-size-xs);
+            margin: 0;
+          }
+        }
+
+        h5,
+        h6 {
+          font-size: var(--font-size-m);
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+  @media (width >= 768px) {
+    padding: 96px 160px;
+    gap: 3rem;
+
+    .default-content-wrapper {
+      h2,
+      h3 {
+        font-size: var(--font-size-lg);
+        line-height: 3rem;
+      }
+    }
+
+    .columns div {
+      > div {
+        border-radius: 1rem;
+
+        h5,
+        h6 {
+          font-size: var(--font-size-l);
+        }
+
+        p.button-container a {
+          font-size: var(--font-size-s);
+        }
+      }
+    }
+  }
+
+  @media (width >= 1024px) {
+    padding: 0 var(--spacing-xxxl);
+
+    .default-content-wrapper {
+      margin: 0;
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      div {
+        flex: 1;
+        align-items: stretch;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+
+          p.button-container {
+            margin-top: auto;
+          }
+        }
+      }
     }
   }
 }

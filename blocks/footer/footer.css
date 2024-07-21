@@ -83,23 +83,28 @@ footer .footer p {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        gap: 16px;
       }
 
       a::after {
-        content: '\203A';
-        font-size: 2.5rem;
+        content: url('../../icons/chevron-right.svg');
         width: 1.5rem;
         height: 1.5rem;
+        display: flex;
+        justify-content: end;
+        align-items: center;
       }
     }
   }
 
   .footer-nav-div {
     > p {
+      padding: 0 16px;
+
       &:nth-child(2) {
         font-weight: 400;
         text-align: left;
-        margin-top: 2rem;
+        margin-top: 1rem;
       }
 
       &:nth-child(3) {
@@ -148,7 +153,7 @@ footer .footer p {
 .footer-nav ul ul li {
   color: var(--color-black);
   border-bottom: 1px solid var(--color-white);
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
 }
 
 @media (width >=1024px) {
@@ -187,7 +192,7 @@ footer .footer p {
     }
 
     ul li p {
-      padding: 0 1rem 1rem;
+      padding: 1rem;
     }
 
     .footer-nav-div {
@@ -233,7 +238,7 @@ footer .footer p {
   .footer-legal {
     > div {
       flex-direction: row;
-      gap: 0;
+      gap: 80px;
       text-align: unset;
       padding: 50px 80px 40px 104px;
       max-width: var(--max-width-container);

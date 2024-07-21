@@ -5,10 +5,11 @@ export default function decorate(block) {
   dividerInner.classList.add('divider');
   divider.classList.add('divider');
   divider.classList.add('divider-row');
+
   [...block.children].forEach((row, index) => {
     if (index === 1) {
       if (!isAboveMobile.matches) {
-        row.addEventListener('click', function () {
+        row.addEventListener('click', function toggleNextElement() {
           this.nextElementSibling.classList.toggle('inactive');
         });
       }
@@ -17,12 +18,14 @@ export default function decorate(block) {
       if (!isAboveMobile.matches) {
         row.classList.add('inactive');
       }
-      const links = [...(row.firstElementChild?.firstElementChild?.children || [])];
-      links.forEach((col, indexCol) => {
-        if (links.length - 1 !== indexCol) {
-          col.insertAdjacentHTML('afterend', dividerInner.outerHTML);
-        }
-      });
+      if (row.firstElementChild?.firstElementChild?.children?.length > 0) {
+        const links = [...(row.firstElementChild?.firstElementChild?.children || [])];
+        links.forEach((col, indexCol) => {
+          if (links.length - 1 !== indexCol) {
+            col.insertAdjacentHTML('afterend', dividerInner.outerHTML);
+          }
+        });
+      }
       if (row.firstElementChild?.firstElementChild?.children?.length > 8) {
         row.firstElementChild?.firstElementChild?.classList.add('link-arrows');
       }

@@ -13,6 +13,15 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
+
+      // appending class to a video column button
+      const section = block.parentElement.parentElement;
+      if (section.classList.contains('section') && section.classList.contains('video')) {
+        const anchor = col.querySelector('a');
+        if (anchor) {
+          anchor.classList.add('primary');
+        }
+      }
     });
   });
 }

@@ -133,6 +133,31 @@
     "id": "card",
     "fields": [
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "cardColor",
+        "value": "",
+        "label": "Card Color",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "green",
+            "value": "green"
+          },
+          {
+            "name": "aqua",
+            "value": "aqua"
+          },
+          {
+            "name": "blue",
+            "value": "blue"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -307,7 +332,7 @@
     ]
   },
   {
-    "id": "savingscard",
+    "id": "savingscard-header",
     "fields": [
       {
         "component": "reference",
@@ -330,6 +355,30 @@
         "label": "TitleBrand",
         "value": ""
       },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "section_Description",
+        "label": "Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard-footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard",
+    "fields": [
       {
         "component": "text",
         "valueType": "string",
@@ -505,6 +554,14 @@
     "fields": []
   },
   {
+    "id": "breadcrumb",
+    "fields": []
+  },
+  {
+    "id": "car-card",
+    "fields": []
+  },
+  {
     "id": "accordion",
     "fields": [
       {
@@ -549,6 +606,250 @@
         "name": "body",
         "value": "",
         "label": "Body"
+      }
+    ]
+  },
+  {
+    "id": "imagedesc-col2-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "imagedesc-col3-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_3_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "thumbnail_desc",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formUrl",
+        "label": "Form location",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "wishlist",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "small",
+            "value": "small"
+          },
+          {
+            "name": "full",
+            "value": "full"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vehicle-search-box",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "input",
+        "label": "input",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Display search?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Explore text",
+        "value": "Explore these categories"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Categories",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "car-details",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": "Volvo XC40 details"
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Price",
+        "value": "$38,606"
+      }
+    ]
+  },
+  {
+    "id": "car-features",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "feature",
+        "label": "Features",
+        "value": "Key features"
+      }
+    ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Car Detail page?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Youtube Link",
+        "value": ""
       }
     ]
   }
