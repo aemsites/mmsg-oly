@@ -667,7 +667,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLable_brand",
+        "name": "formLabel_brand",
         "label": "Brand",
         "value": ""
       },
