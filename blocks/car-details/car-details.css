@@ -5,7 +5,7 @@ main .section.car-details-container {
   gap: 1rem;
 }
 
-.car-detail-wrapper {
+.car-details > div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -61,10 +61,10 @@ main .section.car-details-container {
 
 @media (width >= 768px) {
   main .section.car-details-container {
-    padding: 0 var(--spacing-xxl-l);
+    padding: 0 192px;
   }
 
-  .car-detail-wrapper {
+  .car-details > div {
     div {
       &:nth-child(1) {
         font-size: var(--font-size-lg);

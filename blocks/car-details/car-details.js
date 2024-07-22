@@ -4,7 +4,6 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
   const wrapper = document.createElement('div');
-  wrapper.className = 'car-detail-wrapper';
 
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
