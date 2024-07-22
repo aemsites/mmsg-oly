@@ -655,6 +655,88 @@
     ]
   },
   {
+    "id": "calculator",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "brandLogo",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Make",
+        "label": "Brand Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Model",
+        "label": "Model Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Variant",
+        "label": "Variant Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Salary",
+        "label": "Salary label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Vehicle_Cost",
+        "label": "Vehicle Cost Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Kms",
+        "label": "Annual Kms label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Salary",
+        "label": "Annual Salary label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Lease_Term",
+        "label": "Lease Term label",
+        "value": ""
+      },
+      {
+        "component": "button",
+        "name": "btn_Calculate",
+        "value": "",
+        "label": "Calculate Label",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "Description",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "thumbnail_desc",
     "fields": [
       {
