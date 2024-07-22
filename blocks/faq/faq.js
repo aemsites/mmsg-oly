@@ -75,7 +75,11 @@ export default async function decorate(block) {
         const targetElement = document.getElementById(targetId);
         // Scroll to the target element if it exists
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+          });
         }
       });
     });

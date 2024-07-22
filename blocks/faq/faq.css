@@ -30,6 +30,7 @@
   line-height: var(--spacing-s);
   margin-bottom: var(--spacing-xxxs);
   padding: 0;
+  color: var(--color-black);
 }
 
 .faq.form .field-wrapper > label {
@@ -44,6 +45,23 @@
   border-radius: var(--spacing-xxxxs);
   border: 1px solid #000;
   height: var(--spacing-l-alt);
+}
+
+.faq .accordion-group > .accordion details summary,
+.faq .accordion details summary :where(h3) {
+  color: var(--color-black);
+  font-size: var(--font-size-m);
+}
+
+.faq h4 {
+  color: var(--color-black);
+  font-size: var(--font-size-l);
+}
+
+.faq h6 {
+  color: var(--color-grey);
+  font-size: var(--font-size-xs-alt);
+  font-family: var(--font-family-body);
 }
 
 .faq a {
@@ -79,6 +97,30 @@
 /* Show the text on larger screens */
 @media (width >= 768px) {
   .faq .close-text {
-    display: inline;
+    display: inline-block;
+    width: 250px;
+    vertical-align: middle;
+    line-height: 18px;
+  }
+}
+
+@media (width >= 1024px) {
+  /* Use grid layout for the section */
+  .section.faq.accordion-group-container {
+    max-width: 816px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 296px 504px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  /* Ensure each content wrapper takes the correct column width */
+  .faq.section.faq.accordion-group-container .default-content-wrapper {
+    width: 296px;
+  }
+
+  .accordion-group-wrapper {
+    width: 504px;
   }
 }
