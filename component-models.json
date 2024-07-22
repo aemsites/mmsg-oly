@@ -667,8 +667,15 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "formLable_brand",
+        "label": "Brand",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "formLabel_Make",
-        "label": "Brand Label",
+        "label": "Make Label",
         "value": ""
       },
       {
