@@ -55,7 +55,8 @@
   margin-right: var(--spacing-xxxs);
 }
 
-.faq .icon {
+.faq .icon,
+.faq .close-text {
   position: absolute;
   right: 10px;
   top: 70%;
@@ -65,7 +66,19 @@
   height: 20px;
 }
 
+.faq .close-text {
+  margin-left: 5px; /* Space between icon and text */
+  display: none; /* Hide the text by default */
+}
+
 /* Hide the close icon by default */
 .faq .icon-close {
   display: none;
+}
+
+/* Show the text on larger screens */
+@media (width >= 768px) {
+  .faq .close-text {
+    display: inline;
+  }
 }

@@ -48,10 +48,19 @@ export default async function decorate(block) {
     closeIcon.setAttribute('aria-hidden', 'true');
     closeIcon.setAttribute('tabindex', '0'); // Make the close icon focusable
 
+    // Create text span for close icon
+    const closeText = document.createElement('span');
+    closeText.classList.add('close-text');
+    closeText.textContent = 'Close and back to FAQs';
+
     // Append icons to the wrapper
     const wrapper = document.querySelector('.field-wrapper');
     wrapper.appendChild(searchIcon);
-    wrapper.appendChild(closeIcon);
+    const closeContainer = document.createElement('div');
+    closeContainer.classList.add('icon-text-container');
+    closeContainer.appendChild(closeIcon);
+    closeContainer.appendChild(closeText);
+    wrapper.appendChild(closeContainer);
 
     searchInput.addEventListener('input', () => {
       handleSearchInput(searchInput, searchIcon, closeIcon);
