@@ -99,6 +99,13 @@ ol .accordion summary {
   line-height: 24px;
 }
 
+/* accordion-disclaimer | electric vehicle lease */
+.section.accordion-disclaimer summary::before {
+  order: 2;
+  width: 21px;
+  height: 21px;
+}
+
 .accordion details[open] {
   padding-bottom: 16px;
 }
@@ -126,4 +133,49 @@ ol .accordion summary {
 
 .shade-box .accordion-wrapper:first-child details {
   padding-top: 16px;
+}
+
+/* accordion-disclaimer | electric vehicle lease */
+.section.accordion-disclaimer {
+  background-color: var(--bg-color-paper);
+  margin: 1rem;
+  padding: 24px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.section.accordion-disclaimer .accordion-group-wrapper details {
+  padding: 0;
+}
+
+.section.accordion-disclaimer summary {
+  background-color: var(--background-color);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+  padding: 24px;
+}
+
+.section.accordion-disclaimer h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.section.accordion-disclaimer .disclaimer-1 {
+  background-color: var(--background-color);
+}
+
+@media (width >= 768px) {
+  /* accordion-disclaimer */
+  .section.accordion-disclaimer {
+    padding: 20px 40px;
+    margin: 16px 104px;
+
+    div {
+      margin: 0;
+    }
+  }
 }
