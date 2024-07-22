@@ -117,15 +117,53 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+    const imageCover = navSections.querySelector('.default-content-wrapper > p');
+    imageCover.remove();
+
+    if (isDesktop.matches) {
+      navSections.querySelectorAll(':scope .default-content-wrapper > ul li ul').forEach((navSectionul) => {
+        navSectionul.append(imageCover);
       });
+    }
+
+    if (!isDesktop.matches) {
+      const searchBox = document.createElement('input');
+      searchBox.type = 'text';
+      searchBox.placeholder = 'Search';
+      searchBox.classList.add('search-box');
+      navSections.querySelector(':scope .default-content-wrapper').prepend(searchBox);
+    }
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      // if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      // navSection.addEventListener('click', () => {
+      //   if (isDesktop.matches) {
+      //     const expanded = navSection.getAttribute('aria-expanded') === 'true';
+      //     toggleAllNavSections(navSections);
+      //     navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      //   }
+      // });
+      if (navSection.children.length > 1) {
+        navSection.children[1].classList.add('inactive');
+        navSection.children[0].children[0].classList.remove('button');
+        navSection.classList.add('chevron-menu');
+        navSection.setAttribute('aria-expanded', 'false');
+        navSection.children[0].addEventListener('click', (e) => {
+          e.preventDefault();
+          if (!isDesktop.matches) {
+            e.currentTarget.nextElementSibling.classList.toggle('inactive');
+            if (e.currentTarget.nextElementSibling.classList.length > 0) {
+              e.currentTarget.parentElement.ariaExpanded = false;
+              e.currentTarget.classList.remove('toggle-arrow');
+            } else {
+              e.currentTarget.parentElement.ariaExpanded = true;
+              e.currentTarget.classList.add('toggle-arrow');
+            }
+          }
+        });
+      } else {
+        navSection.children[0].children[0].classList.remove('button');
+        navSection.classList.add('arrow-link');
+      }
     });
   }
 
