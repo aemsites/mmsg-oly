@@ -852,5 +852,18 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "cq:tags",
+        "label": "Tags",
+        "rootPath": "/content/cq:tags/oly",
+        "description": "Defines the page meta tags for SEO"
+      }
+    ]
   }
 ]
