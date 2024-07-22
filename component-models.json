@@ -709,13 +709,6 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLabel_Salary",
-        "label": "Annual Salary label",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
         "name": "formLabel_Lease_Term",
         "label": "Lease Term label",
         "value": ""
