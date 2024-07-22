@@ -19,7 +19,7 @@ export default function decorate(block) {
         row.classList.add('inactive');
       }
       if (row.firstElementChild?.firstElementChild?.children?.length > 0) {
-        const links = [...row.firstElementChild.firstElementChild.children];
+        const links = [...(row.firstElementChild?.firstElementChild?.children || [])];
         links.forEach((col, indexCol) => {
           if (links.length - 1 !== indexCol) {
             col.insertAdjacentHTML('afterend', dividerInner.outerHTML);
