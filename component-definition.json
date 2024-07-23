@@ -310,6 +310,21 @@
           }
         },
         {
+          "title": "Calculator",
+          "id": "calculator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "calculator",
+                  "model": "calculator"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Vehicle Search Box",
           "id": "vehicle-search-box",
           "plugins": {
@@ -394,6 +409,66 @@
                 "template": {
                   "name": "Wishlist",
                   "model": "wishlist"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "FAQ",
+          "id": "faq",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "FAQ",
+                  "model": "faq"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Car Details",
+          "id": "car-details",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Car Details",
+                  "model": "car-details"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Car Features",
+          "id": "car-features",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Car Features",
+                  "model": "car-features"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Embed",
+          "id": "embed",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Embed",
+                  "model": "embed"
                 }
               }
             }

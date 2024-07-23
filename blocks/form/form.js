@@ -10,7 +10,7 @@ async function loadRecaptcha() {
   document.head.appendChild(script);
 }
 
-async function createForm(formHref) {
+export async function createForm(formHref) {
   const { pathname } = new URL(formHref);
   const resp = await fetch(pathname);
   const json = await resp.json();

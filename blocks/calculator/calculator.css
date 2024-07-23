@@ -1,0 +1,11 @@
+.calculator input,
+.calculator select,
+.calculator textarea {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-body);
+  line-height: var(--spacing-s);
+  padding: var(--spacing-xxxs) var(--spacing-xs);
+  border-radius: var(--spacing-xxxxs);
+  border: 1px solid #000;
+  height: var(--spacing-l-alt);
+}
