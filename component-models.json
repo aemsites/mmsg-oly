@@ -629,6 +629,93 @@
     ]
   },
   {
+    "id": "imagedesc-col3-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_3_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "calculator",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "titleWithDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Make",
+        "label": "Make Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Model",
+        "label": "Model Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Salary",
+        "label": "Salary label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Vehicle_Cost",
+        "label": "Vehicle Cost Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Kms",
+        "label": "Annual Kms label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Lease_Term",
+        "label": "Lease Term label",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "calculatorDescription",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "thumbnail_desc",
     "fields": [
       {
@@ -696,6 +783,133 @@
         "valueType": "string",
         "name": "input",
         "label": "input",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Display search?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Explore text",
+        "value": "Explore these categories"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Categories",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "car-details",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": "Volvo XC40 details"
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Price",
+        "value": "$38,606"
+      }
+    ]
+  },
+  {
+    "id": "car-features",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "feature",
+        "label": "Features",
+        "value": "Key features"
+      }
+    ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Car Detail page?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Youtube Link",
         "value": ""
       }
     ]

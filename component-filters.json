@@ -37,10 +37,16 @@
       "accordion-group",
       "form",
       "imagedesc-col2-inline",
+      "imagedesc-col3-inline",
       "car-card",
       "wishlist",
       "thumbnail_desc",
-      "vehicle-search-box"
+      "vehicle-search-box",
+      "faq",
+      "car-details",
+      "car-features",
+      "embed",
+      "calculator"
     ]
   },
   {
