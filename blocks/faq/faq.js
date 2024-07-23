@@ -6,8 +6,13 @@ function handleSearchInput(searchInput, searchIcon, closeIcon) {
   if (searchTerm.length > 0) {
     searchIcon.style.display = 'none';
     closeIcon.style.display = 'block';
+    const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
+    accordionGroupBlocks.forEach((block) => {
+      block.style.width = '100%';
+    });
 
     const accordionBlocks = document.querySelectorAll('.accordion.block');
+
     accordionBlocks.forEach((block) => {
       const blockContent = block.textContent.toLowerCase();
       if (blockContent.includes(searchTerm)) {
@@ -16,9 +21,23 @@ function handleSearchInput(searchInput, searchIcon, closeIcon) {
         block.style.display = 'none';
       }
     });
+
+    const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
+    defaultBlocks.forEach((block) => {
+      block.style.display = 'none';
+    });
   } else {
     searchIcon.style.display = 'block';
     closeIcon.style.display = 'none';
+    const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
+    defaultBlocks.forEach((block) => {
+      block.removeAttribute('style');
+    });
+
+    const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
+    accordionGroupBlocks.forEach((block) => {
+      block.removeAttribute('style');
+    });
   }
 }
 

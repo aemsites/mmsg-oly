@@ -1,3 +1,7 @@
+.section.faq-container .default-content-wrapper {
+  text-align: center;
+}
+
 .faq.form .field-wrapper {
   position: relative;
   display: grid;
@@ -47,6 +51,10 @@
   height: var(--spacing-l-alt);
 }
 
+.faq .accordion.block {
+  border-bottom: 1px solid var(--border-color);
+}
+
 .faq .accordion-group > .accordion details summary,
 .faq .accordion details summary :where(h3) {
   color: var(--color-black);
@@ -71,6 +79,8 @@
   text-decoration: none;
   font-size: var(--font-size-xs);
   margin-right: var(--spacing-xxxs);
+  display: inline-block;
+  margin-bottom: 15px;
 }
 
 .faq .icon,
@@ -105,22 +115,27 @@
 }
 
 @media (width >= 1024px) {
-  /* Use grid layout for the section */
-  .section.faq.accordion-group-container {
+  .section.faq,
+  .section.faq-container {
     max-width: 816px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 296px 504px;
+  }
+
+  .section.faq.accordion-group-container {
+    display: flex;
     gap: 16px;
-    align-items: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   /* Ensure each content wrapper takes the correct column width */
   .faq.section.faq.accordion-group-container .default-content-wrapper {
     width: 296px;
+    align-self: flex-start;
+    margin: 0;
   }
 
-  .accordion-group-wrapper {
+  .faq .accordion-group-wrapper {
     width: 504px;
   }
 }
