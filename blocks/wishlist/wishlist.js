@@ -116,41 +116,47 @@ function handleHeartClick(event) {
 }
 
 export default function decorate(block) {
-    const wishlistContainer = document.createElement('div');
-    wishlistContainer.id = 'wishlist-container';
+    console.log(block);
+    const variant = block.querySelector('div:nth-child(1)').textContent.trim();
+    if (variant === 'full') {
+        block.innerHTML = '';
+        const wishlistContainer = document.createElement('div');
+        wishlistContainer.id = 'wishlist-container';
+        
+        const title = document.createElement('h2');
+        title.textContent = 'My Wishlist';
+        block.appendChild(title);
+        
+        block.appendChild(wishlistContainer);
     
-    const title = document.createElement('h2');
-    title.textContent = 'My Wishlist';
-    block.appendChild(title);
+        const renderWishlist = () => {
+            const filteredJson = getFilteredJsonObject();
+            renderWishlistCards(filteredJson, wishlistContainer);
+        };
     
-    block.appendChild(wishlistContainer);
-
-    const renderWishlist = () => {
-        const filteredJson = getFilteredJsonObject();
-        renderWishlistCards(filteredJson, wishlistContainer);
-    };
-
-    renderWishlist();
-
-    document.addEventListener('wishlistUpdated', renderWishlist);
-
-    // Add click event listener to the wishlist container
-    wishlistContainer.addEventListener('click', handleHeartClick);
-
-    const clearAllButton = document.createElement('button');
-    clearAllButton.textContent = 'Clear All';
-    clearAllButton.addEventListener('click', () => {
-        localStorage.removeItem('wishlist');
         renderWishlist();
-        WishlistManager.updateWishlistCount();
-    });
-    block.appendChild(clearAllButton);
-
-    block.renderWishlistCards = renderWishlist;
-    block.getFilteredJsonObject = getFilteredJsonObject;
-
-    // Initialize wishlist functionality
-    WishlistManager.updateWishlistCountWithRetry();
+    
+        document.addEventListener('wishlistUpdated', renderWishlist);
+    
+        wishlistContainer.addEventListener('click', handleHeartClick);
+    
+        // const clearAllButton = document.createElement('button');
+        // clearAllButton.textContent = 'Clear All';
+        // clearAllButton.addEventListener('click', () => {
+        //     localStorage.removeItem('wishlist');
+        //     renderWishlist();
+        //     WishlistManager.updateWishlistCount();
+        // });
+        // block.appendChild(clearAllButton);
+    
+        block.renderWishlistCards = renderWishlist;
+        block.getFilteredJsonObject = getFilteredJsonObject;
+    
+        // Initialize wishlist functionality
+        WishlistManager.updateWishlistCountWithRetry();
+    } else if (variant === 'small') {
+        // small stuff here...
+    }
 }
 
 // Ensure this component doesn't interfere with the existing car card component
