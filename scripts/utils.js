@@ -30,7 +30,7 @@ export function createElementWithClasses(tag, ...classes) {
 }
 
 /**
- * Creates an element from an HTML string.
+ * Creates an element from an HTML string
  * @param {string} htmlString - The HTML string to create the element from.
  * @return {Element} The created element.
  */
