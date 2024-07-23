@@ -69,7 +69,9 @@ export default async function decorate(block) {
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
                 const bytes = [].slice.call(new Uint8Array(buffer));
-                bytes.forEach((b) => (binary += String.fromCharCode(b)));
+                bytes.forEach((b) => {
+                  binary += String.fromCharCode(b);
+                });
                 const imageStr = window.btoa(binary);
                 img.src = `data:image/jpeg;base64,${imageStr}`;
               });
@@ -109,7 +111,9 @@ export default async function decorate(block) {
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
                 const bytes = [].slice.call(new Uint8Array(buffer));
-                bytes.forEach((b) => (binary += String.fromCharCode(b)));
+                bytes.forEach((b) => {
+                  binary += String.fromCharCode(b);
+                });
                 const imageStr = window.btoa(binary);
                 img.src = `data:image/jpeg;base64,${imageStr}`;
               });
@@ -153,11 +157,12 @@ export default async function decorate(block) {
       responseVehicleImage.arrayBuffer().then((buffer) => {
         let binary = '';
         const bytes = [].slice.call(new Uint8Array(buffer));
-        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        bytes.forEach((b) => {
+          binary += String.fromCharCode(b);
+        });
         const imageStr = window.btoa(binary);
         img.src = `data:image/jpeg;base64,${imageStr}`;
       });
-      const b64image = btoa(responseVehicleImage);
       const li = document.createElement('li');
       li.className = 'vehicle-item';
       const h3 = document.createElement('h3');
@@ -189,16 +194,16 @@ export default async function decorate(block) {
       label.className = 'form-label';
       label.setAttribute('data-aue-prop', formUserFields[formUserFieldIndex].name);
       label.append(p.innerHTML);
-      const wrapper = document.createElement('div');
-      wrapper.id = formUserFields[formUserFieldIndex].name;
-      wrapper.className = 'wrapper-inline';
+      const wrapperEl = document.createElement('div');
+      wrapperEl.id = formUserFields[formUserFieldIndex].name;
+      wrapperEl.className = 'wrapper-inline';
       const input = document.createElement('input');
       input.className = 'input-text';
       input.setAttribute('type', 'number');
-      wrapper.append(label);
-      wrapper.append(input);
+      wrapperEl.append(label);
+      wrapperEl.append(input);
       p.textContent = '';
-      item.append(wrapper);
+      item.append(wrapperEl);
       formUserFieldIndex += 1;
     });
   });
