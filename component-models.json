@@ -922,7 +922,7 @@
         "valueType": "string",
         "name": "cq:tags",
         "label": "Tags",
-        "rootPath": "/content/cq:tags/oly",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers",
         "description": "Defines the page meta tags for SEO"
       }
     ]
