@@ -116,7 +116,6 @@ function handleHeartClick(event) {
 }
 
 export default function decorate(block) {
-    console.log(block);
     const variant = block.querySelector('div:nth-child(1)').textContent.trim();
     if (variant === 'full') {
         block.innerHTML = '';
