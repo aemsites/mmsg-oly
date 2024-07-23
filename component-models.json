@@ -655,6 +655,67 @@
     ]
   },
   {
+    "id": "calculator",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "titleWithDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Make",
+        "label": "Make Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Model",
+        "label": "Model Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Salary",
+        "label": "Salary label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Vehicle_Cost",
+        "label": "Vehicle Cost Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Kms",
+        "label": "Annual Kms label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Lease_Term",
+        "label": "Lease Term label",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "calculatorDescription",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "thumbnail_desc",
     "fields": [
       {
