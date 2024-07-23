@@ -85,6 +85,24 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     window.removeEventListener('keydown', closeOnEscape);
   }
 }
+/**
+ * add wishlist count to "#nav > div.section.nav-tools > div > ul > li:nth-child(1) > a" element as soon as possible
+ **/
+function updateWishlistCount() {
+  console.log('updateWishlistCount');
+  const wishlistElement = document.querySelector("#nav > div.section.nav-tools > div > ul > li:nth-child(1) > a");
+  if (wishlistElement) {
+    const wishlist = getWishlist();
+    wishlistElement.textContent = `Wishlist (${wishlist.length})`;
+    return true; // Successfully updated
+  }
+  return false; // Element not found
+}
+
+function getWishlist() {
+  const wishlistString = localStorage.getItem('wishlist');
+  return wishlistString ? JSON.parse(wishlistString) : [];
+}
 
 /**
  * loads and decorates the header, mainly the nav
@@ -184,4 +202,5 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+  updateWishlistCount();
 }

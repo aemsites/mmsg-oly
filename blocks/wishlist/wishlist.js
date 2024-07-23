@@ -1,103 +1,5 @@
-import { createElementFromHTML } from '../../scripts/utils.js';
+import { createElementFromHTML, WishlistManager } from '../../scripts/utils.js';
 import myJsonObject from '../../scripts/data.js';
-
-const WishlistManager = (() => {
-    const WISHLIST_KEY = 'wishlist';
-    const HEART_ICON_SELECTOR = '.car-card-heart';
-    const WISHLIST_COUNT_SELECTOR = "#nav > div.section.nav-tools > div > p > a";
-    const EMPTY_HEART_ICON = '../../icons/heart.svg';
-    const FULL_HEART_ICON = '../../icons/heart-filled.svg';
-
-    const getWishlist = () => {
-        const wishlistString = localStorage.getItem(WISHLIST_KEY);
-        return wishlistString ? JSON.parse(wishlistString) : [];
-    };
-
-    const updateWishlistCount = () => {
-        const wishlistElement = document.querySelector(WISHLIST_COUNT_SELECTOR);
-        if (wishlistElement) {
-            const wishlist = getWishlist();
-            wishlistElement.textContent = `Wishlist (${wishlist.length})`;
-            return true; // Successfully updated
-        }
-        return false; // Element not found
-    };
-
-    const getFilteredJsonObject = () => {
-        const wishlist = getWishlist();
-        return myJsonObject.filter(item => item && item.offerId && wishlist.includes(item.offerId));
-    };
-
-    const updateWishlist = offerId => {
-        let wishlist = getWishlist();
-        const index = wishlist.indexOf(offerId);
-
-        if (index > -1) {
-            wishlist.splice(index, 1);
-        } else {
-            wishlist.push(offerId);
-        }
-
-        localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
-        updateWishlistCount();
-        document.dispatchEvent(new Event('wishlistUpdated'));
-        
-        return wishlist;
-    };
-
-    const updateHeartIcon = (heartIcon, isInWishlist) => {
-        heartIcon.alt = isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist';
-        heartIcon.src = isInWishlist ? FULL_HEART_ICON : EMPTY_HEART_ICON;
-    };
-
-    const initializeHeartIcons = () => {
-        const currentWishlist = getWishlist();
-        document.querySelectorAll(HEART_ICON_SELECTOR).forEach(heartIcon => {
-            const offerId = heartIcon.dataset.offerId;
-            updateHeartIcon(heartIcon, currentWishlist.includes(offerId));
-        });
-    };
-
-    const handleHeartClick = event => {
-        const heartIcon = event.target.closest(HEART_ICON_SELECTOR);
-        if (!heartIcon) return;
-    
-        event.preventDefault();
-        const offerId = heartIcon.dataset.offerId;
-        
-        if (!offerId) return;
-    
-        // Trigger the animation
-        heartIcon.classList.add('animate');
-        
-        setTimeout(() => {
-            heartIcon.classList.remove('animate');
-        }, 500);
-    
-        const updatedWishlist = updateWishlist(offerId);
-        updateHeartIcon(heartIcon, updatedWishlist.includes(offerId));
-    };
-
-    const updateWishlistCountWithRetry = (attempts = 0, maxAttempts = 10) => {
-        if (updateWishlistCount()) {
-            return;
-        }
-        
-        if (attempts < maxAttempts) {
-            setTimeout(() => updateWishlistCountWithRetry(attempts + 1, maxAttempts), 500);
-        } else {
-            console.warn('Failed to update wishlist count after maximum attempts');
-        }
-    };
-
-    const init = () => {
-        document.addEventListener('click', handleHeartClick);
-        initializeHeartIcons();
-        updateWishlistCountWithRetry();
-    };
-
-    return { init, updateWishlistCount, getFilteredJsonObject, updateWishlistCountWithRetry };
-})();
 
 function getFeaturesContainer() {
     return `
@@ -136,15 +38,6 @@ function getButtonContainer() {
     `;
 }
 
-function getCheckboxContainer() {
-    return `
-      <div class="checkbox-container">
-        <input type="checkbox" id="car-checkbox" />
-        <label for="car-checkbox">Select a car variant</label>
-      </div>
-    `;
-}
-
 function buildCardTemplate(cardObj) {
     const defaultImg = '/content/dam/oly/images/tesla.jpeg';
     const imageLink = cardObj?.img || defaultImg;
@@ -163,7 +56,6 @@ function buildCardTemplate(cardObj) {
     const featureContainer = cardObj?.isFeatures ? getFeaturesContainer() : '';
     const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
     const buttonContainer = cardObj?.isButtonExists ? getButtonContainer() : '';
-    // const checkboxContainer = cardObj?.isCheckbox ? getCheckboxContainer() : '';
     
     const wrapper = document.createElement('div');
     wrapper.className = 'car-detail-container';
@@ -173,11 +65,9 @@ function buildCardTemplate(cardObj) {
     return wrapper.outerHTML;
 }
 
-function buildCards(carData) {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'car-cards-wrapper';
-    wrapper.innerHTML = carData.map(buildCardTemplate).join('');
-    return wrapper;
+function getFilteredJsonObject() {
+    const wishlist = WishlistManager.getWishlist();
+    return myJsonObject.filter(item => item && item.offerId && wishlist.includes(item.offerId));
 }
 
 function renderWishlistCards(filteredJson, container) {
@@ -186,7 +76,6 @@ function renderWishlistCards(filteredJson, container) {
         return;
     }
     
-    // Clear all existing content in the container
     container.innerHTML = '';
 
     if (filteredJson.length) {
@@ -194,7 +83,7 @@ function renderWishlistCards(filteredJson, container) {
         wishlistWrapper.className = 'wishlist-cards-wrapper';
         filteredJson.forEach((item, index) => {
             const cardElement = createElementFromHTML(buildCardTemplate(item));
-            cardElement.style.animationDelay = `${index * 0.1}s`; // Stagger the animation
+            cardElement.style.animationDelay = `${index * 0.1}s`;
             wishlistWrapper.appendChild(cardElement);
         });
         container.appendChild(wishlistWrapper);
@@ -205,9 +94,28 @@ function renderWishlistCards(filteredJson, container) {
     }
 }
 
-export default function decorate(block) {
-    // we ned to distinguish between the two variants
+function handleHeartClick(event) {
+    const heartIcon = event.target.closest('.car-card-heart');
+    if (!heartIcon) return;
+
+    event.preventDefault();
+    const offerId = heartIcon.dataset.offerId;
     
+    if (!offerId) return;
+
+    if (!WishlistManager.getWishlist().includes(offerId)) {
+        heartIcon.classList.add('animate');
+        setTimeout(() => {
+            heartIcon.classList.remove('animate');
+        }, 500);
+    }
+    
+
+    WishlistManager.updateWishlist(offerId);
+    WishlistManager.updateHeartIcon(heartIcon, WishlistManager.getWishlist().includes(offerId));
+}
+
+export default function decorate(block) {
     const wishlistContainer = document.createElement('div');
     wishlistContainer.id = 'wishlist-container';
     
@@ -217,16 +125,17 @@ export default function decorate(block) {
     
     block.appendChild(wishlistContainer);
 
-    WishlistManager.init();
-
     const renderWishlist = () => {
-        const filteredJson = WishlistManager.getFilteredJsonObject();
+        const filteredJson = getFilteredJsonObject();
         renderWishlistCards(filteredJson, wishlistContainer);
     };
 
     renderWishlist();
 
     document.addEventListener('wishlistUpdated', renderWishlist);
+
+    // Add click event listener to the wishlist container
+    wishlistContainer.addEventListener('click', handleHeartClick);
 
     const clearAllButton = document.createElement('button');
     clearAllButton.textContent = 'Clear All';
@@ -238,23 +147,18 @@ export default function decorate(block) {
     block.appendChild(clearAllButton);
 
     block.renderWishlistCards = renderWishlist;
-    block.getFilteredJsonObject = WishlistManager.getFilteredJsonObject;
+    block.getFilteredJsonObject = getFilteredJsonObject;
+
+    // Initialize wishlist functionality
+    WishlistManager.updateWishlistCountWithRetry();
 }
 
 // Ensure this component doesn't interfere with the existing car card component
 const originalDecorate = window.carCardDecorate || (() => {});
 window.carCardDecorate = (block) => {
     originalDecorate(block);
-    // Ensure car cards are rendered in a separate wrapper, need some more clearance on this one.
     const carCardsWrapper = block.querySelector('.car-cards-wrapper');
     if (carCardsWrapper) {
         carCardsWrapper.classList.add('original-car-cards-wrapper');
     }
 };
-
-WishlistManager.init();
-
-WishlistManager.updateWishlistCountWithRetry();
-
-// Make WishlistManager globally accessible
-window.WishlistManager = WishlistManager;
