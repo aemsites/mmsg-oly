@@ -55,6 +55,7 @@
 
 .calculator .wrapper-inline input {
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (width < 1024px) {
