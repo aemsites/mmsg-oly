@@ -80,22 +80,12 @@ export default async function decorate(block) {
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
-              h3.innerHTML = vehicle.RRP.Amount;
+              h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
               const prgh = document.createElement('p');
-              prgh.innerHTML =
-                '2024 ' +
-                responseVehicleDetail.Table[0].ManufacturerName +
-                ' ' +
-                responseVehicleDetail.Table[0].FamilyName +
-                ' ' +
-                responseVehicleDetail.Table[0].VariantName +
-                ' ' +
-                responseVehicleDetail.Table[0].SeriesName +
-                ' ' +
-                responseVehicleDetail.Table[0].BodyName;
+              prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
               const pFueltype = document.createElement('p');
               pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
               li.append(h3);
@@ -136,22 +126,12 @@ export default async function decorate(block) {
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
-              h3.innerHTML = vehicle.RRP.Amount;
+              h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
               const prgh = document.createElement('p');
-              prgh.innerHTML =
-                '2024 ' +
-                responseVehicleDetail.Table[0].ManufacturerName +
-                ' ' +
-                responseVehicleDetail.Table[0].FamilyName +
-                ' ' +
-                responseVehicleDetail.Table[0].VariantName +
-                ' ' +
-                responseVehicleDetail.Table[0].SeriesName +
-                ' ' +
-                responseVehicleDetail.Table[0].BodyName;
+              prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
               const pFueltype = document.createElement('p');
               pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
               li.append(h3);
@@ -196,22 +176,12 @@ export default async function decorate(block) {
       const li = document.createElement('li');
       li.className = 'vehicle-item';
       const h3 = document.createElement('h3');
-      h3.innerHTML = '$ ' + vehicle.RRP.Amount;
+      h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
       const span = document.createElement('span');
       span.innerHTML = ' RRP';
       h3.append(span);
       const prgh = document.createElement('p');
-      prgh.innerHTML =
-        '2024 ' +
-        responseVehicleDetail.Table[0].ManufacturerName +
-        ' ' +
-        responseVehicleDetail.Table[0].FamilyName +
-        ' ' +
-        responseVehicleDetail.Table[0].VariantName +
-        ' ' +
-        responseVehicleDetail.Table[0].SeriesName +
-        ' ' +
-        responseVehicleDetail.Table[0].BodyName;
+      prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
       const pFueltype = document.createElement('p');
       pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
 
