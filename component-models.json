@@ -658,17 +658,10 @@
     "id": "calculator",
     "fields": [
       {
-        "component": "reference",
+        "component": "richtext",
         "valueType": "string",
-        "name": "brandLogo",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "formLabel_brand",
-        "label": "Brand",
+        "name": "Title",
+        "label": "Text",
         "value": ""
       },
       {
@@ -688,35 +681,28 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLabel_Variant",
-        "label": "Variant Label",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "formLabel_Salary",
+        "name": "formLabelUser_Salary",
         "label": "Salary label",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLabel_Vehicle_Cost",
+        "name": "formLabelUser_Vehicle_Cost",
         "label": "Vehicle Cost Label",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLabel_Kms",
+        "name": "formLabelUser_Kms",
         "label": "Annual Kms label",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "formLabel_Lease_Term",
+        "name": "formLabelUser_Lease_Term",
         "label": "Lease Term label",
         "value": ""
       },
@@ -726,13 +712,6 @@
         "value": "",
         "label": "Calculate Label",
         "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "Description",
-        "label": "Text",
-        "value": ""
       }
     ]
   },
