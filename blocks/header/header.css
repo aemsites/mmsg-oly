@@ -610,7 +610,7 @@ header nav[aria-expanded='true'] .nav-sections {
   @media (width >= 1024px) {
     background: white;
     padding: 0;
-    margin: 0 167px 0 0;
+    margin: 0;
   }
 }
 
