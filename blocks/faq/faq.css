@@ -1,5 +1,20 @@
 .section.faq-container .default-content-wrapper {
   text-align: center;
+
+  p {
+    max-width: 504px;
+    margin: 0 auto;
+  }
+}
+
+.faq-wrapper {
+  padding-top: var(--spacing-m);
+}
+
+.section.faq,
+.section.faq-container {
+  padding-bottom: 0;
+  padding-top: var(--spacing-m);
 }
 
 .faq.form .field-wrapper {
@@ -94,14 +109,9 @@
   height: 20px;
 }
 
-.faq .close-text {
+.faq .icon-text-container {
   margin-left: 5px; /* Space between icon and text */
   display: none; /* Hide the text by default */
-}
-
-/* Hide the close icon by default */
-.faq .icon-close {
-  display: none;
 }
 
 /* Show the text on larger screens */

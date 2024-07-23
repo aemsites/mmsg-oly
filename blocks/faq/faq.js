@@ -82,7 +82,7 @@ export default async function decorate(block) {
     wrapper.appendChild(closeContainer);
 
     searchInput.addEventListener('input', () => {
-      handleSearchInput(searchInput, searchIcon, closeIcon);
+      handleSearchInput(searchInput, searchIcon, closeContainer);
     });
 
     // Loop through each anchor and add a click event listener
@@ -104,21 +104,23 @@ export default async function decorate(block) {
     });
 
     // Clear input when close icon is clicked
-    closeIcon.addEventListener('click', () => {
+    closeContainer.addEventListener('click', () => {
       searchInput.value = '';
       searchIcon.style.display = 'block';
-      closeIcon.style.display = 'none';
+      closeContainer.style.display = 'none';
       searchInput.focus();
+      handleSearchInput(searchInput, searchIcon, closeContainer);
     });
 
     // Clear input when close icon is activated via keyboard
-    closeIcon.addEventListener('keydown', (event) => {
+    closeContainer.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         searchInput.value = '';
         searchIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
+        closeContainer.style.display = 'none';
         searchInput.focus();
+        handleSearchInput(searchInput, searchIcon, closeContainer);
       }
     });
   } else {
