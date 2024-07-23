@@ -10,12 +10,10 @@ export default async function getVehicleImageOnNVIC(nvic) {
   try {
     const response = await fetch(apiUrl, fetchOptions);
     if (response.ok) {
-      debugger;
       return response;
     } else {
-      debugger;
       const error = await response.text();
-      throw new Error(error);
+      return new Error(error);
     }
   } catch (e) {
     throw new Error(e);

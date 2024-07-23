@@ -1,5 +1,4 @@
 export default async function getAutoDetailOnMakeModel(make, model) {
-  debugger;
   const apiUrl =
     `https://api-test.grs.mmsg.com.au/vehicle-info/v1/auto-details-spec-by-make?ModelTypeCode=A&Year=2024&Make=` +
     make +
@@ -15,12 +14,10 @@ export default async function getAutoDetailOnMakeModel(make, model) {
   try {
     const response = await fetch(apiUrl, fetchOptions);
     if (response.ok) {
-      debugger;
       return response.json();
     } else {
-      debugger;
       const error = await response.text();
-      throw new Error(error);
+      return new Error(error);
     }
   } catch (e) {
     throw new Error(e);

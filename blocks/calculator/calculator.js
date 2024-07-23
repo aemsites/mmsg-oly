@@ -4,7 +4,6 @@ import getAutoDetailOnMakeModel from './api/getAutoDetailOnMakeModel.js';
 import getVehicleImageOnNVIC from './api/getVehicleImageOnNVIC.js';
 
 export default async function decorate(block) {
-  debugger;
   const formFields = [
     { name: 'formLabel_Make' },
     { name: 'formLabel_Model' },
@@ -28,7 +27,7 @@ export default async function decorate(block) {
   [...formLabels.children].forEach((item) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'form-element-wrapper';
-    [...item.children].forEach((p, index) => {
+    [...item.children].forEach((p) => {
       const label = document.createElement('div');
       label.className = 'form-label';
       label.setAttribute('data-aue-prop', formFields[formFieldIndex].name);
@@ -49,7 +48,7 @@ export default async function decorate(block) {
             select.append(option);
           });
 
-          select.addEventListener('change', async function (e) {
+          select.addEventListener('change', async (e) => {
             e.preventDefault();
             responseModels = await getModels(select.value);
             const selectModel = document.getElementById(formFields[1].name);
@@ -64,11 +63,9 @@ export default async function decorate(block) {
             responseVehicleList = await getAutoDetailOnMakeModel(select.value, selectModel.value);
             const vehicleSelectionListContainer = document.getElementById('vehicle-selection-list-ul');
             vehicleSelectionListContainer.innerHTML = '';
-            vehicleSelectionListContainer.style.display = 'none';
-            responseVehicleList.Table.forEach(async (vehicle, index) => {
+            responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
               const b64image = btoa(responseVehicleImage);
-              debugger;
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
@@ -76,18 +73,14 @@ export default async function decorate(block) {
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
-              const p = document.createElement('p');
-              p.innerHTML = vehicle.ModelName;
+              const prgh = document.createElement('p');
+              prgh.innerHTML = vehicle.ModelName;
               const img = document.createElement('img');
               img.src = 'data:image/jpeg;base64,' + b64image;
               li.append(h3);
-              li.append(p);
+              li.append(prgh);
               li.append(img);
               vehicleSelectionListContainer.append(li);
-
-              if (index === responseVehicleList.Table.length - 1) {
-                vehicleSelectionListContainer.style.display = 'block';
-              }
             });
           });
         } else if (formFields[formFieldIndex].name === 'formLabel_Model') {
@@ -98,18 +91,16 @@ export default async function decorate(block) {
             select.append(option);
           });
 
-          select.addEventListener('change', async function (e) {
+          select.addEventListener('change', async (e) => {
             e.preventDefault();
             const selectMake = document.getElementById(formFields[0].name);
             // Populate the Vehicle List
             responseVehicleList = await getAutoDetailOnMakeModel(selectMake.value, select.value);
             const vehicleSelectionListContainer = document.getElementById('vehicle-selection-list-ul');
             vehicleSelectionListContainer.innerHTML = '';
-            vehicleSelectionListContainer.style.display = 'none';
-            responseVehicleList.Table.forEach(async (vehicle, index) => {
+            responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
               const b64image = btoa(responseVehicleImage);
-              debugger;
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
@@ -117,17 +108,14 @@ export default async function decorate(block) {
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
-              const p = document.createElement('p');
-              p.innerHTML = vehicle.ModelName;
+              const prgh = document.createElement('p');
+              prgh.innerHTML = vehicle.ModelName;
               const img = document.createElement('img');
               img.src = 'data:image/jpeg;base64,' + b64image;
               li.append(h3);
-              li.append(p);
+              li.append(prgh);
               li.append(img);
               vehicleSelectionListContainer.append(li);
-              if (index === responseVehicleList.Table.length - 1) {
-                vehicleSelectionListContainer.style.display = 'block';
-              }
             });
           });
         }
@@ -155,11 +143,9 @@ export default async function decorate(block) {
 
     const ul = document.createElement('ul');
     ul.id = 'vehicle-selection-list-ul';
-    ul.style.display = 'none';
-    responseVehicleList.Table.forEach(async (vehicle, index) => {
+    responseVehicleList.Table.forEach(async (vehicle) => {
       const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
       const b64image = btoa(responseVehicleImage);
-      debugger;
       const li = document.createElement('li');
       li.className = 'vehicle-item';
       const h3 = document.createElement('h3');
@@ -167,18 +153,14 @@ export default async function decorate(block) {
       const span = document.createElement('span');
       span.innerHTML = ' RRP';
       h3.append(span);
-      const p = document.createElement('p');
-      p.innerHTML = vehicle.ModelName;
+      const prgh = document.createElement('p');
+      prgh.innerHTML = vehicle.ModelName;
       const img = document.createElement('img');
       img.src = 'data:image/jpeg;base64,' + b64image;
       li.append(h3);
-      li.append(p);
+      li.append(prgh);
       li.append(img);
       ul.append(li);
-
-      if (index === responseVehicleList.Table.length - 1) {
-        ul.style.display = 'block';
-      }
     });
     vehicleListWrapper.append(ul);
 

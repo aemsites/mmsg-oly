@@ -14,7 +14,7 @@ export default async function getModels(make) {
       return response.json();
     } else {
       const error = await response.text();
-      throw new Error(error);
+      return new Error(error);
     }
   } catch (e) {
     throw new Error(e);
