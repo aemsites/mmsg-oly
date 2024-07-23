@@ -920,9 +920,9 @@
       {
         "component": "aem-tag",
         "valueType": "string",
-        "name": "cq:tags",
+        "name": "brand",
         "label": "Tags",
-        "rootPath": "/content/cq:tags/oly/vehicle-offers",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/brand",
         "description": "Defines the page meta tags for SEO"
       }
     ]
