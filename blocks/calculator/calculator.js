@@ -67,10 +67,10 @@ export default async function decorate(block) {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
               const img = document.createElement('img');
               responseVehicleImage.arrayBuffer().then((buffer) => {
-                var binary = '';
-                var bytes = [].slice.call(new Uint8Array(buffer));
+                let binary = '';
+                const bytes = [].slice.call(new Uint8Array(buffer));
                 bytes.forEach((b) => (binary += String.fromCharCode(b)));
-                var imageStr = window.btoa(binary);
+                const imageStr = window.btoa(binary);
                 img.src = `data:image/jpeg;base64,${imageStr}`;
               });
               const li = document.createElement('li');
@@ -107,10 +107,10 @@ export default async function decorate(block) {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
               const img = document.createElement('img');
               responseVehicleImage.arrayBuffer().then((buffer) => {
-                var binary = '';
-                var bytes = [].slice.call(new Uint8Array(buffer));
+                let binary = '';
+                const bytes = [].slice.call(new Uint8Array(buffer));
                 bytes.forEach((b) => (binary += String.fromCharCode(b)));
-                var imageStr = window.btoa(binary);
+                const imageStr = window.btoa(binary);
                 img.src = `data:image/jpeg;base64,${imageStr}`;
               });
               const li = document.createElement('li');
@@ -151,10 +151,10 @@ export default async function decorate(block) {
       const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
       const img = document.createElement('img');
       responseVehicleImage.arrayBuffer().then((buffer) => {
-        var binary = '';
-        var bytes = [].slice.call(new Uint8Array(buffer));
+        let binary = '';
+        const bytes = [].slice.call(new Uint8Array(buffer));
         bytes.forEach((b) => (binary += String.fromCharCode(b)));
-        var imageStr = window.btoa(binary);
+        const imageStr = window.btoa(binary);
         img.src = `data:image/jpeg;base64,${imageStr}`;
       });
       const b64image = btoa(responseVehicleImage);
