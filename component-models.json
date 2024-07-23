@@ -707,11 +707,11 @@
         "value": ""
       },
       {
-        "component": "button",
-        "name": "btn_Calculate",
-        "value": "",
-        "label": "Calculate Label",
-        "valueType": "string"
+        "component": "richtext",
+        "valueType": "string",
+        "name": "calculatorDescription",
+        "label": "Text",
+        "value": ""
       }
     ]
   },
