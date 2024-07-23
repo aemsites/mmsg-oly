@@ -98,6 +98,10 @@
   margin-bottom: 15px;
 }
 
+.faq .close-text {
+  display: none;
+}
+
 .faq .icon,
 .faq .close-text {
   position: absolute;
@@ -147,5 +151,9 @@
 
   .faq .accordion-group-wrapper {
     width: 504px;
+
+    &.expanded {
+      width: 100%;
+    }
   }
 }

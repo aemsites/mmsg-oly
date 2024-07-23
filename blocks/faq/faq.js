@@ -1,18 +1,50 @@
 import { createForm } from '../form/form.js';
 import { CONFIG } from '../../scripts/utils.js';
 
-function handleSearchInput(searchInput, searchIcon, closeIcon) {
-  const searchTerm = searchInput.value.toLowerCase();
+function resetSearchInput(searchIcon, closeIcon) {
+  searchIcon.style.display = 'block';
+  closeIcon.style.display = 'none';
+
+  const tagsBlocks = document.querySelectorAll('.faq.block > div:nth-child(2)');
+  tagsBlocks.forEach((block) => {
+    block.removeAttribute('style');
+  });
+
+  const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
+  accordionGroupBlocks.forEach((block) => {
+    // block.style.width = '504px';
+    block.classList.remove('expanded');
+  });
+
+  const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
+  defaultBlocks.forEach((block) => {
+    block.removeAttribute('style');
+  });
+
+  const accordionBlocks = document.querySelectorAll('.accordion.block');
+  accordionBlocks.forEach((block) => {
+    block.removeAttribute('style');
+  });
+}
+
+function handleSearchInput(searchIcon, closeIcon) {
+  const searchTerm = document.querySelector('#form-faqsearch').value.toLowerCase();
   if (searchTerm.length > 0) {
     searchIcon.style.display = 'none';
     closeIcon.style.display = 'block';
+
+    const tagsBlocks = document.querySelectorAll('.faq.block > div:nth-child(2)');
+    tagsBlocks.forEach((block) => {
+      block.style.display = 'none';
+    });
+
     const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
     accordionGroupBlocks.forEach((block) => {
-      block.style.width = '100%';
+      // block.style.width = '100%';
+      block.classList.add('expanded');
     });
 
     const accordionBlocks = document.querySelectorAll('.accordion.block');
-
     accordionBlocks.forEach((block) => {
       const blockContent = block.textContent.toLowerCase();
       if (blockContent.includes(searchTerm)) {
@@ -27,17 +59,7 @@ function handleSearchInput(searchInput, searchIcon, closeIcon) {
       block.style.display = 'none';
     });
   } else {
-    searchIcon.style.display = 'block';
-    closeIcon.style.display = 'none';
-    const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
-    defaultBlocks.forEach((block) => {
-      block.removeAttribute('style');
-    });
-
-    const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
-    accordionGroupBlocks.forEach((block) => {
-      block.removeAttribute('style');
-    });
+    resetSearchInput(searchIcon, closeIcon);
   }
 }
 
@@ -82,7 +104,7 @@ export default async function decorate(block) {
     wrapper.appendChild(closeContainer);
 
     searchInput.addEventListener('input', () => {
-      handleSearchInput(searchInput, searchIcon, closeContainer);
+      handleSearchInput(searchIcon, closeContainer);
     });
 
     // Loop through each anchor and add a click event listener
@@ -109,7 +131,8 @@ export default async function decorate(block) {
       searchIcon.style.display = 'block';
       closeContainer.style.display = 'none';
       searchInput.focus();
-      handleSearchInput(searchInput, searchIcon, closeContainer);
+      // handleSearchInput(searchIcon, closeContainer);
+      resetSearchInput(searchIcon, closeContainer);
     });
 
     // Clear input when close icon is activated via keyboard
@@ -120,7 +143,8 @@ export default async function decorate(block) {
         searchIcon.style.display = 'block';
         closeContainer.style.display = 'none';
         searchInput.focus();
-        handleSearchInput(searchInput, searchIcon, closeContainer);
+        // handleSearchInput(searchIcon, closeContainer);
+        resetSearchInput(searchIcon, closeContainer);
       }
     });
   } else {
