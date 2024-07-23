@@ -76,7 +76,7 @@ export default async function decorate(block) {
               const prgh = document.createElement('p');
               prgh.innerHTML = vehicle.ModelName;
               const img = document.createElement('img');
-              img.src = 'data:image/jpeg;base64,' + b64image;
+              img.src = `data:image/jpeg;base64,${b64image}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -111,7 +111,7 @@ export default async function decorate(block) {
               const prgh = document.createElement('p');
               prgh.innerHTML = vehicle.ModelName;
               const img = document.createElement('img');
-              img.src = 'data:image/jpeg;base64,' + b64image;
+              img.src = `data:image/jpeg;base64,${b64image}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -156,7 +156,7 @@ export default async function decorate(block) {
       const prgh = document.createElement('p');
       prgh.innerHTML = vehicle.ModelName;
       const img = document.createElement('img');
-      img.src = 'data:image/jpeg;base64,' + b64image;
+      img.src = `data:image/jpeg;base64,${b64image}`;
       li.append(h3);
       li.append(prgh);
       li.append(img);
