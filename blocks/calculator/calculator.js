@@ -183,7 +183,6 @@ export default async function decorate(block) {
     responseVehicleList.Table.forEach(async (vehicle) => {
       const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
       const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
-      debugger;
       const img = document.createElement('img');
       responseVehicleImage.arrayBuffer().then((buffer) => {
         let binary = '';
