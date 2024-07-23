@@ -22,6 +22,7 @@
   font-weight: bold;
   color: var(--color-black);
   line-height: 1;
+  margin: 8px 0;
 }
 
 .block.savingscard-header > div.bg-image img {

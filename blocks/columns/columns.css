@@ -225,30 +225,66 @@
   font-size: var(--font-size-xs);
   line-height: 1.5rem;
 
+  .columns-wrapper .columns {
+    > div > div {
+      h5 {
+        margin: 0 0 16px;
+        padding: 0 16px;
+
+        @media (width >= 768px) {
+          line-height: 32px;
+        }
+      }
+
+      p {
+        padding: 0 16px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
   div.default-content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 var(--font-size-xs);
 
+    /* stylelint-disable */
+    p {
+      margin-bottom: 40px;
+      margin-top: 0;
+    }
+    /* stylelint-enable */
+
     p img {
-      width: 337px;
+      width: 100%;
+      padding: 0 16px;
       aspect-ratio: 2.59;
+      display: block;
+      box-sizing: border-box;
     }
 
     h3 {
       font-size: var(--font-size-l-alt);
       line-height: 2.5rem;
       padding: 0 var(--spacing-xs);
+      margin: 0;
+
+      @media (width >= 768px) {
+        font-size: 40px;
+        line-height: 48px;
+      }
     }
   }
 
   .columns-wrapper {
     padding: 0 var(--spacing-xs);
 
+    /* stylelint-disable */
     .columns div {
-      gap: 1rem;
+      gap: 1.5rem;
     }
+    /* stylelint-enable */
   }
 
   @media (width >= 768px) {
@@ -345,6 +381,7 @@
     }
   }
 
+  /* stylelint-disable */
   .columns-wrapper .columns {
     > div {
       text-align: center;
@@ -379,6 +416,7 @@
       }
     }
   }
+  /* stylelint-enable */
 
   @media (width >= 768px) {
     padding: 96px 160px;

@@ -39,6 +39,7 @@
   --font-size-xl-alt: 2.875rem; /* 46px */
   --font-size-lg: 2.5rem; /* 40px */
   --font-size-lg-alt: 2.375rem; /* 38px */
+  --font-size-lg-alt-s: 2.25rem; /* 36px */
   --font-size-l-alt: 2rem; /* 32px */
   --font-size-l: 1.5rem; /* 24px */
   --font-size-m: 1.25rem; /* 20px */
@@ -461,7 +462,7 @@ main .section.highlight {
     margin: var(--spacing-xxl-negative) var(--spacing-xxxl) var(--spacing-xxl) var(--spacing-xxxl);
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1232px;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -587,5 +588,11 @@ main .section.highlight {
         display: none;
       }
     }
+  }
+}
+
+.section.header-nav-container {
+  @media (width < 1024px) {
+    display: none;
   }
 }
