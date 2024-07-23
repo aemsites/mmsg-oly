@@ -4,19 +4,19 @@ import getAutoDetailOnMakeModel from './api/getAutoDetailOnMakeModel.js';
 import getVehicleImageOnNVIC from './api/getVehicleImageOnNVIC.js';
 
 export default async function decorate(block) {
-  const formFields = [
-    { name: 'formLabel_Make' },
-    { name: 'formLabel_Model' },
-    { name: 'formLabel_Variant' },
-    { name: 'formLabel_Salary' },
-    { name: 'formLabel_Vehicle_Cost' },
-    { name: 'formLabel_Kms' },
-    { name: 'formLabel_Lease_Term' },
+  const formFields = [{ name: 'formLabel_Make' }, { name: 'formLabel_Model' }];
+
+  const formUserFields = [
+    { name: 'formLabelUser_Salary' },
+    { name: 'formLabelUser_Vehicle_Cost' },
+    { name: 'formLabelUser_Kms' },
+    { name: 'formLabelUser_Lease_Term' },
   ];
-  const [brandImage, formLabels, btnCalculate, richText] = block.children;
+
+  const [brandImage, formLabels, formUserLabels, richText] = block.children;
   brandImage.className = 'brand-image';
   formLabels.className = 'form-label-container';
-  btnCalculate.className = 'button';
+  formUserLabels.className = 'form-user-label-container';
   richText.className = 'content-container';
 
   let formFieldIndex = 0;
@@ -65,7 +65,14 @@ export default async function decorate(block) {
             vehicleSelectionListContainer.innerHTML = '';
             responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
-              const b64image = btoa(responseVehicleImage);
+              const img = document.createElement('img');
+              responseVehicleImage.arrayBuffer().then((buffer) => {
+                var binary = '';
+                var bytes = [].slice.call(new Uint8Array(buffer));
+                bytes.forEach((b) => (binary += String.fromCharCode(b)));
+                var imageStr = window.btoa(binary);
+                img.src = `data:image/jpeg;base64,${imageStr}`;
+              });
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
@@ -75,8 +82,6 @@ export default async function decorate(block) {
               h3.append(span);
               const prgh = document.createElement('p');
               prgh.innerHTML = vehicle.ModelName;
-              const img = document.createElement('img');
-              img.src = `data:image/jpeg;base64,${b64image}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -100,7 +105,14 @@ export default async function decorate(block) {
             vehicleSelectionListContainer.innerHTML = '';
             responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
-              const b64image = btoa(responseVehicleImage);
+              const img = document.createElement('img');
+              responseVehicleImage.arrayBuffer().then((buffer) => {
+                var binary = '';
+                var bytes = [].slice.call(new Uint8Array(buffer));
+                bytes.forEach((b) => (binary += String.fromCharCode(b)));
+                var imageStr = window.btoa(binary);
+                img.src = `data:image/jpeg;base64,${imageStr}`;
+              });
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
@@ -110,8 +122,6 @@ export default async function decorate(block) {
               h3.append(span);
               const prgh = document.createElement('p');
               prgh.innerHTML = vehicle.ModelName;
-              const img = document.createElement('img');
-              img.src = `data:image/jpeg;base64,${b64image}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -123,19 +133,13 @@ export default async function decorate(block) {
         inlineDiv.append(label);
         inlineDiv.append(select);
         wrapper.append(inlineDiv);
-      } else {
-        const input = document.createElement('input');
-        input.className = 'input-text';
-        input.setAttribute('type', 'number');
-        inlineDiv.append(label);
-        inlineDiv.append(input);
-        wrapper.append(inlineDiv);
       }
       p.textContent = '';
       item.append(wrapper);
       formFieldIndex += 1;
     });
 
+    // Create UI for the vehicle list
     const vehicleListDiv = document.createElement('div');
     vehicleListDiv.id = 'vehicle-list';
     const vehicleListWrapper = document.createElement('div');
@@ -145,6 +149,14 @@ export default async function decorate(block) {
     ul.id = 'vehicle-selection-list-ul';
     responseVehicleList.Table.forEach(async (vehicle) => {
       const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
+      const img = document.createElement('img');
+      responseVehicleImage.arrayBuffer().then((buffer) => {
+        var binary = '';
+        var bytes = [].slice.call(new Uint8Array(buffer));
+        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        var imageStr = window.btoa(binary);
+        img.src = `data:image/jpeg;base64,${imageStr}`;
+      });
       const b64image = btoa(responseVehicleImage);
       const li = document.createElement('li');
       li.className = 'vehicle-item';
@@ -155,8 +167,7 @@ export default async function decorate(block) {
       h3.append(span);
       const prgh = document.createElement('p');
       prgh.innerHTML = vehicle.ModelName;
-      const img = document.createElement('img');
-      img.src = `data:image/jpeg;base64,${b64image}`;
+
       li.append(h3);
       li.append(prgh);
       li.append(img);
@@ -165,6 +176,30 @@ export default async function decorate(block) {
     vehicleListWrapper.append(ul);
 
     vehicleListDiv.append(vehicleListWrapper);
-    block.append(vehicleListDiv);
+    formLabels.append(vehicleListDiv);
+  });
+
+  let formUserFieldIndex = 0;
+
+  [...formUserLabels.children].forEach((item) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
+    [...item.children].forEach((p) => {
+      const label = document.createElement('div');
+      label.className = 'form-label';
+      label.setAttribute('data-aue-prop', formUserFields[formUserFieldIndex].name);
+      label.append(p.innerHTML);
+      const wrapper = document.createElement('div');
+      wrapper.id = formUserFields[formUserFieldIndex].name;
+      wrapper.className = 'wrapper-inline';
+      const input = document.createElement('input');
+      input.className = 'input-text';
+      input.setAttribute('type', 'number');
+      wrapper.append(label);
+      wrapper.append(input);
+      p.textContent = '';
+      item.append(wrapper);
+      formUserFieldIndex += 1;
+    });
   });
 }
