@@ -1,5 +1,7 @@
 .calculator {
   padding: var(--spacing-s);
+  border: var(--spacing-xxxxs) solid var(--bg-color-green);
+  border-radius: var(--spacing-xxxxs);
 }
 
 .calculator input,
