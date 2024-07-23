@@ -253,6 +253,10 @@ header nav .nav-sections .default-content-wrapper > ul > li > p > a {
     line-height: var(--font-size-l-alt);
     text-decoration: none;
   }
+
+  @media (width < 1024px) {
+    font-family: var(--font-family-bold);
+  }
 }
 /* stylelint-enable */
 
