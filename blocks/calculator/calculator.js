@@ -87,7 +87,7 @@ export default async function decorate(block) {
               const prgh = document.createElement('p');
               prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
               const pFueltype = document.createElement('p');
-              pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
+              pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -133,7 +133,7 @@ export default async function decorate(block) {
               const prgh = document.createElement('p');
               prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
               const pFueltype = document.createElement('p');
-              pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
+              pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
@@ -183,7 +183,7 @@ export default async function decorate(block) {
       const prgh = document.createElement('p');
       prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
       const pFueltype = document.createElement('p');
-      pFueltype.innerHTML = 'Fuel Type: ' + responseVehicleDetail.Table[0].engine_classification;
+      pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
 
       li.append(h3);
       li.append(prgh);
