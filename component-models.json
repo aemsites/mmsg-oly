@@ -660,7 +660,7 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "Title",
+        "name": "titleWithDescription",
         "label": "Text",
         "value": ""
       },

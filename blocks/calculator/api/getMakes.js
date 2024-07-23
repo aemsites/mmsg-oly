@@ -11,10 +11,9 @@ export default async function getMakes() {
     const response = await fetch(apiUrl, fetchOptions);
     if (response.ok) {
       return response.json();
-    } else {
-      const error = await response.text();
-      return new Error(error);
     }
+    const error = await response.text();
+    return new Error(error);
   } catch (e) {
     throw new Error(e);
   }
