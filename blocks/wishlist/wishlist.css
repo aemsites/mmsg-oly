@@ -60,10 +60,14 @@
   justify-content: space-between;
 }
 
-.car-detail-container .car-card-heart {
+.car-card-heart {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.25);
+    transition: transform 0.2s;
+  }
 }
 
 .car-detail-container p {
