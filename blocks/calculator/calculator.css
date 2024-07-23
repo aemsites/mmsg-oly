@@ -21,7 +21,6 @@
 
 .calculator #vehicle-selection-list-ul {
   padding: 0;
-  margin: 0;
   list-style: none;
   margin: var(--spacing-s) 0;
 
