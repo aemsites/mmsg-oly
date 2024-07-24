@@ -743,28 +743,28 @@
         "component": "richtext",
         "valueType": "string",
         "name": "titleInfo",
-        "label": "Text",
+        "label": "Title Description",
         "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "infoImgEngine",
-        "label": "Image",
+        "name": "infoImgFuel",
+        "label": "Fuel Type",
         "multi": false
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "infoVehicleImage",
-        "label": "Image",
+        "label": "Car detail image",
         "multi": false
       },
       {
         "component": "richtext",
         "valueType": "string",
         "name": "infoPrice",
-        "label": "Text",
+        "label": "Price details",
         "value": ""
       }
     ]
