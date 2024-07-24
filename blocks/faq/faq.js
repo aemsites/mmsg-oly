@@ -1,43 +1,68 @@
 import { createForm } from '../form/form.js';
 import { CONFIG } from '../../scripts/utils.js';
 
-function handleSearchInput(searchInput, searchIcon, closeIcon) {
-  const searchTerm = searchInput.value.toLowerCase();
+function toggleBlocks(selector, isShow) {
+  const blocks = document.querySelectorAll(selector);
+  if (blocks && blocks.length > 0) {
+    if (isShow) {
+      blocks.forEach((block) => {
+        block.removeAttribute('style');
+      });
+    } else {
+      blocks.forEach((block) => {
+        block.style.display = 'none';
+      });
+    }
+  }
+}
+
+function resetSearchInput(searchIcon, closeIcon, searchMessage) {
+  searchIcon.style.display = 'block';
+  closeIcon.style.display = 'none';
+  searchMessage.style.display = 'none';
+
+  toggleBlocks('.faq.block > div:nth-child(2)', true);
+
+  const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
+  accordionGroupBlocks.forEach((block) => {
+    block.classList.remove('expanded');
+  });
+
+  toggleBlocks('.faq.accordion-group-container > .default-content-wrapper', true);
+  toggleBlocks('.accordion.block', true);
+}
+
+function handleSearchInput(searchIcon, closeIcon, searchMessage) {
+  const searchTerm = document.querySelector('#form-faqsearch').value.toLowerCase();
   if (searchTerm.length > 0) {
     searchIcon.style.display = 'none';
     closeIcon.style.display = 'block';
+
+    toggleBlocks('.faq.block > div:nth-child(2)', false);
+
     const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
     accordionGroupBlocks.forEach((block) => {
-      block.style.width = '100%';
+      block.classList.add('expanded');
     });
 
     const accordionBlocks = document.querySelectorAll('.accordion.block');
-
+    let resultCount = 0;
     accordionBlocks.forEach((block) => {
       const blockContent = block.textContent.toLowerCase();
       if (blockContent.includes(searchTerm)) {
         block.style.display = 'block';
+        resultCount += 1;
       } else {
         block.style.display = 'none';
       }
     });
 
-    const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
-    defaultBlocks.forEach((block) => {
-      block.style.display = 'none';
-    });
-  } else {
-    searchIcon.style.display = 'block';
-    closeIcon.style.display = 'none';
-    const defaultBlocks = document.querySelectorAll('.faq.accordion-group-container > .default-content-wrapper');
-    defaultBlocks.forEach((block) => {
-      block.removeAttribute('style');
-    });
+    searchMessage.textContent = `You searched "${searchTerm}" (${resultCount} result${resultCount !== 1 ? 's' : ''} found)`;
+    searchMessage.style.display = 'block';
 
-    const accordionGroupBlocks = document.querySelectorAll('.faq.accordion-group-container > .accordion-group-wrapper');
-    accordionGroupBlocks.forEach((block) => {
-      block.removeAttribute('style');
-    });
+    toggleBlocks('.faq.accordion-group-container > .default-content-wrapper', false);
+  } else {
+    resetSearchInput(searchIcon, closeIcon, searchMessage);
   }
 }
 
@@ -72,17 +97,23 @@ export default async function decorate(block) {
     closeText.classList.add('close-text');
     closeText.textContent = 'Close and back to FAQs';
 
-    // Append icons to the wrapper
+    // Create search message element
+    const searchMessage = document.createElement('div');
+    searchMessage.classList.add('search-message');
+    searchMessage.style.display = 'none';
+
+    // Append icons and search message to the wrapper
     const wrapper = document.querySelector('.field-wrapper');
     wrapper.appendChild(searchIcon);
     const closeContainer = document.createElement('div');
     closeContainer.classList.add('icon-text-container');
-    closeContainer.appendChild(closeIcon);
     closeContainer.appendChild(closeText);
+    closeContainer.appendChild(closeIcon);
     wrapper.appendChild(closeContainer);
+    wrapper.appendChild(searchMessage);
 
     searchInput.addEventListener('input', () => {
-      handleSearchInput(searchInput, searchIcon, closeContainer);
+      handleSearchInput(searchIcon, closeContainer, searchMessage);
     });
 
     // Loop through each anchor and add a click event listener
@@ -108,8 +139,9 @@ export default async function decorate(block) {
       searchInput.value = '';
       searchIcon.style.display = 'block';
       closeContainer.style.display = 'none';
+      searchMessage.style.display = 'none';
       searchInput.focus();
-      handleSearchInput(searchInput, searchIcon, closeContainer);
+      resetSearchInput(searchIcon, closeContainer, searchMessage);
     });
 
     // Clear input when close icon is activated via keyboard
@@ -119,8 +151,9 @@ export default async function decorate(block) {
         searchInput.value = '';
         searchIcon.style.display = 'block';
         closeContainer.style.display = 'none';
+        searchMessage.style.display = 'none';
         searchInput.focus();
-        handleSearchInput(searchInput, searchIcon, closeContainer);
+        resetSearchInput(searchIcon, closeContainer, searchMessage);
       }
     });
   } else {
