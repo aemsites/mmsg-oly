@@ -18,6 +18,7 @@
     flex-direction: column;
     gap: 1rem;
 
+    h2,
     h3 {
       font-size: var(--font-size-l-alt);
       line-height: 2.5rem;
@@ -136,8 +137,7 @@
 
 @media (width >= 1024px) {
   .section.cards-container {
-    padding: 0 var(--spacing-xxxl);
-    margin: var(--spacing-s) 0;
+    padding: var(--spacing-l-alt) var(--spacing-xxxl);
     gap: 3rem;
 
     .default-content-wrapper {

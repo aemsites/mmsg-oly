@@ -598,6 +598,31 @@ main .section.highlight {
   }
 }
 
+.section.save-money {
+  .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin: auto;
+
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      font-size: var(--font-size-l-alt);
+      line-height: 2.5rem;
+    }
+
+    p {
+      font-size: var(--font-size-xs);
+      line-height: 1.5rem;
+    }
+  }
+}
+
 /* helper classes */
 .hide {
   display: none;
