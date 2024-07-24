@@ -24,6 +24,8 @@ export default async function decorate(block) {
     [...item.children].forEach((el, index) => {
       if (index === 2) {
         localStorage.setItem('calculatorAPIKey', el.innerHTML);
+        el.textContent = '';
+        el.style.display = 'none';
       }
     });
   });
