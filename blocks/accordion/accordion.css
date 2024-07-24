@@ -160,13 +160,18 @@ ol .accordion summary {
 
   .accordion.block {
     background-color: var(--color-white);
+    border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 
 @media (width >= 768px) {
   /* accordion-disclaimer */
   .section.accordion-disclaimer {
-    margin: 0 auto;
+    margin: var(--spacing-l-alt) var(--spacing-xxl-l);
     max-width: var(--max-width-container);
 
     div {

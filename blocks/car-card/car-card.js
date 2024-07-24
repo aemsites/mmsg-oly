@@ -28,11 +28,11 @@ function getPriceContainer(cardObj) {
     `;
 }
 
-function getButtonContainer() {
+function getButtonContainer(cardObj) {
   return `
     <div class="car-card-button-container">
       <p class="button-container">
-        <a href="oly.com.au" title="View Offer Details" class="button">View Offer Details</a>
+        <a href="${cardObj?.path}" title="View Offer Details" class="button">View Offer Details</a>
       </p>
     </div>
     `;
@@ -65,7 +65,7 @@ function buildCardTemplate(cardObj) {
       `;
   const featureContainer = cardObj?.isFeatures ? getFeaturesContainer() : '';
   const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
-  const buttonContainer = cardObj?.isButtonExists ? getButtonContainer() : '';
+  const buttonContainer = cardObj?.isButtonExists ? getButtonContainer(cardObj) : '';
   const checkboxContainer = cardObj?.isCheckbox ? getCheckboxContainer() : '';
   const wrapper = document.createElement('div');
   wrapper.className = 'car-detail-container';

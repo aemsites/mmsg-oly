@@ -11,6 +11,7 @@ const data = [
     isButtonExists: true,
     type: 'petrol',
     isCheckbox: true,
+    path: '/vehicle-offers/volvocx40',
   },
   {
     offerId: 'offer_2',
@@ -24,6 +25,7 @@ const data = [
     isButtonExists: true,
     type: 'ev',
     isCheckbox: true,
+    path: '/vehicle-offers/volvocx40',
   },
   {
     offerId: 'offer_3',
@@ -37,6 +39,7 @@ const data = [
     isButtonExists: true,
     type: 'hatchback',
     isCheckbox: true,
+    path: '/vehicle-offers/volvocx40',
   },
 ];
 
