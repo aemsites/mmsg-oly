@@ -22,8 +22,9 @@
   --background-color: #fff;
   --bg-color-paper: #f2ede8;
   --bg-color-blue: #c7eded;
-  --bg-color-light-green: #9cccbd;
-  --bg-color-aqua: #a3c9ea;
+  --bg-color-light-green: #e6f2ef;
+  --bg-color-aqua: #c7eded;
+  --bg-color-light-blue: #e5f0fe;
   --bg-color-green: #004733;
   --bg-color-neutral: #f8f9fa;
   --color-active-outline: #6673fb;
@@ -595,4 +596,38 @@ main .section.highlight {
   @media (width < 1024px) {
     display: none;
   }
+}
+
+.section.save-money {
+  .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin: auto;
+
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      font-size: var(--font-size-l-alt);
+      line-height: 2.5rem;
+    }
+
+    p {
+      font-size: var(--font-size-xs);
+      line-height: 1.5rem;
+    }
+  }
+}
+
+/* helper classes */
+.hide {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
 }

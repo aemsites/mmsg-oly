@@ -127,3 +127,50 @@ ol .accordion summary {
 .shade-box .accordion-wrapper:first-child details {
   padding-top: 16px;
 }
+
+/* accordion-disclaimer */
+.section.accordion-disclaimer {
+  background-color: var(--bg-color-paper);
+  margin: 1rem;
+  padding: var(--spacing-m);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  /* stylelint-disable */
+  details {
+    padding: 15px;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  summary {
+    padding: 0;
+  }
+
+  summary::after {
+    top: 5px;
+    right: 5px;
+  }
+  /* stylelint-enable */
+
+  .accordion.block {
+    background-color: var(--color-white);
+  }
+}
+
+@media (width >= 768px) {
+  /* accordion-disclaimer */
+  .section.accordion-disclaimer {
+    margin: 0 auto;
+    max-width: var(--max-width-container);
+
+    div {
+      margin: 0;
+    }
+  }
+}

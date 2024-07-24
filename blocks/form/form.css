@@ -178,6 +178,7 @@
   @media (width >= 1024px) {
     flex-direction: row;
     padding: var(--spacing-xl-l) var(--spacing-xxl-l);
+    gap: 1rem;
   }
 
   .default-content-wrapper {
@@ -230,6 +231,7 @@
   .form-wrapper {
     margin: 0;
     max-width: var(--max-width-container-medium);
+    flex: 2;
   }
 
   form {
