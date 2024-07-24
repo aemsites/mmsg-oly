@@ -737,6 +737,39 @@
     ]
   },
   {
+    "id": "vehicle-info",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "infoTitle",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "infoImgEngine",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "infoVehicleImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "infoPrice",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "thumbnail_desc",
     "fields": [
       {
