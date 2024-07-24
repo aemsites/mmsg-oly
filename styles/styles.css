@@ -631,3 +631,16 @@ main .section.highlight {
 .text-center {
   text-align: center;
 }
+
+mt-4 {
+  margin-top: var(--spacing-l);
+}
+
+mb-4 {
+  margin-bottom: var(--spacing-l);
+}
+
+my-4 {
+  margin-top: var(--spacing-l);
+  margin-bottom: var(--spacing-l);
+}
