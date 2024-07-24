@@ -316,6 +316,27 @@
     "id": "slide",
     "fields": [
       {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -813,13 +834,6 @@
         "name": "text",
         "label": "Explore text",
         "value": "Explore these categories"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "category",
-        "label": "Categories",
-        "value": ""
       }
     ]
   },
@@ -911,6 +925,19 @@
         "name": "link",
         "label": "Youtube Link",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "cq:tags",
+        "label": "Tags",
+        "rootPath": "/content/cq:tags/oly",
+        "description": "Defines the page meta tags for SEO"
       }
     ]
   }
