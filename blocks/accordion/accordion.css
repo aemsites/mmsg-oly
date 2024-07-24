@@ -128,44 +128,46 @@ ol .accordion summary {
   padding-top: 16px;
 }
 
-/* accordion-disclaimer | electric vehicle lease */
+/* accordion-disclaimer */
 .section.accordion-disclaimer {
   background-color: var(--bg-color-paper);
   margin: 1rem;
-  padding: 24px 16px;
+  padding: var(--spacing-m);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-}
 
-.section.accordion-disclaimer .accordion-group-wrapper details {
-  padding: 0;
-}
+  /* stylelint-disable */
+  details {
+    padding: 15px;
+  }
 
-.section.accordion-disclaimer summary {
-  background-color: var(--background-color);
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 0;
-  padding: 24px;
-}
+  h3 {
+    margin: 0;
+    font-weight: 700;
+  }
 
-.section.accordion-disclaimer h3 {
-  margin: 0;
-  font-weight: 700;
-}
+  summary {
+    padding: 0;
+  }
 
-.section.accordion-disclaimer .disclaimer-1 {
-  background-color: var(--background-color);
+  summary::after {
+    top: 5px;
+    right: 5px;
+  }
+  /* stylelint-enable */
+
+  .accordion.block {
+    background-color: var(--color-white);
+  }
 }
 
 @media (width >= 768px) {
   /* accordion-disclaimer */
   .section.accordion-disclaimer {
-    padding: 20px 40px;
-    margin: 16px 104px;
+    margin: 0 auto;
+    max-width: var(--max-width-container);
 
     div {
       margin: 0;
