@@ -4,7 +4,7 @@ export default async function getModels(make) {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': 'd6d942f632ce4c6c88783a70483e53f1',
+      'Ocp-Apim-Subscription-Key': localStorage.getItem('calculatorAPIKey'),
     },
   };
   try {
