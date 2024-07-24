@@ -632,15 +632,15 @@ main .section.highlight {
   text-align: center;
 }
 
-mt-4 {
+.mt-4 {
   margin-top: var(--spacing-l);
 }
 
-mb-4 {
+.mb-4 {
   margin-bottom: var(--spacing-l);
 }
 
-my-4 {
+.my-4 {
   margin-top: var(--spacing-l);
   margin-bottom: var(--spacing-l);
 }
