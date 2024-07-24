@@ -133,6 +133,31 @@
     "id": "card",
     "fields": [
       {
+        "component": "select",
+        "valueType": "string",
+        "name": "cardColor",
+        "value": "",
+        "label": "Card Color",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "green",
+            "value": "green"
+          },
+          {
+            "name": "aqua",
+            "value": "aqua"
+          },
+          {
+            "name": "blue",
+            "value": "blue"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -164,6 +189,23 @@
     "id": "hero",
     "fields": [
       {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Homepage",
+            "value": "homepage"
+          },
+          {
+            "name": "Offerpage",
+            "value": "offerpage"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -179,10 +221,723 @@
       },
       {
         "component": "richtext",
+        "name": "content",
+        "value": "",
+        "label": "Content",
+        "valueType": "string"
+      },
+      {
+        "component": "button",
+        "name": "cta",
+        "value": "",
+        "label": "CTA",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "header-nav",
+    "fields": [
+       {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "titleType",
+        "value": "h2",
+        "label": "Heading Type",
+        "options": [
+          {
+            "name": "H2",
+            "value": "h2"
+          },
+          {
+            "name": "H3",
+            "value": "h3"
+          },
+          {
+            "name": "H4",
+            "value": "h4"
+          },
+          {
+            "name": "H5",
+            "value": "h5"
+          },
+          {
+            "name": "H6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "value": "",
+        "label": "Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Carousel-Slide-3",
+            "value": "carousel-slide-3"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slide",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "savingscard-header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_Image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foreground_TitleHeading",
+        "label": "TitleHeading",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foreground_TitleBrand",
+        "label": "TitleBrand",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "section_Description",
+        "label": "Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard-footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "savingscard",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_badge",
+        "label": "NoOlyBadge",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "no_oly_vehicle_image",
+        "label": "NoOlyVehicleImage",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_description",
+        "label": "NoOlyDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_vehicle_price",
+        "label": "NoOlyVehiclePrice",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_vehicle_price_description",
+        "label": "NoOlyVehiclePriceDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_figure_title",
+        "label": "NoOlyVehicleFigureTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_salary_title",
+        "label": "NoOlyTitleSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_salary_value",
+        "label": "NoOlyAnnualSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_car_title",
+        "label": "NoOlyCarTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_car_value",
+        "label": "NoOlyCarValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_lease_title",
+        "label": "NoOlyLeaseTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "no_oly_lease_value",
+        "label": "NoOlyLeaseValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_badge",
+        "label": "WithOlyBadge",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "with_oly_vehicle_image",
+        "label": "OlyVehicleImage",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_description",
+        "label": "OlyDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_vehicle_price",
+        "label": "OlyVehiclePrice",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_vehicle_price_description",
+        "label": "OlyVehiclePriceDescription",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_figure_title",
+        "label": "OlyVehicleFigureTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_salary_title",
+        "label": "OlyTitleSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_salary_value",
+        "label": "OlyAnnualSalary",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_car_title",
+        "label": "OlyCarTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_car_value",
+        "label": "OlyCarValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_lease_title",
+        "label": "OlyLeaseTitle",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "with_oly_lease_value",
+        "label": "OlyLeaseValue",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "accordion-group",
+    "fields": []
+  },
+  {
+    "id": "breadcrumb",
+    "fields": []
+  },
+  {
+    "id": "car-card",
+    "fields": []
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "value": "",
+        "label": "Heading"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "headingType",
+        "value": "h3",
+        "label": "Heading Type",
+        "options": [
+          {
+            "name": "H2",
+            "value": "h2"
+          },
+          {
+            "name": "H3",
+            "value": "h3"
+          },
+          {
+            "name": "H4",
+            "value": "h4"
+          },
+          {
+            "name": "H5",
+            "value": "h5"
+          },
+          {
+            "name": "H6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "body",
+        "value": "",
+        "label": "Body"
+      }
+    ]
+  },
+  {
+    "id": "imagedesc-col2-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "imagedesc-col3-inline",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_3_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "calculator",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "titleWithDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Make",
+        "label": "Make Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Model",
+        "label": "Model Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Salary",
+        "label": "Salary label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Vehicle_Cost",
+        "label": "Vehicle Cost Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Kms",
+        "label": "Annual Kms label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelUser_Lease_Term",
+        "label": "Lease Term label",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "calculatorDescription",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "thumbnail_desc",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formUrl",
+        "label": "Form location",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "wishlist",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "small",
+            "value": "small"
+          },
+          {
+            "name": "full",
+            "value": "full"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vehicle-search-box",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "input",
+        "label": "input",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Display search?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Explore text",
+        "value": "Explore these categories"
+      }
+    ]
+  },
+  {
+    "id": "car-details",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": "Volvo XC40 details"
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Price",
+        "value": "$38,606"
+      }
+    ]
+  },
+  {
+    "id": "car-features",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "feature",
+        "label": "Features",
+        "value": "Key features"
+      }
+    ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carImage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "value": "",
+        "label": "Car Detail page?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Youtube Link",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "cq:tags",
+        "label": "Tags",
+        "rootPath": "/content/cq:tags/oly",
+        "description": "Defines the page meta tags for SEO"
       }
     ]
   }

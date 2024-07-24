@@ -1,6 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+const COLOR = ['default', 'green', 'blue', 'aqua'];
+
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
@@ -8,6 +10,14 @@ export default function decorate(block) {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
+
+    const firstChildDiv = li.children[0];
+    const className = firstChildDiv.textContent.trim();
+    if (COLOR.includes(className)) {
+      li.classList.add(className);
+      firstChildDiv.remove();
+    }
+
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';

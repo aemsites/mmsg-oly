@@ -21,19 +21,53 @@
   {
     "id": "section",
     "components": [
+      "breadcrumb",
       "text",
       "image",
       "button",
       "title",
       "hero",
       "cards",
-      "columns"
+      "columns",
+      "header-nav",
+      "carousel",
+      "savingscard-header",
+      "savingscard",
+      "savingscard-footer",
+      "accordion-group",
+      "form",
+      "imagedesc-col2-inline",
+      "imagedesc-col3-inline",
+      "car-card",
+      "wishlist",
+      "thumbnail_desc",
+      "vehicle-search-box",
+      "faq",
+      "car-details",
+      "car-features",
+      "embed",
+      "calculator",
+      "single-slide-carousel"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": ["silde"]
+  },
+  {
+    "id": "accordion",
+    "components": ["accordion"]
+  },
+  {
+    "id": "single-slide-carousel",
+    "components": [
+      "slide"
     ]
   }
 ]
