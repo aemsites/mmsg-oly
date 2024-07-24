@@ -444,7 +444,7 @@
 
       > div {
         padding: var(--spacing-s);
-        gap: 1rem;
+        gap: 0;
         border: 1px solid var(--border-color);
         border-radius: 0.5rem;
 
@@ -463,9 +463,12 @@
           }
         }
 
-        h4 {
-          font-size: var(--font-size-m);
+        h5,
+        h4,
+        h6 {
+          font-size: 1.5rem;
           line-height: 2rem;
+          margin: 16px 0 0;
         }
       }
     }

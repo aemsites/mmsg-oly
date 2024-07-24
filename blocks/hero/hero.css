@@ -108,7 +108,19 @@ main {
   }
 }
 
-.content {
+.hero.offerpage {
+  @media (width >= 1024px) {
+    padding: 30px;
+  }
+}
+
+.hero.offerpage div:nth-child(2) {
+  max-width: 1380px;
+  width: 100%;
+  margin: auto;
+}
+
+.hero.offerpage div:nth-child(2) > div {
   align-items: flex-start;
   border-radius: 0.5rem;
   background: #ffffffeb;
@@ -120,10 +132,46 @@ main {
   @media (width >= 1024px) {
     border-radius: 1rem 18.75rem 18.75rem 1rem;
     padding: 2rem;
-    margin: 0 auto;
-    width: -webkit-fill-available;
-    max-width: 1232px;
-    margin-top: -96px;
+    padding: 32px 32px 32px 64px;
+    width: 500px;
+    margin: 0;
+  }
+
+  p:nth-child(1) {
+    color: #ff1261;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 32px 0 16px;
+    font-family: var(--heading-font-family);
+  }
+
+  #volvoxc40 {
+    margin: 0;
+  }
+
+  p:nth-child(3) {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0 0 16px;
+    color: var(--color-black);
+  }
+
+  p:nth-child(4) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  p:nth-child(5) {
+    font-family: var(--heading-font-family);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    margin: 0;
+    color: var(--color-black);
   }
 }
 
@@ -137,6 +185,12 @@ main {
 
   .content {
     background: none;
+
+    @media (width >= 1024px) {
+      width: -webkit-fill-available;
+      max-width: 1232px;
+      margin-top: -96px;
+    }
 
     .hero-content {
       @media (width >= 768px) {
