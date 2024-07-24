@@ -46,7 +46,8 @@
       "car-details",
       "car-features",
       "embed",
-      "calculator"
+      "calculator",
+      "single-slide-carousel"
     ]
   },
   {
@@ -62,5 +63,11 @@
   {
     "id": "accordion",
     "components": ["accordion"]
+  },
+  {
+    "id": "single-slide-carousel",
+    "components": [
+      "slide"
+    ]
   }
 ]

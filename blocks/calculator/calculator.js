@@ -2,6 +2,7 @@ import getMakes from './api/getMakes.js';
 import getModels from './api/getModels.js';
 import getAutoDetailOnMakeModel from './api/getAutoDetailOnMakeModel.js';
 import getVehicleImageOnNVIC from './api/getVehicleImageOnNVIC.js';
+import getAutoDetailOnNVIC from './api/getAutoDetailOnNVIC.js';
 
 export default async function decorate(block) {
   const formFields = [{ name: 'formLabel_Make' }, { name: 'formLabel_Model' }];
@@ -13,11 +14,19 @@ export default async function decorate(block) {
     { name: 'formLabelUser_Lease_Term' },
   ];
 
-  const [brandImage, formLabels, formUserLabels, richText] = block.children;
-  brandImage.className = 'brand-image';
+  const [formHeading, formLabels, formUserLabels, richText] = block.children;
+  formHeading.className = 'form-heading';
   formLabels.className = 'form-label-container';
   formUserLabels.className = 'form-user-label-container';
   richText.className = 'content-container';
+
+  [...formHeading.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      if (index === 2) {
+        localStorage.setItem('calculatorAPIKey', el.innerHTML);
+      }
+    });
+  });
 
   let formFieldIndex = 0;
   const responseMakes = await getMakes();
@@ -65,6 +74,7 @@ export default async function decorate(block) {
             vehicleSelectionListContainer.innerHTML = '';
             responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
+              const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
               const img = document.createElement('img');
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
@@ -78,15 +88,18 @@ export default async function decorate(block) {
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
-              h3.innerHTML = vehicle.RRP.Amount;
+              h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
               const prgh = document.createElement('p');
-              prgh.innerHTML = vehicle.ModelName;
+              prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
+              const pFueltype = document.createElement('p');
+              pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
+              li.append(pFueltype);
               vehicleSelectionListContainer.append(li);
             });
           });
@@ -107,6 +120,7 @@ export default async function decorate(block) {
             vehicleSelectionListContainer.innerHTML = '';
             responseVehicleList.Table.forEach(async (vehicle) => {
               const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
+              const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
               const img = document.createElement('img');
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
@@ -120,15 +134,18 @@ export default async function decorate(block) {
               const li = document.createElement('li');
               li.className = 'vehicle-item';
               const h3 = document.createElement('h3');
-              h3.innerHTML = vehicle.RRP.Amount;
+              h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
               const span = document.createElement('span');
               span.innerHTML = ' RRP';
               h3.append(span);
               const prgh = document.createElement('p');
-              prgh.innerHTML = vehicle.ModelName;
+              prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
+              const pFueltype = document.createElement('p');
+              pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
               li.append(h3);
               li.append(prgh);
               li.append(img);
+              li.append(pFueltype);
               vehicleSelectionListContainer.append(li);
             });
           });
@@ -153,6 +170,7 @@ export default async function decorate(block) {
     ul.id = 'vehicle-selection-list-ul';
     responseVehicleList.Table.forEach(async (vehicle) => {
       const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
+      const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
       const img = document.createElement('img');
       responseVehicleImage.arrayBuffer().then((buffer) => {
         let binary = '';
@@ -166,16 +184,19 @@ export default async function decorate(block) {
       const li = document.createElement('li');
       li.className = 'vehicle-item';
       const h3 = document.createElement('h3');
-      h3.innerHTML = vehicle.RRP.Amount;
+      h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
       const span = document.createElement('span');
       span.innerHTML = ' RRP';
       h3.append(span);
       const prgh = document.createElement('p');
-      prgh.innerHTML = vehicle.ModelName;
+      prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
+      const pFueltype = document.createElement('p');
+      pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
 
       li.append(h3);
       li.append(prgh);
       li.append(img);
+      li.append(pFueltype);
       ul.append(li);
     });
     vehicleListWrapper.append(ul);
