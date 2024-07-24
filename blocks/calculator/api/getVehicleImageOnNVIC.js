@@ -4,7 +4,7 @@ export default async function getVehicleImageOnNVIC(nvic) {
     method: 'GET',
     headers: {
       'Content-Type': 'image/jpeg',
-      'Ocp-Apim-Subscription-Key': 'd6d942f632ce4c6c88783a70483e53f1',
+      'Ocp-Apim-Subscription-Key': localStorage.getItem('calculatorAPIKey'),
     },
   };
   try {

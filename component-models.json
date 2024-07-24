@@ -834,13 +834,6 @@
         "name": "text",
         "label": "Explore text",
         "value": "Explore these categories"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "category",
-        "label": "Categories",
-        "value": ""
       }
     ]
   },
@@ -941,9 +934,9 @@
       {
         "component": "aem-tag",
         "valueType": "string",
-        "name": "brand",
+        "name": "cq:tags",
         "label": "Tags",
-        "rootPath": "/content/cq:tags/oly/vehicle-offers/brand",
+        "rootPath": "/content/cq:tags/oly",
         "description": "Defines the page meta tags for SEO"
       }
     ]

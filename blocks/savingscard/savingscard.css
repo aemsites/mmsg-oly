@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 50% 50%;
   background: var(--color-white);
+
+  @media (width >= 768px) {
+    gap: 16px;
+  }
 }
 
 .block.savingscard p {
@@ -72,6 +76,18 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (width >= 768px) {
+  .savingscard > div.no-oly {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .block.savingscard > div.with-oly {
+    margin-left: 0;
+    margin-right: auto;
+  }
 }
 
 .block.savingscard > div.no-oly picture,

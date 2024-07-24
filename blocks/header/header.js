@@ -2,7 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1024px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -135,8 +135,14 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+  const brandImg = navBrand.firstElementChild.firstElementChild;
+  const anchorBrandNode = document.createElement('a');
+  anchorBrandNode.href = '/';
+  anchorBrandNode.append(brandImg);
+  navBrand.firstElementChild.append(anchorBrandNode);
 
   const navSections = nav.querySelector('.nav-sections');
+  // const navTools = nav.querySelector('.nav-tools');
   if (navSections) {
     const imageCover = navSections.querySelector('.default-content-wrapper > p');
     imageCover.remove();
