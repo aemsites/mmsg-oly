@@ -742,7 +742,7 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "infoTitle",
+        "name": "titleInfo",
         "label": "Text",
         "value": ""
       },
