@@ -88,7 +88,7 @@ function renderWishlistCards(filteredJson, container) {
     container.appendChild(wishlistWrapper);
   } else {
     const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'Your wishlist is empty.';
+    emptyMessage.textContent = 'Your wishlist is empty';
     container.appendChild(emptyMessage);
   }
 }
@@ -121,7 +121,11 @@ export default function decorate(block) {
     wishlistContainer.id = 'wishlist-container';
 
     const title = document.createElement('h2');
-    title.textContent = 'My Wishlist';
+    const filtered = getFilteredJsonObject();
+    title.textContent =
+      filtered.length > 0
+        ? `You have saved the following ${filtered.length > 1 ? `${filtered.length} vehicles` : 'vehicle'}`
+        : 'You have not saved any vehicles yet';
     block.appendChild(title);
 
     block.appendChild(wishlistContainer);
