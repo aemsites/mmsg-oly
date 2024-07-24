@@ -14,11 +14,19 @@ export default async function decorate(block) {
     { name: 'formLabelUser_Lease_Term' },
   ];
 
-  const [brandImage, formLabels, formUserLabels, richText] = block.children;
-  brandImage.className = 'brand-image';
+  const [formHeading, formLabels, formUserLabels, richText] = block.children;
+  formHeading.className = 'form-heading';
   formLabels.className = 'form-label-container';
   formUserLabels.className = 'form-user-label-container';
   richText.className = 'content-container';
+
+  [...formHeading.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      if (index === 2) {
+        localStorage.setItem('calculatorAPIKey', el.innerHTML);
+      }
+    });
+  });
 
   let formFieldIndex = 0;
   const responseMakes = await getMakes();
