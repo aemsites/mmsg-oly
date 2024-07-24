@@ -597,3 +597,12 @@ main .section.highlight {
     display: none;
   }
 }
+
+/* helper classes */
+.hide {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
