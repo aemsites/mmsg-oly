@@ -124,6 +124,7 @@ header nav a:any-link {
       flex-wrap: wrap; /* stylelint-disable-line */
       height: auto;
       max-height: 412px;
+      box-sizing: border-box;
 
       > p {
         width: 504px;

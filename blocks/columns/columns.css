@@ -389,12 +389,12 @@
 
       > div {
         padding: var(--spacing-s);
-        gap: 1rem;
+        gap: 0;
         border: 1px solid var(--border-color);
         border-radius: 0.5rem;
 
         p {
-          margin: var(--spacing-xxxxs) 0;
+          margin: 0;
 
           img {
             width: 134px;
@@ -410,8 +410,9 @@
 
         h5,
         h6 {
-          font-size: var(--font-size-m);
+          font-size: 1.5rem;
           line-height: 2rem;
+          margin: 16px 0 0;
         }
       }
     }

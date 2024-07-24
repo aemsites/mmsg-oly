@@ -173,6 +173,7 @@
   padding: var(--spacing-l) var(--spacing-xs);
   margin: 0 auto;
   justify-content: center;
+  position: relative;
 
   @media (width >= 1024px) {
     flex-direction: row;
@@ -185,6 +186,7 @@
 
     @media (width >= 1024px) {
       margin: 0 var(--spacing-xs) 0 0;
+      flex-shrink: 0;
     }
 
     h1,
@@ -211,6 +213,16 @@
       @media (width >= 1024px) {
         font-size: var(--font-size-s);
         line-height: var(--font-size-l-alt);
+      }
+
+      img {
+        position: absolute;
+        bottom: 78px;
+        margin-left: 2px;
+
+        @media (width < 1024px) {
+          display: none;
+        }
       }
     }
   }
@@ -258,5 +270,34 @@
     line-height: var(--spacing-s);
     margin: 0;
     color: var(--color-grey);
+  }
+}
+
+.section.request-callback-page.more-from-oly {
+  margin: 64px 0;
+  display: flex;
+  align-items: center;
+
+  @media (width >= 1024px) {
+    margin: 96px 0;
+  }
+
+  > .default-content-wrapper {
+    @media (width >= 1024px) {
+      margin: 0;
+      max-width: 1232px;
+      width: -webkit-fill-available;
+    }
+  }
+
+  > .columns-wrapper {
+    margin: 0;
+  }
+
+  #more-ways-to-contact-oly {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: 0;
   }
 }

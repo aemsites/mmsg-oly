@@ -79,7 +79,7 @@
 }
 
 @media (width >= 768px) {
-  .savingscard > div.no-oly {
+  .block.savingscard > div.no-oly {
     margin-left: auto;
     margin-right: 0;
   }
