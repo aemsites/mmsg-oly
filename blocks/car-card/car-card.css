@@ -147,6 +147,10 @@
 }
 
 @media (width >=1024px) {
+  .car-card-container .car-card-wrapper {
+    margin: 0 var(--spacing-xxxl);
+  }
+
   .section.car-card-4 {
     .car-cards-wrapper {
       grid-template-columns: repeat(4, calc((100% - 16px * 3) / 4));
