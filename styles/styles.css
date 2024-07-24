@@ -22,8 +22,9 @@
   --background-color: #fff;
   --bg-color-paper: #f2ede8;
   --bg-color-blue: #c7eded;
-  --bg-color-light-green: #9cccbd;
-  --bg-color-aqua: #a3c9ea;
+  --bg-color-light-green: #e6f2ef;
+  --bg-color-aqua: #c7eded;
+  --bg-color-light-blue: #e5f0fe;
   --bg-color-green: #004733;
   --bg-color-neutral: #f8f9fa;
   --color-active-outline: #6673fb;
@@ -39,6 +40,7 @@
   --font-size-xl-alt: 2.875rem; /* 46px */
   --font-size-lg: 2.5rem; /* 40px */
   --font-size-lg-alt: 2.375rem; /* 38px */
+  --font-size-lg-alt-s: 2.25rem; /* 36px */
   --font-size-l-alt: 2rem; /* 32px */
   --font-size-l: 1.5rem; /* 24px */
   --font-size-m: 1.25rem; /* 20px */
@@ -461,7 +463,7 @@ main .section.highlight {
     margin: var(--spacing-xxl-negative) var(--spacing-xxxl) var(--spacing-xxl) var(--spacing-xxxl);
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1232px;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -587,5 +589,11 @@ main .section.highlight {
         display: none;
       }
     }
+  }
+}
+
+.section.header-nav-container {
+  @media (width < 1024px) {
+    display: none;
   }
 }
