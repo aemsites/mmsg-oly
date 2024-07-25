@@ -282,13 +282,6 @@
         "value": ""
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "linkTitle",
-        "label": "Link",
-        "value": "/"
-      },
-      {
         "component": "richtext",
         "name": "content",
         "value": "",
