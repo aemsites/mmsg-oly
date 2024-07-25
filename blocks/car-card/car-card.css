@@ -1,9 +1,10 @@
 .car-cards-wrapper {
-  list-style: none;
-  margin: 0;
+  list-style-type: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 1rem;
 }
 
@@ -17,6 +18,8 @@
   font-size: var(--font-size-xs);
   line-height: 1.5rem;
   box-shadow: var(--box-shadow);
+  box-sizing: border-box;
+  flex: 1 1 100%;
 
   .container {
     position: relative;
@@ -140,31 +143,33 @@
   width: 100%;
 }
 
-@media (width >=768px) {
-  .car-detail-container {
-    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-s) var(--spacing-xs);
+@media (width >= 768px) {
+  .section.car-card-container {
+    padding: var(--spacing-s) var(--spacing-l-alt);
+
+    .car-detail-container {
+      padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-s) var(--spacing-xs);
+      flex: 1 1 calc(50% - 16px);
+    }
+
+    .car-detail-container:nth-child(3n + 3) {
+      flex: none;
+      flex-basis: calc(50% - 8px);
+    }
   }
 }
 
 @media (width >=1024px) {
-  .car-card-container .car-card-wrapper {
-    margin: 0 var(--spacing-xxxl);
-  }
+  .section.car-card-container {
+    padding: var(--spacing-l-alt) var(--spacing-xxl-l);
 
-  .section.car-card-4 {
-    .car-cards-wrapper {
-      grid-template-columns: repeat(4, calc((100% - 16px * 3) / 4));
+    .car-detail-container {
+      flex: 1 1 calc(33.33% - 16px);
+    }
 
-      .car-feature {
-        span {
-          font-size: var(--font-size-xxs);
-        }
-
-        span::before {
-          width: 30px;
-          height: 30px;
-        }
-      }
+    .car-detail-container:nth-child(3n + 3) {
+      width: calc(33% - 16px);
+      flex: 1 1 calc(33.33% - 16px);
     }
   }
 }

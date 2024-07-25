@@ -163,8 +163,6 @@
     }
 
     .columns-wrapper {
-      margin: 0 var(--spacing-xxxl);
-
       .columns {
         gap: 2.5rem;
 
@@ -175,8 +173,6 @@
           justify-content: center;
 
           > div {
-            width: 400px;
-
             h4 {
               font-size: var(--font-size-l);
               line-height: 2rem;
@@ -270,7 +266,6 @@
 .section.text-block {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
   gap: 2.5rem;
   background: #f2ede8;
   font-size: var(--font-size-xs);
@@ -304,7 +299,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 var(--font-size-xs);
 
     p img {
       width: 100%;
@@ -329,8 +323,6 @@
   }
 
   .columns-wrapper {
-    padding: 0 var(--spacing-xs);
-
     /* stylelint-disable */
     .columns div {
       gap: 1.5rem;
@@ -339,7 +331,13 @@
   }
 
   @media (width >= 768px) {
+    &.columns-container {
+      padding: var(--spacing-l-alt) var(--spacing-xxl-l);
+    }
+
     .default-content-wrapper {
+      text-align: center;
+
       img {
         width: 400px;
         aspect-ratio: 2.59;
@@ -354,8 +352,6 @@
     }
 
     .columns-wrapper {
-      padding: 0 var(--spacing-xxxl);
-
       .columns div {
         gap: 1.5rem;
         line-height: 2rem;
@@ -476,8 +472,10 @@
   /* stylelint-enable */
 
   @media (width >= 768px) {
-    padding: 96px 160px;
-    gap: 3rem;
+    &.columns-container {
+      padding: 96px 160px;
+      gap: 3rem;
+    }
 
     .default-content-wrapper {
       h2,
@@ -505,7 +503,9 @@
   }
 
   @media (width >= 1024px) {
-    padding: var(--spacing-l-alt) var(--spacing-xxxl);
+    &.columns-container {
+      padding: var(--spacing-l-alt) var(--spacing-xxxl);
+    }
 
     .default-content-wrapper {
       margin: 0 auto;
@@ -534,6 +534,10 @@
 }
 
 @media (width >= 768px) {
+  .section.columns-container {
+    padding: var(--spacing-s) var(--spacing-l-alt);
+  }
+
   /* Column variation - left image */
   .section.semicircle-image.left {
     .block.columns > div .columns-img-col {
@@ -545,6 +549,10 @@
 }
 
 @media (width >= 1024px) {
+  .section.columns-container {
+    padding: var(--spacing-l-alt) var(--spacing-xxl-l);
+  }
+
   .columns > div {
     align-items: center;
     flex-direction: unset;
