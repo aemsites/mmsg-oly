@@ -712,6 +712,20 @@
         "name": "calculatorDescription",
         "label": "Text",
         "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "apiURL",
+        "label": "Calculator API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "apiKey",
+        "label": "Calculator API Key",
+        "value": ""
       }
     ]
   },
