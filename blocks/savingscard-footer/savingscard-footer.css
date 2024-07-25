@@ -1,7 +1,28 @@
 .savingscard-footer {
   text-align: center;
+  margin-bottom: 64px;
+
+  @media (width >= 768px) {
+    margin-bottom: 96px;
+  }
 
   p {
     font-size: var(--font-size-xs-alt);
+  }
+
+  .button-container {
+    margin: 34px 0 32px;
+
+    a {
+      margin: 0;
+    }
+
+    @media (width >= 768px) {
+      margin: 40px 0;
+
+      a {
+        margin: 0 0 24px;
+      }
+    }
   }
 }

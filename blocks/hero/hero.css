@@ -11,7 +11,11 @@ main {
 .hero {
   position: relative;
   padding: var(--spacing-xs);
-  min-height: 640px;
+  min-height: 564px;
+
+  @media (width >= 768px) {
+    min-height: 803px;
+  }
 
   @media (width >= 1024px) {
     padding: var(--spacing-xl) var(--spacing-xl);
@@ -104,7 +108,22 @@ main {
   }
 }
 
-.content {
+.hero.offerpage {
+  min-height: 640px;
+
+  @media (width >= 1024px) {
+    padding: 30px;
+    min-height: unset;
+  }
+}
+
+.hero.offerpage div:nth-child(2) {
+  max-width: 1380px;
+  width: 100%;
+  margin: auto;
+}
+
+.hero.offerpage div:nth-child(2) > div {
   align-items: flex-start;
   border-radius: 0.5rem;
   background: #ffffffeb;
@@ -114,9 +133,48 @@ main {
   padding: 1.5rem;
 
   @media (width >= 1024px) {
-    width: 30rem;
     border-radius: 1rem 18.75rem 18.75rem 1rem;
     padding: 2rem;
+    padding: 32px 32px 32px 64px;
+    width: 500px;
+    margin: 0;
+  }
+
+  p:nth-child(1) {
+    color: #ff1261;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 32px 0 16px;
+    font-family: var(--heading-font-family);
+  }
+
+  #volvoxc40 {
+    margin: 0;
+  }
+
+  p:nth-child(3) {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0 0 16px;
+    color: var(--color-black);
+  }
+
+  p:nth-child(4) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  p:nth-child(5) {
+    font-family: var(--heading-font-family);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    margin: 0;
+    color: var(--color-black);
   }
 }
 
@@ -130,8 +188,32 @@ main {
 
   .content {
     background: none;
+    padding: 24px;
+
+    @media (width >= 768px) {
+      padding: 24px;
+    }
+
+    @media (width >= 1024px) {
+      width: -webkit-fill-available;
+      max-width: 1232px;
+      margin: -96px auto 0;
+      padding: 0;
+    }
 
     .hero-content {
+      @media (width >= 768px) {
+        margin-top: 98px;
+        padding: 0 109px 0 53px;
+        width: 582px;
+      }
+
+      @media (width >= 1024px) {
+        margin-top: 0;
+        width: 702px;
+        padding: 0;
+      }
+
       > div {
         display: flex;
         gap: 16px 0;
@@ -139,10 +221,16 @@ main {
 
         > h1 {
           color: var(--color-white);
-          font-size: var(--font-size-lg);
-          font-weight: var(--body-font-weight);
+          font-family: var(--font-family-bold);
+          font-size: var(--font-size-lg-alt-s);
+          font-weight: var(--font-weight-bold);
           line-height: var(--font-size-lg);
           margin: 0;
+
+          @media (width >= 768px) {
+            font-size: 64px;
+            line-height: 72px;
+          }
 
           @media (width >= 1024px) {
             margin: 0 0 var(--spacing-xxxs);
