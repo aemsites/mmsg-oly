@@ -15,5 +15,13 @@ module.exports = {
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
     'import/prefer-default-export': 'error',
+    'xwalk/max-cells': [
+      'error',
+      {
+        '*': 4,
+        // 'a-specific-model': 4,
+        // 'another-specific-model': 2,
+      },
+    ],
   },
 };
