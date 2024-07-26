@@ -737,6 +737,74 @@
     ]
   },
   {
+    "id": "nl-calculator",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "titleWithDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Year",
+        "label": "Year Label",
+        "value": "Year"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Make",
+        "label": "Make Label",
+        "value": "Make"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabel_Model",
+        "label": "Model Label",
+        "value": "Model"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelCar_Variant",
+        "label": "Variant label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelCar_EstimatedTravel",
+        "label": "Estimated travel label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelCar_LeaseTerm",
+        "label": "Lease Term label",
+        "value": "Lease Term"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formLabelCar_Salary",
+        "label": "Salary label",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "calculatorDescription",
+        "label": "Text",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "thumbnail_desc",
     "fields": [
       {

@@ -352,6 +352,27 @@
           }
         },
         {
+          "title": "NL-Calculator",
+          "id": "nl-calculator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "nl-calculator",
+                  "model": "nl-calculator",
+                  "formLabel_Make":"Make",
+                  "formLabel_Model":"Model",
+                  "formLabelCar_EstimatedTravel":"Estimated travel",
+                  "formLabelCar_Variant":"Variant",
+                  "formLabelCar_Salary":"Annual Salary",
+                  "formLabelCar_LeaseTerm":"Lease term"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Vehicle Search Box",
           "id": "vehicle-search-box",
           "plugins": {
