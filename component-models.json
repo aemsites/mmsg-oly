@@ -785,8 +785,8 @@
         "valueType": "string",
         "options": [
           {
-            "name": "small",
-            "value": "small"
+            "name": "recent",
+            "value": "recent"
           },
           {
             "name": "full",
@@ -938,6 +938,30 @@
         "label": "Tags",
         "rootPath": "/content/cq:tags/oly",
         "description": "Defines the page meta tags for SEO"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "brand",
+        "label": "Vehicle Brand",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/brands",
+        "description": "Defines the vehicle brand meta tags for SEO"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "body-type",
+        "label": "Body Type",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/body-type",
+        "description": "Defines the vehicle body-type meta tags for SEO"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "price-range",
+        "label": "Price Range",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/price-range",
+        "description": "Defines the vehicle price range meta tags for SEO"
       }
     ]
   }

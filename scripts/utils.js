@@ -104,3 +104,38 @@ export const WishlistManager = (() => {
     updateWishlistCountWithRetry,
   };
 })();
+
+/**
+ * Manage Recently viewed cars, set and get from local storage
+ */
+export const RecentlyViewedManager = (() => {
+  const RECENTLY_VIEWED_KEY = 'recentlyViewed';
+  const MAX_RECENTLY_VIEWED = 3;
+
+  const getRecentlyViewed = () => {
+    const recentlyViewedString = localStorage.getItem(RECENTLY_VIEWED_KEY);
+    return recentlyViewedString ? JSON.parse(recentlyViewedString) : [];
+  };
+
+  const setRecentlyViewed = (offerId) => {
+    const recentlyViewed = getRecentlyViewed();
+    const index = recentlyViewed.indexOf(offerId);
+
+    if (index > -1) {
+      recentlyViewed.splice(index, 1);
+    }
+
+    recentlyViewed.unshift(offerId);
+
+    if (recentlyViewed.length > MAX_RECENTLY_VIEWED) {
+      recentlyViewed.pop();
+    }
+
+    localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(recentlyViewed));
+  };
+
+  return {
+    getRecentlyViewed,
+    setRecentlyViewed,
+  };
+})();
