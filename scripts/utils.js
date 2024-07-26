@@ -3,6 +3,8 @@ export const CONFIG = {
   language: 'en',
   site: 'oly',
   baseURL: window.location.origin || 'https://oly.com.au/',
+  youTubeLinkCheck: 'https://youtu',
+  videoModalPath: '/modals/video',
 };
 
 /**

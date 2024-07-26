@@ -11,6 +11,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './aem.js';
+import { CONFIG } from './utils.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -70,9 +71,9 @@ function autolinkModals(element) {
 
       if (origin.href.includes('/modals/')) {
         openModal(origin.href, '');
-      } else if (origin.href.includes('https://youtu')) {
+      } else if (origin.href.includes(CONFIG.youTubeLinkCheck)) {
         const videoUrl = origin.href;
-        const fragmentUrl = `${window.location.origin}/modals/video`;
+        const fragmentUrl = `${window.location.origin}${CONFIG.videoModalPath}`;
         openModal(fragmentUrl, videoUrl);
       }
     }

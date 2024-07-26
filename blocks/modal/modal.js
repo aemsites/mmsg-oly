@@ -1,6 +1,7 @@
 import { loadFragment } from '../fragment/fragment.js';
 import { buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS } from '../../scripts/aem.js';
 import { loadEmbed } from '../embed/embed.js'; // Import loadEmbed function from embed.js
+import { CONFIG } from '../../scripts/utils.js';
 
 export async function createModal(contentNodes, videoUrl) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
@@ -18,7 +19,9 @@ export async function createModal(contentNodes, videoUrl) {
   dialogContent.appendChild(embedBlock);
 
   // Call loadEmbed to load the video
-  loadEmbed(embedBlock, [], videoUrl);
+  if (videoUrl && videoUrl.includes(CONFIG.youTubeLinkCheck)) {
+    loadEmbed(embedBlock, [], videoUrl);
+  }
 
   dialog.append(dialogContent);
 
