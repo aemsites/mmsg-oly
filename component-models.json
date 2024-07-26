@@ -785,8 +785,8 @@
         "valueType": "string",
         "options": [
           {
-            "name": "small",
-            "value": "small"
+            "name": "recent",
+            "value": "recent"
           },
           {
             "name": "full",
