@@ -284,9 +284,9 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "linkTitle",
+        "name": "linktitle",
         "label": "URL",
-        "value": ""
+        "value": "/"
       },
       {
         "component": "richtext",
