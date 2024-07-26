@@ -109,8 +109,11 @@ main {
 }
 
 .hero.offerpage {
+  min-height: 640px;
+
   @media (width >= 1024px) {
     padding: 30px;
+    min-height: unset;
   }
 }
 
@@ -185,22 +188,30 @@ main {
 
   .content {
     background: none;
+    padding: 24px;
+
+    @media (width >= 768px) {
+      padding: 24px;
+    }
 
     @media (width >= 1024px) {
       width: -webkit-fill-available;
       max-width: 1232px;
-      margin-top: -96px;
+      margin: -96px auto 0;
+      padding: 0;
     }
 
     .hero-content {
       @media (width >= 768px) {
         margin-top: 98px;
+        padding: 0 109px 0 53px;
         width: 582px;
       }
 
       @media (width >= 1024px) {
         margin-top: 0;
         width: 702px;
+        padding: 0;
       }
 
       > div {

@@ -41,6 +41,20 @@ const data = [
     isCheckbox: true,
     path: '/vehicle-offers/volvocx40',
   },
+  {
+    offerId: 'offer_4',
+    img: '/content/dam/oly/images/tesla.jpeg',
+    carDescription: '20i M sports 8 SP Auto Steptronic Sports 2D couple 2.0L G22',
+    year: 2024,
+    modelName: 'bmw',
+    isFeatures: true,
+    price: '$35,940',
+    weeklyPriceInfo: '$258',
+    isButtonExists: true,
+    type: 'hatchback',
+    isCheckbox: true,
+    path: '/vehicle-offers/volvocx40',
+  },
 ];
 
 export default data;
