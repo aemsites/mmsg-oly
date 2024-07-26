@@ -30,37 +30,18 @@
   animation: wishlist-add-heart 0.5s ease-in-out;
 }
 
-.wishlist-cards-wrapper {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
-  gap: 1rem;
-}
-
+.wishlist-cards-wrapper,
 .recently-viewed-cards-wrapper {
-  list-style: none;
-  margin: 0;
+  list-style-type: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 1rem;
-  margin-top: var(--spacing-s);
-}
-
-.car-detail-container {
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
-  gap: 1rem;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  font-size: var(--font-size-xs);
-  line-height: 1.5rem;
-  box-shadow: var(--box-shadow);
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
 }
 
+.car-detail-container,
 .recently-viewed-container {
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
@@ -71,6 +52,8 @@
   font-size: var(--font-size-xs);
   line-height: 1.5rem;
   box-shadow: var(--box-shadow);
+  box-sizing: border-box;
+  flex: 1 1 100%;
 }
 
 .car-detail-container .container {
@@ -220,12 +203,35 @@
 }
 
 @media (width >= 768px) {
+  .section.wishlist-container {
+    padding: var(--spacing-s) var(--spacing-l-alt);
+  }
+
   .car-detail-container {
     padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-s) var(--spacing-xs);
+    flex: 1 1 calc(50% - 16px);
+  }
+
+  .car-detail-container:nth-child(3n + 3) {
+    flex: none;
+    flex-basis: calc(50% - 8px);
   }
 }
 
 @media (width >= 1024px) {
+  .section.wishlist-container {
+    padding: var(--spacing-l-alt) var(--spacing-xxl-l);
+  }
+
+  .car-detail-container {
+    flex: 1 1 calc(33.33% - 16px);
+  }
+
+  .car-detail-container:nth-child(3n + 3) {
+    width: calc(33% - 16px);
+    flex: 1 1 calc(33.33% - 16px);
+  }
+
   .wishlist.full .wishlist-cards-wrapper {
     grid-template-columns: repeat(4, calc((100% - 16px * 3) / 4));
   }
