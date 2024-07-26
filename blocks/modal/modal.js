@@ -1,16 +1,25 @@
 import { loadFragment } from '../fragment/fragment.js';
 import { buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS } from '../../scripts/aem.js';
+import { loadEmbed } from '../embed/embed.js'; // Import loadEmbed function from embed.js
 
-// This is not a traditional block, so there is no decorate function. Instead, links to
-// a */modals/* path  are automatically transformed into a modal. Other blocks can also use
-// the createModal() and openModal() functions.
-
-export async function createModal(contentNodes) {
+export async function createModal(contentNodes, videoUrl) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
   const dialog = document.createElement('dialog');
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');
   dialogContent.append(...contentNodes);
+
+  // Create embed block and load YouTube video
+  const embedBlock = document.createElement('div');
+  embedBlock.classList.add('embed');
+  const embedLink = document.createElement('a');
+  embedLink.href = videoUrl;
+  embedBlock.appendChild(embedLink);
+  dialogContent.appendChild(embedBlock);
+
+  // Call loadEmbed to load the video
+  loadEmbed(embedBlock, [], videoUrl);
+
   dialog.append(dialogContent);
 
   const closeButton = document.createElement('a');
@@ -23,7 +32,7 @@ export async function createModal(contentNodes) {
   closeButton.addEventListener('click', () => dialog.close());
   dialog.append(closeButton);
 
-  // close dialog on clicks outside the dialog. https://stackoverflow.com/a/70593278/79461
+  // Close dialog on clicks outside the dialog
   dialog.addEventListener('click', (event) => {
     event.preventDefault();
     const dialogDimensions = dialog.getBoundingClientRect();
@@ -64,10 +73,10 @@ export async function createModal(contentNodes) {
   };
 }
 
-export async function openModal(fragmentUrl) {
+export async function openModal(fragmentUrl, videoUrl = '') {
   const path = fragmentUrl.startsWith('http') ? new URL(fragmentUrl, window.location).pathname : fragmentUrl;
 
   const fragment = await loadFragment(path);
-  const { showModal } = await createModal(fragment.childNodes);
+  const { showModal } = await createModal(fragment.childNodes, videoUrl);
   showModal();
 }

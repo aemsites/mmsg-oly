@@ -5,9 +5,10 @@ body.modal-open {
 .modal dialog {
   --dialog-border-radius: 16px;
 
-  padding-top: 70px;
+  padding: 70px 0 0;
   overscroll-behavior: none;
   width: 100vw;
+  border: none;
   background-color: var(--color-black);
 }
 
