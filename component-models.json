@@ -742,6 +742,13 @@
       {
         "component": "richtext",
         "valueType": "string",
+        "name": "apiCalculatorDetails",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
         "name": "titleWithDescription",
         "label": "Text",
         "value": ""
@@ -789,16 +796,30 @@
         "value": "Lease Term"
       },
       {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "carViewDescription",
+        "label": "Text",
+        "value": ""
+      }
+      {
         "component": "text",
         "valueType": "string",
-        "name": "formLabelCar_Salary",
+        "name": "formLabelYou_Salary",
         "label": "Salary label",
         "value": ""
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "calculatorDescription",
+        "name": "aboutViewDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "resultsViewDescription",
         "label": "Text",
         "value": ""
       }
