@@ -739,6 +739,13 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: 3px solid var(--color-pink);
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+    color: var(--color-black);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-body);
+    line-height: var(--font-size-l-alt);
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li::after {
     position: absolute;
     content: ' ';
@@ -752,11 +759,17 @@ header nav .nav-sections ul > li > ul > li {
     background-position: 0 0;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
-    color: var(--color-black);
-    font-size: var(--font-size-l);
-    font-weight: var(--font-weight-body);
-    line-height: var(--font-size-l-alt);
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
+    color: var(--color-pink);
+    text-decoration: underline;
+
+    a {
+      color: var(--color-pink);
+    }
+
+    &::after {
+      background-image: url('../../icons/arrow-right-hovered.svg');
+    }
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
