@@ -801,7 +801,7 @@
         "name": "carViewDescription",
         "label": "Text",
         "value": ""
-      }
+      },
       {
         "component": "text",
         "valueType": "string",
