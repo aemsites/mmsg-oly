@@ -17,6 +17,8 @@ export default async function decorate(block) {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
 
+  let selectedNVIC = '';
+
   const [
     apiDetails,
     titleDescription,
@@ -34,6 +36,7 @@ export default async function decorate(block) {
 
   const formCustomizeCarFieldsLabels = [];
   const formAboutYouFieldsLabels = [];
+  const formAboutYouFieldDescription = [];
   let leaseTermSelected = '5';
   block.textContent = '';
   const el_calcContainer = document.createElement('div');
@@ -52,6 +55,7 @@ export default async function decorate(block) {
   //Calculator search view - UI section
   const el_calcSearchView = document.createElement('div');
   el_calcSearchView.className = 'view-search';
+  el_calcSearchView.id = 'view-search';
   const el_searchViewCol1 = document.createElement('div');
   el_searchViewCol1.className = 'col';
   const el_searchViewCol2 = document.createElement('div');
@@ -60,6 +64,9 @@ export default async function decorate(block) {
   //Car View
   const el_calcCarView = document.createElement('div');
   el_calcCarView.id = 'view-car';
+
+  const el_calcAboutYouView = document.createElement('div');
+  const el_calcResultView = document.createElement('div');
 
   let formFieldIndex = 0;
   const responseMakes = await getMakes(currentYear);
@@ -123,40 +130,6 @@ export default async function decorate(block) {
             option.innerText = model.Name;
             selectModel.append(option);
           });
-
-          /*responseVehicleList = await getAutoDetailOnMakeModel(selectYear.value, select.value, selectModel.value);
-          const vehicleSelectionListContainer = document.getElementById('vehicle-selection-list-ul');
-          vehicleSelectionListContainer.innerHTML = '';
-          responseVehicleList.Table.forEach(async (vehicle) => {
-            const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
-            const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
-            const img = document.createElement('img');
-            responseVehicleImage.arrayBuffer().then((buffer) => {
-              let binary = '';
-              const bytes = [].slice.call(new Uint8Array(buffer));
-              bytes.forEach((b) => {
-                binary += String.fromCharCode(b);
-              });
-              const imageStr = window.btoa(binary);
-              img.src = `data:image/jpeg;base64,${imageStr}`;
-            });
-            const li = document.createElement('li');
-            li.className = 'vehicle-item';
-            const h3 = document.createElement('h3');
-            h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
-            const span = document.createElement('span');
-            span.innerHTML = ' RRP';
-            h3.append(span);
-            const prgh = document.createElement('p');
-            prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
-            const pFueltype = document.createElement('p');
-            pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
-            li.append(h3);
-            li.append(prgh);
-            li.append(img);
-            li.append(pFueltype);
-            vehicleSelectionListContainer.append(li);
-          });*/
         });
       } else if (formFields[formFieldIndex].name === 'formLabel_Model') {
         responseModels.Table.forEach((model) => {
@@ -170,40 +143,6 @@ export default async function decorate(block) {
           e.preventDefault();
           const selectYear = document.getElementById(formFields[0].name);
           const selectMake = document.getElementById(formFields[1].name);
-          // Populate the Vehicle List
-          /*responseVehicleList = await getAutoDetailOnMakeModel(selectYear.value, selectMake.value, select.value);
-          const vehicleSelectionListContainer = document.getElementById('vehicle-selection-list-ul');
-          vehicleSelectionListContainer.innerHTML = '';
-          responseVehicleList.Table.forEach(async (vehicle) => {
-            const responseVehicleImage = await getVehicleImageOnNVIC(vehicle.NVIC_CUR);
-            const responseVehicleDetail = await getAutoDetailOnNVIC(vehicle.NVIC_CUR);
-            const img = document.createElement('img');
-            responseVehicleImage.arrayBuffer().then((buffer) => {
-              let binary = '';
-              const bytes = [].slice.call(new Uint8Array(buffer));
-              bytes.forEach((b) => {
-                binary += String.fromCharCode(b);
-              });
-              const imageStr = window.btoa(binary);
-              img.src = `data:image/jpeg;base64,${imageStr}`;
-            });
-            const li = document.createElement('li');
-            li.className = 'vehicle-item';
-            const h3 = document.createElement('h3');
-            h3.innerHTML = `$ ${vehicle.RRP.Amount}`;
-            const span = document.createElement('span');
-            span.innerHTML = ' RRP';
-            h3.append(span);
-            const prgh = document.createElement('p');
-            prgh.innerHTML = `2024 ${responseVehicleDetail.Table[0].ManufacturerName} ${responseVehicleDetail.Table[0].FamilyName} ${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName}`;
-            const pFueltype = document.createElement('p');
-            pFueltype.innerHTML = `Fuel Type: ${responseVehicleDetail.Table[0].engine_classification}`;
-            li.append(h3);
-            li.append(prgh);
-            li.append(img);
-            li.append(pFueltype);
-            vehicleSelectionListContainer.append(li);
-          });*/
         });
       }
       select.className = 'input-select';
@@ -328,6 +267,20 @@ export default async function decorate(block) {
             el_variantOption.setAttribute('value', vehicle.NVIC_CUR);
             el_variantOption.innerText = `${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName} - $${vehicle.RRP.Amount}`;
             el_selectVariant.append(el_variantOption);
+            selectedNVIC = el_selectVariant.value;
+            el_selectVariant.addEventListener('change', async () => {
+              selectedNVIC = el_selectVariant.value;
+              const responseVehicleImage = await getVehicleImageOnNVIC(el_selectVariant.value);
+              responseVehicleImage.arrayBuffer().then((buffer) => {
+                let binary = '';
+                const bytes = [].slice.call(new Uint8Array(buffer));
+                bytes.forEach((b) => {
+                  binary += String.fromCharCode(b);
+                });
+                const imageStr = window.btoa(binary);
+                carImg.src = `data:image/jpeg;base64,${imageStr}`;
+              });
+            });
             wrapperEl.append(el_selectVariant);
           });
         } else if (formCustomizeCarFields[formCustomizeCarFieldIndex].name === 'formLabelCar_EstimatedTravel') {
@@ -379,7 +332,6 @@ export default async function decorate(block) {
           el_kmsTravelledWrapperCol2.append(el_kmsTravelledSelectedValue);
           wrapperEl.append(el_kmsTravelledWrapper);
         } else if (formCustomizeCarFields[formCustomizeCarFieldIndex].name === 'formLabelCar_LeaseTerm') {
-          debugger;
           const el_leaseTermWrapper = document.createElement('div');
           el_leaseTermWrapper.className = 'lease-term-wrapper';
           for (let i = 1; i <= 5; i++) {
@@ -392,7 +344,6 @@ export default async function decorate(block) {
               el_leaseTerm.innerText = `${i} years`;
             }
             el_leaseTerm.addEventListener('click', () => {
-              debugger;
               if (el_leaseTerm.innerText === '1 year') {
                 leaseTermSelected = '1';
               } else if (el + el_leaseTerm.innerText === '2 years') {
@@ -423,19 +374,26 @@ export default async function decorate(block) {
 
     el_calcCarDetailWrapper.append(el_calcCarDetailCol1);
     el_calcCarDetailWrapper.append(el_calcCarDetailCol2);
-
+    el_calcCarView.style.display = 'block';
     el_calcCarView.append(el_calcCarDetailWrapper);
 
     const el_btnNext = document.createElement('button');
     el_btnNext.innerText = 'Next';
     el_btnNext.className = 'button';
 
+    el_calcSearchView.style.display = 'none';
+
     // Next button click event in Customise car view
     el_btnNext.addEventListener('click', () => {
+      if (el_calcAboutYouView != null) {
+        el_calcAboutYouView.innerHTML = '';
+      }
+
       //Calculator About You - UI section
       el_calcCarView.style.display = 'none';
+      el_calcSearchView.style.display = 'none';
+      el_calcAboutYouView.style.display = 'block';
 
-      const el_calcAboutYouView = document.createElement('div');
       el_calcAboutYouView.className = 'view-about-you';
       el_calcAboutYouView.id = 'view-about-you';
 
@@ -453,10 +411,16 @@ export default async function decorate(block) {
 
       // About you view description UI:
       [...aboutViewDescription.children].forEach((item) => {
-        [...item.children].forEach((el) => {
+        [...item.children].forEach((el, index) => {
           const el_aboutYouDescription = document.createElement('div');
           el_aboutYouDescription.className = 'text-left';
-          el_aboutYouDescription.innerText = el.innerText;
+
+          // Initialize only once through the elements in loop
+          if (formAboutYouFieldDescription.length != item.children.length) {
+            formAboutYouFieldDescription[index] = el.innerText;
+          }
+
+          el_aboutYouDescription.innerText = formAboutYouFieldDescription[index];
           el_calcAboutYouWrapperCol1.append(el_aboutYouDescription);
           el.style.display = 'none';
         });
@@ -507,7 +471,102 @@ export default async function decorate(block) {
       el_btnShowResult.innerText = 'Show results';
       el_btnShowResult.className = 'button';
       el_btnShowResult.addEventListener('click', async () => {
-        alert(document.getElementById(formAboutYouFields[0].name).value);
+        if (el_calcResultView != null) {
+          el_calcResultView.innerHTML = '';
+        }
+        //Setup the results view
+        el_calcSearchView.style.display = 'none';
+        el_calcCarView.style.display = 'none';
+        el_calcAboutYouView.style.display = 'none';
+
+        el_calcResultView.className = 'view-results';
+        el_calcResultView.id = 'view-results';
+        el_calcResultView.style.display = 'block';
+
+        el_calcCustomizeCar.classList.remove('selected');
+        el_calcAboutYou.classList.remove('selected');
+        el_calcResult.className = 'selected';
+
+        el_calcResultView.append(el_calcCarSelectionViewList);
+
+        // Build the result view here
+        const el_calcResultDetailWrapper = document.createElement('div');
+        el_calcResultDetailWrapper.className = 'wrapper';
+        const el_calcResultDetailCol2 = document.createElement('div');
+        el_calcResultDetailCol2.className = 'col';
+
+        const carResultDetail = document.createElement('div');
+        carResultDetail.className = 'detail';
+        carResultDetail.id = 'car-result-detail';
+        const carResultMakeModel = document.createElement('h4');
+        const slctResultYear = document.getElementById(formFields[0].name);
+        const slctResultMake = document.getElementById(formFields[1].name);
+        const slctResultModel = document.getElementById(formFields[2].name);
+
+        carResultMakeModel.innerText = `${slctResultYear.options[slctResultYear.selectedIndex].text} ${slctResultMake.options[slctResultMake.selectedIndex].text} ${slctResultModel.options[slctResultModel.selectedIndex].text}`;
+        carResultDetail.append(carMakeModel);
+
+        const el_variantSelected = document.createElement('div');
+        el_variantSelected.className = 'selected-variant';
+        const responseVehicleDetail = await getAutoDetailOnNVIC(selectedNVIC);
+        el_variantSelected.innerText = `${responseVehicleDetail.Table[0].VariantName} ${responseVehicleDetail.Table[0].SeriesName} ${responseVehicleDetail.Table[0].BodyName} ${responseVehicleDetail.Table[0].Engine_ConfigName} ${responseVehicleDetail.Table[0].TransmissionName}`;
+        carResultDetail.append(el_variantSelected);
+
+        // Populate the tabs in the result
+        const el_tabItem = document.createElement('div');
+        el_tabItem.className = 'tab-titles-wrapper';
+        const el_tabDetails = document.createElement('div');
+        el_tabDetails.className = 'tab-detail-wrapper';
+
+        [...resultsViewDescription.children].forEach((item) => {
+          [...item.children].forEach((el, index) => {
+            const tabItem = document.createElement('div');
+            tabItem.className = 'tab-item';
+            const tabItemTitle = document.createElement('div');
+            tabItemTitle.className = 'tab-title';
+            tabItemTitle.innerText = el.innerText;
+
+            tabItemTitle.addEventListener('click', () => {
+              document.querySelectorAll('.nl-calculator .tab-titles-wrapper .tab-title').forEach((item) => {
+                item.classList.remove('selected');
+
+                //Hide all the detail
+                document.querySelectorAll('.nl-calculator .tab-detail-wrapper .tab-detail').forEach((item) => {
+                  item.style.display = 'none';
+                });
+
+                document.querySelector(
+                  `.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(${index + 1})`,
+                ).style.display = 'block';
+              });
+              tabItemTitle.classList.add('selected');
+            });
+            const tabItemDetail = document.createElement('div');
+            tabItemDetail.className = 'tab-detail';
+            tabItemDetail.innerText = `${el.innerText} - details goes here`;
+            tabItemDetail.style.display = 'none';
+
+            if (index === 0) {
+              tabItemTitle.classList.add('selected');
+              tabItemDetail.style.display = 'block';
+            }
+
+            tabItem.append(tabItemTitle);
+            el_tabItem.append(tabItem);
+            el_tabDetails.append(tabItemDetail);
+          });
+        });
+
+        carResultDetail.append(el_tabItem);
+        carResultDetail.append(el_tabDetails);
+
+        el_calcResultDetailCol2.append(carResultDetail);
+
+        el_calcResultDetailWrapper.append(el_calcCarDetailCol1);
+        el_calcResultDetailWrapper.append(el_calcResultDetailCol2);
+        el_calcResultView.append(el_calcResultDetailWrapper);
+
+        el_calcViews.append(el_calcResultView);
       });
 
       el_calcAboutYouView.append(el_btnShowResult);
@@ -533,6 +592,14 @@ export default async function decorate(block) {
   const el_linkToSearch = document.createElement('span');
   el_linkToSearch.className = 'link';
   el_linkToSearch.innerText = '< Back to search';
+  el_linkToSearch.addEventListener('click', () => {
+    if (typeof el_calcCarView !== 'undefined' && el_calcCarView != null) el_calcCarView.style.display = 'none';
+    if (typeof el_calcAboutYouView !== 'undefined' && el_calcAboutYouView != null)
+      el_calcAboutYouView.style.display = 'none';
+    if (typeof el_calcResultView !== 'undefined' && el_calcResultView != null) el_calcResultView.style.display = 'none';
+
+    el_calcSearchView.style.display = 'block';
+  });
   el_calcBackToSearch.append(el_linkToSearch);
   el_calcContainer.append(el_calcBackToSearch);
 
@@ -551,8 +618,4 @@ export default async function decorate(block) {
       el.style.display = 'none';
     });
   });
-}
-
-function calculatorNextView() {
-  alert('');
 }
