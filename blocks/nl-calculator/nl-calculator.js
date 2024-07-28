@@ -598,7 +598,7 @@ export default async function decorate(block) {
       el_calcAboutYouView.style.display = 'none';
     if (typeof el_calcResultView !== 'undefined' && el_calcResultView != null) el_calcResultView.style.display = 'none';
 
-    el_calcSearchView.style.display = 'block';
+    el_calcSearchView.style.display = 'grid';
   });
   el_calcBackToSearch.append(el_linkToSearch);
   el_calcContainer.append(el_calcBackToSearch);
