@@ -1,5 +1,5 @@
-export default async function getMakes() {
-  const apiUrl = `https://api-test.grs.mmsg.com.au/vehicle-info/v1/list-of-makes?ModelTypeCode=A&Year=2024`;
+export default async function getMakes(year) {
+  const apiUrl = `https://api-test.grs.mmsg.com.au/vehicle-info/v1/list-of-makes?ModelTypeCode=A&Year=${year}`;
   const fetchOptions = {
     method: 'GET',
     headers: {

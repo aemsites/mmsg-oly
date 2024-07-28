@@ -1,4 +1,4 @@
-export default async function getAutoDetailOnMakeModel(make, model) {
+export default async function getAutoDetailOnMakeModel(year, make, model) {
   const apiUrl = `https://api-test.grs.mmsg.com.au/vehicle-info/v1/auto-details-spec-by-make?ModelTypeCode=A&Year=2024&Make=${make}&Model=${model}`;
   const fetchOptions = {
     method: 'GET',

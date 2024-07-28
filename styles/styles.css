@@ -25,6 +25,7 @@
   --bg-color-light-green: #e6f2ef;
   --bg-color-aqua: #c7eded;
   --bg-color-light-blue: #e5f0fe;
+  --bg-color-light-grey: #f1f3f5;
   --bg-color-green: #004733;
   --bg-color-neutral: #f8f9fa;
   --color-active-outline: #6673fb;
@@ -409,6 +410,18 @@ main .section {
 
 .section.breadcrumb-container {
   padding: 0 var(--spacing-m);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @media (width >= 768px) {
