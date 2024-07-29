@@ -48,6 +48,7 @@ body.modal-open {
   top: 10px;
   right: 25px;
   display: flex;
+  font-size: var(--font-size-xs);
   align-items: center;
   height: 100%;
   max-height: 54px;

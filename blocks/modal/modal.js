@@ -1,6 +1,6 @@
 import { loadFragment } from '../fragment/fragment.js';
 import { buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS } from '../../scripts/aem.js';
-import { loadEmbed } from '../embed/embed.js'; // Import loadEmbed function from embed.js
+import loadVideoDelayed from '../../scripts/delayed.js';
 import { CONFIG } from '../../scripts/utils.js';
 
 export async function createModal(contentNodes, videoUrl) {
@@ -18,9 +18,9 @@ export async function createModal(contentNodes, videoUrl) {
   embedBlock.appendChild(embedLink);
   dialogContent.appendChild(embedBlock);
 
-  // Call loadEmbed to load the video
+  // Call loadVideoDelayed to load the video
   if (videoUrl && videoUrl.includes(CONFIG.youTubeLinkCheck)) {
-    loadEmbed(embedBlock, [], videoUrl);
+    loadVideoDelayed(embedBlock, [], videoUrl);
   }
 
   dialog.append(dialogContent);
