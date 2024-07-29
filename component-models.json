@@ -1060,5 +1060,24 @@
         "description": "Defines the vehicle price range meta tags for SEO"
       }
     ]
-  }
+  },
+  {
+    "id": "takeways",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "takewaysTitle",
+        "label": "Title",
+        "value": "Key Takeaways"
+      },
+      {
+        "component": "richtext",
+        "name": "takeways",
+        "value": "",
+        "label": "Takeways",
+        "valueType": "string"
+      }
+    ]
+  }  
 ]
