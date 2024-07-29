@@ -1,0 +1,227 @@
+.section.single-slide-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  p,
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: var(--font-size-l-alt);
+    line-height: 2.5rem;
+  }
+
+  .default-content-wrapper {
+    text-align: center;
+
+    p {
+      img {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+}
+
+.section .single-slide-carousel {
+  border-radius: 0.5rem;
+  background: var(--bg-color-paper);
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow: scroll hidden;
+  scroll-behavior: smooth;
+  max-width: var(--max-width-container);
+  margin: auto;
+  gap: 1rem;
+}
+
+.section .single-slide-carousel > div {
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .slide-detail-container {
+    display: flex;
+    padding: var(--spacing-s);
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ev-icon,
+  .non-showing-ev-icon {
+    width: 104px;
+    height: 32px;
+  }
+
+  .non-showing-ev-icon {
+    background: none;
+  }
+
+  p.car-title {
+    font-size: var(--font-size-xs);
+    line-height: 1.5rem;
+    white-space: pre-line;
+    padding-right: var(--spacing-xxxs);
+  }
+
+  p.car-price {
+    font-size: var(--font-size-xxl-alt);
+    line-height: 4rem;
+  }
+
+  p.car-details {
+    display: inline-block;
+    margin: var(--spacing-s) 0;
+    font-family: var(--font-family-bold);
+    color: var(--color-black);
+  }
+
+  .slide-button-container {
+    display: flex;
+    flex-direction: column;
+
+    p.button-container {
+      a {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  .slide-img-col {
+    background-image: url('../../icons/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: var(--spacing-xxxs);
+
+    img {
+      width: 100%;
+      aspect-ratio: 1.38;
+    }
+  }
+}
+
+.section .single-slide-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.section .single-slide-carousel-wrapper .carousel-buttons {
+  text-align: center;
+  display: flex;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.section .carousel-slides-container {
+  margin-top: var(--spacing-s);
+  gap: 1rem;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.section .carousel-buttons button {
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  padding: 0;
+  margin: var(--spacing-xxxs-alt);
+  border-radius: 0.25rem;
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-bg-color);
+}
+
+.single-slide-carousel-wrapper .carousel-navigation-buttons button {
+  border-radius: 0.25rem;
+  margin: 0;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--button-bg-color);
+}
+
+.section.single-slide-carousel-container button:focus {
+  outline: none;
+}
+
+.section .carousel-buttons button.selected {
+  background-color: var(--color-pink);
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: var(--spacing-xxxs-alt);
+}
+
+.single-slide-carousel-wrapper .carousel-navigation-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.single-slide-carousel-wrapper .carousel-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px var(--color-black) solid;
+  border-bottom: 0;
+  border-left: 0;
+  height: var(--spacing-xxxs-alt);
+  width: var(--spacing-xxxs-alt);
+  position: absolute;
+  top: 50%;
+  left: calc(45% + 3px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.single-slide-carousel-wrapper .carousel-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(55% - 3px);
+}
+
+@media (width>=1024px) {
+  .section .single-slide-carousel {
+    > div {
+      border-radius: 1rem;
+      flex-direction: row;
+
+      > div {
+        width: 50%;
+        box-sizing: border-box;
+
+        p.car-price {
+          font-size: var(--font-size-xxl);
+          line-height: 4.5rem;
+        }
+      }
+
+      .slide-button-container {
+        flex-direction: row;
+        gap: 1rem;
+      }
+
+      .slide-detail-container {
+        padding: var(--spacing-l) var(--spacing-l) var(--spacing-l) var(--spacing-xxl-l);
+        gap: 1rem;
+      }
+
+      .slide-img-col {
+        padding: var(--spacing-xxs-l);
+      }
+    }
+  }
+
+  .section.single-slide-carousel-container {
+    padding: var(--spacing-l-alt) calc((100% - 1024px) / 2);
+    gap: 3rem;
+  }
+}

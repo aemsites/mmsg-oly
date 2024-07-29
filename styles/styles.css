@@ -76,6 +76,7 @@
   /* Spacing */
   --spacing-xxxxs: 4px;
   --spacing-xxxs-l: 4px;
+  --spacing-xxxs-alt: 6px;
   --spacing-xxxs: 8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
@@ -643,4 +644,11 @@ main .section.highlight {
 .my-4 {
   margin-top: var(--spacing-l);
   margin-bottom: var(--spacing-l);
+}
+
+.ev-icon {
+  background-image: url('../../icons/EV-logo.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
