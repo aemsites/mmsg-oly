@@ -1095,5 +1095,31 @@
         "valueType": "string"
       }
     ]
-  }  
+  },
+  {
+    "id": "thumbnail-car",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "takeways",
+        "value": "",
+        "label": "Takeways",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carimagethumbnail",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "carbadge",
+        "label": "Badge",
+        "multi": false
+      }
+    ]
+  } 
 ]

@@ -6,6 +6,14 @@ export default function decorate(block) {
   dividerInner.classList.add('divider');
   divider.classList.add('divider');
   divider.classList.add('divider-row');
+  const anchorLink = block?.children[2]?.querySelector('a')?.getAttribute('href');
+  block?.children[2].remove();
+
+  const aTag = document.createElement('a');
+  aTag.href = anchorLink;
+  aTag.append(block.children[1].children[0].children[0]);
+  block.children[1].children[0].append(aTag);
+
   if (isBelowDesktop.matches) {
     block.parentNode.parentNode.remove();
   } else {
