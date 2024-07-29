@@ -29,8 +29,8 @@ const embedYoutube = (url, isLite) => {
         <a href="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" class="lty-playbtn" title="Play Video">
       </a>
       </lite-youtube>`;
-    loadCSS(`${window.hlx.codeBasePath}/blocks/embed/lite-yt-embed.css`);
-    loadScript(`${window.hlx.codeBasePath}/blocks/embed/lite-yt-embed.js`, [{ defer: true }]);
+    loadCSS(`${window.hlx.codeBasePath}/blocks/embed/lite-yt-embed.css`, { defer: true });
+    loadScript(`${window.hlx.codeBasePath}/blocks/embed/lite-yt-embed.js`, { defer: true });
   } else {
     embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
         <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
@@ -55,7 +55,7 @@ const loadEmbed = (block, grandChilds, link) => {
 
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
-  const isLite = block.classList.contains('lite');
+  const isLite = true;
 
   if (config) {
     block.innerHTML = config.embed(url, isLite);
