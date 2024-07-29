@@ -22,6 +22,7 @@ module.exports = {
         // 'a-specific-model': 4,
         // 'another-specific-model': 2,
         'nl-calculator': 10,
+        'page-metadata': 6,
       },
     ],
   },
