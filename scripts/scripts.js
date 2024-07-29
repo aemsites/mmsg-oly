@@ -11,6 +11,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './aem.js';
+import { CONFIG } from './utils.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -58,6 +59,25 @@ async function loadFonts() {
   } catch (e) {
     // do nothing
   }
+}
+
+function autolinkModals(element) {
+  element.addEventListener('click', async (e) => {
+    const origin = e.target.closest('a');
+
+    if (origin && origin.href) {
+      e.preventDefault();
+      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+
+      if (origin.href.includes('/modals/')) {
+        openModal(origin.href, '');
+      } else if (origin.href.includes(CONFIG.youTubeLinkCheck)) {
+        const videoUrl = origin.href;
+        const fragmentUrl = `${window.location.origin}${CONFIG.videoModalPath}`;
+        openModal(fragmentUrl, videoUrl);
+      }
+    }
+  });
 }
 
 /**
@@ -116,6 +136,8 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
+  autolinkModals(doc);
+
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
