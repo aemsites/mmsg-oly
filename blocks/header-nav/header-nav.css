@@ -11,6 +11,16 @@
     flex-direction: column;
   }
 
+  > div > div > a {
+    text-decoration: none;
+    width: 232px;
+    display: block;
+  }
+
+  a:hover {
+    color: black;
+  }
+
   ul li h4 {
     margin: 0;
     text-decoration: none;
