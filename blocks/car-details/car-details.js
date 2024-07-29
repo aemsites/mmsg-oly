@@ -1,4 +1,4 @@
-const ISEV = ['yes', 'no'];
+import { createEVIcon } from '../../scripts/utils.js';
 
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
@@ -8,14 +8,7 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
       wrapper.append(col);
-      const firstChildDiv = col.children[0];
-      const isEV = firstChildDiv.textContent.trim();
-      if (ISEV.includes(isEV)) {
-        if (isEV === 'yes') {
-          col.classList.add('car-details-ev');
-        }
-        firstChildDiv.remove();
-      }
+      createEVIcon(col.children[0], col);
       const pic = col.querySelector('picture');
       if (pic) {
         const picWrapper = pic.closest('div');
