@@ -42,17 +42,14 @@ indices:
       title:
         select: main .hero.offerpage h3
         value: textContent(el)
-      description:
+      summary:
         select: main .hero.offerpage div:nth-child(2) > div p:nth-child(3)
         value: textContent(el)
       priceFrom:
         select: main .hero.offerpage h2
         value: textContent(el)
-      isEV:
-        select: main .car-details-wrapper .car-details-ev
-        value: textContent(el)
       price:
-        select: main .car-details-wrapper h1
+        select: main .car-details h1
         value: textContent(el)
       navTitle:
         select: head > meta[property="og:title"]
@@ -72,9 +69,6 @@ indices:
       publishDate:
         select: head > meta[name="published-time"]
         value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
-      pageType:
-        select: head > meta[name="cq-tags"]
-        value: attribute(el, "content")
       pricing:
         select: head > meta[name="pricing"]
         value: match(attribute(el, "content"), ".*\/(.*)$")
