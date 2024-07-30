@@ -1,7 +1,7 @@
 const data = [
   {
     offerId: 'offer_1',
-    img: '/content/dam/oly/images/BYD Seal_Premium.png',
+    img: '/content/dam/oly/images/tesla.jpeg',
     carDescription: '20i M sports 8 SP Auto Steptronic Sports 2D couple 2.0L G22',
     year: 2024,
     modelName: 'bmw',
@@ -17,7 +17,7 @@ const data = [
   },
   {
     offerId: 'offer_2',
-    img: '/content/dam/oly/img_car.png',
+    img: '/content/dam/oly/images/tesla.jpeg',
     carDescription: '20i M sports 8 SP Auto Steptronic Sports 2D couple 2.0L G22',
     year: 2024,
     modelName: 'bmw',

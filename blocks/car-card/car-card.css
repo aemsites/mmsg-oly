@@ -60,9 +60,53 @@
           }
         }
 
-        picture img {
+        .car-image-container {
+          position: relative;
+          background: var(--bg-color-neutral);
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 100%;
-          aspect-ratio: 1.81;
+          height: 153px;
+          margin: 0 auto;
+
+          .car-badge-container {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            .oly-deals {
+              width: 72px;
+              height: 48px;
+              box-shadow: var(--box-shadow-car-card);
+              border-radius: 0 0 100px 100px;
+              background: var(--color-light-pink);
+              text-align: center;
+              font-size: var(--font-size-xs);
+              line-height: 1.125rem;
+              font-weight: 800;
+              color: var(--color-black);
+              position: absolute;
+              left: var(--spacing-xxxs);
+            }
+
+            .ev-icon {
+              width: 65px;
+              height: 20px;
+              position: absolute;
+              top: var(--spacing-xxxs);
+              right: var(--spacing-xxxs);
+            }
+          }
+
+          picture img {
+            width: 264px;
+            aspect-ratio: 2.44;
+            display: block;
+          }
         }
 
         .car-card-description {

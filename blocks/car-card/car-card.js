@@ -38,7 +38,13 @@ function buildCardTemplate(cardObj) {
           <h3>${cardObj?.year} ${cardObj?.modelName}</h3>
           <img data-offer-id="${cardObj?.offerId}" class="car-card-heart" src="${isInWishlist ? '../../icons/heart-filled.svg' : '../../icons/heart.svg'}" alt="${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}">
         </div>
-        <img class="car-card-image" src="${encodedImagePath}" alt="car offers image">
+        <div class="car-image-container">
+          <div class="car-badge-container">
+            ${cardObj?.isOlyDeal ? `<p class="oly-deals">OLY DEALS</p>` : ''}
+            ${cardObj?.isEV ? `<p class="ev-icon"> </p>` : ''}
+          </div>
+          <img class="car-card-image" src="${encodedImagePath}" alt="car offers image">
+        </div>
         <p class="car-card-description">${cardObj?.carDescription || ''}</p>
       </div>
       `;
