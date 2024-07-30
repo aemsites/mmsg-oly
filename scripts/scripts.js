@@ -66,12 +66,14 @@ function autolinkModals(element) {
     const origin = e.target.closest('a');
 
     if (origin && origin.href) {
-      e.preventDefault();
       const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
 
-      if (origin.href.includes('/modals/')) {
+      if (origin && origin.href && origin.href.includes('/modals/')) {
+        e.preventDefault();
         openModal(origin.href, '');
-      } else if (origin.href.includes(CONFIG.youTubeLinkCheck)) {
+      }
+      if (origin && origin.href && origin.href.includes(CONFIG.youTubeLinkCheck)) {
+        e.preventDefault();
         const videoUrl = origin.href;
         const fragmentUrl = `${window.location.origin}${CONFIG.videoModalPath}`;
         openModal(fragmentUrl, videoUrl);

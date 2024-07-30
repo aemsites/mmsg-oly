@@ -154,27 +154,6 @@
           }
         },
         {
-          "title": "Single Slide Carousel",
-          "id": "single-slide-carousel",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Single Slide Carousel",
-                  "model": "single-slide-carousel",
-                  "filter": "slide",
-                  "item": {
-                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
-                    "name": "Slide",
-                    "model": "slide"
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Carousel",
           "id": "carousel",
           "plugins": {
@@ -186,6 +165,27 @@
                   "model": "carousel",
                   "filter": "slide",
                   "classes": ["carousel-slide-3", "carousel"],
+                  "item": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Slide",
+                    "model": "slide"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Carousel Full",
+          "id": "single-slide-carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Carousel full",
+                  "model": "single-slide-carousel",
+                  "filter": "slide",
                   "item": {
                     "sling:resourceType": "core/franklin/components/block/v1/block/item",
                     "name": "Slide",
@@ -212,7 +212,22 @@
           }
         },
         {
-          "title": "Savingscard-header",
+          "title": "Savingscard",
+          "id": "savingscard",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Savingscard",
+                  "model": "savingscard"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Savingcard Header",
           "id": "savingscard-header",
           "plugins": {
             "xwalk": {
@@ -230,22 +245,7 @@
           }
         },
         {
-          "title": "Savingscard",
-          "id": "savingscard",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Savingscard",
-                  "model": "savingscard"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Savingscard-footer",
+          "title": "Savingcard Footer",
           "id": "savingscard-footer",
           "plugins": {
             "xwalk": {
@@ -301,7 +301,22 @@
           }
         },
         {
-          "title": "Image Description 2-Column Inline",
+          "title": "ThumbDesc",
+          "id": "thumbnail_desc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "thumbnail_desc",
+                  "model": "thumbnail_desc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ThumbDesc Col2",
           "id": "imagedesc-col2-inline",
           "plugins": {
             "xwalk": {
@@ -316,7 +331,7 @@
           }
         },
         {
-          "title": "Image Description 3-Column Inline",
+          "title": "ThumbDesc Col3",
           "id": "imagedesc-col3-inline",
           "plugins": {
             "xwalk": {
@@ -352,7 +367,7 @@
           }
         },
         {
-          "title": "NL-Calculator",
+          "title": "Calculator Novated",
           "id": "nl-calculator",
           "plugins": {
             "xwalk": {
@@ -373,7 +388,7 @@
           }
         },
         {
-          "title": "Vehicle Search Box",
+          "title": "Vehicle Search",
           "id": "vehicle-search-box",
           "plugins": {
             "xwalk": {
@@ -382,21 +397,6 @@
                 "template": {
                   "name": "vehicle-search-box",
                   "model": "vehicle-search-box"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Thumbnail Description Card",
-          "id": "thumbnail_desc",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "thumbnail_desc",
-                  "model": "thumbnail_desc"
                 }
               }
             }
@@ -433,21 +433,6 @@
           }
         },
         {
-          "title": "Car Card",
-          "id": "car-card",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Car Card",
-                  "model": "car-card"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Wishlist",
           "id": "wishlist",
           "plugins": {
@@ -472,6 +457,21 @@
                 "template": {
                   "name": "FAQ",
                   "model": "faq"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Car Card",
+          "id": "car-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Car Card",
+                  "model": "car-card"
                 }
               }
             }
@@ -508,6 +508,21 @@
           }
         },
         {
+          "title": "Car Thumb",
+          "id": "thumbnail-car",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "thumbnail-car",
+                  "model": "thumbnail-car"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Embed",
           "id": "embed",
           "plugins": {
@@ -523,7 +538,7 @@
           }
         },
         {
-          "title": "Takeways",
+          "title": "Takeaways",
           "id": "takeways",
           "plugins": {
             "xwalk": {
@@ -538,22 +553,7 @@
               }
             }
           }
-        },
-        {
-          "title": "Thumbnail car",
-          "id": "thumbnail-car",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "thumbnail-car",
-                  "model": "thumbnail-car"
-                }
-              }
-            }
-          }
-        }        
+        }     
       ]
     }
   ]
