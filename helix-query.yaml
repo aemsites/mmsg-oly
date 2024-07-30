@@ -40,7 +40,7 @@ indices:
     target: /offers-index.json
     properties:
       title:
-        select: main .hero.offerpage h3
+        select: main .thumbnail-car h3
         value: textContent(el)
       summary:
         select: main .hero.offerpage div:nth-child(2) > div p:nth-child(3)
@@ -64,8 +64,8 @@ indices:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
       carThumbnail:
-        select: main .car-details-wrapper img
-        value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
+        select: main .thumbnail-car img
+        value: attribute(el, 'src')
       publishDate:
         select: head > meta[name="published-time"]
         value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
