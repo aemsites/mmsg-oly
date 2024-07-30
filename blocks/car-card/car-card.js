@@ -1,27 +1,13 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 import { createElementFromHTML, WishlistManager } from '../../scripts/utils.js';
 import myJsonObject from '../../scripts/data.js';
-
-function getFeaturesContainer() {
-  return `
-      <div class="car-features-container">
-        <div class="car-feature">
-          <span class="camera">360 Camera</span>
-        </div>
-        <div class="car-feature">
-          <span class="alloy-wheels">Alloy wheels</span>
-        </div>
-        <div class="car-feature">
-          <span class="seats">Heated seats</span>
-        </div>
-      </div>
-    `;
-}
 
 function getPriceContainer(cardObj) {
   return `
       <div class="car-card-price-container">
         <p class="car-card-price-title">Weekly price from</p>
-        <h2 class="car-card-price">${cardObj?.weeklyPriceInfo}</h2>
+        <h1 class="car-card-price">${cardObj?.weeklyPriceInfo}</h1>
         <p class="car-card-info">Including all car running costs</p>
         <p class="car-card-price-weekly">Estimated tax savings ${cardObj.price}</p>
       </div>
@@ -38,18 +24,12 @@ function getButtonContainer(cardObj) {
     `;
 }
 
-function getCheckboxContainer() {
-  return `
-    <div class="checkbox-container">
-      <input type="checkbox" id="car-checkbox" />
-      <label for="car-checkbox">Select a car variant</label>
-    </div>
-  `;
-}
-
 function buildCardTemplate(cardObj) {
   const defaultImg = '/content/dam/oly/images/tesla.jpeg';
   const imageLink = cardObj?.img || defaultImg;
+  const pathParts = imageLink.split('/');
+  const encodedFileName = encodeURIComponent(pathParts.pop());
+  const encodedImagePath = [...pathParts, encodedFileName].join('/');
   const isInWishlist = WishlistManager.getWishlist().includes(cardObj?.offerId);
 
   const basicCarDetailContainer = `
@@ -58,20 +38,22 @@ function buildCardTemplate(cardObj) {
           <h3>${cardObj?.year} ${cardObj?.modelName}</h3>
           <img data-offer-id="${cardObj?.offerId}" class="car-card-heart" src="${isInWishlist ? '../../icons/heart-filled.svg' : '../../icons/heart.svg'}" alt="${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}">
         </div>
-        <img class="car-card-image" src="${imageLink}" alt="car offers image">
-         ${cardObj?.type ? `<p class="car-card-type">${cardObj?.type}</p>` : ''}
+        <img class="car-card-image" src="${encodedImagePath}" alt="car offers image">
         <p class="car-card-description">${cardObj?.carDescription || ''}</p>
       </div>
       `;
-  const featureContainer = cardObj?.isFeatures ? getFeaturesContainer() : '';
   const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
   const buttonContainer = cardObj?.isButtonExists ? getButtonContainer(cardObj) : '';
-  const checkboxContainer = cardObj?.isCheckbox ? getCheckboxContainer() : '';
   const wrapper = document.createElement('div');
   wrapper.className = 'car-detail-container';
-  const elementArray = [basicCarDetailContainer, checkboxContainer, featureContainer, priceContainer, buttonContainer];
+  const elementArray = [basicCarDetailContainer, priceContainer, buttonContainer];
   elementArray.forEach((element) => {
     wrapper.appendChild(createElementFromHTML(element));
+  });
+  wrapper.querySelectorAll('.car-card-image').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.replaceWith(optimizedPic);
   });
   return wrapper.outerHTML;
 }
