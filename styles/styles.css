@@ -124,6 +124,7 @@
 
   /* box-shadow */
   --box-shadow: 0 2px 4px 0px #0000001a; /* stylelint-disable-line */
+  --box-shadow-car-card: 0px 4px 4px 0px #00000040;
 }
 
 body {
