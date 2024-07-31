@@ -3,10 +3,8 @@
  */
 export const HOSTS = {
   PROD: {
-    url: 'oly.com.au',
+    domainUrl: 'https://oly.com.au',
     aemUrl: 'author-p136205-e1368144.adobeaemcloud.com',
-    previewUrl: 'main--mmsg-oly--aemsites.hlx.page',
-    liveUrl: 'main--mmsg-oly--aemsites.hlx.live',
     calculator: {
       nlKey: 'abc',
       nlHeader: 'test',
@@ -17,10 +15,8 @@ export const HOSTS = {
     },
   },
   STAGE: {
-    url: 'oly.com.au',
+    domainUrl: 'https://stage.oly.com.au',
     aemUrl: 'author-p136205-e1368144.adobeaemcloud.com',
-    previewUrl: 'main--mmsg-oly--aemsites.hlx.page',
-    liveUrl: 'main--mmsg-oly--aemsites.hlx.live',
     calculator: {
       nlKey: 'abc',
       nlHeader: 'test',
@@ -31,10 +27,8 @@ export const HOSTS = {
     },
   },
   DEV: {
-    url: 'oly.com.au',
+    domainUrl: 'https://dev.oly.com.au',
     aemUrl: 'author-p136205-e1368144.adobeaemcloud.com',
-    previewUrl: 'main--mmsg-oly--aemsites.hlx.page',
-    liveUrl: 'main--mmsg-oly--aemsites.hlx.live',
     calculator: {
       nlKey: 'abc',
       nlHeader: 'test',
@@ -45,10 +39,8 @@ export const HOSTS = {
     },
   },
   LOCAL: {
-    url: 'localhost:3000',
+    domainUrl: 'http://localhost:3000',
     aemUrl: 'author-p136205-e1368144.adobeaemcloud.com',
-    previewUrl: 'localhost',
-    liveUrl: 'localhost',
     calculator: {
       nlKey: 'abc',
       nlHeader: 'test',
