@@ -833,7 +833,7 @@
     ]
   },
   {
-    "id": "thumbnail_desc",
+    "id": "thumbnail-desc",
     "fields": [
       {
         "component": "reference",
@@ -848,6 +848,46 @@
         "name": "col_2_text",
         "label": "Text",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "related-article-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "href",
+        "value": "",
+        "label": "Link"
       }
     ]
   },
