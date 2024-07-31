@@ -1140,10 +1140,10 @@
     "id": "thumbnail-car",
     "fields": [
       {
-        "component": "richtext",
-        "name": "takeways",
+        "component": "text",
+        "name": "carname",
         "value": "",
-        "label": "Takeways",
+        "label": "Name",
         "valueType": "string"
       },
       {
