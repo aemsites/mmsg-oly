@@ -42,9 +42,15 @@ footer .footer p {
 .footer-legal > div > p {
   color: var(--color-white);
   text-align: start;
+  font-weight: 400;
 
   strong {
     font-family: var(--font-family-bold);
+    font-weight: 700;
+  }
+
+  a {
+    color: var(--link-color);
   }
 }
 
@@ -85,6 +91,7 @@ footer .footer p {
         width: 100%;
         justify-content: space-between;
         gap: 16px;
+        font-weight: 400;
       }
 
       a::after {
@@ -184,7 +191,7 @@ footer .footer p {
         'text nav' min-content
         'contact nav' min-content
         'button nav' 1fr / 30% 1fr;
-      gap: 0 2rem;
+      gap: 0 1rem;
       max-width: 100%;
     }
 
@@ -217,7 +224,7 @@ footer .footer p {
         }
 
         img {
-          max-width: 130px;
+          max-width: 131px;
         }
       }
     }
@@ -227,7 +234,7 @@ footer .footer p {
 
       > ul {
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
 
         li {
           flex: 1 1 0;
@@ -241,7 +248,7 @@ footer .footer p {
       flex-direction: row;
       gap: 80px;
       text-align: unset;
-      padding: 50px 80px 40px 104px;
+      padding: 48px 80px 40px 104px;
       max-width: var(--max-width-container);
 
       ul {
