@@ -1,5 +1,5 @@
 import { createForm } from '../form/form.js';
-import { CONFIG } from '../../scripts/utils.js';
+import { getConfig } from '../../scripts/config.js';
 
 function toggleBlocks(selector, isShow) {
   const blocks = document.querySelectorAll(selector);
@@ -73,7 +73,8 @@ export default async function decorate(block) {
   if (element && element.textContent.trim() === 'yes') {
     const anchors = block.querySelectorAll('a[href^="#"]');
     block.classList.add('form');
-    const form = await createForm(`${CONFIG.baseURL}/faqform.json`);
+    const { baseURL } = getConfig();
+    const form = await createForm(`${baseURL}/faqform.json`);
     element.replaceChildren(form);
 
     const searchInput = block.querySelector('#form-faqsearch');

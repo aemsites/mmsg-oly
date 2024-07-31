@@ -1,7 +1,7 @@
 import { loadFragment } from '../fragment/fragment.js';
 import { buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS } from '../../scripts/aem.js';
 import loadVideoDelayed from '../../scripts/delayed.js';
-import { CONFIG } from '../../scripts/utils.js';
+import { getConfig } from '../../scripts/config.js';
 
 export async function createModal(contentNodes, videoUrl) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
@@ -19,7 +19,8 @@ export async function createModal(contentNodes, videoUrl) {
   dialogContent.appendChild(embedBlock);
 
   // Call loadVideoDelayed to load the video
-  if (videoUrl && videoUrl.includes(CONFIG.youTubeLinkCheck)) {
+  const { youTubeLinkCheck } = getConfig();
+  if (videoUrl && videoUrl.includes(youTubeLinkCheck)) {
     loadVideoDelayed(embedBlock, [], videoUrl);
   }
 
