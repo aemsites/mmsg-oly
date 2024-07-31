@@ -15,8 +15,6 @@
   > div:nth-child(1) {
     h2,
     h3,
-    h4,
-    h5,
     p {
       font-family: var(--font-family-bold);
       font-size: var(--font-size-l-alt);
