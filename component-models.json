@@ -871,14 +871,14 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "col_2_text",
+        "name": "col_3_text",
         "label": "Text",
         "value": ""
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "col_2_text",
+        "name": "col_4_text",
         "label": "Text",
         "value": ""
       },
