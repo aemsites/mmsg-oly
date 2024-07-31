@@ -440,9 +440,11 @@
 
       > div {
         padding: var(--spacing-s);
-        gap: 0;
+        gap: 1rem;
         border: 1px solid var(--border-color);
         border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
 
         p {
           margin: 0;
@@ -455,16 +457,29 @@
           &.button-container a {
             color: var(--link-color);
             font-size: var(--font-size-xs);
+            font-weight: 400;
+            line-height: 1.25rem;
             margin: 0;
+            padding: 0;
           }
+
+          &:nth-child(3) {
+            font-size: var(--font-size-xs);
+            line-height: 1.5rem;
+            margin-top: -16px;
+            font-weight: 400;
+          }
+        }
+
+        p:nth-child(2) {
+          border: 1px solid;
         }
 
         h5,
         h4,
         h6 {
-          font-size: 1.5rem;
+          font-size: var(--font-size-m);
           line-height: 2rem;
-          margin: 16px 0 0;
         }
       }
     }
@@ -473,7 +488,7 @@
 
   @media (width >= 768px) {
     &.columns-container {
-      padding: 96px 160px;
+      padding: 40px 159px;
       gap: 3rem;
     }
 
@@ -485,7 +500,7 @@
       }
     }
 
-    .columns div {
+    .columns-wrapper .columns div {
       > div {
         border-radius: 1rem;
 
@@ -495,8 +510,16 @@
           font-size: var(--font-size-l);
         }
 
-        p.button-container a {
-          font-size: var(--font-size-s);
+        p {
+          &:nth-child(3) {
+            font-size: var(--font-size-s);
+            line-height: 2rem;
+          }
+
+          &.button-container a {
+            font-size: var(--font-size-s);
+            line-height: 1.5rem;
+          }
         }
       }
     }
@@ -511,7 +534,7 @@
       margin: 0 auto;
     }
 
-    .columns {
+    .columns-wrapper .columns {
       display: flex;
       flex-direction: column;
       height: 100%;
