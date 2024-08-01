@@ -46,6 +46,20 @@ export default async function decorate(block) {
   const el_calcContainer = document.createElement('div');
   el_calcContainer.className = 'container';
 
+  [...apiDetails.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      if (index == 0) {
+        localStorage.setItem('calculatorAPIUrl', el.innerHTML);
+      } else if (index === 1) {
+        localStorage.setItem('calculatorAPIKey', el.innerHTML);
+      } else if (index === 2) {
+        localStorage.setItem('maxxiacalculatorAPIKey', el.innerHTML);
+      }
+      el.textContent = '';
+      el.style.display = 'none';
+    });
+  });
+
   [...titleDescription.children].forEach((item) => {
     [...item.children].forEach((el) => {
       el_calcContainer.append(el);
@@ -982,18 +996,4 @@ export default async function decorate(block) {
   block.append(el_calcContainer);
 
   /******************************** */
-
-  [...apiDetails.children].forEach((item) => {
-    [...item.children].forEach((el, index) => {
-      if (index == 0) {
-        localStorage.setItem('calculatorAPIUrl', el.innerHTML);
-      } else if (index === 1) {
-        localStorage.setItem('calculatorAPIKey', el.innerHTML);
-      } else if (index === 2) {
-        localStorage.setItem('maxxiacalculatorAPIKey', el.innerHTML);
-      }
-      el.textContent = '';
-      el.style.display = 'none';
-    });
-  });
 }
