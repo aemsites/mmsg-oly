@@ -1,0 +1,63 @@
+.section.thumbnail-car-container {
+  background: var(--bg-color-paper);
+  padding: 0;
+
+  @media (width >= 768px) {
+    padding: 0;
+  }
+}
+
+.thumbnail-car {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  .ev-badge {
+    position: absolute;
+    top: 21px;
+    right: -64px;
+  }
+
+  > div:nth-child(1) {
+    h2,
+    h3,
+    p {
+      font-family: var(--font-family-bold);
+      font-size: var(--font-size-l-alt);
+      font-weight: 700;
+      line-height: var(--spacing-l);
+      margin: var(--spacing-xxxs) 0 0;
+      color: black;
+
+      @media (width >= 768px) {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        line-height: var(--font-size-xl);
+        margin: var(--spacing-xxs-l) 0 0;
+      }
+    }
+  }
+
+  > div:nth-child(2) {
+    position: relative;
+
+    div:nth-child(1) {
+      img {
+        width: 324px;
+        display: block;
+        padding-top: 16px;
+      }
+    }
+
+    div:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: -24px;
+
+      img {
+        width: auto;
+        padding-top: 0;
+      }
+    }
+  }
+}

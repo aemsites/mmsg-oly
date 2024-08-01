@@ -1,12 +1,3 @@
-export const CONFIG = {
-  countryCode: 'au',
-  language: 'en',
-  site: 'oly',
-  baseURL: window.location.origin || 'https://oly.com.au/',
-  youTubeLinkCheck: 'https://youtu',
-  videoModalPath: '/modals/video',
-};
-
 const ISEV = ['yes', 'no'];
 
 /**

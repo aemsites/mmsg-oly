@@ -40,7 +40,7 @@
       "imagedesc-col3-inline",
       "car-card",
       "wishlist",
-      "thumbnail_desc",
+      "thumbnail-desc",
       "vehicle-search-box",
       "faq",
       "car-details",
@@ -50,7 +50,9 @@
       "nl-calculator",
       "single-slide-carousel",
       "takeways",
-      "thumbnail-car"
+      "thumbnail-car",
+      "related-article-card",
+      "takeaways"
     ]
   },
   {

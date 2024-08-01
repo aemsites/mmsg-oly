@@ -833,7 +833,7 @@
     ]
   },
   {
-    "id": "thumbnail_desc",
+    "id": "thumbnail-desc",
     "fields": [
       {
         "component": "reference",
@@ -852,6 +852,46 @@
     ]
   },
   {
+    "id": "related-article-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_3_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_4_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "href",
+        "value": "",
+        "label": "Link"
+      }
+    ]
+  },
+  {
     "id": "form",
     "fields": [
       {
@@ -866,6 +906,18 @@
         "valueType": "string",
         "name": "formUrl",
         "label": "Form location",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "takeways",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content",
+        "label": "Title",
         "value": ""
       }
     ]
@@ -1100,25 +1152,42 @@
     "id": "thumbnail-car",
     "fields": [
       {
-        "component": "richtext",
-        "name": "takeways",
+        "component": "text",
+        "name": "thumbnail-car-name",
         "value": "",
-        "label": "Takeways",
+        "label": "Car Name",
         "valueType": "string"
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "carimagethumbnail",
+        "name": "thumbnail-car-image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "carbadge",
+        "name": "thumbnail-car-badge",
         "label": "Badge",
         "multi": false
+      },
+      {
+        "component": "select",
+        "name": "thumbnail-car-type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
       }
     ]
   } 

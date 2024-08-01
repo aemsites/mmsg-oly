@@ -251,8 +251,6 @@ export default function decorate(block) {
 
     block.renderRecentlyViewedCards = renderRecentlyViewed;
     block.getFilteredRecentlyViewedJsonObject = getFilteredRecentlyViewedJsonObject;
-
-    RecentlyViewedManager.updateRecentlyViewedCountWithRetry();
   }
 }
 
