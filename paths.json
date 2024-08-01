@@ -7,8 +7,11 @@
     "/content/oly/offers-index.json:/offers-index.json",
     "/content/oly/metadata:/metadata.json",
     "/content/oly/placeholders:/placeholders.json",
-    "/content/oly/au/en/request-a-callback:/request-a-callback.json",
-    "/content/oly/au/en/faqform:/faqform.json",
-    "/content/oly/au/en/get-a-quote:/get-a-quote.json"
+    "/content/oly/au/en/forms/faqform:/faqform.json",
+    "/content/oly/au/en/forms/request-a-callback:/request-a-callback.json",
+    "/content/oly/au/en/forms/get-a-quote:/get-a-quote.json",
+    "/content/oly/au/en/forms/car-offer:/car-offer.json",
+    "/content/oly/au/en/forms/newsletter:/newsletter.json",
+    "/content/oly/au/en/forms/calculator-novated-lease:/calculator-novated-lease.json"
   ]
 }
