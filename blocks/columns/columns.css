@@ -259,12 +259,13 @@
   border-radius: 0.5rem;
   margin: var(--spacing-xs);
 
-  /* .columns-img-col img {
+  /* stylelint-disable-next-line */
+  .columns-img-col img {
     border-radius: 0.5rem;
     max-width: 680px;
     max-height: 400px;
     aspect-ratio: 1.3;
-  } */
+  }
 
   @media (width >=768px) {
     padding: var(--spacing-l);
