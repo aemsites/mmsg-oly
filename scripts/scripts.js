@@ -11,7 +11,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './aem.js';
-import { CONFIG } from './utils.js';
+import { getConfig } from './config.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -64,20 +64,18 @@ async function loadFonts() {
 function autolinkModals(element) {
   element.addEventListener('click', async (e) => {
     const origin = e.target.closest('a');
-
-    if (origin && origin.href) {
+    const { youTubeLinkCheck, videoModalPath } = getConfig();
+    if (origin && origin.href && origin.href.includes('/modals/')) {
+      e.preventDefault();
       const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
-
-      if (origin && origin.href && origin.href.includes('/modals/')) {
-        e.preventDefault();
-        openModal(origin.href, '');
-      }
-      if (origin && origin.href && origin.href.includes(CONFIG.youTubeLinkCheck)) {
-        e.preventDefault();
-        const videoUrl = origin.href;
-        const fragmentUrl = `${window.location.origin}${CONFIG.videoModalPath}`;
-        openModal(fragmentUrl, videoUrl);
-      }
+      openModal(origin.href, '');
+    }
+    if (origin && origin.href && origin.href.includes(youTubeLinkCheck)) {
+      e.preventDefault();
+      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      const videoUrl = origin.href;
+      const fragmentUrl = `${window.location.origin}${videoModalPath}`;
+      openModal(fragmentUrl, videoUrl);
     }
   });
 }

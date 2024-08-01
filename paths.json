@@ -3,7 +3,10 @@
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
     "/content/oly/au/en/query-index.json:/au/en/query-index.json",
+    "/content/oly/query-index.json:/query-index.json",
+    "/content/oly/offers-index.json:/offers-index.json",
     "/content/oly/metadata:/metadata.json",
+    "/content/oly/placeholders:/placeholders.json",
     "/content/oly/au/en/request-a-callback:/request-a-callback.json",
     "/content/oly/au/en/faqform:/faqform.json",
     "/content/oly/au/en/get-a-quote:/get-a-quote.json"
