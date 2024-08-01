@@ -499,7 +499,14 @@ export default async function decorate(block) {
         let calculatorResponseError = '';
         // Get Calculator API result
         try {
-          calculatorResponse = await getCalculatorResult();
+          calculatorResponse = await getCalculatorResult(
+            selectedVehiclePrice,
+            el_inputKmsTravelled.value,
+            leaseTermSelected * 12,
+            10,
+            el_inputSalary.value,
+            5,
+          );
         } catch {
           calculatorResponseError = 'Error fetching the calculator result';
         }
@@ -912,7 +919,7 @@ export default async function decorate(block) {
                   comparisonViewCol2Title.innerText = '$0';
                   comparisonViewCol2.append(comparisonViewCol2Title);
                   const comparisonViewCol3Title = document.createElement('div');
-                  comparisonViewCol3Title.innerText = `$ ${Math.round((calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)*leaseTermSelected)}`;
+                  comparisonViewCol3Title.innerText = `$ ${Math.round((calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay) * leaseTermSelected)}`;
                   comparisonViewCol3.append(comparisonViewCol3Title);
 
                   comparisonView.append(comparisonViewCol1);
