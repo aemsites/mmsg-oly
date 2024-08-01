@@ -287,11 +287,18 @@
               font-size: var(--font-size-xs-alt);
               font-family: var(--font-family-body);
             }
-          }
-        }
 
-        .nl-calculator .tab-detail-wrapper > .tab-detail::nth-child(2) {
-          color: red;
+            .comparison {
+              display: grid;
+              grid-template-columns: 40% 30% 30%;
+              align-items: center;
+              border-bottom: 1px solid var(--border-color);
+              .col {
+                text-align: left;
+                padding: var(--spacing-xxs) var(--spacing-xs);
+              }
+            }
+          }
         }
       }
     }
@@ -309,6 +316,15 @@
       }
     }
   }
+}
+
+.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(3) > .comparison:nth-child(1) {
+  font-weight: bold;
+  background-color: var(--bg-color-light-grey);
+}
+
+.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(3) > .comparison:nth-child(1) .col:nth-child(3) {
+  color: var(--color-pink);
 }
 
 .nl-calculator input,

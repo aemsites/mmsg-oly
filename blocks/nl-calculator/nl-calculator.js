@@ -85,6 +85,8 @@ export default async function decorate(block) {
     responseModels.Table[0].Code,
   );
 
+  let selectedVehiclePrice = 0;
+
   [...formLabels.children].forEach((item) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'form-element-wrapper';
@@ -269,6 +271,7 @@ export default async function decorate(block) {
                 el_carImgDesc.className = 'img-sub-text';
                 el_calcCarDetailCol1.append(el_carImgDesc);
               });
+              selectedVehiclePrice = vehicle.RRP.Amount;
             }
             const el_variantOption = document.createElement('option');
             el_variantOption.setAttribute('value', vehicle.NVIC_CUR);
@@ -278,6 +281,7 @@ export default async function decorate(block) {
             el_selectVariant.addEventListener('change', async () => {
               selectedNVIC = el_selectVariant.value;
               const responseVehicleImage = await getVehicleImageOnNVIC(el_selectVariant.value);
+              selectedVehiclePrice = responseVehicleList.Table[el_selectVariant.selectedIndex].RRP.Amount;
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
                 const bytes = [].slice.call(new Uint8Array(buffer));
@@ -350,6 +354,11 @@ export default async function decorate(block) {
             } else {
               el_leaseTerm.innerText = `${i} years`;
             }
+
+            if (i == 5) {
+              el_leaseTerm.classList.add('selected');
+            }
+
             el_leaseTerm.addEventListener('click', () => {
               if (el_leaseTerm.innerText === '1 year') {
                 leaseTermSelected = '1';
@@ -367,6 +376,7 @@ export default async function decorate(block) {
               });
               el_leaseTerm.classList.add('selected');
             });
+
             el_leaseTermWrapper.append(el_leaseTerm);
           }
           wrapperEl.append(el_leaseTermWrapper);
@@ -551,6 +561,9 @@ export default async function decorate(block) {
               const tabItemTitle = document.createElement('div');
               tabItem.className = 'tab-item';
               tabItemTitle.className = 'tab-title';
+              if (index === 0) {
+                tabItemTitle.classList.add('selected');
+              }
               tabItemTitle.innerText = el.innerText;
               // Tab item click to change the details
               tabItemTitle.addEventListener('click', () => {
@@ -563,7 +576,6 @@ export default async function decorate(block) {
                   });
 
                   let detailWrapperIndex = index === 0 ? 0 : index === 6 ? 1 : 2;
-
                   document.querySelector(
                     `.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(${detailWrapperIndex + 1})`,
                   ).style.display = 'block';
@@ -751,8 +763,164 @@ export default async function decorate(block) {
                 tabItemDetail = document.createElement('div');
                 tabItemDetail.className = 'tab-detail';
                 tabItemDetail.style.display = 'none';
-                tabItemDetail.innerText = 'comparison details';
-                el_tabDetails.append(tabItemDetail);
+                const comparisonViewCol1 = document.createElement('div');
+                comparisonViewCol1.className = 'col';
+                const comparisonViewCol2 = document.createElement('div');
+                comparisonViewCol2.className = 'col';
+                const comparisonViewCol3 = document.createElement('div');
+                comparisonViewCol3.className = 'col';
+                const comparisonView = document.createElement('div');
+                comparisonView.className = 'comparison';
+
+                const comparisonViewCol1Title = document.createElement('div');
+                comparisonViewCol1Title.innerText = 'Annual';
+                comparisonViewCol1.append(comparisonViewCol1Title);
+
+                const comparisonViewCol2Title = document.createElement('div');
+                comparisonViewCol2Title.innerText = 'Without Oly';
+                comparisonViewCol2.append(comparisonViewCol2Title);
+
+                const comparisonViewCol3Title = document.createElement('div');
+                comparisonViewCol3Title.innerText = 'With Oly';
+                comparisonViewCol3.append(comparisonViewCol3Title);
+
+                comparisonView.append(comparisonViewCol1);
+                comparisonView.append(comparisonViewCol2);
+                comparisonView.append(comparisonViewCol3);
+                tabItemDetail.append(comparisonView);
+              }
+
+              if (index >= 14 && index <= 22) {
+                const comparisonViewCol1 = document.createElement('div');
+                comparisonViewCol1.className = 'col';
+                const comparisonViewCol2 = document.createElement('div');
+                comparisonViewCol2.className = 'col';
+                const comparisonViewCol3 = document.createElement('div');
+                comparisonViewCol3.className = 'col';
+                const comparisonView = document.createElement('div');
+                comparisonView.className = 'comparison';
+                const comparisonViewCol1Title = document.createElement('div');
+                comparisonViewCol1Title.innerText = el.innerText;
+                comparisonViewCol1.append(comparisonViewCol1Title);
+
+                if (index === 14) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `$ ${Math.round(el_inputSalary.value)}`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(el_inputSalary.value)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 15) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = '$0';
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 16) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = '-';
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.salaryPackagingAnnualFee)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 17) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `$ ${Math.round(el_inputSalary.value)}`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.netCashSalary)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 18) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `$ ${Math.round(calculatorResponse.currentTaxAndMedicare)}`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.taxAndMedicareAmount)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 19) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `$ ${Math.round(calculatorResponse.currentTakeHomePay)}`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.netCashSalary)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 20) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `-`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.eCM)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 21) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = `$ ${Math.round(selectedVehiclePrice)}`;
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = '-';
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                } else if (index === 22) {
+                  const comparisonViewCol2Title = document.createElement('div');
+                  comparisonViewCol2Title.innerText = '$0';
+                  comparisonViewCol2.append(comparisonViewCol2Title);
+                  const comparisonViewCol3Title = document.createElement('div');
+                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)}`;
+                  comparisonViewCol3.append(comparisonViewCol3Title);
+
+                  comparisonView.append(comparisonViewCol1);
+                  comparisonView.append(comparisonViewCol2);
+                  comparisonView.append(comparisonViewCol3);
+                  tabItemDetail.append(comparisonView);
+                  el_tabDetails.append(tabItemDetail);
+                }
               }
             }
           });
