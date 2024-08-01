@@ -388,6 +388,12 @@ main .section {
   padding: var(--spacing-xl) var(--spacing-xs);
 }
 
+.section .default-content-wrapper p {
+  font-size: var(--font-size-xs);
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
 /* Notification pane */
 .section.notification {
   padding: 0;
@@ -417,6 +423,11 @@ main .section {
   .section > div {
     max-width: var(--max-width-container);
     margin: auto;
+  }
+
+  .section .default-content-wrapper p {
+    font-size: var(--font-size-s);
+    line-height: 2rem;
   }
 
   /* Notification pane */
