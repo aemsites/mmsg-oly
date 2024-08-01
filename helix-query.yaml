@@ -13,6 +13,7 @@ indices:
       - 'images/**'
       - '/modals/**'
       - '/**/modals/**'
+      - '/forms/**'
     target: /query-index.json
     properties:
       title:
