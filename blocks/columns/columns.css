@@ -38,6 +38,57 @@
   gap: 1rem;
 }
 
+/* two-col-text */
+.section.two-col-text {
+  p {
+    text-align: left;
+  }
+
+  p:nth-child(2) {
+    color: var(--color-pink);
+    font-weight: var(--heading-font-weight);
+  }
+
+  p:nth-child(5) {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-xs);
+  }
+
+  .default-content-wrapper {
+    padding: 0 var(--spacing-xs);
+  }
+
+  background-color: var(--bg-color-paper);
+
+  .columns-2-cols > div {
+    padding: var(--spacing-xl-l) var(--spacing-xxl-l);
+  }
+
+  /* .columns-2-cols > div > div {
+    background-color: var(--color-white);
+    margin-bottom: var(--spacing-s);
+    padding: var(--spacing-m);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+
+    img {
+      height: 180px;
+      width: 335px;
+    }
+    
+  } */
+
+  @media (width<700px) {
+    .columns-2-cols > div {
+      padding: var(--spacing-xs);
+    }
+
+    p {
+      font-size: var(--font-size-xs);
+    }
+  }
+}
+
 .section.semicircle-image .columns > div {
   gap: 2rem;
 
@@ -78,6 +129,19 @@
   }
 }
 
+.section.two-col-text .columns-2-cols > div > div {
+  background-color: var(--color-white);
+  margin-bottom: var(--spacing-s);
+  padding: var(--spacing-m);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+
+  img {
+    height: 180px;
+    width: 335px;
+  }
+}
+
 /* three-col-text | whats included */
 .section.three-col-text {
   display: flex;
@@ -106,13 +170,13 @@
     gap: 1rem;
     padding: 0 var(--spacing-xs);
   }
-
-  /* .columns > div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-   } */
+  /* stylelint-disable-next-line */
+  .columns > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
   .columns > div > div {
     display: flex;
@@ -139,6 +203,7 @@
     }
   }
 
+  /* stylelint-disable-next-line */
   .columns > img {
     height: 56px;
     width: 56px;
@@ -195,6 +260,7 @@
   border-radius: 0.5rem;
   margin: var(--spacing-xs);
 
+  /* stylelint-disable-next-line */
   .columns-img-col img {
     border-radius: 0.5rem;
     max-width: 680px;
