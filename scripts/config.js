@@ -82,7 +82,7 @@ export function getConfig() {
   // Use DEV as the default environment if no match is found
   const currentEnv = HOSTS[currentEnvKey] || HOSTS.DEV;
 
-  const cdnHost = currentEnv.url;
+  const cdnHost = currentEnv.domainUrl;
   const cdnOrigin = `https://${cdnHost}`;
   const baseURL = window.location.origin || 'https://oly.com.au/';
   const youTubeLinkCheck = 'https://youtu';
