@@ -31,6 +31,7 @@ export default async function decorate(block) {
     formYouLabels,
     aboutViewDescription,
     resultsViewDescription,
+    resultsViewComparison,
   ] = block.children;
   titleDescription.className = 'form-heading';
   formLabels.className = 'form-label-container';

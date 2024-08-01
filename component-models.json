@@ -826,7 +826,7 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "resultsViewComparison",
+        "name": "comparisonDescription",
         "label": "Text",
         "value": ""
       }
