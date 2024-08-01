@@ -1141,24 +1141,41 @@
     "fields": [
       {
         "component": "text",
-        "name": "carname",
+        "name": "thumbnail-car-name",
         "value": "",
-        "label": "Name",
+        "label": "Car Name",
         "valueType": "string"
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "carimagethumbnail",
+        "name": "thumbnail-car-image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "carbadge",
+        "name": "thumbnail-car-badge",
         "label": "Badge",
         "multi": false
+      },
+      {
+        "component": "select",
+        "name": "thumbnail-car-type",
+        "value": "yes",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
       }
     ]
   } 
