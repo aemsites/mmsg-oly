@@ -1,103 +1,6 @@
-import { createElementFromHTML, WishlistManager, RecentlyViewedManager } from '../../scripts/utils.js';
+import { buildCardTemplate, handleHeartClick } from '../car-card/common-car-utils.js';
+import { WishlistManager, RecentlyViewedManager } from '../../scripts/utils.js';
 import myJsonObject from '../../scripts/data.js';
-
-function getFeaturesContainer() {
-  return `
-        <div class="car-features-container">
-          <div class="car-feature">
-            <span class="camera">360 Camera</span>
-          </div>
-          <div class="car-feature">
-            <span class="alloy-wheels">Alloy wheels</span>
-          </div>
-          <div class="car-feature">
-            <span class="seats">Heated seats</span>
-          </div>
-        </div>
-    `;
-}
-
-function getPriceContainer(cardObj) {
-  return `
-        <div class="car-card-price-container">
-          <p class="car-card-price-title">Weekly price from</p>
-          <h2 class="car-card-price">${cardObj?.weeklyPriceInfo}</h2>
-          <p class="car-card-info">Including all car running costs</p>
-          <p class="car-card-price-weekly">Estimated tax savings ${cardObj.price}</p>
-        </div>
-    `;
-}
-
-function getButtonContainer() {
-  return `
-      <div class="car-card-button-container">
-        <p class="button-container">
-          <a href="oly.com.au" title="View Offer Details" class="button">View Offer Details</a>
-        </p>
-      </div>
-    `;
-}
-
-function buildCardTemplate(cardObj) {
-  const defaultImg = '/content/dam/oly/images/tesla.jpeg';
-  const imageLink = cardObj?.img || defaultImg;
-
-  const basicCarDetailContainer = `
-        <div class="container">
-          <div class="heart-container">
-            <h3>${cardObj?.year} ${cardObj?.modelName}</h3>
-            <img data-offer-id="${cardObj?.offerId}" class="car-card-heart" src="../../icons/heart-filled.svg" alt="Remove from Wishlist">
-          </div>
-          <img class="car-card-image" src="${imageLink}" alt="car offers image">
-           ${cardObj?.type ? `<p class="car-card-type">${cardObj?.type}</p>` : ''}
-          <p class="car-card-description">${cardObj?.carDescription || ''}</p>
-        </div>
-    `;
-  const featureContainer = cardObj?.isFeatures ? getFeaturesContainer() : '';
-  const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
-  const buttonContainer = cardObj?.isButtonExists ? getButtonContainer() : '';
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'car-detail-container';
-  [basicCarDetailContainer, featureContainer, priceContainer, buttonContainer].forEach((element) => {
-    wrapper.appendChild(createElementFromHTML(element));
-  });
-  return wrapper.outerHTML;
-}
-
-function buildRecentCardTemplate(cardObj) {
-  const isInWishlist = (offerId) => {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    return wishlist.includes(offerId);
-  };
-
-  const heartIconSrc = isInWishlist(cardObj.offerId) ? '../../icons/heart-filled.svg' : '../../icons/heart.svg';
-
-  const defaultImg = '/content/dam/oly/images/tesla.jpeg';
-  const imageLink = cardObj?.img || defaultImg;
-
-  const basicCarDetailContainer = `
-        <div class="container">
-          <div class="heart-container">
-            <h3>${cardObj?.year} ${cardObj?.modelName}</h3>
-            <img data-offer-id="${cardObj?.offerId}" class="car-card-heart" src="${heartIconSrc}" alt="${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}">
-          </div>
-          <img class="car-card-image" src="${imageLink}" alt="car offers image">
-           ${cardObj?.type ? `<p class="car-card-type">${cardObj?.type}</p>` : ''}
-          <p class="car-card-description">${cardObj?.carDescription || ''}</p>
-        </div>
-    `;
-  // const featureContainer = cardObj?.isFeatures ? getFeaturesContainer() : '';
-  const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
-  const buttonContainer = cardObj?.isButtonExists ? getButtonContainer(cardObj) : '';
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'car-detail-container';
-  [basicCarDetailContainer, priceContainer, buttonContainer].forEach((element) => {
-    wrapper.appendChild(createElementFromHTML(element));
-  });
-  return wrapper.outerHTML;
-}
 
 function getFilteredJsonObject() {
   const wishlist = WishlistManager.getWishlist();
@@ -105,9 +8,7 @@ function getFilteredJsonObject() {
 }
 
 function renderWishlistCards(filteredJson, container) {
-  if (!container) {
-    return;
-  }
+  if (!container) return;
 
   container.innerHTML = '';
 
@@ -115,9 +16,11 @@ function renderWishlistCards(filteredJson, container) {
     const wishlistWrapper = document.createElement('div');
     wishlistWrapper.className = 'wishlist-cards-wrapper';
     filteredJson.forEach((item, index) => {
-      const cardElement = createElementFromHTML(buildCardTemplate(item));
-      cardElement.style.animationDelay = `${index * 0.1}s`;
-      wishlistWrapper.appendChild(cardElement);
+      const cardElement = buildCardTemplate(item, true);
+      const cardDiv = document.createElement('div');
+      cardDiv.innerHTML = cardElement;
+      cardDiv.firstChild.style.animationDelay = `${index * 0.1}s`;
+      wishlistWrapper.appendChild(cardDiv.firstChild);
     });
     container.appendChild(wishlistWrapper);
   } else {
@@ -127,36 +30,13 @@ function renderWishlistCards(filteredJson, container) {
   }
 }
 
-function handleHeartClick(event) {
-  const heartIcon = event.target.closest('.car-card-heart');
-  if (!heartIcon) return;
-
-  event.preventDefault();
-  const { offerId } = heartIcon.dataset;
-
-  if (!offerId) return;
-
-  if (!WishlistManager.getWishlist().includes(offerId)) {
-    heartIcon.classList.add('animate');
-    setTimeout(() => {
-      heartIcon.classList.remove('animate');
-    }, 500);
-  }
-
-  WishlistManager.updateWishlist(offerId);
-  WishlistManager.updateHeartIcon(heartIcon, WishlistManager.getWishlist().includes(offerId));
-}
-
-// recently viewed
 function getFilteredRecentlyViewedJsonObject() {
   const recentlyViewed = RecentlyViewedManager.getRecentlyViewed();
   return myJsonObject.filter((item) => item && item.offerId && recentlyViewed.includes(item.offerId));
 }
 
 function renderRecentlyViewedCards(filteredJson, container) {
-  if (!container) {
-    return;
-  }
+  if (!container) return;
 
   container.innerHTML = '';
 
@@ -164,8 +44,8 @@ function renderRecentlyViewedCards(filteredJson, container) {
     const recentlyViewedWrapper = document.createElement('div');
     recentlyViewedWrapper.className = 'recently-viewed-cards-wrapper';
     filteredJson.forEach((item) => {
-      const cardElement = createElementFromHTML(buildRecentCardTemplate(item));
-      recentlyViewedWrapper.appendChild(cardElement);
+      const cardElement = buildCardTemplate(item, true);
+      recentlyViewedWrapper.innerHTML += cardElement;
     });
     container.appendChild(recentlyViewedWrapper);
   } else {
@@ -175,8 +55,7 @@ function renderRecentlyViewedCards(filteredJson, container) {
   }
 }
 
-// set ["offer_1","offer_4","offer_3"] to recently viewed wishlist as mock data
-
+// Mock data setup
 RecentlyViewedManager.setRecentlyViewed('offer_1');
 RecentlyViewedManager.setRecentlyViewed('offer_3');
 RecentlyViewedManager.setRecentlyViewed('offer_4');
@@ -209,32 +88,14 @@ export default function decorate(block) {
 
     wishlistContainer.addEventListener('click', handleHeartClick);
 
-    // const clearAllButton = document.createElement('button');
-    // clearAllButton.textContent = 'Clear All';
-    // clearAllButton.addEventListener('click', () => {
-    //     localStorage.removeItem('wishlist');
-    //     renderWishlist();
-    //     WishlistManager.updateWishlistCount();
-    // });
-    // block.appendChild(clearAllButton);
-
     block.renderWishlistCards = renderWishlist;
     block.getFilteredJsonObject = getFilteredJsonObject;
 
-    // Initialize wishlist functionality
     WishlistManager.updateWishlistCountWithRetry();
   } else if (variant === 'recent') {
     block.innerHTML = '';
     const recentlyViewedContainer = document.createElement('div');
     recentlyViewedContainer.id = 'recently-viewed-container';
-
-    const title = document.createElement('h2');
-    const filtered = getFilteredRecentlyViewedJsonObject();
-    title.textContent =
-      filtered.length > 0
-        ? `You have viewed the following ${filtered.length > 1 ? `${filtered.length} vehicles` : 'vehicle'}`
-        : 'You have not viewed any vehicles yet';
-    // block.appendChild(title);
 
     block.appendChild(recentlyViewedContainer);
 
