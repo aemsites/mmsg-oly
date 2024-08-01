@@ -12,6 +12,12 @@
   flex-direction: column-reverse;
   align-items: center;
 
+  .ev-badge {
+    position: absolute;
+    top: 21px;
+    right: -64px;
+  }
+
   > div:nth-child(1) {
     h2,
     h3,
