@@ -281,7 +281,7 @@ export default async function decorate(block) {
             el_selectVariant.addEventListener('change', async () => {
               selectedNVIC = el_selectVariant.value;
               const responseVehicleImage = await getVehicleImageOnNVIC(el_selectVariant.value);
-              selectedVehiclePrice = responseVehicleList.Table[el_selectVariant.selectedIndex].RRP.Amount;
+              selectedVehiclePrice = responseVehicleList.Table[el_selectVariant.selectedIndex + 1].RRP.Amount;
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
                 const bytes = [].slice.call(new Uint8Array(buffer));
@@ -602,7 +602,7 @@ export default async function decorate(block) {
                 el_keyFinanceSavingsLabel.className = 'title';
 
                 const el_keyFinanceSavingsValue = document.createElement('div');
-                el_keyFinanceSavingsValue.innerText = `$ ${Math.round(calculatorResponse.taxBenefits)}`;
+                el_keyFinanceSavingsValue.innerText = `$ ${Math.round(calculatorResponse.taxBenefits * leaseTermSelected)}`;
                 el_keyFinanceSavingsValue.className = 'value';
 
                 el_keyFinanceSavingsWrapper.append(el_keyFinanceSavingsLabel);
@@ -912,7 +912,7 @@ export default async function decorate(block) {
                   comparisonViewCol2Title.innerText = '$0';
                   comparisonViewCol2.append(comparisonViewCol2Title);
                   const comparisonViewCol3Title = document.createElement('div');
-                  comparisonViewCol3Title.innerText = `$ ${Math.round(calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)}`;
+                  comparisonViewCol3Title.innerText = `$ ${Math.round((calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)*leaseTermSelected)}`;
                   comparisonViewCol3.append(comparisonViewCol3Title);
 
                   comparisonView.append(comparisonViewCol1);
