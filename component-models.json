@@ -911,6 +911,18 @@
     ]
   },
   {
+    "id": "takeways",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content",
+        "label": "Title",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "wishlist",
     "fields": [
       {

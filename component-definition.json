@@ -331,6 +331,21 @@
           }
         },
         {
+          "title": "TakeAways",
+          "id": "takeaways",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "takeaways",
+                  "model": "takeaways"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "ThumbDesc Col2",
           "id": "imagedesc-col2-inline",
           "plugins": {
