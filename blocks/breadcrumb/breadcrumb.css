@@ -11,7 +11,8 @@
 }
 
 .breadcrumbs li {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-right: 15px;
   color: var(--color-grey);
   font-size: var(--font-size-xs-alt);
@@ -26,6 +27,7 @@
 .breadcrumbs li::after {
   content: '\203A';
   margin-left: 15px;
+  font-size: 20px;
 }
 
 .breadcrumbs li.active {
@@ -40,4 +42,8 @@
   .breadcrumbs {
     display: none;
   }
+}
+
+.section.breadcrumb-container {
+  background: var(--bg-color-paper);
 }

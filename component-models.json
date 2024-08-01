@@ -1175,7 +1175,7 @@
       {
         "component": "select",
         "name": "thumbnail-car-type",
-        "value": "yes",
+        "value": "",
         "label": "Is EV?",
         "valueType": "string",
         "options": [
