@@ -13,6 +13,9 @@ export const HOSTS = {
     form: {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
+    analytics: {
+      launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-8152aa1df854.min.js',
+    },
   },
   STAGE: {
     domainUrl: 'https://stage.oly.com.au',
@@ -24,6 +27,9 @@ export const HOSTS = {
     },
     form: {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+    },
+    analytics: {
+      launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-4f59f38e03c5-staging.min.js',
     },
   },
   DEV: {
@@ -37,6 +43,9 @@ export const HOSTS = {
     form: {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
+    analytics: {
+      launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-d4b17c902c7e-development.min.js',
+    },
   },
   LOCAL: {
     domainUrl: 'http://localhost:3000',
@@ -48,6 +57,9 @@ export const HOSTS = {
     },
     form: {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+    },
+    analytics: {
+      launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-d4b17c902c7e-development.min.js',
     },
   },
 };
