@@ -538,193 +538,223 @@ export default async function decorate(block) {
         const el_tabDetails = document.createElement('div');
         el_tabDetails.className = 'tab-detail-wrapper';
 
+        let tabItemDetail = null;
+        let el_keyFinanceCostWrapper = null;
+
+        const el_keyFeatureWrapper = document.createElement('div');
+        const el_keyFeatureWrappercol2 = document.createElement('div');
+
         [...resultsViewDescription.children].forEach((item) => {
           [...item.children].forEach((el, index) => {
-            const tabItem = document.createElement('div');
-            tabItem.className = 'tab-item';
-            const tabItemTitle = document.createElement('div');
-            tabItemTitle.className = 'tab-title';
-            tabItemTitle.innerText = el.innerText;
-            // Tab item click to change the details
-            tabItemTitle.addEventListener('click', () => {
-              document.querySelectorAll('.nl-calculator .tab-titles-wrapper .tab-title').forEach((item) => {
-                item.classList.remove('selected');
+            if (index === 0 || index === 6 || index === 13) {
+              const tabItem = document.createElement('div');
+              const tabItemTitle = document.createElement('div');
+              tabItem.className = 'tab-item';
+              tabItemTitle.className = 'tab-title';
+              tabItemTitle.innerText = el.innerText;
+              // Tab item click to change the details
+              tabItemTitle.addEventListener('click', () => {
+                document.querySelectorAll('.nl-calculator .tab-titles-wrapper .tab-title').forEach((item) => {
+                  item.classList.remove('selected');
 
-                //Hide all the detail
-                document.querySelectorAll('.nl-calculator .tab-detail-wrapper .tab-detail').forEach((item) => {
-                  item.style.display = 'none';
+                  //Hide all the detail
+                  document.querySelectorAll('.nl-calculator .tab-detail-wrapper .tab-detail').forEach((item) => {
+                    item.style.display = 'none';
+                  });
+
+                  let detailWrapperIndex = index === 0 ? 0 : index === 6 ? 1 : 2;
+
+                  document.querySelector(
+                    `.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(${detailWrapperIndex + 1})`,
+                  ).style.display = 'block';
                 });
-
-                document.querySelector(
-                  `.nl-calculator .tab-detail-wrapper > .tab-detail:nth-child(${index + 1})`,
-                ).style.display = 'block';
+                tabItemTitle.classList.add('selected');
               });
-              tabItemTitle.classList.add('selected');
-            });
-            const tabItemDetail = document.createElement('div');
-            tabItemDetail.className = 'tab-detail';
 
-            tabItemDetail.style.display = 'none';
-
-            if (index === 0) {
-              //Finance breakdown
-              const el_keyFinanceSavingsWrapper = document.createElement('div');
-              el_keyFinanceSavingsWrapper.className = 'container';
-
-              const el_keyFinanceSavingsLabel = document.createElement('div');
-              el_keyFinanceSavingsLabel.innerText = 'How much could I save?';
-              el_keyFinanceSavingsLabel.className = 'title';
-
-              const el_keyFinanceSavingsValue = document.createElement('div');
-              el_keyFinanceSavingsValue.innerText = `$ ${Math.round(calculatorResponse.taxBenefits)}`;
-              el_keyFinanceSavingsValue.className = 'value';
-
-              el_keyFinanceSavingsWrapper.append(el_keyFinanceSavingsLabel);
-              el_keyFinanceSavingsWrapper.append(el_keyFinanceSavingsValue);
-
-              const el_keyFinanceCostWrapper = document.createElement('div');
-              el_keyFinanceCostWrapper.className = 'finance-cost';
-
-              const el_keyFinanceCostCol1 = document.createElement('div');
-              el_keyFinanceCostCol1.className = 'col';
-
-              const el_keyFinanceWeeklyCostLabel = document.createElement('div');
-              el_keyFinanceWeeklyCostLabel.className = 'label';
-              el_keyFinanceWeeklyCostLabel.innerText = 'Weekly Cost';
-
-              const el_keyFinanceWeeklyCostValue = document.createElement('div');
-              el_keyFinanceWeeklyCostValue.className = 'label-value';
-              el_keyFinanceWeeklyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 52)}`;
-
-              el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostLabel);
-              el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostValue);
-
-              const el_keyFinanceCostCol2 = document.createElement('div');
-              el_keyFinanceCostCol2.className = 'col';
-
-              const el_keyFinanceFortnightlyCostLabel = document.createElement('div');
-              el_keyFinanceFortnightlyCostLabel.className = 'label';
-              el_keyFinanceFortnightlyCostLabel.innerText = 'Fortnightly Cost';
-
-              const el_keyFinanceFortnightlyCostValue = document.createElement('div');
-              el_keyFinanceFortnightlyCostValue.className = 'label-value';
-              el_keyFinanceFortnightlyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 26)}`;
-
-              el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostLabel);
-              el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostValue);
-
-              const el_keyFinanceCostCol3 = document.createElement('div');
-              el_keyFinanceCostCol3.className = 'col';
-
-              const el_keyFinanceMonthlyCostLabel = document.createElement('div');
-              el_keyFinanceMonthlyCostLabel.className = 'label';
-              el_keyFinanceMonthlyCostLabel.innerText = 'Monthly Cost';
-
-              const el_keyFinanceMonthlyCostValue = document.createElement('div');
-              el_keyFinanceMonthlyCostValue.className = 'label-value';
-              el_keyFinanceMonthlyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 12)}`;
-
-              el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostLabel);
-              el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostValue);
-
-              el_keyFinanceCostWrapper.append(el_keyFinanceCostCol1);
-              el_keyFinanceCostWrapper.append(el_keyFinanceCostCol2);
-              el_keyFinanceCostWrapper.append(el_keyFinanceCostCol3);
-
-              tabItemDetail.append(el_keyFinanceSavingsWrapper);
-              tabItemDetail.append(el_keyFinanceCostWrapper);
-
-              const el_financeDisclaimer = document.createElement('div');
-              el_financeDisclaimer.className = 'disclaimer';
-              el_financeDisclaimer.innerText = `*Estimated lease payment based on an annual salary of $${el_inputSalary.value} estimated annual travel of ${el_inputKmsTravelled.value}km, and a lease term of ${leaseTermSelected} years.`;
-
-              tabItemDetail.append(el_financeDisclaimer);
-            } else if (index === 1) {
-              const el_keyFeatureWrapper = document.createElement('div');
-              el_keyFeatureWrapper.className = 'wrapper';
-
-              const el_keyFeatureWrappercol1 = document.createElement('div');
-              el_keyFeatureWrappercol1.className = 'col';
-
-              const el_keyFeatureWrappercol2 = document.createElement('div');
-              el_keyFeatureWrappercol2.className = 'col';
-
-              const el_keyFeatureLabel = document.createElement('div');
-              el_keyFeatureLabel.className = 'label-title';
-              el_keyFeatureLabel.innerText = 'Key features';
-
-              const el_keyFeatureSpeed = document.createElement('div');
-              el_keyFeatureSpeed.className = 'label';
-              el_keyFeatureSpeed.innerText = `${responseVehicleDetail.Table[0].SeriesName}`;
-
-              const el_keyFeatureFuelType = document.createElement('div');
-              el_keyFeatureFuelType.className = 'label';
-              el_keyFeatureFuelType.innerText = `${responseVehicleDetail.Table[0].EngineName}`;
-
-              const el_keyFeatureSeats = document.createElement('div');
-              el_keyFeatureSeats.className = 'label';
-              el_keyFeatureSeats.innerText = `${responseVehicleDetail.Table[0].NoOfSeats} seats`;
-
-              const el_keyFeatureANCAP = document.createElement('div');
-              el_keyFeatureANCAP.className = 'label';
-              el_keyFeatureANCAP.innerText = `${responseVehicleDetail.Table[0].ANCAP} star ANCAP safety rating`;
-
-              const el_keyFeatureCarbonSavings = document.createElement('div');
-              el_keyFeatureCarbonSavings.className = 'label';
-              el_keyFeatureCarbonSavings.innerText = `${responseVehicleDetail.Table[0].CO2Emission}g/km CO2 emmissions`;
-
-              el_keyFeatureWrappercol1.append(el_keyFeatureLabel);
-              el_keyFeatureWrappercol1.append(el_keyFeatureSpeed);
-              el_keyFeatureWrappercol1.append(el_keyFeatureFuelType);
-              el_keyFeatureWrappercol1.append(el_keyFeatureSeats);
-              el_keyFeatureWrappercol1.append(el_keyFeatureANCAP);
-              el_keyFeatureWrappercol1.append(el_keyFeatureCarbonSavings);
-              el_keyFeatureWrapper.append(el_keyFeatureWrappercol1);
-
-              const el_keyNLInclusionsLabel = document.createElement('div');
-              el_keyNLInclusionsLabel.className = 'label-title';
-              el_keyNLInclusionsLabel.innerText = 'Novated lease inclusions';
-
-              const el_keyNLInclusionsCarPayment = document.createElement('div');
-              el_keyNLInclusionsCarPayment.className = 'label';
-              el_keyNLInclusionsCarPayment.innerText = `Car payments`;
-
-              const el_keyNLInclusionsRegularServicing = document.createElement('div');
-              el_keyNLInclusionsRegularServicing.className = 'label';
-              el_keyNLInclusionsRegularServicing.innerText = `Regular servicing`;
-
-              const el_keyNLInclusionsCharging = document.createElement('div');
-              el_keyNLInclusionsCharging.className = 'label';
-              el_keyNLInclusionsCharging.innerText = `Charging costs`;
-
-              const el_keyNLInclusionsTyres = document.createElement('div');
-              el_keyNLInclusionsTyres.className = 'label';
-              el_keyNLInclusionsTyres.innerText = `Tyres`;
-
-              const el_keyNLInclusionsRego = document.createElement('div');
-              el_keyNLInclusionsRego.className = 'label';
-              el_keyNLInclusionsRego.innerText = `Rego`;
-
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsLabel);
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsCarPayment);
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsRegularServicing);
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsCharging);
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsTyres);
-              el_keyFeatureWrappercol2.append(el_keyNLInclusionsRego);
-
-              el_keyFeatureWrapper.append(el_keyFeatureWrappercol1);
-              el_keyFeatureWrapper.append(el_keyFeatureWrappercol2);
-
-              tabItemDetail.append(el_keyFeatureWrapper);
-              tabItemDetail.append(el_break);
-              tabItemDetail.append(el_break);
-            } else if (index === 2) {
-              //Comparison View
+              tabItem.append(tabItemTitle);
+              el_tabItem.append(tabItem);
             }
 
-            tabItem.append(tabItemTitle);
-            el_tabItem.append(tabItem);
-            el_tabDetails.append(tabItemDetail);
+            if (index >= 1 && index <= 5) {
+              //Finance breakdown
+
+              if (index === 1) {
+                tabItemDetail = document.createElement('div');
+                tabItemDetail.className = 'tab-detail';
+                tabItemDetail.style.display = 'block';
+                const el_keyFinanceSavingsWrapper = document.createElement('div');
+                el_keyFinanceSavingsWrapper.className = 'container';
+
+                const el_keyFinanceSavingsLabel = document.createElement('div');
+                el_keyFinanceSavingsLabel.innerText = el.innerText;
+                el_keyFinanceSavingsLabel.className = 'title';
+
+                const el_keyFinanceSavingsValue = document.createElement('div');
+                el_keyFinanceSavingsValue.innerText = `$ ${Math.round(calculatorResponse.taxBenefits)}`;
+                el_keyFinanceSavingsValue.className = 'value';
+
+                el_keyFinanceSavingsWrapper.append(el_keyFinanceSavingsLabel);
+                el_keyFinanceSavingsWrapper.append(el_keyFinanceSavingsValue);
+
+                tabItemDetail.append(el_keyFinanceSavingsWrapper);
+              }
+
+              if (index === 2) {
+                el_keyFinanceCostWrapper = document.createElement('div');
+                el_keyFinanceCostWrapper.className = 'finance-cost';
+
+                const el_keyFinanceCostCol1 = document.createElement('div');
+                el_keyFinanceCostCol1.className = 'col';
+
+                const el_keyFinanceWeeklyCostLabel = document.createElement('div');
+                el_keyFinanceWeeklyCostLabel.className = 'label';
+                el_keyFinanceWeeklyCostLabel.innerText = 'Weekly Cost';
+
+                const el_keyFinanceWeeklyCostValue = document.createElement('div');
+                el_keyFinanceWeeklyCostValue.className = 'label-value';
+                el_keyFinanceWeeklyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 52)}`;
+
+                el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostLabel);
+                el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostValue);
+                el_keyFinanceCostWrapper.append(el_keyFinanceCostCol1);
+              } else if (index === 3) {
+                const el_keyFinanceCostCol2 = document.createElement('div');
+                el_keyFinanceCostCol2.className = 'col';
+
+                const el_keyFinanceFortnightlyCostLabel = document.createElement('div');
+                el_keyFinanceFortnightlyCostLabel.className = 'label';
+                el_keyFinanceFortnightlyCostLabel.innerText = 'Fortnightly Cost';
+
+                const el_keyFinanceFortnightlyCostValue = document.createElement('div');
+                el_keyFinanceFortnightlyCostValue.className = 'label-value';
+                el_keyFinanceFortnightlyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 26)}`;
+
+                el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostLabel);
+                el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostValue);
+                el_keyFinanceCostWrapper.append(el_keyFinanceCostCol2);
+              } else if (index === 4) {
+                const el_keyFinanceCostCol3 = document.createElement('div');
+                el_keyFinanceCostCol3.className = 'col';
+
+                const el_keyFinanceMonthlyCostLabel = document.createElement('div');
+                el_keyFinanceMonthlyCostLabel.className = 'label';
+                el_keyFinanceMonthlyCostLabel.innerText = 'Monthly Cost';
+
+                const el_keyFinanceMonthlyCostValue = document.createElement('div');
+                el_keyFinanceMonthlyCostValue.className = 'label-value';
+                el_keyFinanceMonthlyCostValue.innerText = `$ ${Math.round(calculatorResponse.vehicleCostsPreTax / 12)}`;
+
+                el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostLabel);
+                el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostValue);
+
+                el_keyFinanceCostWrapper.append(el_keyFinanceCostCol3);
+
+                tabItemDetail.append(el_keyFinanceCostWrapper);
+              } else if (index === 5) {
+                const el_financeDisclaimer = document.createElement('div');
+                el_financeDisclaimer.className = 'disclaimer';
+                el_financeDisclaimer.innerText = `*Estimated lease payment based on an annual salary of $${el_inputSalary.value} estimated annual travel of ${el_inputKmsTravelled.value}km, and a lease term of ${leaseTermSelected} years.`;
+
+                tabItemDetail.append(el_financeDisclaimer);
+                el_tabDetails.append(tabItemDetail);
+              }
+            }
+            // Car features & NL inclusions - Build the second tab details
+            else if (index >= 7 && index <= 12) {
+              if (index === 7) {
+                tabItemDetail = document.createElement('div');
+                tabItemDetail.className = 'tab-detail';
+                tabItemDetail.style.display = 'none';
+                el_keyFeatureWrapper.className = 'wrapper';
+
+                const el_keyFeatureWrappercol1 = document.createElement('div');
+                el_keyFeatureWrappercol1.className = 'col';
+
+                el_keyFeatureWrappercol2.className = 'col';
+
+                const el_keyFeatureLabel = document.createElement('div');
+                el_keyFeatureLabel.className = 'label-title';
+                el_keyFeatureLabel.innerText = 'Key features';
+
+                const el_keyFeatureSpeed = document.createElement('div');
+                el_keyFeatureSpeed.className = 'label';
+                el_keyFeatureSpeed.innerText = `${responseVehicleDetail.Table[0].SeriesName}`;
+
+                const el_keyFeatureFuelType = document.createElement('div');
+                el_keyFeatureFuelType.className = 'label';
+                el_keyFeatureFuelType.innerText = `${responseVehicleDetail.Table[0].EngineName}`;
+
+                const el_keyFeatureSeats = document.createElement('div');
+                el_keyFeatureSeats.className = 'label';
+                el_keyFeatureSeats.innerText = `${responseVehicleDetail.Table[0].NoOfSeats} seats`;
+
+                const el_keyFeatureANCAP = document.createElement('div');
+                el_keyFeatureANCAP.className = 'label';
+                el_keyFeatureANCAP.innerText = `${responseVehicleDetail.Table[0].ANCAP} star ANCAP safety rating`;
+
+                const el_keyFeatureCarbonSavings = document.createElement('div');
+                el_keyFeatureCarbonSavings.className = 'label';
+                el_keyFeatureCarbonSavings.innerText = `${responseVehicleDetail.Table[0].CO2Emission}g/km CO2 emmissions`;
+
+                el_keyFeatureWrappercol1.append(el_keyFeatureLabel);
+                el_keyFeatureWrappercol1.append(el_keyFeatureSpeed);
+                el_keyFeatureWrappercol1.append(el_keyFeatureFuelType);
+                el_keyFeatureWrappercol1.append(el_keyFeatureSeats);
+                el_keyFeatureWrappercol1.append(el_keyFeatureANCAP);
+                el_keyFeatureWrappercol1.append(el_keyFeatureCarbonSavings);
+                el_keyFeatureWrapper.append(el_keyFeatureWrappercol1);
+
+                const el_keyNLInclusionsLabel = document.createElement('div');
+                el_keyNLInclusionsLabel.className = 'label-title';
+                el_keyNLInclusionsLabel.innerText = 'Novated lease inclusions';
+
+                const el_keyNLInclusionsCarPayment = document.createElement('div');
+                el_keyNLInclusionsCarPayment.className = 'label';
+                el_keyNLInclusionsCarPayment.innerText = el.innerText;
+
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsLabel);
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsCarPayment);
+              } else if (index === 8) {
+                const el_keyNLInclusionsChargingServicing = document.createElement('div');
+                el_keyNLInclusionsChargingServicing.className = 'label';
+                el_keyNLInclusionsChargingServicing.innerText = el.innerText;
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsChargingServicing);
+              } else if (index === 9) {
+                const el_keyNLInclusionsRego = document.createElement('div');
+                el_keyNLInclusionsRego.className = 'label';
+                el_keyNLInclusionsRego.innerText = `Rego`;
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsRego);
+              } else if (index === 10) {
+                const el_keyNLInclusionsInsurance = document.createElement('div');
+                el_keyNLInclusionsInsurance.className = 'label';
+                el_keyNLInclusionsInsurance.innerText = `Insurance`;
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsInsurance);
+              } else if (index === 11) {
+                const el_keyNLInclusionsTyres = document.createElement('div');
+                el_keyNLInclusionsTyres.className = 'label';
+                el_keyNLInclusionsTyres.innerText = `Tyres`;
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsTyres);
+              } else if (index === 12) {
+                const el_keyNLInclusionsServicing = document.createElement('div');
+                el_keyNLInclusionsServicing.className = 'label';
+                el_keyNLInclusionsServicing.innerText = el.innerText;
+                el_keyFeatureWrappercol2.append(el_keyNLInclusionsServicing);
+                el_keyFeatureWrapper.append(el_keyFeatureWrappercol2);
+                tabItemDetail.append(el_keyFeatureWrapper);
+                tabItemDetail.append(el_break);
+                tabItemDetail.append(el_break);
+                el_tabDetails.append(tabItemDetail);
+              }
+            } else if (index >= 14 && index <= 23) {
+              //Comparison View
+              if (index === 14) {
+                tabItemDetail = document.createElement('div');
+                tabItemDetail.className = 'tab-detail';
+                tabItemDetail.style.display = 'none';
+                tabItemDetail.innerText = 'comparison details';
+                el_tabDetails.append(tabItemDetail);
+              }
+            }
           });
         });
 
