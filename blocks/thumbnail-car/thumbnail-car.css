@@ -1,9 +1,9 @@
 .section.thumbnail-car-container {
   background: var(--bg-color-paper);
-  padding: var(--spacing-l) 0 0;
+  padding: 0;
 
   @media (width >= 768px) {
-    padding: var(--spacing-xl-l) 0 0;
+    padding: 0;
   }
 }
 
@@ -21,6 +21,7 @@
       font-weight: 700;
       line-height: var(--spacing-l);
       margin: var(--spacing-xxxs) 0 0;
+      color: black;
 
       @media (width >= 768px) {
         font-size: var(--font-size-lg);
@@ -38,16 +39,18 @@
       img {
         width: 324px;
         display: block;
+        padding-top: 16px;
       }
     }
 
     div:nth-child(2) {
       position: absolute;
       top: 0;
-      left: 0;
+      left: -24px;
 
       img {
         width: auto;
+        padding-top: 0;
       }
     }
   }
