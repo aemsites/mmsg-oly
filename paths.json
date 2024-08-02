@@ -2,9 +2,9 @@
   "mappings": [
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
-    "/content/oly/au/en/query-index.json:/au/en/query-index.json",
-    "/content/oly/au/en/offers-index.json:/au/en/offers-index.json",
-    "/content/oly/au/en/articles-index.json:/au/en/articles-index.json",
+    "/content/oly/au/en/query-index.json:/query-index.json",
+    "/content/oly/au/en/offers-index.json:/offers-index.json",
+    "/content/oly/au/en/articles-index.json:/articles-index.json",
     "/content/oly/metadata:/metadata.json",
     "/content/oly/placeholders:/placeholders.json",
     "/content/oly/au/en/forms/faqform:/faqform.json",
@@ -12,6 +12,6 @@
     "/content/oly/au/en/forms/get-a-quote:/get-a-quote.json",
     "/content/oly/au/en/forms/car-offer:/car-offer.json",
     "/content/oly/au/en/forms/newsletter:/newsletter.json",
-    "/content/oly/au/en/forms/calculator-novated-lease:/calculator-novated-lease.json"
+    "/content/oly/au/en/forms/running-cost-calculator:/running-cost-calculator.json"
   ]
 }
