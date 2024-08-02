@@ -833,15 +833,78 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "comparisonDescription",
-        "label": "Text",
+        "name": "resultsViewActionItems",
+        "label": "Result View Actions Items ",
         "value": ""
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "termsConditions",
-        "label": "Text",
+        "name": "resultsViewDisclaimer",
+        "label": "Result View Disclaimer",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "termsConditionsDescription",
+        "label": "Terms and conditions",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDescription",
+        "label": "Contact Oly Form Description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyFormLabels",
+        "label": "Contact Oly Form Labels",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearListCount",
+        "label": "Year List Count",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearLatestValue",
+        "label": "latestYearValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIUrl",
+        "label": "VIS API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIKey",
+        "label": "VIS API Key",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIUrl",
+        "label": "Calculator API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIKey",
+        "label": "Calculator API Key",
         "value": ""
       }
     ]
