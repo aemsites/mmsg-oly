@@ -6,7 +6,7 @@ export function getPriceContainer(cardObj) {
   return `
     <div class="car-card-price-container">
       <p class="car-card-price-title">Weekly price from</p>
-      <h2 class="car-card-price">${cardObj?.weeklyPriceInfo}</h2>
+      <h3 class="car-card-price">${cardObj?.weeklyPriceInfo}</h3>
       <p class="car-card-info">Including all car running costs</p>
       <p class="car-card-price-weekly">Estimated tax savings ${cardObj.price}</p>
     </div>
@@ -23,19 +23,14 @@ export function getButtonContainer(cardObj) {
   `;
 }
 
-export function createBasicCarDetailContainer(cardObj, createOptimizedImg = true) {
+export function createBasicCarDetailContainer(cardObj) {
   const defaultImg = '/content/dam/oly/images/tesla.jpeg';
   const imageLink = cardObj?.img || defaultImg;
   const isInWishlist = WishlistManager.getWishlist().includes(cardObj?.offerId);
   const heartIconSrc = isInWishlist ? '../../icons/heart-filled.svg' : '../../icons/heart.svg';
 
-  let imgElement;
-  if (createOptimizedImg) {
-    const optimizedPic = createOptimizedPicture(imageLink, 'car offers image', false, [{ width: '750' }]);
-    imgElement = optimizedPic.outerHTML;
-  } else {
-    imgElement = `<img class="car-card-image" src="${imageLink}" alt="car offers image">`;
-  }
+  const optimizedPic = createOptimizedPicture(imageLink, 'car offers image', false, [{ width: '750' }]);
+  const imgElement = optimizedPic.outerHTML;
 
   return `
     <div class="container">
@@ -50,14 +45,13 @@ export function createBasicCarDetailContainer(cardObj, createOptimizedImg = true
         </div>
         ${imgElement}
       </div>
-      ${cardObj?.type ? `<p class="car-card-type">${cardObj?.type}</p>` : ''}
       <p class="car-card-description">${cardObj?.carDescription || ''}</p>
     </div>
   `;
 }
-
-export function buildCardTemplate(cardObj, createOptimizedImg = true) {
-  const basicCarDetailContainer = createBasicCarDetailContainer(cardObj, createOptimizedImg);
+// check for which component the card is being built
+export function buildCardTemplate(cardObj) {
+  const basicCarDetailContainer = createBasicCarDetailContainer(cardObj);
   const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
   const buttonContainer = cardObj?.isButtonExists ? getButtonContainer(cardObj) : '';
 
@@ -67,11 +61,9 @@ export function buildCardTemplate(cardObj, createOptimizedImg = true) {
     wrapper.appendChild(createElementFromHTML(element));
   });
 
-  if (createOptimizedImg) {
-    wrapper.querySelectorAll('img').forEach((img) => {
-      moveInstrumentation(img, img);
-    });
-  }
+  wrapper.querySelectorAll('img').forEach((img) => {
+    moveInstrumentation(img, img);
+  });
 
   return wrapper.outerHTML;
 }

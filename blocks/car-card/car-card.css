@@ -53,9 +53,11 @@
           width: 1.5rem;
           height: 1.5rem;
 
-          &:hover {
-            transform: scale(1.25);
-            transition: transform 0.2s;
+          @media (prefers-reduced-motion: no-preference) {
+            .car-card:hover {
+              transform: scale(1.25);
+              transition: transform 0.2s;
+            }
           }
         }
       }
@@ -205,6 +207,8 @@
   }
 }
 
-.car-card-heart.animate {
-  animation: wishlist-add-heart 0.5s ease-in-out;
+@media (prefers-reduced-motion: no-preference) {
+  .car-card-heart.animate {
+    animation: wishlist-add-heart 0.5s ease-in-out;
+  }
 }
