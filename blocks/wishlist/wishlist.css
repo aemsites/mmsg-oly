@@ -1,8 +1,9 @@
 @import url('../car-card/car-card.css');
 
 /* Wishlist specific styles */
-#wishlist-container {
-  margin-top: 2rem;
+#wishlist-container,
+#recently-viewed-container {
+  margin: var(--spacing-l) 0;
 }
 
 .wishlist-container .default-content-wrapper {
