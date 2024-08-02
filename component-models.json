@@ -917,21 +917,21 @@
         "component": "text",
         "valueType": "string",
         "name": "content1",
-        "label": "Content",
+        "label": "Text",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "content2",
-        "label": "Content",
+        "label": "Text",
         "value": ""
       },
       {
         "component": "text3",
         "valueType": "string",
-        "name": "content",
-        "label": "Content",
+        "name": "content3",
+        "label": "Text",
         "value": ""
       }
     ]
