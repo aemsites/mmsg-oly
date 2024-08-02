@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd MMSG_TEST
+          cd mmsg_test
           npm install
 
       - name: Setup CLI
@@ -37,7 +37,7 @@ jobs:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE }}
           AIO_RUNTIME_APIHOST: ${{ secrets.AIO_RUNTIME_APIHOST }}
         run: |
-          cd MMSG_TEST
+          cd mmsg_test
           aio app build
 
       - name: Deploy
@@ -54,5 +54,5 @@ jobs:
           EMAIL_CC: ${{ secrets.EMAIL_CC }}
           EMAIL_BCC: ${{ secrets.EMAIL_BCC }}
         run: |
-          cd MMSG_TEST
+          cd mmsg_test
           aio app deploy --no-publish
