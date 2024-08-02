@@ -99,7 +99,20 @@ export default async function decorate(block) {
     responseModels.Table[0].Code,
   );
 
+  let vehicleTypeId = [
+    { VehicleTypeID: 1 },
+    { VehicleTypeID: 2 },
+    { VehicleTypeID: 3 },
+    { VehicleTypeID: 4 },
+    { VehicleTypeID: 6 },
+    { VehicleTypeID: 8 },
+    { VehicleTypeID: 9 },
+    { VehicleTypeID: 10 },
+  ];
+  let fuelTypeID = [{ fuelTypeID: 1 }, { fuelTypeID: 2 }, { fuelTypeID: 3 }, { fuelTypeID: 4 }, { fuelTypeID: 5 }];
   let selectedVehiclePrice = 0;
+  let selectedVehicleTypeId = '';
+  let selectedFuelTypeId = '';
 
   [...formLabels.children].forEach((item) => {
     const wrapper = document.createElement('div');
@@ -286,6 +299,8 @@ export default async function decorate(block) {
                 el_calcCarDetailCol1.append(el_carImgDesc);
               });
               selectedVehiclePrice = vehicle.RRP.Amount;
+              selectedVehicleTypeId = GetVehicleTyepId(responseVehicleDetail.Table[0].SegmentName);
+              selectedFuelTypeId = GetFuelTyepId(responseVehicleDetail.Table[0].FuelName);
             }
             const el_variantOption = document.createElement('option');
             el_variantOption.setAttribute('value', vehicle.NVIC_CUR);
@@ -294,8 +309,11 @@ export default async function decorate(block) {
             selectedNVIC = el_selectVariant.value;
             el_selectVariant.addEventListener('change', async () => {
               selectedNVIC = el_selectVariant.value;
-              const responseVehicleImage = await getVehicleImageOnNVIC(el_selectVariant.value);
+              const responseVehicleImage = await getVehicleImageOnNVIC(selectedNVIC);
+              const responseVehicleDetail = await getAutoDetailOnNVIC(selectedNVIC);
               selectedVehiclePrice = responseVehicleList.Table[el_selectVariant.selectedIndex + 1].RRP.Amount;
+              selectedVehicleTypeId = GetVehicleTyepId(responseVehicleDetail.Table[0].SegementName);
+              selectedFuelTypeId = GetFuelTyepId(responseVehicleDetail.Table[0].FuelName);
               responseVehicleImage.arrayBuffer().then((buffer) => {
                 let binary = '';
                 const bytes = [].slice.call(new Uint8Array(buffer));
@@ -517,9 +535,9 @@ export default async function decorate(block) {
             selectedVehiclePrice,
             el_inputKmsTravelled.value,
             leaseTermSelected * 12,
-            10,
+            selectedVehicleTypeId,
             el_inputSalary.value,
-            5,
+            selectedFuelTypeId,
           );
         } catch {
           calculatorResponseError = 'Error fetching the calculator result';
@@ -610,7 +628,6 @@ export default async function decorate(block) {
 
             if (index >= 1 && index <= 5) {
               //Finance breakdown
-
               if (index === 1) {
                 tabItemDetail = document.createElement('div');
                 tabItemDetail.className = 'tab-detail';
@@ -994,6 +1011,38 @@ export default async function decorate(block) {
   el_calcContainer.append(el_calcBackToSearch);
 
   block.append(el_calcContainer);
+}
 
-  /******************************** */
+function GetVehicleTyepId(segmentName) {
+  if (segmentName != null && segmentName.toLowerCase().includes('small')) {
+    return 1;
+  } else if (segmentName != null && segmentName.toLowerCase().includes('medium')) {
+    return 2;
+  } else if (segmentName != null && segmentName.toLowerCase().includes('large')) {
+    return 3;
+  } else if (segmentName != null && segmentName.toLowerCase().includes('luxury')) {
+    return 8;
+  } else if (segmentName != null && segmentName.toLowerCase().includes('sports')) {
+    return 9;
+  } else if (segmentName != null && segmentName.toLowerCase().includes('electric')) {
+    return 10;
+  } else {
+    return 2;
+  }
+}
+
+function GetFuelTyepId(fuelName) {
+  if (fuelName != null && fuelName.toLowerCase().includes('petrol')) {
+    return 1;
+  } else if (fuelName != null && fuelName.toLowerCase().includes('diesel')) {
+    return 2;
+  } else if (fuelName != null && fuelName.toLowerCase().includes('lpg')) {
+    return 3;
+  } else if (fuelName != null && fuelName.toLowerCase().includes('ulp')) {
+    return 4;
+  } else if (fuelName != null && fuelName.toLowerCase().includes('electric')) {
+    return 5;
+  } else {
+    return 1;
+  }
 }

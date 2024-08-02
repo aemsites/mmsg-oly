@@ -289,13 +289,31 @@
             }
 
             .comparison {
-              display: grid;
-              grid-template-columns: 40% 30% 30%;
+              display: table;
               align-items: center;
               border-bottom: 1px solid var(--border-color);
               .col {
                 text-align: left;
                 padding: var(--spacing-xxs) var(--spacing-xs);
+                font-size: var(--font-size-xs);
+                display: table-cell;
+                width: 100%;
+                vertical-align: middle;
+              }
+
+              .col:nth-child(1) {
+                font-family: var(--font-family-bold);
+                width: 40%;
+              }
+
+              .col:nth-child(2) {
+                font-family: var(--font-family-bold);
+                width: 30%;
+              }
+
+              .col:nth-child(3) {
+                background-color: var(--bg-color-light-grey);
+                width: 30%;
               }
             }
           }
