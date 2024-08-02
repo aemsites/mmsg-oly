@@ -829,6 +829,13 @@
         "name": "comparisonDescription",
         "label": "Text",
         "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "termsConditions",
+        "label": "Text",
+        "value": ""
       }
     ]
   },

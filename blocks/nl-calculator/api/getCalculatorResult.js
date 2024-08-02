@@ -8,7 +8,7 @@ export default async function getCalculatorResult(
 ) {
   debugger;
   var input = {
-    brandId: 1,
+    brandId: 9,
     effectiveDate: new Date(),
     vehicleValue: vehicleValue,
     kMpa: kmTravelled,
