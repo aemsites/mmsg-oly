@@ -16,7 +16,7 @@ function renderWishlistCards(filteredJson, container) {
     const wishlistWrapper = document.createElement('div');
     wishlistWrapper.className = 'wishlist-cards-wrapper';
     filteredJson.forEach((item, index) => {
-      const cardElement = buildCardTemplate(item, true);
+      const cardElement = buildCardTemplate(item);
       const cardDiv = document.createElement('div');
       cardDiv.innerHTML = cardElement;
       cardDiv.firstChild.style.animationDelay = `${index * 0.1}s`;
@@ -44,7 +44,7 @@ function renderRecentlyViewedCards(filteredJson, container) {
     const recentlyViewedWrapper = document.createElement('div');
     recentlyViewedWrapper.className = 'recently-viewed-cards-wrapper';
     filteredJson.forEach((item) => {
-      const cardElement = buildCardTemplate(item, true);
+      const cardElement = buildCardTemplate(item);
       recentlyViewedWrapper.innerHTML += cardElement;
     });
     container.appendChild(recentlyViewedWrapper);

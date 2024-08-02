@@ -5,7 +5,7 @@ import myJsonObject from '../../scripts/data.js';
 function buildCards(carData) {
   const wrapper = document.createElement('div');
   wrapper.className = 'car-cards-wrapper';
-  wrapper.innerHTML = carData.map((cardObj) => buildCardTemplate(cardObj, true)).join('');
+  wrapper.innerHTML = carData.map((cardObj) => buildCardTemplate(cardObj)).join('');
   return wrapper;
 }
 
