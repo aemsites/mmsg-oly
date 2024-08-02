@@ -397,7 +397,7 @@
           }
         },
         {
-          "title": "Calculator Novated",
+          "title": "NL-Calculator",
           "id": "nl-calculator",
           "plugins": {
             "xwalk": {
