@@ -1,6 +1,8 @@
 name: AIO App CI
 
 on:
+  schedule:
+    - cron: '0 * * * *'
   push:
     branches:
       - ioruntime
@@ -58,4 +60,4 @@ jobs:
           cd mmsg_test
           aio app deploy --no-publish
 
-# check
+
