@@ -31,8 +31,8 @@
   --color-focus-outline: #ffd337;
   --color-disabled: #adb5bd;
   --button-bg-color: #ced4da;
-  --asterisk-required-color: #b22222;
   --notification-text-color: #101213;
+  --asterisk-required-color: #ff1261;
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */

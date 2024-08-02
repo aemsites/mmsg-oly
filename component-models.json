@@ -765,21 +765,21 @@
         "valueType": "string",
         "name": "formLabel_Year",
         "label": "Year Label",
-        "value": "Year"
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "formLabel_Make",
         "label": "Make Label",
-        "value": "Make"
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "formLabel_Model",
         "label": "Model Label",
-        "value": "Model"
+        "value": ""
       },
       {
         "component": "text",
@@ -800,7 +800,7 @@
         "valueType": "string",
         "name": "formLabelCar_LeaseTerm",
         "label": "Lease Term label",
-        "value": "Lease Term"
+        "value": ""
       },
       {
         "component": "richtext",
@@ -828,6 +828,104 @@
         "valueType": "string",
         "name": "resultsViewDescription",
         "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "resultsViewActionItems",
+        "label": "Result View Actions Items ",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "resultsViewDisclaimer",
+        "label": "Result View Disclaimer",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "termsConditionsDescription",
+        "label": "Terms and conditions",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDescription",
+        "label": "Contact Oly Form Description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyFormLabels",
+        "label": "Contact Oly Form Labels",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearListCount",
+        "label": "Year List Count",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearLatestValue",
+        "label": "latestYearValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIUrl",
+        "label": "VIS API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIKey",
+        "label": "VIS API Key",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIUrl",
+        "label": "Calculator API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIKey",
+        "label": "Calculator API Key",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIUrl",
+        "label": "Contact Oly API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIKey",
+        "label": "Contact Oly API Key",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDisclaimer",
+        "label": "Contact Oly Form Disclaimer",
         "value": ""
       }
     ]
