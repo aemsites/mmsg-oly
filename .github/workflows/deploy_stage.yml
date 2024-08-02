@@ -34,25 +34,25 @@ jobs:
 
       - name: Build
         env:
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE }}
-          AIO_RUNTIME_APIHOST: ${{ secrets.AIO_RUNTIME_APIHOST }}
+          AIO_RUNTIME_NAMESPACE: ${{secrets.AIO_RUNTIME_NAMESPACE}}
+          AIO_RUNTIME_APIHOST: ${{secrets.AIO_RUNTIME_APIHOST}}
         run: |
           cd mmsg_test
           aio app build
 
       - name: Deploy
         env:
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE }}
-          AIO_RUNTIME_AUTH: ${{ secrets.AIO_RUNTIME_AUTH }}
-          AIO_RUNTIME_APIHOST: ${{ secrets.AIO_RUNTIME_APIHOST }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SUBSCRIPTION_KEY: ${{ secrets.SUBSCRIPTION_KEY }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          EMAIL_CC: ${{ secrets.EMAIL_CC }}
-          EMAIL_BCC: ${{ secrets.EMAIL_BCC }}
+          AIO_RUNTIME_NAMESPACE: ${{secrets.AIO_RUNTIME_NAMESPACE}}
+          AIO_RUNTIME_AUTH: ${{secrets.AIO_RUNTIME_AUTH}}
+          AIO_RUNTIME_APIHOST: ${{secrets.AIO_RUNTIME_APIHOST}}
+          SMTP_USER: ${{secrets.SMTP_USER}}
+          SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
+          SMTP_HOST: ${{secrets.SMTP_HOST}}
+          SMTP_PORT: ${{secrets.SMTP_PORT}}
+          SUBSCRIPTION_KEY: ${{secrets.SUBSCRIPTION_KEY}}
+          EMAIL_TO: ${{secrets.EMAIL_TO}}
+          EMAIL_CC: ${{secrets.EMAIL_CC}}
+          EMAIL_BCC: ${{secrets.EMAIL_BCC}}
         run: |
           cd mmsg_test
           aio app deploy --no-publish
