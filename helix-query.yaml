@@ -37,6 +37,7 @@ indices:
   offers:
     include:
       - '/vehicle-offers/**'
+      - '/shop-cars/**'
     target: /offers-index.json
     properties:
       title:
@@ -63,9 +64,6 @@ indices:
       image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
-      carThumbnail:
-        select: main .thumbnail-car img
-        value: attribute(el, 'src')
       publishDate:
         select: head > meta[name="published-time"]
         value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
