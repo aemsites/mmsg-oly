@@ -916,8 +916,22 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "content1",
+        "label": "Content",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content2",
+        "label": "Content",
+        "value": ""
+      },
+      {
+        "component": "text3",
+        "valueType": "string",
         "name": "content",
-        "label": "Title",
+        "label": "Content",
         "value": ""
       }
     ]
