@@ -593,11 +593,23 @@ export default async function decorate(block) {
         const el_keyFeatureWrapper = document.createElement('div');
         const el_keyFeatureWrappercol2 = document.createElement('div');
 
-        const annualCost =
-          calculatorResponse.vehicleCostsPreTax -
-          calculatorResponse.eCM -
-          calculatorResponse.cashSalary -
-          calculatorResponse.noLeaseTakeHomePay;
+        const weeklyCost =
+          (calculatorResponse.vehicleCostsPreTax +
+            calculatorResponse.eCM -
+            (calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)) /
+          52;
+
+        const fortnightlyCost =
+          (calculatorResponse.vehicleCostsPreTax +
+            calculatorResponse.eCM -
+            (calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)) /
+          26;
+
+        const monthlyCost =
+          (calculatorResponse.vehicleCostsPreTax +
+            calculatorResponse.eCM -
+            (calculatorResponse.cashSalary - calculatorResponse.noLeaseTakeHomePay)) /
+          12;
 
         [...resultsViewDescription.children].forEach((item) => {
           [...item.children].forEach((el, index) => {
@@ -668,7 +680,7 @@ export default async function decorate(block) {
 
                 const el_keyFinanceWeeklyCostValue = document.createElement('div');
                 el_keyFinanceWeeklyCostValue.className = 'label-value';
-                el_keyFinanceWeeklyCostValue.innerText = `$ ${Math.round(annualCost / 52)}`;
+                el_keyFinanceWeeklyCostValue.innerText = `$ ${Math.round(weeklyCost)}`;
 
                 el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostLabel);
                 el_keyFinanceCostCol1.append(el_keyFinanceWeeklyCostValue);
@@ -683,7 +695,7 @@ export default async function decorate(block) {
 
                 const el_keyFinanceFortnightlyCostValue = document.createElement('div');
                 el_keyFinanceFortnightlyCostValue.className = 'label-value';
-                el_keyFinanceFortnightlyCostValue.innerText = `$ ${Math.round(annualCost / 26)}`;
+                el_keyFinanceFortnightlyCostValue.innerText = `$ ${Math.round(fortnightlyCost)}`;
 
                 el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostLabel);
                 el_keyFinanceCostCol2.append(el_keyFinanceFortnightlyCostValue);
@@ -698,7 +710,7 @@ export default async function decorate(block) {
 
                 const el_keyFinanceMonthlyCostValue = document.createElement('div');
                 el_keyFinanceMonthlyCostValue.className = 'label-value';
-                el_keyFinanceMonthlyCostValue.innerText = `$ ${Math.round(annualCost / 12)}`;
+                el_keyFinanceMonthlyCostValue.innerText = `$ ${Math.round(monthlyCost)}`;
 
                 el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostLabel);
                 el_keyFinanceCostCol3.append(el_keyFinanceMonthlyCostValue);
