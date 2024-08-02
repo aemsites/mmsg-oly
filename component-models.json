@@ -876,11 +876,11 @@
         "value": ""
       },
       {
-        "component": "richtext",
+        "component": "reference",
         "valueType": "string",
-        "name": "col_4_text",
-        "label": "Text",
-        "value": ""
+        "name": "fileReference",
+        "label": "Image",
+        "multi": false
       },
       {
         "component": "text",
