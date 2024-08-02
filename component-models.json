@@ -765,21 +765,21 @@
         "valueType": "string",
         "name": "formLabel_Year",
         "label": "Year Label",
-        "value": "Year"
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "formLabel_Make",
         "label": "Make Label",
-        "value": "Make"
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "formLabel_Model",
         "label": "Model Label",
-        "value": "Model"
+        "value": ""
       },
       {
         "component": "text",
@@ -800,7 +800,7 @@
         "valueType": "string",
         "name": "formLabelCar_LeaseTerm",
         "label": "Lease Term label",
-        "value": "Lease Term"
+        "value": ""
       },
       {
         "component": "richtext",
@@ -827,6 +827,20 @@
         "component": "richtext",
         "valueType": "string",
         "name": "resultsViewDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "comparisonDescription",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "termsConditions",
         "label": "Text",
         "value": ""
       }
