@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - ioruntime
+  workflow_dispatch:
 
 jobs:
   deploy:
