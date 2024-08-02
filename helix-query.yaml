@@ -34,6 +34,9 @@ indices:
       pageType:
         select: head > meta[name="cq-tags"]
         value: attribute(el, "content")
+      modifiedTime:
+        select: head > meta[name="modified-time"]
+        value: attribute(el, "content")
 
   offers:
     include:
@@ -86,3 +89,31 @@ indices:
       fuelType:
         select: head > meta[name="fuel-type"]
         value: match(attribute(el, "content"), ".*\/(.*)$")
+  
+  articles:
+    include:
+      - '/articles/**'
+      - '/learn/**'
+    target: /articles-index.json
+    properties:
+      title:
+        select: main h1
+        value: textContent(el)
+      navTitle:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
+      publishDate:
+        select: head > meta[name="published-time"]
+        value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
+      pageType:
+        select: head > meta[name="cq-tags"]
+        value: attribute(el, "content")
+      modifiedTime:
+        select: head > meta[name="modified-time"]
+        value: attribute(el, "content")
