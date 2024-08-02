@@ -906,6 +906,27 @@
         "name": "maxxiaCalcsAPIKey",
         "label": "Calculator API Key",
         "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIUrl",
+        "label": "Contact Oly API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIKey",
+        "label": "Contact Oly API Key",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDisclaimer",
+        "label": "Contact Oly Form Disclaimer",
+        "value": ""
       }
     ]
   },
