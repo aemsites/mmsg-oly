@@ -27,6 +27,19 @@
     p {
       font-size: var(--font-size-xs);
       line-height: 1.5rem;
+
+      a {
+        display: flex;
+        margin: 0;
+        gap: 0.5rem;
+        align-items: end;
+      }
+
+      a::after {
+        content: url('../../icons/chevron-right.svg');
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 

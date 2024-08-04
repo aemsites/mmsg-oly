@@ -32,7 +32,7 @@
   --color-focus-outline: #ffd337;
   --color-disabled: #adb5bd;
   --button-bg-color: #ced4da;
-  --asterisk-required-color: #b22222;
+  --asterisk-required-color: #ff1261;
 
   /* font */
   --font-size-xxl: 4rem; /* 64px */
@@ -77,6 +77,7 @@
   /* Spacing */
   --spacing-xxxxs: 4px;
   --spacing-xxxs-l: 4px;
+  --spacing-xxxs-alt: 6px;
   --spacing-xxxs: 8px;
   --spacing-xxs: 10px;
   --spacing-xxs-l: 12px;
@@ -124,6 +125,7 @@
 
   /* box-shadow */
   --box-shadow: 0 2px 4px 0px #0000001a; /* stylelint-disable-line */
+  --box-shadow-car-card: 0px 4px 4px 0px #00000040;
 }
 
 body {
@@ -387,6 +389,12 @@ main .section {
   padding: var(--spacing-xl) var(--spacing-xs);
 }
 
+.section .default-content-wrapper p {
+  font-size: var(--font-size-xs);
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
 /* Notification pane */
 .section.notification {
   padding: 0;
@@ -428,6 +436,11 @@ main .section {
   .section > div {
     max-width: var(--max-width-container);
     margin: auto;
+  }
+
+  .section .default-content-wrapper p {
+    font-size: var(--font-size-s);
+    line-height: 2rem;
   }
 
   /* Notification pane */
@@ -656,4 +669,11 @@ main .section.highlight {
 .my-4 {
   margin-top: var(--spacing-l);
   margin-bottom: var(--spacing-l);
+}
+
+.ev-icon {
+  background-image: url('../../icons/EV-logo.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

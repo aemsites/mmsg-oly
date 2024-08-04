@@ -282,6 +282,13 @@
         "value": ""
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "linktitle",
+        "label": "URL",
+        "value": "/"
+      },
+      {
         "component": "richtext",
         "name": "content",
         "value": "",
@@ -337,18 +344,18 @@
         ]
       },
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
         "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
       }
     ]
   },
@@ -836,11 +843,109 @@
         "name": "termsConditions",
         "label": "Text",
         "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "resultsViewActionItems",
+        "label": "Result View Actions Items ",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "resultsViewDisclaimer",
+        "label": "Result View Disclaimer",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "termsConditionsDescription",
+        "label": "Terms and conditions",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDescription",
+        "label": "Contact Oly Form Description",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyFormLabels",
+        "label": "Contact Oly Form Labels",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearListCount",
+        "label": "Year List Count",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "yearLatestValue",
+        "label": "latestYearValue",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIUrl",
+        "label": "VIS API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "visAPIKey",
+        "label": "VIS API Key",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIUrl",
+        "label": "Calculator API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxxiaCalcsAPIKey",
+        "label": "Calculator API Key",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIUrl",
+        "label": "Contact Oly API URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "contactOlyAPIKey",
+        "label": "Contact Oly API Key",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "contactOlyDisclaimer",
+        "label": "Contact Oly Form Disclaimer",
+        "value": ""
       }
     ]
   },
   {
-    "id": "thumbnail_desc",
+    "id": "thumbnail-desc",
     "fields": [
       {
         "component": "reference",
@@ -859,6 +964,46 @@
     ]
   },
   {
+    "id": "related-article-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col_1_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_2_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "col_3_text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "fileReference",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "href",
+        "value": "",
+        "label": "Link"
+      }
+    ]
+  },
+  {
     "id": "form",
     "fields": [
       {
@@ -873,6 +1018,18 @@
         "valueType": "string",
         "name": "formUrl",
         "label": "Form location",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "takeways",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content",
+        "label": "Title",
         "value": ""
       }
     ]
@@ -1053,6 +1210,14 @@
       {
         "component": "aem-tag",
         "valueType": "string",
+        "name": "fuel-type",
+        "label": "Fuel Type",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/fuel-type",
+        "description": "Defines the vehicle fuel type meta tags for SEO"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
         "name": "body-type",
         "label": "Body Type",
         "rootPath": "/content/cq:tags/oly/vehicle-offers/body-type",
@@ -1065,7 +1230,77 @@
         "label": "Price Range",
         "rootPath": "/content/cq:tags/oly/vehicle-offers/price-range",
         "description": "Defines the vehicle price range meta tags for SEO"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "pricing",
+        "label": "Pricing",
+        "rootPath": "/content/cq:tags/oly/vehicle-offers/pricing",
+        "description": "Defines the vehicle pricing meta tags for SEO"
       }
     ]
-  }
+  },
+  {
+    "id": "takeways",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "takewaysTitle",
+        "label": "Title",
+        "value": "Key Takeaways"
+      },
+      {
+        "component": "richtext",
+        "name": "takeways",
+        "value": "",
+        "label": "Takeways",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "thumbnail-car",
+    "fields": [
+      {
+        "component": "text",
+        "name": "thumbnail-car-name",
+        "value": "",
+        "label": "Car Name",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "thumbnail-car-image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "thumbnail-car-badge",
+        "label": "Badge",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "thumbnail-car-type",
+        "value": "",
+        "label": "Is EV?",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Yes",
+            "value": "yes"
+          },
+          {
+            "name": "No",
+            "value": "no"
+          }
+        ]
+      }
+    ]
+  } 
 ]

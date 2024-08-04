@@ -12,6 +12,8 @@ const data = [
     type: 'petrol',
     isCheckbox: true,
     path: '/vehicle-offers/volvocx40',
+    isEV: true,
+    isOlyDeal: true,
   },
   {
     offerId: 'offer_2',
@@ -26,6 +28,8 @@ const data = [
     type: 'ev',
     isCheckbox: true,
     path: '/vehicle-offers/volvocx40',
+    isEV: false,
+    isOlyDeal: true,
   },
   {
     offerId: 'offer_3',
@@ -40,6 +44,8 @@ const data = [
     type: 'hatchback',
     isCheckbox: true,
     path: '/vehicle-offers/volvocx40',
+    isEV: true,
+    isOlyDeal: false,
   },
   {
     offerId: 'offer_4',
@@ -54,6 +60,8 @@ const data = [
     type: 'hatchback',
     isCheckbox: true,
     path: '/vehicle-offers/volvocx40',
+    isEV: false,
+    isOlyDeal: false,
   },
 ];
 

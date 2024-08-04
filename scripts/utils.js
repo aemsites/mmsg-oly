@@ -1,9 +1,4 @@
-export const CONFIG = {
-  countryCode: 'au',
-  language: 'en',
-  site: 'oly',
-  baseURL: window.location.origin || 'https://oly.com.au/',
-};
+const ISEV = ['yes', 'no'];
 
 /**
  * Add classes to elements.
@@ -139,3 +134,23 @@ export const RecentlyViewedManager = (() => {
     setRecentlyViewed,
   };
 })();
+
+/**
+ * Creates an EV icon by adding a CSS class to the parent element and removing the
+ * element containing the icon.
+ *
+ * @param {Element} el - The element containing the EV icon.
+ * @param {Element} parentEl - The parent element to add the CSS class to.
+ * @return {void} This function does not return anything.
+ */
+export function createEVIcon(el, parentEl) {
+  const isEV = el.textContent.trim();
+  if (ISEV.includes(isEV)) {
+    if (isEV === 'yes') {
+      parentEl.classList.add('ev-icon');
+    } else {
+      parentEl.classList.add('non-showing-ev-icon');
+    }
+    el.remove();
+  }
+}

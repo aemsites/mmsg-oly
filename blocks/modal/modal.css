@@ -1,0 +1,81 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal dialog {
+  --dialog-border-radius: 16px;
+
+  padding: 70px 0 0;
+  overscroll-behavior: none;
+  width: 100vw;
+  border: none;
+  background-color: var(--color-black);
+}
+
+.modal dialog .modal-content {
+  overflow-y: auto;
+  overscroll-behavior: none;
+  max-height: calc(100dvh - 60px);
+}
+
+.modal .modal-content p,
+.modal .modal-content h1,
+.modal .modal-content h2,
+.modal .modal-content h3,
+.modal .modal-content h4,
+.modal .modal-content h5,
+.modal .modal-content h6 {
+  color: var(--color-white);
+}
+
+@media (width >= 600px) {
+  .modal dialog {
+    width: 80vw;
+    max-width: 700px;
+  }
+
+  .modal dialog .modal-content {
+    max-height: calc(100vh - 90px);
+  }
+}
+
+.modal dialog::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  display: flex;
+  font-size: var(--font-size-xs);
+  align-items: center;
+  height: 100%;
+  max-height: 54px;
+  border-radius: 0 var(--dialog-border-radius) 0 0;
+  text-overflow: clip;
+  margin: 0;
+  border: none;
+  color: var(--color-white);
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.modal .icon {
+  display: flex;
+  height: 24px;
+  margin-left: 10px;
+  width: 150px;
+  align-items: center;
+}
+
+.modal .icon img {
+  height: 24px;
+  width: 24px;
+  margin-left: 15px;
+}
+
+.modal dialog .section {
+  padding: 0;
+}

@@ -11,6 +11,16 @@
     flex-direction: column;
   }
 
+  > div > div > a {
+    text-decoration: none;
+    width: 232px;
+    display: block;
+  }
+
+  a:hover {
+    color: black;
+  }
+
   ul li h4 {
     margin: 0;
     text-decoration: none;
@@ -58,8 +68,8 @@
 
   img {
     display: flex;
-    width: var(--spacing-m-l);
-    height: var(--spacing-m-l);
+    width: 40px;
+    height: 40px;
     padding: 2px;
     margin-right: var(--spacing-xs);
   }
@@ -72,8 +82,8 @@
       top: var(--spacing-xs-l);
       left: 0;
       margin-left: var(--spacing-xs);
-      width: var(--spacing-s);
-      height: var(--spacing-xs-l);
+      width: 24px;
+      height: 24px;
       background-image: url('../../icons/small-car.png');
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -160,6 +170,7 @@
       a {
         text-decoration: none;
         color: var(--color-black);
+        font-weight: 400;
       }
 
       @media (width >= 768px) {

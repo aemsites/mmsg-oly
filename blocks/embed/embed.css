@@ -1,0 +1,30 @@
+.embed {
+  margin: auto;
+  width: unset;
+  text-align: center;
+}
+
+.embed > div {
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.embed + * {
+  margin-top: 64px;
+}
+
+.embed + p.legend {
+  margin-top: 16px;
+}
+
+.embed img {
+  max-width: 100%;
+}
+
+.embed.embed-instagram {
+  max-width: fit-content;
+}
+
+.embed.embed-twitter {
+  max-height: unset;
+}
