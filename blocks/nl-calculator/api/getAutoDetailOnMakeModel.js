@@ -4,7 +4,7 @@ export default async function getAutoDetailOnMakeModel(year, make, model) {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': localStorage.getItem('calculatorAPIKey'),
+      'Ocp-Apim-Subscription-Key': localStorage.getItem('visAPIKey'),
     },
   };
   try {

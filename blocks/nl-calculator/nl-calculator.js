@@ -31,9 +31,22 @@ export default async function decorate(block) {
     formYouLabels,
     aboutViewDescription,
     resultsViewDescription,
-    comparisonDescription,
+    resultsViewActionItems,
+    resultsViewDisclaimer,
+    resultsViewTermsConditions,
+    contactOlyDescription,
+    contactOlyFormLabels,
+    yearListCount,
+    yearLatestValue,
+    visAPIUrl,
+    visAPIKey,
+    maxxiaCalcsAPIUrl,
+    maxxiaCalcsAPIKey,
+    contactOlyAPIUrl,
+    contactOlyAPIKey,
+    contactOlyDisclaimer,
   ] = block.children;
-  debugger;
+
   titleDescription.className = 'form-heading';
   formLabels.className = 'form-label-container';
   formCarLabels.className = 'form-car-label-container';
@@ -47,15 +60,33 @@ export default async function decorate(block) {
   const el_calcContainer = document.createElement('div');
   el_calcContainer.className = 'container';
 
-  [...apiDetails.children].forEach((item) => {
+  [...visAPIUrl.children].forEach((item) => {
     [...item.children].forEach((el, index) => {
-      if (index == 0) {
-        localStorage.setItem('calculatorAPIUrl', el.innerHTML);
-      } else if (index === 1) {
-        localStorage.setItem('calculatorAPIKey', el.innerHTML);
-      } else if (index === 2) {
-        localStorage.setItem('maxxiacalculatorAPIKey', el.innerHTML);
-      }
+      localStorage.setItem('visAPIUrl', el.innerHTML);
+      el.textContent = '';
+      el.style.display = 'none';
+    });
+  });
+
+  [...visAPIKey.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      localStorage.setItem('visAPIKey', el.innerHTML);
+      el.textContent = '';
+      el.style.display = 'none';
+    });
+  });
+
+  [...maxxiaCalcsAPIUrl.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      localStorage.setItem('maxxiaCalcsAPIUrl', el.innerHTML);
+      el.textContent = '';
+      el.style.display = 'none';
+    });
+  });
+
+  [...maxxiaCalcsAPIKey.children].forEach((item) => {
+    [...item.children].forEach((el, index) => {
+      localStorage.setItem('maxxiaCalcsAPIKey', el.innerHTML);
       el.textContent = '';
       el.style.display = 'none';
     });
