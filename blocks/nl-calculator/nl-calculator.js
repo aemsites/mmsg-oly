@@ -230,4 +230,7 @@ export default async function decorate(block) {
       formUserFieldIndex += 1;
     });
   });
+
+  block.textContent = '';
+  block.innerHTML = '';
 }
