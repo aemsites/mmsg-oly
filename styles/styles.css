@@ -31,6 +31,7 @@
   --color-focus-outline: #ffd337;
   --color-disabled: #adb5bd;
   --button-bg-color: #ced4da;
+  --notification-text-color: #101213;
   --asterisk-required-color: #ff1261;
 
   /* font */
@@ -392,6 +393,7 @@ main .section {
   font-size: var(--font-size-xs);
   line-height: 1.5rem;
   font-weight: 400;
+  color: var(--notification-text-color);
 }
 
 /* Notification pane */
@@ -416,7 +418,8 @@ main .section {
 }
 
 .section.breadcrumb-container {
-  padding: 0 var(--spacing-m);
+  padding: 8px 25px;
+  border-top: 1px solid var(--bg-color-paper);
 }
 
 @media (width >= 768px) {
