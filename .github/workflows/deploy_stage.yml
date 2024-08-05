@@ -1,12 +1,12 @@
 name: AIO App CI
 
 on:
-  schedule:
-    - cron: '0 * * * *'
   push:
     branches:
       - ioruntime
-  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   deploy:
