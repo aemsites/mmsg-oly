@@ -94,7 +94,7 @@ indices:
     include:
       - '/articles/**'
       - '/learn/**'
-    target: /articles-index.json
+    target: /au/en/articles-index.json
     properties:
       title:
         select: main h1
