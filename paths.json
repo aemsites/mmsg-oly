@@ -2,9 +2,9 @@
   "mappings": [
     "/content/oly/au/en/:/",
     "/content/oly/configuration:/.helix/config.json",
-    "/content/oly.resource/query-index.json:/query-index.json",
-    "/content/oly.resource/offers-index.json:/offers-index.json",
-    "/content/oly.resource/articles-index.json:/articles-index.json",
+    "/content/oly.resource/au/en/query-index.json:/query-index.json",
+    "/content/oly.resource/au/en/offers-index.json:/offers-index.json",
+    "/content/oly.resource/au/en/articles-index.json:/articles-index.json",
     "/content/oly/au/en/metadata:/metadata.json",
     "/content/oly/au/en/placeholders:/placeholders.json",
     "/content/oly/au/en/forms/faqform:/faqform.json",
