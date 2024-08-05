@@ -523,6 +523,9 @@
   line-height: 2rem;
 
   div.default-content-wrapper {
+    text-align: left;
+    width: 100%;
+
     h2,
     h3 {
       font-size: var(--font-size-l-alt);
@@ -596,6 +599,10 @@
         font-size: var(--font-size-lg);
         line-height: 3rem;
       }
+    }
+
+    .columns-wrapper {
+      width: 100%;
     }
 
     .columns-wrapper .columns div {

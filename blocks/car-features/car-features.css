@@ -46,8 +46,8 @@
     }
 
     ul {
-      margin: 0;
-      padding: 0;
+      margin: var(--spacing-xs) 0 0 0;
+      padding: 0 var(--spacing-xl) 0 0;
 
       li {
         padding: var(--spacing-xs);
@@ -108,12 +108,15 @@
 
       p {
         font-size: var(--font-size-m);
-        margin-top: var(--spacing-xxxs);
       }
 
       ul li {
         font-size: var(--font-size-s);
         line-height: 2rem;
+      }
+
+      ul {
+        padding: 0;
       }
     }
   }
