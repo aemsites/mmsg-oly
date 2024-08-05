@@ -950,6 +950,44 @@
     ]
   },
   {
+    "id": "car-help",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "car_help_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "car_help_text",
+        "label": "Text",
+        "value": "Can't find what you're looking for?"
+      }
+    ]
+  },
+  {
+    "id": "image-link",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image_link_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image_link_href",
+        "value": "",
+        "label": "Link"
+      }
+    ]
+  },
+  {
     "id": "related-article-card",
     "fields": [
       {

@@ -553,6 +553,21 @@
           }
         },
         {
+          "title": "Car Help",
+          "id": "car-help",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Car Help",
+                  "model": "car-help"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Embed",
           "id": "embed",
           "plugins": {
@@ -583,7 +598,22 @@
               }
             }
           }
-        }     
+        },
+        {
+          "title": "Image Link",
+          "id": "image-link",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Image Link",
+                  "model": "image-link"
+                }
+              }
+            }
+          }
+        }   
       ]
     }
   ]
