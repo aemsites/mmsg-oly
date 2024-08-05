@@ -5,7 +5,7 @@ import getVehicleImageOnNVIC from './api/getVehicleImageOnNVIC.js';
 import getAutoDetailOnNVIC from './api/getAutoDetailOnNVIC.js';
 
 export default async function decorate(block) {
-  const formFields = [{ name: 'formLabel_Make' }, { name: 'formLabel_Model' }];
+  /*const formFields = [{ name: 'formLabel_Make' }, { name: 'formLabel_Model' }];
 
   const formUserFields = [
     { name: 'formLabelUser_Salary' },
@@ -229,7 +229,7 @@ export default async function decorate(block) {
       item.append(wrapperEl);
       formUserFieldIndex += 1;
     });
-  });
+  });*/
 
   block.textContent = '';
   block.innerHTML = '';
