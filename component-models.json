@@ -749,16 +749,23 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "apiCalculatorDetails",
+        "name": "hotDealDetails",
         "label": "Text",
-        "value": ""
+        "value": "Hot Deals"
       },
       {
         "component": "richtext",
         "valueType": "string",
         "name": "titleWithDescription",
         "label": "Text",
-        "value": ""
+        "value": "Calculator Title"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "calculatorImage",
+        "label": "Calculator Side Image",
+        "multi": false
       },
       {
         "component": "text",
@@ -876,7 +883,21 @@
         "component": "text",
         "valueType": "string",
         "name": "yearLatestValue",
-        "label": "latestYearValue",
+        "label": "Latest year value",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "fuelFilter",
+        "label": "Filter to Fuel Type",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "makeFilter",
+        "label": "Filter to Make",
         "value": ""
       },
       {
