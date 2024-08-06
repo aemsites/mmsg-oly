@@ -7,7 +7,6 @@ const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
 async function loadRecaptcha() {
   const script = document.createElement('script');
   script.src = 'https://www.google.com/recaptcha/api.js';
-  script.async = true;
   script.defer = true;
   document.head.appendChild(script);
 }
@@ -127,7 +126,7 @@ export default async function decorate(block) {
   const formBlockDiv = document.createElement('div');
   formBlockDiv.classList.add('g-recaptcha"');
   formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
-  block.querySelector('form').append(formBlockDiv);
+  block.querySelector('.form .field-wrapper.submit-wrapper').prepend(formBlockDiv);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
