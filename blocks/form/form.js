@@ -77,8 +77,7 @@ function handleSubmitError(form, error) {
   sampleRUM('form:error', { source: '.form', target: error.stack || error.message || 'unknown error' });
 }
 
-async function genericSubmission(form) {
-  const payload = generatePayload(form);
+async function genericSubmission(form, payload) {
   const response = await fetch(form.dataset.action, {
     method: 'POST',
     body: JSON.stringify({ data: payload }),
@@ -104,14 +103,21 @@ async function handleSubmit(form) {
   try {
     form.setAttribute('data-submitting', 'true');
     submit.disabled = true;
-
+    // eslint-disable-next-line
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      throw new Error('Please complete the reCAPTCHA');
+    }
     const formType = getFormType(form);
+    const payload = generatePayload(form);
+    payload['g-recaptcha-response'] = recaptchaResponse;
+
     switch (formType) {
       case 'request-callback':
-        await requestCallbackSubmission(form);
+        await requestCallbackSubmission(form, payload);
         break;
       default:
-        await genericSubmission(form);
+        await genericSubmission(form, payload);
         break;
     }
   } catch (e) {

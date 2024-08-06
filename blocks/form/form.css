@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+.g-recaptcha {
+  margin-bottom: 32px;
+}
+
 .form fieldset {
   display: grid;
   grid-auto-flow: row;
