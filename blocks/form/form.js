@@ -6,11 +6,16 @@ const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
 
 async function loadRecaptcha() {
   const script = document.createElement('script');
-  script.src = 'https://www.google.com/recaptcha/api.js';
+  script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
   script.async = true;
   script.defer = true;
   document.head.appendChild(script);
 }
+// eslint-disable
+function onloadCallback() {
+  alert('grecaptcha is ready!');
+}
+// eslint-enable
 
 export async function createForm(formHref) {
   const { pathname } = new URL(formHref);
@@ -104,6 +109,7 @@ async function handleSubmit(form) {
     switch (formType) {
       case 'request-callback':
         await requestCallbackSubmission(form);
+        onloadCallback();
         break;
       default:
         await genericSubmission(form);
