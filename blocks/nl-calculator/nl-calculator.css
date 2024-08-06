@@ -1,7 +1,4 @@
 .nl-calculator {
-  /*padding: var(--spacing-s);
-  border: var(--spacing-xxxxs) solid var(--bg-color-green);
-  border-radius: var(--spacing-xxxxs);*/
   .button {
     cursor: pointer;
     z-index: 2;
@@ -34,6 +31,43 @@
       .view-search {
         display: grid;
         grid-template-columns: 75% 25%;
+
+        .title {
+          font-size: var(--font-size-m);
+          font-family: var(--font-family-semibold);
+          margin-bottom: var(--spacing-xxs);
+        }
+
+        .hot-deal-wrapper {
+          display: grid;
+          grid-template-columns: 80% 20%;
+          margin-top: var(--spacing-m);
+          margin-right: 3%;
+
+          .hot-deal-items-wrapper {
+            text-align: left;
+
+            .hot-deal-item {
+              border: 1px solid var(--color-black);
+              padding: var(--spacing-xxs) var(--spacing-xs);
+              display: inline-block;
+              text-align: center;
+              border-radius: var(--spacing-s);
+              margin: 0 var(--spacing-xs-l-alt) var(--spacing-xs) 0;
+              cursor: pointer;
+              font-size: var(--font-size-xs);
+              font-family: var(--font-family-body);
+            }
+            .hot-deal-item:hover {
+              border: 2px solid var(--color-pink);
+            }
+          }
+          .col:last-child {
+            display: flex;
+            align-items: end;
+            justify-content: flex-end;
+          }
+        }
       }
 
       .view-car,
@@ -149,6 +183,7 @@
 
         select {
           width: 100%;
+          cursor: pointer;
         }
 
         .kms-wrapper {
@@ -356,6 +391,7 @@
   border: 1px solid #000;
   height: var(--spacing-l-alt);
   width: 90%;
+  cursor: pointer;
 }
 
 .nl-calculator select option {
