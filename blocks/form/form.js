@@ -2,7 +2,7 @@ import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
 
-// const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
+const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
 
 async function loadRecaptcha() {
   const script = document.createElement('script');
@@ -124,18 +124,10 @@ export default async function decorate(block) {
   block.replaceChildren(form);
   await loadRecaptcha();
 
-  const formBlock = document.createElement('form');
-  formBlock.action = '?';
-  formBlock.method = 'POST';
   const formBlockDiv = document.createElement('div');
-  formBlockDiv.classList.add('g-recaptcha');
-  formBlockDiv.setAttribute('data-sitekey', '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa');
-  const formBlockInput = document.createElement('input');
-  formBlockInput.type = 'submit';
-  formBlockInput.value = 'submit';
-  formBlockDiv.append(formBlockInput);
-  formBlock.append(formBlockDiv);
-  block.append(formBlock);
+  formBlockDiv.classList.add('g-recaptcha"');
+  formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
+  block.querySelector('form').append(formBlockDiv);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
