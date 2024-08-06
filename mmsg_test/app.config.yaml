@@ -31,3 +31,14 @@ application:
             annotations:
               require-adobe-auth: false
               final: false
+          captcha:
+            function: actions/captcha/index.js
+            web: 'yes'
+            runtime: nodejs:18
+            inputs:
+              SUBSCRIPTION_KEY : $SUBSCRIPTION_KEY
+              RECAPTCHA_SECRET_KEY : $RECAPTCHA_SECRET_KEY
+              LOG_LEVEL: debug
+            annotations:
+              require-adobe-auth: false
+              final: false

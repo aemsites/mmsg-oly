@@ -29,7 +29,8 @@ async function executeAction(params) {
     "UUID": params.UUID,
     "MarketingChannelSource": params.MarketingChannelSource,
     "MarketingAttribution": params.MarketingAttribution,
-    "CampaignName": params.CampaignName
+    "CampaignName": params.CampaignName,
+    "g-recaptcha-response" : params.g-recaptcha-response
   };
 
   const url = 'https://api-uat.grs.mmsg.com.au/cmt/lead/v1/FuncCreateLead';
@@ -52,6 +53,7 @@ async function executeAction(params) {
 
 // Main function to be exported for Adobe I/O Runtime
 async function main(params) {
+  // console.log(params);
   return executeAction(params);
 }
 
