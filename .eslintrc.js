@@ -21,7 +21,7 @@ module.exports = {
         '*': 4,
         // 'a-specific-model': 4,
         // 'another-specific-model': 2,
-        'nl-calculator': 25,
+        'nl-calculator': 30,
         'page-metadata': 6,
       },
     ],
