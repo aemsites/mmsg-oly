@@ -12,9 +12,9 @@ async function loadRecaptcha() {
   document.head.appendChild(script);
 }
 // eslint-disable
-function onloadCallback() {
+const onloadCallback = function () {
   alert('grecaptcha is ready!');
-}
+};
 // eslint-enable
 
 export async function createForm(formHref) {
