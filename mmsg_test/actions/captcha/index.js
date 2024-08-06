@@ -2,8 +2,9 @@ require('dotenv').config();
 const axios = require('axios');
 
 // Function to verify the reCAPTCHA response
-async function verifyRecaptcha(recaptchaResponse) {
-  const secretKey = params.RECAPTCHA_SECRET_KEY; // Your reCAPTCHA secret key from environment variables
+async function verifyRecaptcha(secretKey,recaptchaResponse) {
+
+//   const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Your reCAPTCHA secret key from environment variables
   const url = 'https://www.google.com/recaptcha/api/siteverify';
 
   try {
@@ -26,7 +27,7 @@ async function verifyRecaptcha(recaptchaResponse) {
 // Function to execute the main logic
 async function executeAction(params) {
   // Verify the reCAPTCHA response first
-  const recaptchaVerification = await verifyRecaptcha(params['g-recaptcha-response']);
+  const recaptchaVerification = await verifyRecaptcha(params.RECAPTCHA_SECRET_KEY,params['g-recaptcha-response']);
 
   if (recaptchaVerification.success) {
     const data = {
@@ -82,8 +83,8 @@ async function executeAction(params) {
 
 // Main function to be exported for Adobe I/O Runtime
 async function main(params) {
-  console.log(params);
-//   return executeAction(params);
+//   console.log(params);
+  return executeAction(params);
 }
 
 // Export the main function for Adobe I/O Runtime
