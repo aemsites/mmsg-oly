@@ -1299,6 +1299,11 @@
     ]
   },
   {
+    "id": "filter",
+    "fields": [
+     ]
+  },  
+  {
     "id": "thumbnail-car",
     "fields": [
       {
