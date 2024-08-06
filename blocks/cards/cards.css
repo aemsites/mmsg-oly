@@ -95,12 +95,30 @@
       font-size: var(--font-size-xs);
     }
 
+    p:nth-child(4) {
+      font-size: var(--font-size-xs);
+      line-height: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    p:nth-child(4)::before {
+      content: url('../../icons/Clock.svg');
+      width: var(--spacing-xs-l-alt);
+      height: var(--spacing-xs-l-alt);
+      font-size: var(--font-size-m);
+      margin-top: 2px;
+    }
+
     .button-container {
       a {
         display: flex;
         font-size: var(--font-size-s);
         gap: 0.25rem;
         align-items: center;
+        margin: 0;
       }
 
       a::after {
