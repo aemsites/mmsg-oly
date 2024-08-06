@@ -888,16 +888,16 @@
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "fuelFilter",
-        "label": "Filter to Fuel Type",
+        "valueType": "boolean",
+        "name": "isElectricFuelFilter",
+        "label": "Filter Calculator to only Electric vehicles",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "makeFilter",
-        "label": "Filter to Make",
+        "label": "Filter calculator to this Make",
         "value": ""
       },
       {
