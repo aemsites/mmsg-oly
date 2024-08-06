@@ -218,6 +218,20 @@
       color: var(--color-black);
       line-height: 32px;
     }
+    &:nth-child(4) {
+      font-weight: 600;
+      margin-top: var(--spacing-xxxs);
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    &:nth-child(4)::before {
+      content: url('../../icons/Clock.svg');
+      width: var(--spacing-xs-l-alt);
+      height: var(--spacing-xs-l-alt);
+      font-size: var(--font-size-m);
+    }
 
     &.button-container {
       a {
@@ -255,6 +269,7 @@
   @media (width >= 1024px) {
     border-radius: 1rem;
     padding: var(--spacing-m);
+    flex: 1;
 
     p:nth-child(2) {
       margin-top: 40px;
@@ -430,6 +445,10 @@
           &:nth-child(3) {
             font-size: var(--font-size-s);
             line-height: 2rem;
+          }
+
+          &.button-container {
+            margin-top: var(--spacing-xs);
           }
         }
 
