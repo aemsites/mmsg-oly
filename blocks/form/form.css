@@ -298,9 +298,9 @@
   }
 
   #more-ways-to-contact-oly {
-    font-size: 40px;
+    font-size: var(--font-size-lg);
     font-weight: 700;
-    line-height: 40px;
+    line-height: var(--font-size-lg);
     margin: 0;
 
     @media (width >= 1024px) {
