@@ -18,6 +18,14 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 // get the config for adobe launch scripts
 const { currentEnv: { analytics: { launchUrl } } } = getConfig();
 
+(function preconnectLaunch() {
+  const link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = "https://assets.adobedtm.com";
+  link.crossOrigin = 'anonymous';
+  document.head.appendChild(link);
+}());
+
 /**
  * Moves all the attributes from a given elmenet to another given element.
  * @param {Element} from the element to copy attributes from
