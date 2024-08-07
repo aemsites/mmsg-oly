@@ -1,3 +1,29 @@
-p {
-  color: var(--color-black);
+.related-article-card-wrapper .content {
+  padding: 15px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  background-color: #e6f2ef;
+  height: 512px;
+  max-width: 216px;
+
+  h5 {
+    color: #ff1261;
+  }
+
+  .hero-image > div {
+    height: 400px;
+
+    > p:first-child {
+      height: 216px;
+      width: 216px;
+    }
+  }
+}
+
+.related-article-card-container {
+  display: flex;
+  justify-content: space-between;
 }
