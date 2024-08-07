@@ -38,6 +38,15 @@
   gap: 1rem;
 }
 
+/* Refer to Hover Card Section for the complete styling,
+Find ".section.hover-card" */
+.section.hover-card .default-content-wrapper > p {
+  font-size: var(--font-size-s);
+  width: 33ch;
+  line-height: var(--font-size-l-alt);
+  margin: 0 auto calc(2 * 15px);
+}
+
 .section.semicircle-image .columns-img-col img {
   border-radius: 0.5rem;
   max-width: 680px;
@@ -64,6 +73,7 @@
     margin-top: var(--spacing-xs);
   }
 
+  /* stylelint-disable */
   p {
     text-align: left;
     margin-top: var(--spacing-xs);
@@ -72,6 +82,7 @@
     font-weight: 400;
     color: var(--color-grey);
   }
+  /* stylelint-enable */
 
   p.button-container {
     margin-top: auto;
@@ -832,6 +843,173 @@
       > div {
         &:nth-child(2) {
           width: 35%;
+        }
+      }
+    }
+  }
+}
+
+/* Hover Card (also refer line number 41, 
+if not found then find for ".section.hover-card .default-content-wrapper p" */
+.section.hover-card {
+  div.default-content-wrapper {
+    text-align: center;
+
+    > h3 {
+      font-size: var(--font-size-lg);
+      line-height: var(--font-size-xl);
+    }
+  }
+
+  .columns.block.columns-3-cols {
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xxxs);
+      margin-bottom: var(--spacing-xxxs);
+      height: 100%;
+      align-items: stretch;
+
+      > div {
+        background-color: var(--bg-color-paper);
+        text-align: center;
+        height: 300px;
+        width: 32%;
+        border-radius: var(--spacing-xs);
+
+        > p:last-child,
+        > p:nth-child(3) {
+          display: none;
+        }
+
+        > h3 {
+          font-size: var(--font-size-l-alt);
+          text-align: center;
+          padding: var(--spacing-xxl) var(--spacing-s) 0;
+        }
+      }
+
+      > div:hover {
+        background-color: var(--color-black);
+        border-radius: var(--spacing-xs);
+
+        > h3,
+        > p:nth-child(2) {
+          display: none;
+        }
+
+        > p:nth-child(3) {
+          font-size: var(--font-size-s);
+          padding: 38px var(--spacing-s) 0;
+          text-align: left;
+        }
+
+        > p:last-child,
+        > p:nth-child(3) {
+          display: block;
+          color: var(--color-white);
+        }
+
+        > p:last-child > em > a:link {
+          color: var(--color-white);
+        }
+
+        > p:last-child {
+          font-size: var(--font-size-s);
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media (width>768px) and (width<1024px) {
+    div.default-content-wrapper {
+      > p {
+        font-size: var(--font-size-l);
+      }
+
+      > h3 {
+        font-size: var(--font-size-l-alt);
+        line-height: var(--spacing-l);
+      }
+    }
+
+    .columns.block.columns-3-cols {
+      p {
+        font-size: var(--font-size-xs);
+      }
+
+      h3 {
+        font-size: var(--font-size-l);
+      }
+
+      > div {
+        justify-content: space-between;
+        padding: 0 var(--spacing-s);
+        gap: var(--spacing-xs);
+        align-items: center;
+
+        > div {
+          width: 100%;
+          margin-bottom: var(--spacing-xs);
+        }
+      }
+    }
+  }
+
+  @media (width<= 768px) {
+    div.default-content-wrapper {
+      > p {
+        font-size: var(--font-size-l);
+        width: auto;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      > h3 {
+        font-size: var(--font-size-l-alt);
+        line-height: var(--font-size-lg);
+      }
+    }
+
+    .columns.block.columns-3-cols {
+      > div {
+        padding: 0 var(--spacing-s);
+        align-items: center;
+        gap: var(--spacing-xxxs);
+
+        > div {
+          width: 100%;
+        }
+
+        > div:hover {
+          background-color: var(--color-black);
+          border-radius: var(--spacing-xs);
+
+          > h3,
+          > p:nth-child(2) {
+            display: none;
+          }
+
+          > p:nth-child(3) {
+            font-size: var(--font-size-xs);
+            padding: 38px var(--spacing-s) 0;
+            text-align: left;
+          }
+
+          > p:last-child,
+          > p:nth-child(3) {
+            display: block;
+            color: var(--color-white);
+          }
+
+          > p:last-child > em > a:link {
+            color: var(--color-white);
+          }
+
+          > p:last-child {
+            font-size: var(--font-size-xs);
+            text-align: center;
+          }
         }
       }
     }
