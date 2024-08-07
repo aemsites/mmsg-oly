@@ -269,6 +269,7 @@ export default async function decorate(block) {
       resultsViewDisclaimer,
       resultsViewTermsConditions,
       contactOlyDescription,
+      contactOlyFormLabels,
       el_break,
     );
   });
@@ -326,6 +327,7 @@ export default async function decorate(block) {
                 el_calcResultView,
                 resultsViewDescription,
                 contactOlyDescription,
+                contactOlyFormLabels,
                 el_break,
               );
             });
@@ -432,6 +434,7 @@ async function BuildUIOnVehicleSelection(
   resultsViewDisclaimer,
   resultsViewTermsConditions,
   contactOlyDescription,
+  contactOlyFormLabels,
   el_break,
 ) {
   const el_viewCar = document.getElementById('view-car');
@@ -1280,6 +1283,21 @@ async function BuildUIOnVehicleSelection(
       el_formContactOlyWrapper.append(el_formContactOlyWrapperCol1);
       el_formContactOlyWrapper.append(el_formContactOlyWrapperCol2);
       el_formContactOly.append(el_formContactOlyWrapper);
+
+      // Build Contact Oly Form
+
+      const el_formContact = document.createElement('div');
+      el_formContact.className = 'form';
+
+      [...contactOlyFormLabels.children].forEach((item) => {
+        [...item.children].forEach((el) => {
+          el_formContact.append(el);
+        });
+      });
+
+      el_formContactOlyWrapperCol2.append(el_formContact);
+
+      // Add Contact Oly Form to the results view
       el_calcResultView.append(el_formContactOly);
 
       // Build the result view UI disclaimer
