@@ -600,9 +600,10 @@ if not found then find for ".section.hover-card .default-content-wrapper p" */
     > div {
       display: flex;
       flex-wrap: wrap;
-      padding: 0 var(--spacing-xxxl);
       gap: var(--spacing-xxxs);
       margin-bottom: var(--spacing-xxxs);
+      height: 100%;
+      align-items: stretch;
 
       > div {
         background-color: var(--bg-color-paper);
@@ -684,7 +685,7 @@ if not found then find for ".section.hover-card .default-content-wrapper p" */
         align-items: center;
 
         > div {
-          width: calc(50% - 8px);
+          width: 100%;
           margin-bottom: var(--spacing-xs);
         }
       }
@@ -713,6 +714,37 @@ if not found then find for ".section.hover-card .default-content-wrapper p" */
 
         > div {
           width: 100%;
+        }
+
+        > div:hover {
+          background-color: var(--color-black);
+          border-radius: var(--spacing-xs);
+
+          > h3,
+          > p:nth-child(2) {
+            display: none;
+          }
+
+          > p:nth-child(3) {
+            font-size: var(--font-size-xs);
+            padding: 38px var(--spacing-s) 0;
+            text-align: left;
+          }
+
+          > p:last-child,
+          > p:nth-child(3) {
+            display: block;
+            color: var(--color-white);
+          }
+
+          > p:last-child > em > a:link {
+            color: var(--color-white);
+          }
+
+          > p:last-child {
+            font-size: var(--font-size-xs);
+            text-align: center;
+          }
         }
       }
     }
