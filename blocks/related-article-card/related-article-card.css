@@ -12,8 +12,10 @@
   h5 {
     color: #ff1261;
   }
+
   .hero-image > div {
     height: 400px;
+
     > p:first-child {
       height: 216px;
       width: 216px;
