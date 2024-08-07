@@ -1033,10 +1033,10 @@
         "value": ""
       },
       {
-        "component": "reference",
+        "component": "richtext",
         "valueType": "string",
-        "name": "fileReference",
-        "label": "Image",
+        "name": "col_4_text",
+        "label": "Text",
         "multi": false
       },
       {
