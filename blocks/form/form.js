@@ -111,17 +111,6 @@ async function handleSubmit(form) {
     const formType = getFormType(form);
     const payload = generatePayload(form);
     payload['g-recaptcha-response'] = recaptchaResponse;
-    const SECRET_KEY = '6LcKcVQpAAAAACElP6hupHU030uzeUAnMyL7Bj2o';
-
-    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `secret=${SECRET_KEY}&response=${recaptchaResponse}`,
-    });
-    const data = await response.json();
-    console.log('data', data);
 
     switch (formType) {
       case 'request-callback':
