@@ -59,9 +59,11 @@ function requestCallbackSubmitError(form, error) {
 }
 
 // Function to handle contact us submission
-export default async function requestCallbackSubmission(form) {
+export default async function requestCallbackSubmission(form, payload) {
   const apiUrl = `https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/MMSG/generic`;
-  const payload = getFormInputs([...form.elements]);
+  // const payload = getFormInputs([...form.elements]);
+  getFormInputs([...form.elements]);
+
   const fetchOptions = {
     method: 'POST',
     headers: {

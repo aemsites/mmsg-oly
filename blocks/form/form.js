@@ -2,13 +2,25 @@ import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
 
+const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
+
 async function loadRecaptcha() {
-  const script = document.createElement('script');
-  script.src = 'https://www.google.com/recaptcha/api.js';
-  script.async = true;
-  script.defer = true;
-  document.head.appendChild(script);
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+    script.async = true;
+    script.defer = true;
+    script.onload = resolve;
+    document.head.appendChild(script);
+  });
 }
+
+window.onloadCallback = function () {
+  // eslint-disable-next-line
+  grecaptcha.render('recaptcha-container', {
+    sitekey: googleRecaptchaKey,
+  });
+};
 
 export async function createForm(formHref) {
   const { pathname } = new URL(formHref);
@@ -26,10 +38,9 @@ export async function createForm(formHref) {
     }
   });
 
-  // group fields into fieldsets
   const fieldsets = form.querySelectorAll('fieldset');
   fieldsets.forEach((fieldset) => {
-    form.querySelectorAll(`[data-fieldset="${fieldset.name}"`).forEach((field) => {
+    form.querySelectorAll(`[data-fieldset="${fieldset.name}"]`).forEach((field) => {
       fieldset.append(field);
     });
   });
@@ -39,8 +50,7 @@ export async function createForm(formHref) {
 
 function getFormType(form) {
   const objWithFormType = [form.elements].find((obj) => obj.formType !== undefined);
-  const formType = objWithFormType ? objWithFormType.formType?.value : null;
-  return formType;
+  return objWithFormType ? objWithFormType.formType?.value : null;
 }
 
 function generatePayload(form) {
@@ -62,15 +72,12 @@ function generatePayload(form) {
 }
 
 function handleSubmitError(form, error) {
-  // eslint-disable-next-line no-console
   console.error(error);
   form.querySelector('button[type="submit"]').disabled = false;
   sampleRUM('form:error', { source: '.form', target: error.stack || error.message || 'unknown error' });
 }
-// Function to handle generic form submission
-async function genericSubmission(form) {
-  // create payload
-  const payload = generatePayload(form);
+
+async function genericSubmission(form, payload) {
   const response = await fetch(form.dataset.action, {
     method: 'POST',
     body: JSON.stringify({ data: payload }),
@@ -96,15 +103,21 @@ async function handleSubmit(form) {
   try {
     form.setAttribute('data-submitting', 'true');
     submit.disabled = true;
-
+    // eslint-disable-next-line
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      throw new Error('Please complete the reCAPTCHA');
+    }
     const formType = getFormType(form);
-    // Determine form submission logic based on form type
+    const payload = generatePayload(form);
+    payload['g-recaptcha-response'] = recaptchaResponse;
+
     switch (formType) {
       case 'request-callback':
-        await requestCallbackSubmission(form);
+        await requestCallbackSubmission(form, payload);
         break;
       default:
-        await genericSubmission(form);
+        await genericSubmission(form, payload);
         break;
     }
   } catch (e) {
@@ -120,12 +133,18 @@ export default async function decorate(block) {
 
   const form = await createForm(formLink.href);
   block.replaceChildren(form);
+
+  const formBlockDiv = document.createElement('div');
+  formBlockDiv.classList.add('g-recaptcha');
+  formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
+  formBlockDiv.id = 'recaptcha-container';
+  form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
+
   await loadRecaptcha();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const valid = form.checkValidity();
-    if (valid) {
+    if (form.checkValidity()) {
       handleSubmit(form);
     } else {
       const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
