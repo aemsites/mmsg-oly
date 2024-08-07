@@ -1,7 +1,16 @@
 .nl-calculator {
-  .button {
+  button.button,
+  button.primary {
     cursor: pointer;
     z-index: 2;
+    min-width: var(--spacing-xxl-l-alt);
+    min-height: var(--spacing-l-l);
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-s);
+  }
+
+  button.button {
+    border: none;
   }
 
   .container {
@@ -27,6 +36,16 @@
       border-radius: var(--spacing-xs);
       margin: var(--spacing-s) auto;
       color: var(--color-black);
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--color-black);
+      }
 
       .view-search {
         display: grid;
@@ -351,6 +370,12 @@
                 width: 30%;
               }
             }
+          }
+        }
+
+        .result-view-action-btn {
+          .btn-contact-oly {
+            margin-right: var(--spacing-m);
           }
         }
       }

@@ -6,7 +6,6 @@ export default async function getCalculatorResult(
   annualSalary,
   fuelTypeID,
 ) {
-  debugger;
   var input = {
     brandId: 9,
     effectiveDate: new Date(),
