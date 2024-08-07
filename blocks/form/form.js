@@ -113,7 +113,7 @@ async function handleSubmit(form) {
     payload['g-recaptcha-response'] = recaptchaResponse;
 
     switch (formType) {
-      case 'request-callback':
+      case 'get-quote':
         await requestCallbackSubmission(form, payload);
         break;
       default:

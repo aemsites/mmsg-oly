@@ -65,7 +65,6 @@ export default async function requestCallbackSubmission(form, payload) {
 
   // const payload = getFormInputs([...form.elements]);
   getFormInputs([...form.elements]);
-
   const fetchOptions = {
     method: 'POST',
     headers: {
