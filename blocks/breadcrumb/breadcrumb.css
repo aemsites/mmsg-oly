@@ -18,6 +18,7 @@
   font-size: var(--font-size-xs-alt);
   gap: 2px;
   line-height: 1.5rem;
+  font-weight: 400;
 }
 
 .breadcrumbs a {
@@ -25,6 +26,7 @@
   color: var(--color-grey);
   font-size: var(--font-size-xs-alt);
   border-bottom: 1px solid var(--color-grey);
+  font-weight: 400;
 }
 
 .breadcrumbs li::after {
