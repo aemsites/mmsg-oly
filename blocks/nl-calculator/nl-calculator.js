@@ -65,6 +65,7 @@ export default async function decorate(block) {
   block.textContent = '';
   const el_calcContainer = document.createElement('div');
   el_calcContainer.className = 'container';
+  el_calcContainer.id = 'nl-calculator-container';
 
   [...visAPIUrl.children].forEach((item) => {
     [...item.children].forEach((el, index) => {
@@ -375,6 +376,7 @@ export default async function decorate(block) {
     if (typeof el_calcResultView !== 'undefined' && el_calcResultView != null) el_calcResultView.style.display = 'none';
 
     el_calcSearchView.style.display = 'grid';
+    window.location.href = '#nl-calculator-container';
   });
   el_calcBackToSearch.append(el_linkToSearch);
   el_calcContainer.append(el_calcBackToSearch);
@@ -489,7 +491,7 @@ async function BuildUIOnVehicleSelection(
   const slctMake = document.getElementById(formFields[1].name);
   const slctModel = document.getElementById(formFields[2].name);
 
-  carMakeModel.innerText = `${year} ${vehicleName}`;
+  carMakeModel.innerText = `${vehicleName}`;
   carDetail.append(carMakeModel);
 
   // Refresh the variant list on vehicle selection/search
@@ -1388,11 +1390,13 @@ async function BuildUIOnVehicleSelection(
       el_calcResultView.append(el_resultviewTermsConditionsWrapper);
 
       el_calcViews.append(el_calcResultView);
+      window.location.href = '#nl-calculator-container';
     });
 
     el_calcAboutYouView.append(el_btnShowResult);
 
     el_calcViews.append(el_calcAboutYouView);
+    window.location.href = '#nl-calculator-container';
   });
   el_calcCarView.append(el_btnNext);
   el_calcViews.append(el_calcCarView);
