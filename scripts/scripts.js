@@ -18,12 +18,11 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 // get the config for adobe launch scripts
 const { currentEnv: { analytics: { launchUrl } } } = getConfig();
 
-(function preconnectLaunch() {
+(function preloadLaunch() {
   const link = document.createElement('link');
-  link.rel = 'preconnect';
-  link.href = "https://assets.adobedtm.com";
+  link.rel = 'preload';
+  link.href = launchUrl;
   link.crossOrigin = 'anonymous';
-  link.async = true;
   document.head.appendChild(link);
 }());
 
