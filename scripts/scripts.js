@@ -193,6 +193,7 @@ function loadScript(url, type, callback) {
   if (!script) {
     script = document.createElement('script');
     script.src = url;
+    script.async = true;
     if (type) script.setAttribute('type', type);
     head.append(script);
     script.onload = callback;
