@@ -1,4 +1,4 @@
-import { CONTACTUS_SUCCESS_MESSAGE, getFormInputs, errorResponseHandler } from './helper.js';
+import { CONTACTUS_SUCCESS_MESSAGE, errorResponseHandler } from './helper.js';
 
 function requestCallbackPayload(payload) {
   // const transformedObject = {
@@ -64,7 +64,8 @@ export default async function requestCallbackSubmission(form, payload) {
   const apiUrl = 'https://110267-mmsgtest-stage.adobeioruntime.net/api/v1/web/mmsg_test/RequestACall';
 
   // const payload = getFormInputs([...form.elements]);
-  getFormInputs([...form.elements]);
+  // getFormInputs([...form.elements]);
+  console.log('payload', payload);
   const fetchOptions = {
     method: 'POST',
     headers: {
