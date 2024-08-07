@@ -378,6 +378,16 @@
             margin-right: var(--spacing-m);
           }
         }
+
+        .form-contact-oly {
+          .container {
+            background: var(--bg-color-light-beige);
+            padding: var(--spacing-m);
+            display: grid;
+            grid-template-columns: 50% 50%;
+            border-radius: 0;
+          }
+        }
       }
     }
 

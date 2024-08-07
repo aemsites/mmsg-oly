@@ -268,6 +268,7 @@ export default async function decorate(block) {
       resultsViewActionItems,
       resultsViewDisclaimer,
       resultsViewTermsConditions,
+      contactOlyDescription,
       el_break,
     );
   });
@@ -324,6 +325,7 @@ export default async function decorate(block) {
                 aboutViewDescription,
                 el_calcResultView,
                 resultsViewDescription,
+                contactOlyDescription,
                 el_break,
               );
             });
@@ -429,6 +431,7 @@ async function BuildUIOnVehicleSelection(
   resultsViewActionItems,
   resultsViewDisclaimer,
   resultsViewTermsConditions,
+  contactOlyDescription,
   el_break,
 ) {
   const el_viewCar = document.getElementById('view-car');
@@ -1255,6 +1258,29 @@ async function BuildUIOnVehicleSelection(
       });
 
       el_calcResultView.append(el_resultviewActionButtonsWrapper);
+
+      const el_formContactOly = document.createElement('div');
+      el_formContactOly.className = 'form-contact-oly';
+
+      const el_formContactOlyWrapper = document.createElement('div');
+      el_formContactOlyWrapper.className = 'container';
+
+      const el_formContactOlyWrapperCol1 = document.createElement('div');
+      el_formContactOlyWrapperCol1.className = 'col';
+
+      const el_formContactOlyWrapperCol2 = document.createElement('div');
+      el_formContactOlyWrapperCol2.className = 'col';
+
+      [...contactOlyDescription.children].forEach((item) => {
+        [...item.children].forEach((el) => {
+          el_formContactOlyWrapperCol1.append(el);
+        });
+      });
+
+      el_formContactOlyWrapper.append(el_formContactOlyWrapperCol1);
+      el_formContactOlyWrapper.append(el_formContactOlyWrapperCol2);
+      el_formContactOly.append(el_formContactOlyWrapper);
+      el_calcResultView.append(el_formContactOly);
 
       // Build the result view UI disclaimer
       const el_resultviewDisclaimerWrapper = document.createElement('div');
