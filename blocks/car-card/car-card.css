@@ -177,6 +177,14 @@
   .recently-viewed-cards-wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .section.car-card-container.two-cards {
+    .car-cards-wrapper,
+    .wishlist-cards-wrapper,
+    .recently-viewed-cards-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 /* wishlist-add heart animation */
