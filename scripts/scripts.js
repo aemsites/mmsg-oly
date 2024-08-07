@@ -15,6 +15,9 @@ import { getConfig } from './config.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
+// get the config for adobe launch scripts
+const { currentEnv: { analytics: { launchUrl } } } = getConfig();
+
 /**
  * Moves all the attributes from a given elmenet to another given element.
  * @param {Element} from the element to copy attributes from
@@ -174,3 +177,21 @@ async function loadPage() {
 }
 
 loadPage();
+
+// function to load the given launch script url
+function loadScript(url, type, callback) {
+  const head = document.querySelector('head');
+  let script = head.querySelector(`script[src="${url}"]`);
+  if (!script) {
+    script = document.createElement('script');
+    script.src = url;
+    if (type) script.setAttribute('type', type);
+    head.append(script);
+    script.onload = callback;
+    return script;
+  }
+  return script;
+}
+
+// load adobe launch
+loadScript(launchUrl);
