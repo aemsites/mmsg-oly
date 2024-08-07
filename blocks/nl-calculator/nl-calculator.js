@@ -47,8 +47,11 @@ export default async function decorate(block) {
     maxxiaCalcsAPIKey,
     contactOlyAPIUrl,
     contactOlyAPIKey,
-    contactOlyDisclaimer,
+    contactOlyFormImage,
   ] = block.children;
+
+  sessionStorage.setItem('contactOlyFormImage', contactOlyFormImage);
+  sessionStorage.setItem('contactOlyDescription', contactOlyDescription);
 
   titleDescription.className = 'form-heading';
   formLabels.className = 'form-label-container';
@@ -243,7 +246,7 @@ export default async function decorate(block) {
     const slctMake = document.getElementById(formFields[1].name);
     const slctModel = document.getElementById(formFields[2].name);
 
-    BuildUIOnVehicleSelection(
+    await BuildUIOnVehicleSelection(
       slctYear.value,
       `${slctYear.options[slctYear.selectedIndex].text} ${slctMake.options[slctMake.selectedIndex].text} ${slctModel.options[slctModel.selectedIndex].text}`,
       slctMake.value,
@@ -270,6 +273,7 @@ export default async function decorate(block) {
       resultsViewTermsConditions,
       contactOlyDescription,
       contactOlyFormLabels,
+      contactOlyFormImage,
       el_break,
     );
   });
@@ -303,8 +307,8 @@ export default async function decorate(block) {
             const hotDealItem = document.createElement('div');
             hotDealItem.className = 'hot-deal-item';
             hotDealItem.innerText = textVehicleArray[0];
-            hotDealItem.addEventListener('click', () => {
-              BuildUIOnVehicleSelection(
+            hotDealItem.addEventListener('click', async () => {
+              await BuildUIOnVehicleSelection(
                 currentYear,
                 textVehicleArray[0],
                 textVehicleArray[1],
@@ -326,8 +330,12 @@ export default async function decorate(block) {
                 aboutViewDescription,
                 el_calcResultView,
                 resultsViewDescription,
+                resultsViewActionItems,
+                resultsViewDisclaimer,
+                resultsViewTermsConditions,
                 contactOlyDescription,
                 contactOlyFormLabels,
+                contactOlyFormImage,
                 el_break,
               );
             });
@@ -435,6 +443,7 @@ async function BuildUIOnVehicleSelection(
   resultsViewTermsConditions,
   contactOlyDescription,
   contactOlyFormLabels,
+  contactOlyFormImage,
   el_break,
 ) {
   const el_viewCar = document.getElementById('view-car');
@@ -1237,33 +1246,9 @@ async function BuildUIOnVehicleSelection(
       el_calcResultDetailWrapper.append(el_calcResultDetailCol2);
       el_calcResultView.append(el_calcResultDetailWrapper);
 
-      // Build the result view UI action buttons
-      const el_resultviewActionButtonsWrapper = document.createElement('div');
-      el_resultviewActionButtonsWrapper.className = 'result-view-action-btn';
-      [...resultsViewActionItems.children].forEach((item) => {
-        [...item.children].forEach((el, index) => {
-          if (index === 0) {
-            const el_btnContactOly = document.createElement('button');
-            el_btnContactOly.className = 'btn-contact-oly';
-            el_btnContactOly.classList.add('button');
-            el_btnContactOly.innerText = el.innerText;
-            el_resultviewActionButtonsWrapper.append(el_btnContactOly);
-          } else if (index === 1) {
-            const el_btnDownload = document.createElement('button');
-            el_btnDownload.className = 'btn-download';
-            el_btnDownload.classList.add('primary');
-            el_btnDownload.innerText = el.innerText;
-            el_resultviewActionButtonsWrapper.append(el_btnDownload);
-          } else {
-            el_resultviewActionButtonsWrapper.append(el);
-          }
-        });
-      });
-
-      el_calcResultView.append(el_resultviewActionButtonsWrapper);
-
       const el_formContactOly = document.createElement('div');
       el_formContactOly.className = 'form-contact-oly';
+      el_formContactOly.style.display = 'none';
 
       const el_formContactOlyWrapper = document.createElement('div');
       el_formContactOlyWrapper.className = 'container';
@@ -1274,26 +1259,106 @@ async function BuildUIOnVehicleSelection(
       const el_formContactOlyWrapperCol2 = document.createElement('div');
       el_formContactOlyWrapperCol2.className = 'col';
 
-      [...contactOlyDescription.children].forEach((item) => {
-        [...item.children].forEach((el) => {
-          el_formContactOlyWrapperCol1.append(el);
+      if (contactOlyDescription != null && contactOlyDescription != 'undefined') {
+        [...contactOlyDescription.children].forEach((item) => {
+          [...item.children].forEach((el) => {
+            el_formContactOlyWrapperCol1.append(el);
+          });
         });
-      });
+      }
+
+      if (contactOlyFormImage != null && contactOlyFormImage != 'undefined') {
+        [...contactOlyFormImage.children].forEach(async (item) => {
+          [...item.children].forEach((el) => {
+            el_formContactOlyWrapperCol1.append(el);
+          });
+        });
+      }
 
       el_formContactOlyWrapper.append(el_formContactOlyWrapperCol1);
       el_formContactOlyWrapper.append(el_formContactOlyWrapperCol2);
       el_formContactOly.append(el_formContactOlyWrapper);
+
+      // Build the result view UI action buttons
+      const el_resultviewActionButtonsWrapper = document.createElement('div');
+      el_resultviewActionButtonsWrapper.className = 'result-view-action-btn';
+      [...resultsViewActionItems.children].forEach((item) => {
+        [...item.children].forEach((el, index) => {
+          if (index === 0) {
+            const el_btnContactOly = document.createElement('button');
+            el_btnContactOly.className = 'btn-contact-oly';
+            el_btnContactOly.classList.add('button');
+            el_btnContactOly.innerText = el.innerText;
+            el_btnContactOly.addEventListener('click', () => {
+              el_formContactOly.style.display = 'block';
+            });
+            el_resultviewActionButtonsWrapper.append(el_btnContactOly);
+          } else if (index === 1) {
+            const el_btnDownload = document.createElement('button');
+            el_btnDownload.className = 'btn-download';
+            el_btnDownload.classList.add('primary');
+            el_btnDownload.innerText = el.innerText;
+            el_btnDownload.addEventListener('click', () => {
+              el_formContactOly.style.display = 'block';
+            });
+            el_resultviewActionButtonsWrapper.append(el_btnDownload);
+          } else {
+            el_resultviewActionButtonsWrapper.append(el);
+          }
+        });
+      });
+
+      el_calcResultView.append(el_resultviewActionButtonsWrapper);
 
       // Build Contact Oly Form
 
       const el_formContact = document.createElement('div');
       el_formContact.className = 'form';
 
-      [...contactOlyFormLabels.children].forEach((item) => {
-        [...item.children].forEach((el) => {
-          el_formContact.append(el);
+      const contactOlyForm_Element_Names = [];
+
+      if (contactOlyFormLabels != null && contactOlyFormLabels != 'undefined') {
+        [...contactOlyFormLabels.children].forEach((item) => {
+          [...item.children].forEach(async (el, index) => {
+            if (el.innerText != '' && el.innerText.includes('__')) {
+              const form_el_Array = el.innerText.split('__');
+              if (form_el_Array != null && form_el_Array.length > 1) {
+                contactOlyForm_Element_Names.push(form_el_Array[0].split(' ').join(''));
+                if (form_el_Array[1].toLowerCase() === 'number') {
+                  const ctrl = await GetFormInputNumberElement(form_el_Array[0].split(' ').join(''), form_el_Array[0]);
+                  el_formContact.append(ctrl);
+                } else if (form_el_Array[1].toLowerCase() === 'dropdown') {
+                  const options = form_el_Array.length > 2 ? form_el_Array[2].split(';') : [];
+                  const ctrl = await GetFormSelectElement(
+                    form_el_Array[0].split(' ').join(''),
+                    form_el_Array[0],
+                    options,
+                  );
+                  el_formContact.append(ctrl);
+                } else if (form_el_Array[1].toLowerCase() === 'textarea') {
+                  const ctrl = await GetFormTextAreaElement(form_el_Array[0].split(' ').join(''), form_el_Array[0]);
+                  el_formContact.append(ctrl);
+                } else if (form_el_Array[1].toLowerCase() === 'disclaimer') {
+                  const ctrl = await document.createElement('p');
+                  ctrl.className = 'disclaimer';
+                  ctrl.innerText = form_el_Array[0];
+                  el_formContact.append(ctrl);
+                } else {
+                  const ctrl = await GetFormInputTextElement(form_el_Array[0].split(' ').join(''), form_el_Array[0]);
+                  el_formContact.append(ctrl);
+                }
+              }
+
+              if (index === item.children.length - 1) {
+                const el_btn_submit_formContactOly = await document.createElement('button');
+                el_btn_submit_formContactOly.className = 'button';
+                el_btn_submit_formContactOly.innerText = 'Submit the form';
+                el_formContact.append(el_btn_submit_formContactOly);
+              }
+            }
+          });
         });
-      });
+      }
 
       el_formContactOlyWrapperCol2.append(el_formContact);
 
@@ -1331,4 +1396,85 @@ async function BuildUIOnVehicleSelection(
   });
   el_calcCarView.append(el_btnNext);
   el_calcViews.append(el_calcCarView);
+}
+
+async function GetFormInputTextElement(name, label) {
+  const form_ctrl_el = document.createElement('div');
+  form_ctrl_el.className = 'form-ctrl';
+  const label_el = document.createElement('div');
+  label_el.className = 'label';
+  label_el.innerText = label;
+  const input_el = document.createElement('input');
+  input_el.setAttribute('type', 'text');
+  input_el.setAttribute('name', name);
+  const errorMsg_el = document.createElement('div');
+  errorMsg_el.className = 'error';
+  errorMsg_el.innerText = `Please enter the ${label}`;
+  errorMsg_el.style.display = 'none';
+  form_ctrl_el.append(label_el);
+  form_ctrl_el.append(input_el);
+  form_ctrl_el.append(errorMsg_el);
+  return form_ctrl_el;
+}
+
+async function GetFormInputNumberElement(name, label) {
+  const form_ctrl_el = document.createElement('div');
+  form_ctrl_el.className = 'form-ctrl';
+  const label_el = document.createElement('div');
+  label_el.className = 'label';
+  label_el.innerText = label;
+  const input_el = document.createElement('input');
+  input_el.setAttribute('type', 'number');
+  input_el.setAttribute('name', name);
+  const errorMsg_el = document.createElement('div');
+  errorMsg_el.className = 'error';
+  errorMsg_el.innerText = `Please enter the ${label}`;
+  errorMsg_el.style.display = 'none';
+  form_ctrl_el.append(label_el);
+  form_ctrl_el.append(input_el);
+  form_ctrl_el.append(errorMsg_el);
+  return form_ctrl_el;
+}
+
+async function GetFormTextAreaElement(name, label) {
+  const form_ctrl_el = document.createElement('div');
+  form_ctrl_el.className = 'form-ctrl';
+  const label_el = document.createElement('div');
+  label_el.className = 'label';
+  label_el.innerText = label;
+  const input_el = document.createElement('textarea');
+  input_el.setAttribute('maxlength', '500');
+  input_el.setAttribute('name', name);
+  const errorMsg_el = document.createElement('div');
+  errorMsg_el.className = 'error';
+  errorMsg_el.innerText = `Please enter the ${label}`;
+  errorMsg_el.style.display = 'none';
+  form_ctrl_el.append(label_el);
+  form_ctrl_el.append(input_el);
+  form_ctrl_el.append(errorMsg_el);
+  return form_ctrl_el;
+}
+
+async function GetFormSelectElement(name, label, options) {
+  const form_ctrl_el = document.createElement('div');
+  form_ctrl_el.className = 'form-ctrl';
+  const label_el = document.createElement('div');
+  label_el.className = 'label';
+  label_el.innerText = label;
+  const select_el = document.createElement('select');
+  select_el.setAttribute('name', name);
+  options.forEach((option) => {
+    const option_el = document.createElement('option');
+    option_el.setAttribute('value', option);
+    option_el.innerText = option;
+    select_el.append(option_el);
+  });
+  const errorMsg_el = document.createElement('div');
+  errorMsg_el.className = 'error';
+  errorMsg_el.innerText = `Please enter the ${label}`;
+  errorMsg_el.style.display = 'none';
+  form_ctrl_el.append(label_el);
+  form_ctrl_el.append(select_el);
+  form_ctrl_el.append(errorMsg_el);
+  return form_ctrl_el;
 }
