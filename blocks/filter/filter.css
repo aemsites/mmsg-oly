@@ -1,0 +1,132 @@
+.filter-block {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+select,
+input[type='number'] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.toggle-filters {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filters-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.filter-row {
+  margin-bottom: 20px;
+}
+
+.filter-column {
+  display: inline-block;
+  width: calc(50% - 10px);
+  margin-right: 20px;
+}
+
+.filter-column:last-child {
+  margin-right: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.price-range-container {
+  margin-top: 10px;
+}
+
+.range-slider {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  margin: 30px 0;
+}
+
+.range-slider input[type='range'] {
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  outline: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+.range-slider input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ff1261;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 1;
+  position: relative;
+}
+
+.range-slider input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ff1261;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 1;
+  position: relative;
+}
+
+.price-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.price-inputs > div {
+  width: calc(50% - 10px);
+}
+
+.apply-filters {
+  background-color: #ff1261;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.apply-filters:hover {
+  background-color: #e60f56;
+}
