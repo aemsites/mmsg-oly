@@ -23,6 +23,7 @@ const { currentEnv: { analytics: { launchUrl } } } = getConfig();
   link.rel = 'preconnect';
   link.href = "https://assets.adobedtm.com";
   link.crossOrigin = 'anonymous';
+  link.async = true;
   document.head.appendChild(link);
 }());
 
