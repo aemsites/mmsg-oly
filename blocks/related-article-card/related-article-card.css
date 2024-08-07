@@ -1,3 +1,13 @@
+.columns-3-cols {
+  margin-top: 12px;
+
+  > div > div > p {
+    border: 1px solid #80808047;
+    padding: 15px;
+    border-radius: 6px;
+  }
+}
+
 .related-article-card-wrapper .content {
   padding: 15px;
   display: flex;
@@ -26,4 +36,15 @@
 .related-article-card-container {
   display: flex;
   justify-content: space-between;
+
+  @media (width < 1024px) {
+    flex-direction: column;
+  }
+}
+
+.related-article-card-wrapper {
+  @media (width < 1024px) {
+    max-width: 90% !important;
+    margin: 3px !important;
+  }
 }
