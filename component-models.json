@@ -943,11 +943,11 @@
         "value": ""
       },
       {
-        "component": "richtext",
+        "component": "reference",
         "valueType": "string",
-        "name": "contactOlyDisclaimer",
-        "label": "Contact Oly Form Disclaimer",
-        "value": ""
+        "name": "contactOlyFormImage",
+        "label": "Contact Oly Form Image",
+        "multi": false
       }
     ]
   },
