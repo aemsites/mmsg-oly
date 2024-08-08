@@ -10,6 +10,7 @@
 
 .related-article-card-wrapper .content {
   padding: 15px;
+  border-radius: 9px;
   display: flex;
   align-items: start;
   flex-direction: column;
@@ -17,7 +18,7 @@
   text-align: left;
   background-color: #e6f2ef;
   height: 512px;
-  max-width: 216px;
+  width: 261px;
 
   h5 {
     color: #ff1261;
@@ -27,14 +28,27 @@
     height: 400px;
 
     > p:first-child {
-      height: 216px;
-      width: 216px;
+      display: flex;
+      justify-content: space-around;
+
+      > picture > img {
+        height: 216px;
+        width: 216px;
+        border-radius: 50%;
+      }
+      /* width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: blue; */
     }
   }
 }
 
 .related-article-card-container {
   display: flex;
+  max-width: 1232px;
+  margin: 0 auto;
   justify-content: space-between;
 
   @media (width < 1024px) {
@@ -47,4 +61,8 @@
     max-width: 90% !important;
     margin: 3px !important;
   }
+}
+
+.hero-image {
+  margin: 0 auto;
 }
