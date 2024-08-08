@@ -52,9 +52,8 @@ function requestCallbackResponse(form) {
   form.append(divElement);
 }
 
-function requestCallbackSubmitError(form, error) {
+function requestCallbackSubmitError(form) {
   // eslint-disable-next-line no-console
-  console.error(error);
   errorResponseHandler();
   form.querySelector('button[type="submit"]').disabled = false;
 }
@@ -66,7 +65,6 @@ export default async function requestCallbackSubmission(form, payload) {
 
   // const payload = getFormInputs([...form.elements]);
   // getFormInputs([...form.elements]);
-  console.log('payload', payload);
   const fetchOptions = {
     method: 'POST',
     headers: {

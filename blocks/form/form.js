@@ -72,7 +72,6 @@ function generatePayload(form) {
 }
 
 function handleSubmitError(form, error) {
-  console.error(error);
   form.querySelector('button[type="submit"]').disabled = false;
   sampleRUM('form:error', { source: '.form', target: error.stack || error.message || 'unknown error' });
 }
@@ -111,7 +110,6 @@ async function handleSubmit(form) {
     const formType = getFormType(form);
     const payload = generatePayload(form);
     payload['g-recaptcha-response'] = recaptchaResponse;
-    console.log('payload 1', payload);
 
     switch (formType) {
       case 'get-quote':
@@ -144,7 +142,9 @@ export default async function decorate(block) {
   formBlockDiv.id = 'recaptcha-container';
   form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
 
-  await loadRecaptcha();
+  setTimeout(async () => {
+    await loadRecaptcha();
+  }, 2000);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
