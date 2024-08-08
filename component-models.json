@@ -887,18 +887,313 @@
         "value": ""
       },
       {
-        "component": "text",
-        "valueType": "boolean",
+        "component": "select",
         "name": "isElectricFuelFilter",
-        "label": "Filter Calculator to only Electric vehicles",
-        "value": ""
-      },
-      {
-        "component": "text",
+        "value": "No",
+        "label": "Diplay only Electric vehicles",
         "valueType": "string",
+        "options":[
+        {
+            "value": "Yes",
+            "name": "Yes"
+        },
+        {
+            "value": "No",
+            "name": "No"
+        }
+      ]},
+      {
+        "component": "select",
         "name": "makeFilter",
+        "value": "ALL",
         "label": "Filter calculator to this Make",
-        "value": ""
+        "valueType": "string",
+        "options":[
+        {
+            "value": "ABA",
+            "name": "ABARTH"
+        },
+        {
+            "value": "ACV",
+            "name": "ACE EV"
+        },
+        {
+            "value": "ALF",
+            "name": "ALFA ROMEO"
+        },
+        {
+            "value": "ALP",
+            "name": "ALPINE"
+        },
+        {
+            "value": "AST",
+            "name": "ASTON MARTIN"
+        },
+        {
+            "value": "AUD",
+            "name": "AUDI"
+        },
+        {
+            "value": "BEN",
+            "name": "BENTLEY"
+        },
+        {
+            "value": "BMA",
+            "name": "BMW ALPINA"
+        },
+        {
+            "value": "BMW",
+            "name": "BMW"
+        },
+        {
+            "value": "BYD",
+            "name": "BYD"
+        },
+        {
+            "value": "CAT",
+            "name": "CATERHAM"
+        },
+        {
+            "value": "CHE",
+            "name": "CHEVROLET"
+        },
+        {
+            "value": "CHR",
+            "name": "CHRYSLER"
+        },
+        {
+            "value": "CHY",
+            "name": "CHERY"
+        },
+        {
+            "value": "CIT",
+            "name": "CITROEN"
+        },
+        {
+            "value": "CUP",
+            "name": "CUPRA"
+        },
+        {
+            "value": "DAF",
+            "name": "DAF"
+        },
+        {
+            "value": "FER",
+            "name": "FERRARI"
+        },
+        {
+            "value": "FIA",
+            "name": "FIAT"
+        },
+        {
+            "value": "FOR",
+            "name": "FORD"
+        },
+        {
+            "value": "FOT",
+            "name": "FOTON"
+        },
+        {
+            "value": "FUS",
+            "name": "FUSO"
+        },
+        {
+            "value": "GEN",
+            "name": "GENESIS"
+        },
+        {
+            "value": "GWA",
+            "name": "GWM"
+        },
+        {
+            "value": "HIN",
+            "name": "HINO"
+        },
+        {
+            "value": "HON",
+            "name": "HONDA"
+        },
+        {
+            "value": "HYT",
+            "name": "HYUNDAI TRUCKS"
+        },
+        {
+            "value": "HYU",
+            "name": "HYUNDAI"
+        },
+        {
+            "value": "INE",
+            "name": "INEOS"
+        },
+        {
+            "value": "INT",
+            "name": "INTERNATIONAL"
+        },
+        {
+            "value": "ISU",
+            "name": "ISUZU"
+        },
+        {
+            "value": "IVE",
+            "name": "IVECO"
+        },
+        {
+            "value": "JAC",
+            "name": "JAC"
+        },
+        {
+            "value": "JAG",
+            "name": "JAGUAR"
+        },
+        {
+            "value": "JEE",
+            "name": "JEEP"
+        },
+        {
+            "value": "JOL",
+            "name": "JOYLONG"
+        },
+        {
+            "value": "KIA",
+            "name": "KIA"
+        },
+        {
+            "value": "LAM",
+            "name": "LAMBORGHINI"
+        },
+        {
+            "value": "LDV",
+            "name": "LDV"
+        },
+        {
+            "value": "LEX",
+            "name": "LEXUS"
+        },
+        {
+            "value": "LOT",
+            "name": "LOTUS"
+        },
+        {
+            "value": "LRO",
+            "name": "LAND ROVER"
+        },
+        {
+            "value": "MAH",
+            "name": "MAHINDRA"
+        },
+        {
+            "value": "MAS",
+            "name": "MASERATI"
+        },
+        {
+            "value": "MAZ",
+            "name": "MAZDA"
+        },
+        {
+            "value": "MCL",
+            "name": "McLAREN"
+        },
+        {
+            "value": "MEA",
+            "name": "MERCEDES-AMG"
+        },
+        {
+            "value": "MEM",
+            "name": "MERCEDES-MAYBACH"
+        },
+        {
+            "value": "MER",
+            "name": "MERCEDES-BENZ"
+        },
+        {
+            "value": "MG-",
+            "name": "MG"
+        },
+        {
+            "value": "MIN",
+            "name": "MINI"
+        },
+        {
+            "value": "MIT",
+            "name": "MITSUBISHI"
+        },
+        {
+            "value": "NIS",
+            "name": "NISSAN"
+        },
+        {
+            "value": "PEU",
+            "name": "PEUGEOT"
+        },
+        {
+            "value": "POL",
+            "name": "POLESTAR"
+        },
+        {
+            "value": "POR",
+            "name": "PORSCHE"
+        },
+        {
+            "value": "RAT",
+            "name": "RAM"
+        },
+        {
+            "value": "REN",
+            "name": "RENAULT"
+        },
+        {
+            "value": "ROL",
+            "name": "ROLLS-ROYCE"
+        },
+        {
+            "value": "SKO",
+            "name": "SKODA"
+        },
+        {
+            "value": "SKY",
+            "name": "SKYWELL"
+        },
+        {
+            "value": "SMA",
+            "name": "SMART"
+        },
+        {
+            "value": "SSA",
+            "name": "SSANGYONG"
+        },
+        {
+            "value": "SUB",
+            "name": "SUBARU"
+        },
+        {
+            "value": "SUZ",
+            "name": "SUZUKI"
+        },
+        {
+            "value": "TES",
+            "name": "TESLA"
+        },
+        {
+            "value": "TOY",
+            "name": "TOYOTA"
+        },
+        {
+            "value": "VAU",
+            "name": "VAUXHALL"
+        },
+        {
+            "value": "VOL",
+            "name": "VOLVO"
+        },
+        {
+            "value": "VWN",
+            "name": "VOLKSWAGEN"
+        },
+	      {
+            "value": "ALL",
+            "name": "ALL"
+        }
+    ]
       },
       {
         "component": "text",
