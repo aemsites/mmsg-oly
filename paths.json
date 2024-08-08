@@ -8,10 +8,11 @@
     "/content/oly/metadata:/metadata.json",
     "/content/oly/placeholders:/placeholders.json",
     "/content/oly/au/en/forms/faqform:/faqform.json",
-    "/content/oly/au/en/forms/request-a-callback:/request-a-callback.json",
-    "/content/oly.resource/au/en/get-a-quote:/get-a-quote.json",
+    "/content/oly/au/en/request-a-callback:/request-a-callback.json",
+    "/content/oly/au/en/get-a-quote:/get-a-quote.json",
     "/content/oly/au/en/forms/car-offer:/car-offer.json",
     "/content/oly/au/en/forms/newsletter:/newsletter.json",
-    "/content/oly/au/en/forms/running-cost-calculator:/running-cost-calculator.json"
+    "/content/oly/au/en/forms/running-cost-calculator:/running-cost-calculator.json",
+    "/content/oly/headers:/.helix/headers.json"
   ]
 }

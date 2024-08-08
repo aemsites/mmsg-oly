@@ -4,16 +4,6 @@ indices:
   pages:
     include:
       - '/**'
-    exclude:
-      - '/footer'
-      - '/nav'
-      - '/fragments/**'
-      - '/**/fragments/**'
-      - '/**/includes'
-      - 'images/**'
-      - '/modals/**'
-      - '/**/modals/**'
-      - '/forms/**'
     target: /query-index.json
     properties:
       title:
@@ -65,6 +55,9 @@ indices:
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
+      carImage:
+        select: .thumbnail-car-wrapper picture img
+        value: attribute(el, "src")
       image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
@@ -80,40 +73,9 @@ indices:
       bodyType:
         select: head > meta[name="body-type"]
         value: match(attribute(el, "content"), ".*\/(.*)$")
-      brand:
-        select: head > meta[name="brand"]
-        value: match(attribute(el, "content"), ".*\/(.*)$")
       modifiedTime:
         select: head > meta[name="modified-time"]
         value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DDTHH:mm:ss.SSSZ")
       fuelType:
         select: head > meta[name="fuel-type"]
         value: match(attribute(el, "content"), ".*\/(.*)$")
-  
-  articles:
-    include:
-      - '/articles/**'
-      - '/learn/**'
-    target: /articles-index.json
-    properties:
-      title:
-        select: main h1
-        value: textContent(el)
-      navTitle:
-        select: head > meta[property="og:title"]
-        value: attribute(el, "content")
-      description:
-        select: head > meta[name="description"]
-        value: attribute(el, "content")
-      image:
-        select: head > meta[property="og:image"]
-        value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
-      publishDate:
-        select: head > meta[name="published-time"]
-        value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
-      pageType:
-        select: head > meta[name="cq-tags"]
-        value: attribute(el, "content")
-      modifiedTime:
-        select: head > meta[name="modified-time"]
-        value: attribute(el, "content")
