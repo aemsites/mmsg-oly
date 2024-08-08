@@ -62,7 +62,7 @@ export default async function decorate(block) {
   const formAboutYouFieldsLabels = [];
   const formAboutYouFieldDescription = [];
 
-  let filterMakeCode = 'NA';
+  let filterMakeCode = 'ALL';
 
   block.textContent = '';
   const el_calcContainer = document.createElement('div');
@@ -148,11 +148,11 @@ export default async function decorate(block) {
   const responseMakes = await getMakes(currentYear);
   let responseModels = await getModels(
     currentYear,
-    filterMakeCode != '' && filterMakeCode !== 'NA' ? filterMakeCode : responseMakes.Table[0].code,
+    filterMakeCode != '' && filterMakeCode !== 'ALL' ? filterMakeCode : responseMakes.Table[0].code,
   );
   let responseVehicleList = await getAutoDetailOnMakeModel(
     currentYear,
-    filterMakeCode != '' && filterMakeCode !== 'NA' ? filterMakeCode : responseMakes.Table[0].code,
+    filterMakeCode != '' && filterMakeCode !== 'ALL' ? filterMakeCode : responseMakes.Table[0].code,
     responseModels.Table[0].Code,
   );
 
@@ -191,7 +191,7 @@ export default async function decorate(block) {
 
         select.addEventListener('change', async (e) => {
           e.preventDefault();
-          if (filterMakeCode != '' && filterMakeCode !== 'NA') {
+          if (filterMakeCode != '' && filterMakeCode !== 'ALL') {
             const selectMake = document.getElementById(formFields[1].name);
             selectMake.innerHTML = '';
             const option = document.createElement('option');
@@ -212,7 +212,7 @@ export default async function decorate(block) {
           }
         });
       } else if (formFields[formFieldIndex].name === 'formLabel_Make') {
-        if (filterMakeCode != '' && filterMakeCode !== 'NA') {
+        if (filterMakeCode != '' && filterMakeCode !== 'ALL') {
           const option = document.createElement('option');
           option.setAttribute('value', filterMakeCode);
           option.innerText = filterMakeCode;
