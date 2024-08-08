@@ -60,6 +60,9 @@
   @media (width < 1024px) {
     max-width: 90% !important;
     margin: 3px !important;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 
