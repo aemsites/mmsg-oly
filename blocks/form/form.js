@@ -117,6 +117,9 @@ async function handleSubmit(form) {
       case 'get-quote':
         await requestCallbackSubmission(form, payload);
         break;
+      case 'request-callback':
+        await requestCallbackSubmission(form, payload);
+        break;
       default:
         await genericSubmission(form, payload);
         break;
