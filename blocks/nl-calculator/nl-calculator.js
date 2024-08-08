@@ -62,10 +62,18 @@ export default async function decorate(block) {
   const formAboutYouFieldsLabels = [];
   const formAboutYouFieldDescription = [];
 
+  let filterMakeCode = 'NA';
+
   block.textContent = '';
   const el_calcContainer = document.createElement('div');
   el_calcContainer.className = 'container';
   el_calcContainer.id = 'nl-calculator-container';
+
+  [...makeFilter.children].forEach((item) => {
+    [...item.children].forEach((el) => {
+      filterMakeCode = el.innerText;
+    });
+  });
 
   [...visAPIUrl.children].forEach((item) => {
     [...item.children].forEach((el, index) => {
@@ -138,10 +146,13 @@ export default async function decorate(block) {
 
   let formFieldIndex = 0;
   const responseMakes = await getMakes(currentYear);
-  let responseModels = await getModels(currentYear, responseMakes.Table[0].code);
+  let responseModels = await getModels(
+    currentYear,
+    filterMakeCode != '' && filterMakeCode !== 'NA' ? filterMakeCode : responseMakes.Table[0].code,
+  );
   let responseVehicleList = await getAutoDetailOnMakeModel(
     currentYear,
-    responseMakes.Table[0].code,
+    filterMakeCode != '' && filterMakeCode !== 'NA' ? filterMakeCode : responseMakes.Table[0].code,
     responseModels.Table[0].Code,
   );
 
@@ -180,23 +191,40 @@ export default async function decorate(block) {
 
         select.addEventListener('change', async (e) => {
           e.preventDefault();
-          responseMakes = await getMakes(select.value);
-          const selectMake = document.getElementById(formFields[1].name);
-          selectMake.innerHTML = '';
+          if (filterMakeCode != '' && filterMakeCode !== 'NA') {
+            const selectMake = document.getElementById(formFields[1].name);
+            selectMake.innerHTML = '';
+            const option = document.createElement('option');
+            option.setAttribute('value', filterMakeCode);
+            option.innerText = filterMakeCode;
+            selectMake.append(option);
+          } else {
+            responseMakes = await getMakes(select.value);
+
+            const selectMake = document.getElementById(formFields[1].name);
+            selectMake.innerHTML = '';
+            responseMakes.Table.forEach((make) => {
+              const option = document.createElement('option');
+              option.setAttribute('value', make.code);
+              option.innerText = make.name;
+              selectMake.append(option);
+            });
+          }
+        });
+      } else if (formFields[formFieldIndex].name === 'formLabel_Make') {
+        if (filterMakeCode != '' && filterMakeCode !== 'NA') {
+          const option = document.createElement('option');
+          option.setAttribute('value', filterMakeCode);
+          option.innerText = filterMakeCode;
+          select.append(option);
+        } else {
           responseMakes.Table.forEach((make) => {
             const option = document.createElement('option');
             option.setAttribute('value', make.code);
             option.innerText = make.name;
-            selectMake.append(option);
+            select.append(option);
           });
-        });
-      } else if (formFields[formFieldIndex].name === 'formLabel_Make') {
-        responseMakes.Table.forEach((make) => {
-          const option = document.createElement('option');
-          option.setAttribute('value', make.code);
-          option.innerText = make.name;
-          select.append(option);
-        });
+        }
 
         select.addEventListener('change', async (e) => {
           e.preventDefault();
