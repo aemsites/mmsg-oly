@@ -7,7 +7,7 @@ export default function decorate(block) {
         <h2>Current offers</h2>
         <div class="filter-controls">
           <div class="sort-by">
-            <label class="filter-label" for="sort">Sort by</label>
+            <label class="filter-label" for="sort">Sort by...</label>
             <select id="sort" class="filter-select">
               <option value="">Please select</option>
               <option value="price-low-high">Price: Low to High</option>
@@ -15,7 +15,7 @@ export default function decorate(block) {
               <option value="newest">Newest First</option>
             </select>
           </div>
-          <button class="toggle-filters button secondary" aria-expanded="false" aria-controls="filter-container">
+          <button class="toggle-filters button secondary" aria-expanded="false" aria-controls="filter-container-block">
             <span class="toggle-filters-text">Show filters</span>
             <img class="toggle-filters-icon" height="24" width="24" src="../../icons/filter.svg" alt="filter icon">
           </button>
@@ -24,7 +24,7 @@ export default function decorate(block) {
       
       <div class="applied-filters" aria-live="polite"></div>
       
-      <div id="filter-container" class="filter-container" style="display: none;">
+      <div id="filter-container-block" class="filter-container-block hidden">
         <h3 class="filter-h3">Filters</h3>
         <div class="filter-row filter-row-twocol">
           <div class="filter-column">
@@ -72,7 +72,7 @@ export default function decorate(block) {
   `;
 
   const toggleFilters = block.querySelector('.toggle-filters');
-  const filtersContainer = block.querySelector('.filter-container');
+  const filtersContainer = block.querySelector('.filter-container-block');
   const appliedFiltersContainer = block.querySelector('.applied-filters');
   const priceRangeMin = block.querySelector('#filter-pricerange-min');
   const priceRangeMax = block.querySelector('#filter-pricerange-max');
@@ -189,8 +189,9 @@ export default function decorate(block) {
 
   // Event Listeners
   toggleFilters.addEventListener('click', () => {
-    const isHidden = filtersContainer.style.display === 'none';
-    filtersContainer.style.display = isHidden ? 'block' : 'none';
+    const isHidden = filtersContainer.classList.contains('hidden');
+    filtersContainer.classList.toggle('hidden', !isHidden);
+    filtersContainer.classList.toggle('show', isHidden);
     toggleFilters.querySelector('.toggle-filters-text').textContent = isHidden ? 'Hide filters' : 'Show filters';
     toggleFilters.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
   });

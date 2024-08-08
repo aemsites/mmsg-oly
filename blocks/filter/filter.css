@@ -1,6 +1,5 @@
 .filter-block {
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px auto;
 }
 
 .filter-h3 {
@@ -11,8 +10,14 @@
 .filter-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
+}
+
+@media (width < 768px) {
+  .filter-header {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .filter-controls {
@@ -20,10 +25,25 @@
   gap: 10px;
 }
 
+@media (width < 768px) {
+  .filter-controls {
+    flex-direction: column;
+  }
+}
+
 .sort-by {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (width < 768px) {
+  .sort-by {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    width: 100%;
+  }
 }
 
 /* stylelint-disable property-no-vendor-prefix */
@@ -74,10 +94,27 @@ button.secondary.toggle-filters:hover {
   max-width: 14px;
 }
 
-.filter-container {
+.filter-container-block {
   padding: 20px 40px;
   border-radius: 16px;
   border: 1px solid #dee2e6;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .filter-container-block {
+    transition: max-height 0.15s ease-in-out;
+  }
+}
+
+.filter-container-block.show {
+  max-height: 600px;
+}
+
+.filter-container-block.hidden {
+  max-height: 0;
+  padding: 0;
+  border: 0;
 }
 
 .filter-row {
@@ -188,4 +225,51 @@ label {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.applied-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-pink);
+  border-radius: 46px;
+  padding: 4px 12px 4px 22px;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--color-white);
+}
+
+.filter-tag .remove-filter {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 40px;
+  color: var(--color-white);
+  font-size: 14px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.filter-tag .remove-filter:hover {
+  background-color: var(--color-white);
+  color: var(--color-pink);
+}
+
+.filter-tag .remove-filter:focus {
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: 1px;
 }
