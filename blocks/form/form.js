@@ -15,7 +15,8 @@ async function loadRecaptcha() {
   });
 }
 
-window.onloadCallback = function onloadCallback() {
+/* eslint-disable-next-line func-names */
+window.onloadCallback = function () {
   // eslint-disable-next-line
   grecaptcha.render('recaptcha-container', {
     sitekey: googleRecaptchaKey,
