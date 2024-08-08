@@ -313,3 +313,8 @@
     }
   }
 }
+
+.form .field-wrapper.message-wrapper {
+  margin: 0;
+  align-items: start;
+}
