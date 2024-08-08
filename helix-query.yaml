@@ -27,3 +27,52 @@ indices:
       modifiedTime:
         select: head > meta[name="modified-time"]
         value: attribute(el, "content")
+
+  offers:
+    include:
+      - '/vehicle-offers/**'
+      - '/shop-cars/**'
+    target: /offers-index.json
+    properties:
+      title:
+        select: main .thumbnail-car h3
+        value: textContent(el)
+      summary:
+        select: main .hero.offerpage div:nth-child(2) > div p:nth-child(3)
+        value: textContent(el)
+      priceFrom:
+        select: main .hero.offerpage h2
+        value: textContent(el)
+      price:
+        select: main .car-details h1
+        value: textContent(el)
+      navTitle:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      brand:
+        select: head > meta[property="page:brand"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
+      publishDate:
+        select: head > meta[name="published-time"]
+        value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
+      pricing:
+        select: head > meta[name="pricing"]
+        value: match(attribute(el, "content"), ".*\/(.*)$")
+      priceRange:
+        select: head > meta[name="price-range"]
+        value: match(attribute(el, "content"), ".*\/(.*)$")
+      bodyType:
+        select: head > meta[name="body-type"]
+        value: match(attribute(el, "content"), ".*\/(.*)$")
+      modifiedTime:
+        select: head > meta[name="modified-time"]
+        value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DDTHH:mm:ss.SSSZ")
+      fuelType:
+        select: head > meta[name="fuel-type"]
+        value: match(attribute(el, "content"), ".*\/(.*)$")
