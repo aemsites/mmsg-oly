@@ -413,6 +413,7 @@
                   border-radius: var(--spacing-xxxxs);
                   border: 1px solid #000;
                   max-height: var(--spacing-l-alt);
+                  width: 100%;
                   box-sizing: border-box;
                   cursor: pointer;
                 }
