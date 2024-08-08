@@ -250,7 +250,7 @@
     min-height: 620px;
 
     @media (width >= 1024px) {
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
       padding: var(--spacing-l);
       gap: var(--spacing-m) var(--spacing-l);
     }
@@ -317,4 +317,14 @@
 .form .field-wrapper.message-wrapper {
   margin: 0;
   align-items: start;
+}
+
+.form input::-webkit-outer-spin-button,
+.form input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.form input[type='number'] {
+  appearance: textfield;
 }
