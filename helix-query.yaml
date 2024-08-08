@@ -80,9 +80,6 @@ indices:
       bodyType:
         select: head > meta[name="body-type"]
         value: match(attribute(el, "content"), ".*\/(.*)$")
-      brand:
-        select: head > meta[name="brand"]
-        value: match(attribute(el, "content"), ".*\/(.*)$")
       modifiedTime:
         select: head > meta[name="modified-time"]
         value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DDTHH:mm:ss.SSSZ")
