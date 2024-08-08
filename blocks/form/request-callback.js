@@ -48,7 +48,8 @@ function requestCallbackResponse(form) {
   paragraph.classList.add('success');
   paragraph.textContent = CONTACTUS_SUCCESS_MESSAGE;
   divElement.appendChild(paragraph);
-  form.innerHTML = divElement;
+  form.innerHTML = '';
+  form.append(divElement);
 }
 
 function requestCallbackSubmitError(form, error) {
