@@ -49,7 +49,7 @@ export function createBasicCarDetailContainer(cardObj) {
     </div>
   `;
 }
-// check for which component the card is being built
+
 export function buildCardTemplate(cardObj) {
   const basicCarDetailContainer = createBasicCarDetailContainer(cardObj);
   const priceContainer = cardObj?.price ? getPriceContainer(cardObj) : '';
@@ -86,4 +86,30 @@ export function handleHeartClick(event) {
 
   const updatedWishlist = WishlistManager.updateWishlist(offerId);
   WishlistManager.updateHeartIcon(heartIcon, updatedWishlist.includes(offerId));
+}
+
+export function filterCars(cars, filters) {
+  return cars
+    .filter((car) => {
+      const priceMatch =
+        parseFloat(car.price.replace('$', '').replace(',', '')) >= filters.minPrice &&
+        parseFloat(car.price.replace('$', '').replace(',', '')) <= filters.maxPrice;
+      const brandMatch = !filters.brand || car.modelName.toLowerCase().includes(filters.brand.toLowerCase());
+      const bodyTypeMatch = !filters.bodyType || car.type.toLowerCase() === filters.bodyType.toLowerCase();
+      return priceMatch && brandMatch && bodyTypeMatch;
+    })
+    .sort((a, b) => {
+      const priceA = parseFloat(a.price.replace('$', '').replace(',', ''));
+      const priceB = parseFloat(b.price.replace('$', '').replace(',', ''));
+      if (filters.sort === 'price-low-high') {
+        return priceA - priceB;
+      }
+      if (filters.sort === 'price-high-low') {
+        return priceB - priceA;
+      }
+      if (filters.sort === 'newest') {
+        return b.year - a.year;
+      }
+      return 0;
+    });
 }

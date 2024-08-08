@@ -19,10 +19,24 @@ function initializeHeartIcons() {
 
 export default function decorate(block) {
   if (!myJsonObject.length) return;
-  const result = buildCards(myJsonObject);
-  block.append(result);
 
-  initializeHeartIcons();
+  // Store the original data globally for filtering
+  window.carData = myJsonObject;
+
+  const renderCards = (data) => {
+    const result = buildCards(data);
+    block.innerHTML = ''; // Clear existing cards
+    block.append(result);
+    initializeHeartIcons();
+  };
+
+  renderCards(myJsonObject);
+
   block.addEventListener('click', handleHeartClick);
   WishlistManager.updateWishlistCountWithRetry();
+
+  // Listen for the filtersApplied event
+  document.addEventListener('filtersApplied', (event) => {
+    renderCards(event.detail);
+  });
 }
