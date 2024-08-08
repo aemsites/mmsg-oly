@@ -29,6 +29,16 @@ function loadScript(url, type, callback) {
   return script;
 }
 
+export async function loadRecaptcha() {
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+    script.async = true;
+    script.defer = true;
+    script.onload = resolve;
+    document.head.appendChild(script);
+  });
+}
 
 // load adobe launch
 loadScript(launchUrl);

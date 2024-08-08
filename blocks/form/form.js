@@ -1,19 +1,9 @@
 import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
+import { loadRecaptcha } from '../../scripts/delayed.js';
 
 const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
-
-async function loadRecaptcha() {
-  return new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
-    script.async = true;
-    script.defer = true;
-    script.onload = resolve;
-    document.head.appendChild(script);
-  });
-}
 
 /* eslint-disable-next-line func-names */
 window.onloadCallback = function () {
@@ -143,9 +133,7 @@ export default async function decorate(block) {
   formBlockDiv.id = 'recaptcha-container';
   form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
 
-  setTimeout(async () => {
-    await loadRecaptcha();
-  }, 2000);
+  await loadRecaptcha();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
