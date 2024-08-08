@@ -111,8 +111,12 @@ async function handleSubmit(form) {
     const formType = getFormType(form);
     const payload = generatePayload(form);
     payload['g-recaptcha-response'] = recaptchaResponse;
+    console.log('payload 1', payload);
 
     switch (formType) {
+      case 'get-quote':
+        await requestCallbackSubmission(form, payload);
+        break;
       case 'request-callback':
         await requestCallbackSubmission(form, payload);
         break;

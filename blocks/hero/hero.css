@@ -104,6 +104,14 @@ main {
           margin: 0;
         }
       }
+
+      > p a::after {
+        content: url('../../icons/chevron-right-white.svg');
+        width: 1.5rem;
+        height: 1.5rem;
+        padding-top: 2px;
+        padding-left: 8px;
+      }
     }
   }
 }
