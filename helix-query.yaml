@@ -55,6 +55,9 @@ indices:
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
+      carImage:
+        select: .thumbnail-car-wrapper picture img
+        value: attribute(el, "src")
       image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "^(https?:\/\/.*?(danaher.com))+(.*)|^(.*)")
