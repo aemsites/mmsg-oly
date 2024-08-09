@@ -1,9 +1,13 @@
-# Your Project's Title...
-Your project's description...
+# Project Title
 
-## Environments
-- Preview: https://main--mmsg-oly--aemsites.hlx.page/
-- Live: https://main--mmsg-oly--aemsites.hlx.live/
+Welcome to our project! This repository is now archived and has been moved to a new location.
+
+## New Repository Location
+- GitHub: [mcmillan-shakespeare/oly-dev](https://github.com/mcmillan-shakespeare/oly-dev)
+
+## Previous Environments
+- **Preview:** [Preview Environment](https://main--mmsg-oly--aemsites.hlx.page/)
+- **Live:** [Live Environment](https://main--mmsg-oly--aemsites.hlx.live/)
 
 ## Installation
 
