@@ -106,27 +106,27 @@ export default function decorate(block) {
     priceRangeMax.style.background = `linear-gradient(to right, #ddd ${percent1}%, #ff1261 ${percent1}%, #ff1261 ${percent2}%, #ddd ${percent2}%)`;
   }
 
-  function createFilterTag(filterName, filterValue) {
-    const tag = document.createElement('span');
-    tag.classList.add('filter-tag');
-    tag.innerHTML = `${filterName}: ${filterValue} <button class="remove-filter" aria-label="Remove ${filterName} filter" data-filter="${filterName}">✕</button>`;
-    return tag;
-  }
+  //   function createFilterTag(filterName, filterValue) {
+  //     const tag = document.createElement('span');
+  //     tag.classList.add('filter-tag');
+  //     tag.innerHTML = `${filterName}: ${filterValue} <button class="remove-filter" aria-label="Remove ${filterName} filter" data-filter="${filterName}">✕</button>`;
+  //     return tag;
+  //   }
 
-  function updateFilterTags() {
-    appliedFiltersContainer.innerHTML = '';
-    if (currentFilters.brand) {
-      appliedFiltersContainer.appendChild(createFilterTag('Car Brand', currentFilters.brand));
-    }
-    if (currentFilters.bodyType) {
-      appliedFiltersContainer.appendChild(createFilterTag('Body Type', currentFilters.bodyType));
-    }
-    if (currentFilters.minPrice !== 30000 || currentFilters.maxPrice !== 220000) {
-      appliedFiltersContainer.appendChild(
-        createFilterTag('Price Range', `$${currentFilters.minPrice} - $${currentFilters.maxPrice}`),
-      );
-    }
-  }
+  //   function updateFilterTags() {
+  //     appliedFiltersContainer.innerHTML = '';
+  //     if (currentFilters.brand) {
+  //       appliedFiltersContainer.appendChild(createFilterTag('Car Brand', currentFilters.brand));
+  //     }
+  //     if (currentFilters.bodyType) {
+  //       appliedFiltersContainer.appendChild(createFilterTag('Body Type', currentFilters.bodyType));
+  //     }
+  //     if (currentFilters.minPrice !== 30000 || currentFilters.maxPrice !== 220000) {
+  //       appliedFiltersContainer.appendChild(
+  //         createFilterTag('Price Range', `$${currentFilters.minPrice} - $${currentFilters.maxPrice}`),
+  //       );
+  //     }
+  //   }
 
   function applyFiltersAndSort() {
     const sortValue = sortSelect.value;
@@ -158,7 +158,7 @@ export default function decorate(block) {
         console.warn(`Unhandled filter type: ${filterName}`);
         break;
     }
-    updateFilterTags();
+    // updateFilterTags();
     applyFiltersAndSort();
   }
 
@@ -169,7 +169,7 @@ export default function decorate(block) {
       minPrice: parseInt(minPrice.value, 10),
       maxPrice: parseInt(maxPrice.value, 10),
     };
-    updateFilterTags();
+    // updateFilterTags();
     applyFiltersAndSort();
   }
 
