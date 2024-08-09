@@ -35,9 +35,9 @@ export async function loadScript(src, attrs) {
 }
 
 // load adobe launch
-loadScript(launchUrl, { defer: true });
+loadScript(launchUrl, { async: true });
 
 // google recaptcha
 // export function loadRecaptcha() {
-//   loadScript('https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', { defer: true });
+//   loadScript('https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', { async: true });
 // }
