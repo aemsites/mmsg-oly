@@ -11,8 +11,8 @@
   cursor: pointer;
   list-style: none;
   padding: 16px 0;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--font-size-s);
+  line-height: 1.5rem;
   font-weight: 600;
 }
 
@@ -155,14 +155,14 @@ ol .accordion summary {
 
   /* stylelint-disable */
   details {
-    padding: 24px 16px;
+    padding: var(--spacing-s) var(--spacing-xs);
   }
 
   h2 {
     margin: 0;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: var(--font-size-l-alt);
+    line-height: 2.5rem;
   }
 
   summary {
@@ -207,8 +207,8 @@ ol .accordion summary {
       h2 {
         margin: 0;
         font-weight: 700;
-        font-size: 40px;
-        line-height: 48px;
+        font-size: var(--font-size-lg);
+        line-height: 3rem;
       }
     }
 

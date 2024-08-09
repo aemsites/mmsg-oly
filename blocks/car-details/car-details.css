@@ -59,7 +59,7 @@ main .section.car-details-container {
 
 @media (width >= 1024px) {
   main .section.car-details-container {
-    padding: 48px 192px;
+    padding: var(--spacing-l-alt) 192px;
   }
 
   .car-details > div {

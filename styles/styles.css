@@ -386,7 +386,7 @@ main img {
 
 /* sections */
 main .section {
-  padding: 32px var(--spacing-xs);
+  padding: var(--spacing-m) var(--spacing-xs);
 }
 
 .section .default-content-wrapper p {
