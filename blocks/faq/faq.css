@@ -74,7 +74,8 @@
 .faq .accordion-group > .accordion details summary,
 .faq .accordion details summary :where(h3) {
   color: var(--color-black);
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
+  padding-right: var(--spacing-m-l);
 }
 
 .faq h4 {
@@ -141,6 +142,11 @@
     margin: 0 auto;
   }
 
+  .faq .accordion details summary :where(h3) {
+    font-size: var(--font-size-m);
+    line-height: 2rem;
+  }
+
   .section.faq.accordion-group-container {
     display: flex;
     gap: 16px;
@@ -149,7 +155,7 @@
   }
 
   /* Ensure each content wrapper takes the correct column width */
-  .faq.section.faq.accordion-group-container .default-content-wrapper {
+  .faq.section .default-content-wrapper {
     width: 296px;
     align-self: flex-start;
     margin: 0;
