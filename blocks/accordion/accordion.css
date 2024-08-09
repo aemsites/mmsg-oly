@@ -1,3 +1,11 @@
+@import url('../faq/faq.css');
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
 .accordion details {
   display: block;
   background-color: var(--spectrum-gray-100);
@@ -10,10 +18,13 @@
   box-sizing: content-box;
   cursor: pointer;
   list-style: none;
-  padding: 16px 0;
+  padding: var(--spacing-s) var(--spacing-xs);
   font-size: var(--font-size-s);
   line-height: 1.5rem;
   font-weight: 600;
+  font-family: var(--heading-font-family);
+  display: flex;
+  padding-right: 36%;
 }
 
 .accordion details summary :where(h2, h3, h4, h5, h6) {
@@ -26,8 +37,9 @@
 .accordion details summary::after {
   content: url('../../icons/plus.svg');
   position: absolute;
-  top: 20px;
-  right: -20px;
+  right: -10px;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .accordion details summary::-webkit-details-marker {
@@ -43,16 +55,6 @@
   font-size: var(--spectrum-font-size-200);
   line-height: var(--spectrum-line-height-m);
   margin-left: 14px;
-  margin-top: 14px;
-}
-
-.accordion details h1,
-.accordion details h2,
-.accordion details h3 {
-  margin-top: 14px;
-}
-
-.accordion p {
   margin-top: 14px;
 }
 
@@ -210,6 +212,11 @@ ol .accordion summary {
         font-size: var(--font-size-lg);
         line-height: 3rem;
       }
+
+      .accordion details summary {
+        font-size: var(--font-size-m);
+        line-height: 2rem;
+      }
     }
 
     @media (width >= 1440px) {
@@ -219,5 +226,71 @@ ol .accordion summary {
     div {
       margin: 0;
     }
+  }
+}
+
+.section.accordion-faq {
+  padding: var(--spacing-m) var(--spacing-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  box-sizing: border-box;
+
+  p.button-container {
+    a {
+      margin: 0;
+      border: none;
+      font-size: var(--font-size-s);
+      line-height: 1.5rem;
+      font-weight: 400;
+      font-family: var(--font-family-body);
+    }
+  }
+
+  .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+
+    h2 {
+      font-size: var(--font-size-l-alt);
+      line-height: 2.5rem;
+    }
+  }
+
+  .accordion details summary {
+    width: 88%;
+  }
+
+  @media (width >= 1024px) {
+    flex-direction: row;
+    gap: 10px;
+    margin: var(--spacing-l-alt) auto;
+    max-width: calc(100vw - 208px);
+
+    .default-content-wrapper {
+      width: 32%;
+
+      h2 {
+        font-size: var(--font-size-lg);
+        line-height: 3rem;
+      }
+    }
+
+    .accordion-group-wrapper {
+      width: 65%;
+
+      .accordion details summary {
+        padding: var(--spacing-m) var(--spacing-m-l) var(--spacing-m) var(--spacing-s);
+        font-size: var(--font-size-m);
+        line-height: 2rem;
+        width: 94%;
+      }
+    }
+  }
+
+  @media (width >= 1440px) {
+    max-width: var(--max-width-container);
   }
 }

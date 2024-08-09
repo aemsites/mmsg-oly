@@ -634,14 +634,7 @@ Find ".section.hover-card" */
 
     img {
       border-radius: 0.5rem;
-      height: var(--max-height-small);
       width: 100%;
-    }
-  }
-
-  @media (width >= 768px) {
-    .columns-img-col img {
-      height: var(--max-height-medium);
     }
   }
 
