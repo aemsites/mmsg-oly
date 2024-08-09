@@ -1,4 +1,5 @@
 import { CONTACTUS_SUCCESS_MESSAGE, errorResponseHandler } from './helper.js';
+import { getConfig } from '../../scripts/config.js';
 
 // function requestCallbackPayload(payload) {
 //   // const transformedObject = {
@@ -52,21 +53,24 @@ function requestCallbackResponse(form) {
   form.append(divElement);
 }
 
-function requestCallbackSubmitError(form, error) {
+function requestCallbackSubmitError(form) {
   // eslint-disable-next-line no-console
-  console.error(error);
   errorResponseHandler();
   form.querySelector('button[type="submit"]').disabled = false;
 }
 
 // Function to handle contact us submission
 export default async function requestCallbackSubmission(form, payload) {
-  // const apiUrl = `https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/MMSG/generic`;
-  const apiUrl = 'https://110267-mmsgtest-stage.adobeioruntime.net/api/v1/web/mmsg_test/RequestACall';
+  // const apiUrlFetch = `https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/MMSG/generic`;
+  const {
+    currentEnv: {
+      form: { apiUrl },
+    },
+  } = getConfig();
+  const apiUrlFetch = `${apiUrl}RequestACall`;
 
   // const payload = getFormInputs([...form.elements]);
   // getFormInputs([...form.elements]);
-  console.log('payload', payload);
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -75,7 +79,7 @@ export default async function requestCallbackSubmission(form, payload) {
     body: JSON.stringify(payload),
   };
   try {
-    const response = await fetch(apiUrl, fetchOptions);
+    const response = await fetch(apiUrlFetch, fetchOptions);
     if (response.ok) {
       requestCallbackResponse(form);
     } else {

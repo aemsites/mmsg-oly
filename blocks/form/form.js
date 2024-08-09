@@ -1,21 +1,16 @@
 import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
+import { loadRecaptcha } from '../../scripts/delayed.js';
+import { getConfig } from '../../scripts/config.js';
 
-const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
-
-async function loadRecaptcha() {
-  return new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
-    script.async = true;
-    script.defer = true;
-    script.onload = resolve;
-    document.head.appendChild(script);
-  });
-}
-
+/* eslint-disable-next-line func-names */
 window.onloadCallback = function () {
+  const {
+    currentEnv: {
+      form: { googleRecaptchaKey },
+    },
+  } = getConfig();
   // eslint-disable-next-line
   grecaptcha.render('recaptcha-container', {
     sitekey: googleRecaptchaKey,
@@ -72,7 +67,6 @@ function generatePayload(form) {
 }
 
 function handleSubmitError(form, error) {
-  console.error(error);
   form.querySelector('button[type="submit"]').disabled = false;
   sampleRUM('form:error', { source: '.form', target: error.stack || error.message || 'unknown error' });
 }
@@ -111,7 +105,6 @@ async function handleSubmit(form) {
     const formType = getFormType(form);
     const payload = generatePayload(form);
     payload['g-recaptcha-response'] = recaptchaResponse;
-    console.log('payload 1', payload);
 
     switch (formType) {
       case 'get-quote':
@@ -138,11 +131,11 @@ export default async function decorate(block) {
   const form = await createForm(formLink.href);
   block.replaceChildren(form);
 
-  const formBlockDiv = document.createElement('div');
-  formBlockDiv.classList.add('g-recaptcha');
-  formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
-  formBlockDiv.id = 'recaptcha-container';
-  form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
+  // const formBlockDiv = document.createElement('div');
+  // formBlockDiv.classList.add('g-recaptcha');
+  // formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
+  // formBlockDiv.id = 'recaptcha-container';
+  // form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
 
   await loadRecaptcha();
 
