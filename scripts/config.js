@@ -84,8 +84,8 @@ export function getEnvironment() {
  * Get site config
  */
 export function getConfig() {
-  if (window.oly && window.oly.config) {
-    return window.oly.config;
+  if (window.oly) {
+    return window.oly;
   }
 
   // Find the environment key that matches the current host
