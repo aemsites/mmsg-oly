@@ -8,7 +8,7 @@ export function getPriceContainer(cardObj) {
       <p class="car-card-price-title">Weekly price from</p>
       <h3 class="car-card-price">${cardObj?.weeklyPriceInfo}</h3>
       <p class="car-card-info">Including all car running costs</p>
-      <p class="car-card-price-weekly">Estimated tax savings ${cardObj.price}</p>
+      <p class="car-card-price-weekly">Estimated tax savings <b>${cardObj.price}</b></p>
     </div>
   `;
 }

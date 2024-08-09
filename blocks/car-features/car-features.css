@@ -2,7 +2,7 @@
   padding: var(--spacing-m) var(--spacing-xs);
 
   @media (width >= 1024px) {
-    padding: var(--spacing-l-alt) var(--spacing-xxxl) 0 var(--spacing-xxxl);
+    padding: var(--spacing-l-alt) var(--spacing-xxxl);
   }
 }
 
