@@ -85,8 +85,16 @@
   .slide-button-container {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 
     p.button-container {
+      height: 100%;
+      display: flex;
+
+      strong {
+        width: 100%;
+      }
+
       a {
         width: 100%;
         margin: 0;

@@ -656,6 +656,10 @@ main .section.highlight {
     margin: 0;
   }
 
+  &.legal.mt-4 {
+    margin-top: var(--spacing-m);
+  }
+
   .default-content-wrapper {
     display: flex;
     flex-direction: column;
@@ -669,6 +673,12 @@ main .section.highlight {
     }
 
     p {
+      strong {
+        font-size: var(--font-size-s);
+        font-family: var(--font-family-bold);
+        color: var(--color-black);
+      }
+
       font-size: var(--font-size-xs);
       font-weight: 400;
       line-height: 1.5rem;
@@ -677,6 +687,14 @@ main .section.highlight {
 
   @media (width >= 1024px) {
     padding: 48px 312px;
+
+    &.legal {
+      padding: var(--spacing-xs-l-alt) 312px;
+    }
+
+    &.legal.mt-4 {
+      margin-top: 76px;
+    }
 
     .default-content-wrapper {
       h2,
@@ -687,6 +705,10 @@ main .section.highlight {
       }
 
       p {
+        strong {
+          font-size: var(--font-size-m);
+        }
+
         font-size: var(--font-size-s);
         line-height: 2rem;
       }
