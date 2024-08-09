@@ -2,6 +2,7 @@
   background: var(--bg-color-neutral);
   border-radius: var(--spacing-xs);
   margin: var(--spacing-xl) 0 var(--spacing-s) 0;
+  border: 1px solid var(--border-color);
 
   .container {
     min-height: 200px;
@@ -45,10 +46,19 @@
     margin-top: 0;
   }
 
+  /* stylelint-disable */
   p {
     font-size: var(--font-size-s);
     margin: 0;
+
+    &.button-container a {
+      line-height: 20px;
+      font-weight: 400;
+      font-size: var(--font-size-s);
+      font-family: var(--font-family-body);
+    }
   }
+  /* stylelint-enable */
 }
 
 @media (width < 1024px) {
@@ -62,6 +72,10 @@
       padding: 0 var(--spacing-s);
       grid-column: 1;
       position: relative;
+    }
+
+    p.button-container a {
+      font-size: var(--font-size-xs);
     }
   }
 }
