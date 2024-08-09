@@ -45,6 +45,20 @@
     font-size: var(--font-size-l);
     margin-top: 0;
   }
+
+  /* stylelint-disable */
+  p {
+    font-size: var(--font-size-s);
+    margin: 0;
+
+    &.button-container a {
+      line-height: 20px;
+      font-weight: 400;
+      font-size: var(--font-size-s);
+      font-family: var(--font-family-body);
+    }
+  }
+  /* stylelint-enable */
 }
 
 @media (width < 1024px) {
