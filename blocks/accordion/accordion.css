@@ -11,9 +11,9 @@
   cursor: pointer;
   list-style: none;
   padding: 16px 0;
-  font-weight: var(--font-weight-700);
-  font-size: var(--spectrum-font-size-100);
-  line-height: 21px;
+  font-size: var(--font-size-s);
+  line-height: 1.5rem;
+  font-weight: 600;
 }
 
 .accordion details summary :where(h2, h3, h4, h5, h6) {
@@ -155,12 +155,14 @@ ol .accordion summary {
 
   /* stylelint-disable */
   details {
-    padding: 15px;
+    padding: var(--spacing-s) var(--spacing-xs);
   }
 
-  h3 {
+  h2 {
     margin: 0;
     font-weight: 700;
+    font-size: var(--font-size-l-alt);
+    line-height: 2.5rem;
   }
 
   summary {
@@ -168,8 +170,9 @@ ol .accordion summary {
   }
 
   summary::after {
-    top: 5px;
-    right: 5px;
+    right: -10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   /* stylelint-enable */
 
@@ -186,9 +189,6 @@ ol .accordion summary {
 @media (width >= 768px) {
   /* accordion-disclaimer */
   .section.accordion-disclaimer {
-    margin: var(--spacing-l-alt) var(--spacing-xxl-l);
-    max-width: var(--max-width-container);
-
     .default-content-wrapper p {
       a {
         align-items: center;
@@ -202,6 +202,18 @@ ol .accordion summary {
     @media (width >= 1024px) {
       margin: var(--spacing-l-alt) auto;
       box-sizing: border-box;
+      max-width: calc(100vw - 208px);
+
+      h2 {
+        margin: 0;
+        font-weight: 700;
+        font-size: var(--font-size-lg);
+        line-height: 3rem;
+      }
+    }
+
+    @media (width >= 1440px) {
+      max-width: var(--max-width-container);
     }
 
     div {

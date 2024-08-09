@@ -10,6 +10,7 @@
 
 /* override /docs font size */
 .accordion-group > .accordion details summary {
-  font-size: var(--spectrum-font-size-200);
-  line-height: var(--exlm-line-height-h4);
+  font-size: var(--font-size-s);
+  line-height: 1.5rem;
+  font-weight: 600;
 }

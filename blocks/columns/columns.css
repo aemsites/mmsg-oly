@@ -622,13 +622,8 @@ Find ".section.hover-card" */
   }
 }
 
-/* Column variation - video left */
-.section.semicircle-image.video.left .columns {
-  background-color: var(--bg-color-paper);
-}
-
 /* Column variation - video right */
-.section.semicircle-image.video.right .columns {
+.section.semicircle-image.video.blue .columns {
   background-color: var(--bg-color-blue);
 }
 
@@ -670,7 +665,8 @@ Find ".section.hover-card" */
   font-size: var(--font-size-s);
   line-height: 2rem;
 
-  div.default-content-wrapper {
+  /* stylelint-disable */
+  .default-content-wrapper {
     text-align: left;
     width: 100%;
 
@@ -681,7 +677,6 @@ Find ".section.hover-card" */
     }
   }
 
-  /* stylelint-disable */
   .columns-wrapper .columns {
     > div {
       text-align: center;
