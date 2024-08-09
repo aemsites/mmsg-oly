@@ -1,4 +1,15 @@
+import data from '../../scripts/data.js';
 import { filterCars } from '../car-card/common-car-utils.js';
+
+const PRICE_MIN = 30000;
+const PRICE_MAX = 250000;
+const PRICE_STEP = 1000;
+const DEFAULT_MIN_PRICE = 32000;
+const DEFAULT_MAX_PRICE = 220000;
+const DEBOUNCE_DELAY = 300;
+
+const CAR_BRANDS = [...new Set(data.map((car) => car.modelName))];
+const BODY_TYPES = [...new Set(data.map((car) => car.type))];
 
 export default function decorate(block) {
   block.innerHTML = `
@@ -31,19 +42,14 @@ export default function decorate(block) {
             <label class="filter-label" for="car-brand">Car Brand</label>
             <select id="car-brand" class="filter-select filter-select-bigly">
               <option value="">Select car brand</option>
-              <option value="bmw">BMW</option>
-              <option value="toyota">Toyota</option>
-              <option value="honda">Honda</option>
-              <option value="ford">Ford</option>
+              ${CAR_BRANDS.map((brand) => `<option value="${brand.toLowerCase()}">${brand}</option>`).join('')}
             </select>
           </div>
           <div class="filter-column">
             <label class="filter-label" for="body-type">Body type</label>
             <select id="body-type" class="filter-select filter-select-bigly">
               <option value="">Select body type</option>
-              <option value="petrol">Petrol</option>
-              <option value="ev">EV</option>
-              <option value="hatchback">Hatchback</option>
+              ${BODY_TYPES.map((type) => `<option value="${type.toLowerCase()}">${type}</option>`).join('')}
             </select>
           </div>
         </div>
@@ -51,22 +57,25 @@ export default function decorate(block) {
           <label class="filter-label" for="filter-pricerange">Price range</label>
           <div class="filter-pricerange-container">
             <div class="range-slider">
-              <input type="range" id="filter-pricerange-min" min="30000" max="250000" step="1000" value="30000" aria-labelledby="min-price-label">
-              <input type="range" id="filter-pricerange-max" min="30000" max="250000" step="1000" value="220000" aria-labelledby="max-price-label">
+              <input type="range" id="filter-pricerange-min" min="${PRICE_MIN}" max="${PRICE_MAX}" step="${PRICE_STEP}" value="${DEFAULT_MIN_PRICE}" aria-labelledby="min-price-label">
+              <input type="range" id="filter-pricerange-max" min="${PRICE_MIN}" max="${PRICE_MAX}" step="${PRICE_STEP}" value="${DEFAULT_MAX_PRICE}" aria-labelledby="max-price-label">
             </div>
             <div class="filter-priceinputs">
               <div class="filter-pricefield">
                 <label class="filter-label" id="min-price-label" for="min-price">Minimum</label>
-                <input type="number" class="filter-pricenumber" id="min-price" value="40000" min="30000" max="250000">
+                <input type="number" class="filter-pricenumber" id="min-price" value="${DEFAULT_MIN_PRICE}" min="${PRICE_MIN}" max="${PRICE_MAX}">
               </div>
               <div class="filter-pricefield">
                 <label class="filter-label" id="max-price-label" for="max-price">Maximum</label>
-                <input type="number" class="filter-pricenumber" id="max-price" value="220000" min="30000" max="250000">
+                <input type="number" class="filter-pricenumber" id="max-price" value="${DEFAULT_MAX_PRICE}" min="${PRICE_MIN}" max="${PRICE_MAX}">
               </div>
             </div>
           </div>
         </div>
-        <button class="button filter-apply">Apply filters</button>
+        <div class="filter-actions">
+          <button class="button filter-apply">Apply filters</button>
+          <button class="button filter-clear">Clear filters   <span class="filter-clear-icon">×</span> </button>
+        </div>
       </div>
     </div>
   `;
@@ -79,13 +88,14 @@ export default function decorate(block) {
   const minPrice = block.querySelector('#min-price');
   const maxPrice = block.querySelector('#max-price');
   const applyFiltersButton = block.querySelector('.filter-apply');
+  const clearFiltersButton = block.querySelector('.filter-clear');
   const sortSelect = block.querySelector('#sort');
 
   let currentFilters = {
     brand: '',
     bodyType: '',
-    minPrice: 30000,
-    maxPrice: 220000,
+    minPrice: DEFAULT_MIN_PRICE,
+    maxPrice: DEFAULT_MAX_PRICE,
   };
 
   function updateSlider() {
@@ -100,33 +110,11 @@ export default function decorate(block) {
       maxPrice.value = max;
     }
 
-    const percent1 = ((min - 30000) / (250000 - 30000)) * 100;
-    const percent2 = ((max - 30000) / (250000 - 30000)) * 100;
+    const percent1 = ((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
+    const percent2 = ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
     priceRangeMin.style.background = `linear-gradient(to right, #ddd ${percent1}%, #ff1261 ${percent1}%, #ff1261 ${percent2}%, #ddd ${percent2}%)`;
     priceRangeMax.style.background = `linear-gradient(to right, #ddd ${percent1}%, #ff1261 ${percent1}%, #ff1261 ${percent2}%, #ddd ${percent2}%)`;
   }
-
-  //   function createFilterTag(filterName, filterValue) {
-  //     const tag = document.createElement('span');
-  //     tag.classList.add('filter-tag');
-  //     tag.innerHTML = `${filterName}: ${filterValue} <button class="remove-filter" aria-label="Remove ${filterName} filter" data-filter="${filterName}">✕</button>`;
-  //     return tag;
-  //   }
-
-  //   function updateFilterTags() {
-  //     appliedFiltersContainer.innerHTML = '';
-  //     if (currentFilters.brand) {
-  //       appliedFiltersContainer.appendChild(createFilterTag('Car Brand', currentFilters.brand));
-  //     }
-  //     if (currentFilters.bodyType) {
-  //       appliedFiltersContainer.appendChild(createFilterTag('Body Type', currentFilters.bodyType));
-  //     }
-  //     if (currentFilters.minPrice !== 30000 || currentFilters.maxPrice !== 220000) {
-  //       appliedFiltersContainer.appendChild(
-  //         createFilterTag('Price Range', `$${currentFilters.minPrice} - $${currentFilters.maxPrice}`),
-  //       );
-  //     }
-  //   }
 
   function applyFiltersAndSort() {
     const sortValue = sortSelect.value;
@@ -146,19 +134,17 @@ export default function decorate(block) {
         block.querySelector('#body-type').value = '';
         break;
       case 'Price Range':
-        currentFilters.minPrice = 30000;
-        currentFilters.maxPrice = 220000;
-        minPrice.value = '30000';
-        maxPrice.value = '220000';
-        priceRangeMin.value = '30000';
-        priceRangeMax.value = '220000';
+        currentFilters.minPrice = DEFAULT_MIN_PRICE;
+        currentFilters.maxPrice = DEFAULT_MAX_PRICE;
+        minPrice.value = DEFAULT_MIN_PRICE;
+        maxPrice.value = DEFAULT_MAX_PRICE;
+        priceRangeMin.value = DEFAULT_MIN_PRICE;
+        priceRangeMax.value = DEFAULT_MAX_PRICE;
         updateSlider();
         break;
       default:
-        console.warn(`Unhandled filter type: ${filterName}`);
         break;
     }
-    // updateFilterTags();
     applyFiltersAndSort();
   }
 
@@ -169,7 +155,23 @@ export default function decorate(block) {
       minPrice: parseInt(minPrice.value, 10),
       maxPrice: parseInt(maxPrice.value, 10),
     };
-    // updateFilterTags();
+    applyFiltersAndSort();
+  }
+
+  function clearFilters() {
+    currentFilters = {
+      brand: '',
+      bodyType: '',
+      minPrice: DEFAULT_MIN_PRICE,
+      maxPrice: DEFAULT_MAX_PRICE,
+    };
+    block.querySelector('#car-brand').value = '';
+    block.querySelector('#body-type').value = '';
+    minPrice.value = DEFAULT_MIN_PRICE;
+    maxPrice.value = DEFAULT_MAX_PRICE;
+    priceRangeMin.value = DEFAULT_MIN_PRICE;
+    priceRangeMax.value = DEFAULT_MAX_PRICE;
+    updateSlider();
     applyFiltersAndSort();
   }
 
@@ -185,9 +187,8 @@ export default function decorate(block) {
     };
   }
 
-  const debouncedApplyFilters = debounce(applyFilters, 300);
+  const debouncedApplyFilters = debounce(applyFilters, DEBOUNCE_DELAY);
 
-  // Event Listeners
   toggleFilters.addEventListener('click', () => {
     const isHidden = filtersContainer.classList.contains('hidden');
     filtersContainer.classList.toggle('hidden', !isHidden);
@@ -210,6 +211,7 @@ export default function decorate(block) {
   });
 
   applyFiltersButton.addEventListener('click', applyFilters);
+  clearFiltersButton.addEventListener('click', clearFilters);
 
   sortSelect.addEventListener('change', applyFiltersAndSort);
 
@@ -217,7 +219,6 @@ export default function decorate(block) {
     input.addEventListener('input', debouncedApplyFilters);
   });
 
-  // UX Improvements
   block.querySelectorAll('select, input, button').forEach((element) => {
     element.addEventListener('focus', (e) => {
       e.target.classList.add('focused');
@@ -227,7 +228,6 @@ export default function decorate(block) {
     });
   });
 
-  // Handle filter removal
   appliedFiltersContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('remove-filter')) {
       const filterName = e.target.getAttribute('data-filter');

@@ -214,12 +214,6 @@ label {
   }
 }
 
-.filter-apply {
-  cursor: pointer;
-  font-weight: bold;
-  border: 0 none;
-}
-
 .filter-label {
   display: block;
   font-size: 20px;
@@ -272,4 +266,56 @@ label {
 .filter-tag .remove-filter:focus {
   outline: 2px solid -webkit-focus-ring-color;
   outline-offset: 1px;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filter-apply,
+.filter-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.filter-apply {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border: none;
+}
+
+.filter-clear {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
+  padding-right: 16px;
+}
+
+.filter-clear:hover,
+.filter-clear:focus {
+  text-decoration: none;
+}
+
+.filter-clear-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  border: 2px solid currentcolor;
+  border-radius: 50%;
+  font-size: 18px;
 }
