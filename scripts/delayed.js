@@ -38,6 +38,6 @@ export async function loadScript(src, attrs) {
 loadScript(launchUrl, { defer: true });
 
 // google recaptcha
-export function loadRecaptcha() {
-  loadScript('https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', { defer: true });
-}
+// export function loadRecaptcha() {
+//   loadScript('https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', { defer: true });
+// }
