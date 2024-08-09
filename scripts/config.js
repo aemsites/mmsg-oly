@@ -11,7 +11,8 @@ export const HOSTS = {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
     form: {
-      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/mmsg_test/',
+      googleRecaptchaKey: '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa',
     },
     analytics: {
       launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-8152aa1df854.min.js',
@@ -26,7 +27,8 @@ export const HOSTS = {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
     form: {
-      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/mmsg_test/',
+      googleRecaptchaKey: '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa',
     },
     analytics: {
       launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-4f59f38e03c5-staging.min.js',
@@ -41,7 +43,8 @@ export const HOSTS = {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
     form: {
-      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/mmsg_test/',
+      googleRecaptchaKey: '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa',
     },
     analytics: {
       launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-d4b17c902c7e-development.min.js',
@@ -56,7 +59,8 @@ export const HOSTS = {
       apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
     },
     form: {
-      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/',
+      apiUrl: 'https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/mmsg_test/',
+      googleRecaptchaKey: '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa',
     },
     analytics: {
       launchUrl: 'https://assets.adobedtm.com/2e0796912400/cc40d83fc887/launch-d4b17c902c7e-development.min.js',

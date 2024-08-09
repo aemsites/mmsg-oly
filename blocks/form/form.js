@@ -2,11 +2,15 @@ import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
 import requestCallbackSubmission from './request-callback.js';
 import { loadRecaptcha } from '../../scripts/delayed.js';
-
-const googleRecaptchaKey = '6LcKcVQpAAAAAKJxn3Mg1o1ca9jjrEJFDigV4zwa';
+import { getConfig } from '../../scripts/config.js';
 
 /* eslint-disable-next-line func-names */
 window.onloadCallback = function () {
+  const {
+    currentEnv: {
+      form: { googleRecaptchaKey },
+    },
+  } = getConfig();
   // eslint-disable-next-line
   grecaptcha.render('recaptcha-container', {
     sitekey: googleRecaptchaKey,
@@ -127,11 +131,11 @@ export default async function decorate(block) {
   const form = await createForm(formLink.href);
   block.replaceChildren(form);
 
-  const formBlockDiv = document.createElement('div');
-  formBlockDiv.classList.add('g-recaptcha');
-  formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
-  formBlockDiv.id = 'recaptcha-container';
-  form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
+  // const formBlockDiv = document.createElement('div');
+  // formBlockDiv.classList.add('g-recaptcha');
+  // formBlockDiv.setAttribute('data-sitekey', googleRecaptchaKey);
+  // formBlockDiv.id = 'recaptcha-container';
+  // form.querySelector('.field-wrapper.submit-wrapper').prepend(formBlockDiv);
 
   await loadRecaptcha();
 

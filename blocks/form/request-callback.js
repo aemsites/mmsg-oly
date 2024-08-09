@@ -1,4 +1,5 @@
 import { CONTACTUS_SUCCESS_MESSAGE, errorResponseHandler } from './helper.js';
+import { getConfig } from '../../scripts/config.js';
 
 // function requestCallbackPayload(payload) {
 //   // const transformedObject = {
@@ -60,8 +61,13 @@ function requestCallbackSubmitError(form) {
 
 // Function to handle contact us submission
 export default async function requestCallbackSubmission(form, payload) {
-  // const apiUrl = `https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/MMSG/generic`;
-  const apiUrl = 'https://110267-mmsgtest-stage.adobeioruntime.net/api/v1/web/mmsg_test/RequestACall';
+  // const apiUrlFetch = `https://110267-mmsg-stage.adobeioruntime.net/api/v1/web/MMSG/generic`;
+  const {
+    currentEnv: {
+      form: { apiUrl },
+    },
+  } = getConfig();
+  const apiUrlFetch = `${apiUrl}RequestACall`;
 
   // const payload = getFormInputs([...form.elements]);
   // getFormInputs([...form.elements]);
@@ -73,7 +79,7 @@ export default async function requestCallbackSubmission(form, payload) {
     body: JSON.stringify(payload),
   };
   try {
-    const response = await fetch(apiUrl, fetchOptions);
+    const response = await fetch(apiUrlFetch, fetchOptions);
     if (response.ok) {
       requestCallbackResponse(form);
     } else {
