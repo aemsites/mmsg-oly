@@ -1,9 +1,14 @@
 .section.thumbnail-car-container {
   background: var(--bg-color-paper);
   padding: 0;
+  margin-top: 32px;
 
   @media (width >= 768px) {
     padding: 0;
+  }
+
+  @media (width >= 1024px) {
+    margin-top: var(--spacing-l-alt);
   }
 }
 

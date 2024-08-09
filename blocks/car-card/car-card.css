@@ -130,9 +130,17 @@
         color: var(--color-black);
       }
 
+      .car-card-price-title {
+        font-weight: 400;
+      }
+
       .car-card-price-weekly,
       .car-card-info {
         font-weight: 700;
+      }
+
+      .car-card-price-weekly b {
+        font-family: var(--font-family-bold);
       }
     }
 

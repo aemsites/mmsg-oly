@@ -184,6 +184,7 @@
     flex-direction: row;
     padding: var(--spacing-xl-l) var(--spacing-xxl-l);
     gap: 1rem;
+    margin-bottom: var(--spacing-l-alt);
   }
 
   .default-content-wrapper {
