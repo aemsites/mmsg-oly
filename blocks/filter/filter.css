@@ -113,7 +113,7 @@ button.secondary.toggle-filters:hover {
 
 .filter-container-block.hidden {
   max-height: 0;
-  padding: 0;
+  padding: 0 40px;
   border: 0;
 }
 
